@@ -452,10 +452,12 @@ Merci !`
               <p>Mise en ligne + accompagnement au démarrage.</p>
             </li>
           </ul>
+          {/* Ancre réelle pour le scroll mobile */}
+<div id="contact" className="h-[180px] md:hidden"></div>
+
 
           {/* Formulaire court */}
           <form
-  id="contact"
   onSubmit={onSubmitInfo}
   className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[140px] md:scroll-mt-24"
 >
