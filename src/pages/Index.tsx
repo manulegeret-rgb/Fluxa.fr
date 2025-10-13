@@ -174,7 +174,7 @@ Merci !`
         <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Texte */}
-            <div className="space-y-8">
+            <div className="space-y-8 text-center md:text-left">
               <div className="space-y-4">
                 <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
                   Automatisez votre gestion,{" "}
@@ -193,7 +193,7 @@ Merci !`
               </div>
 
               {/* CTAs */}
-              <div className="mt-1 flex flex-col md:flex-row gap-3">
+              <div className="mt-1 flex flex-col md:flex-row gap-3 justify-center md:justify-start">
                 <a
                   href="#infos"
                   className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
@@ -267,7 +267,8 @@ Merci !`
             </div>
 
             {/* Solutions */}
-            <div className="rounded-2xl border border-border bg-card p-6">
+            <div className="rounded-2xl border border-border bg-card p-6 text-center md:text-left">
+
               <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
                 Ce que Fluxa simplifie
