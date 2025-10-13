@@ -127,7 +127,7 @@ Merci !`
             {/* Logo centré */}
             <div className="flex justify-center">
               <a href="/" aria-label="Fluxa" className="inline-flex items-center">
-                <img src={fluxaLogo} alt="Fluxa" className="h-16 w-auto object-contain" />
+                <img src={fluxaLogo} alt="Fluxa" className="h-26 w-auto object-contain" />
               </a>
             </div>
 
