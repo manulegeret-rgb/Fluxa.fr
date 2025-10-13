@@ -198,8 +198,8 @@ Merci !`
                 {/* Bénéfices chiffrés */}
                 <ul className="mt-4 flex flex-wrap items-center gap-2 justify-center md:justify-start">
                   {[
-                    "—40% de temps admin",
-                    "+15–30% de RDV honorés",
+                    "—50% de temps admin",
+                    "+30% de RDV honorés",
                     "Vue 360° : CA, impayés, fidélité",
                   ].map((txt, i) => (
                     <li
@@ -503,7 +503,7 @@ Merci !`
 
             <div className="flex items-center gap-3">
               <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
-                {sending ? "Ouverture de l’email…" : "Envoyer la demande"}
+                {sending ? "Ouverture de l’email…" : "Envoyer ma demande"}
               </button>
             </div>
             <p className="mt-2 text-xs text-muted-foreground">
