@@ -112,8 +112,9 @@ Merci !`
                     </a>
                   </nav>
                   <div className="mt-4 flex flex-col gap-2">
+                    {/* MOBILE: bouton principal -> ancre directe formulaire + libellé plus clair */}
                     <Button asChild className="w-full">
-                      <a href="#infos">En savoir plus</a>
+                      <a href="#contact">Nous contacter</a>
                     </Button>
                     <Button asChild variant="outline" className="w-full">
                       <a href="#pricing">Voir les formules</a>
@@ -214,9 +215,19 @@ Merci !`
 
               {/* CTAs */}
               <div className="mt-1 flex flex-col md:flex-row gap-3 justify-center md:justify-start">
+                {/* MOBILE: CTA -> formulaire direct */}
+                <a
+                  href="#contact"
+                  className="inline-flex md:hidden items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full"
+                  aria-label="Nous contacter"
+                >
+                  Nous contacter
+                </a>
+
+                {/* DESKTOP: CTA inchangé */}
                 <a
                   href="#infos"
-                  className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
+                  className="hidden md:inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
                   aria-label="En savoir plus"
                 >
                   En savoir plus
@@ -443,7 +454,11 @@ Merci !`
           </ul>
 
           {/* Formulaire court */}
-          <form onSubmit={onSubmitInfo} className="mt-10 max-w-2xl mx-auto space-y-4">
+          <form
+            id="contact" /* ancre directe pour mobile */
+            onSubmit={onSubmitInfo}
+            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-24"
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm">Nom</label>
@@ -510,6 +525,13 @@ Merci !`
               Réponse sous 24–48h — sans engagement.
             </p>
           </form>
+
+          {/* Preuves (mobile) sous le formulaire */}
+          <ul className="md:hidden mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+            <li className="rounded-full border border-border/70 px-3 py-1">🔐 Données hébergées en Europe</li>
+            <li className="rounded-full border border-border/70 px-3 py-1">⚙️ Automatisations incluses</li>
+            <li className="rounded-full border border-border/70 px-3 py-1">🎯 Mise en place guidée</li>
+          </ul>
 
           {/* Lien contact — mail + Instagram */}
           <div className="mt-10 text-muted-foreground">
