@@ -171,7 +171,7 @@ Merci !`
         </div>
 
         {/* top padding ajusté pour le header fixe */}
-        <div className="container mx-auto px-6 relative z-10 pt-24 md:pt-24">
+        <div className="container mx-auto px-6 relative z-10 pt-34 md:pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Texte */}
             <div className="space-y-8">
