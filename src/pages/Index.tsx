@@ -130,7 +130,7 @@ Merci !`
             {/* Logo centré */}
             <div className="flex justify-center">
               <a href="/" aria-label="Fluxa" className="inline-flex items-center">
-                <img src={fluxaLogo} alt="Fluxa" className="h-6 w-auto object-contain" />
+                <img src={fluxaLogo} alt="Fluxa" className="h-12 w-auto object-contain" />
               </a>
             </div>
 
@@ -312,11 +312,19 @@ Merci !`
       </section>
 
       {/* ================= AUTOMATIONS ================= */}
-<section id="automations">
-  <Automations />
-  {/* ❌ Supprimer le CTA contextuel ci-dessous pour éviter le doublon */}
-</section>
+      <section id="automations">
+        <Automations />
 
+        {/* CTA contextuel */}
+        <div className="text-center mt-8">
+          <a
+            href="#infos"
+            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
+          >
+            Discuter d’une automatisation sur mesure
+          </a>
+        </div>
+      </section>
 
       {/* ================= PRICING ================= */}
       <section id="pricing" className="py-24 bg-background">
