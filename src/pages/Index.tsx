@@ -96,6 +96,7 @@ Merci !`
                   </button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
+
                   <nav className="flex flex-col gap-2">
                     <a href="#pricing" className="py-2 text-base">Formules</a>
                     <a href="#automations" className="py-2 text-base">Automatisations</a>
@@ -126,7 +127,7 @@ Merci !`
             {/* Logo centré */}
             <div className="flex justify-center">
               <a href="/" aria-label="Fluxa" className="inline-flex items-center">
-                <img src={fluxaLogo} alt="Fluxa" className="h-12 w-auto object-contain" />
+                <img src={fluxaLogo} alt="Fluxa" className="h-16 w-auto object-contain" />
               </a>
             </div>
 
