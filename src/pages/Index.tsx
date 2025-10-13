@@ -142,7 +142,7 @@ Merci !`
           {/* Barre desktop (inchangée) */}
           <div className="hidden md:flex items-center justify-between h-16">
             <a href="/" aria-label="Fluxa" className="flex items-center gap-2">
-              <img src={fluxaLogo} alt="Fluxa" className="h-7 w-auto object-contain" />
+              <img src={fluxaLogo} alt="Fluxa" className="h-[40px] lg:h-[48px] w-auto object-contain" />
             </a>
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
