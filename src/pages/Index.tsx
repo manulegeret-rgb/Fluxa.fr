@@ -83,7 +83,7 @@ Merci !`
       >
         <div className="container mx-auto px-4 md:px-6">
           {/* Barre mobile (logo centré + hamburger) */}
-          <div className="md:hidden grid grid-cols-3 items-center h-14">
+          <div className="md:hidden grid grid-cols-3 items-center h-20">
             {/* Hamburger */}
             <div className="flex">
               <Sheet>
@@ -171,7 +171,7 @@ Merci !`
         </div>
 
         {/* top padding ajusté pour le header fixe */}
-        <div className="container mx-auto px-6 relative z-10 pt-16 md:pt-24">
+        <div className="container mx-auto px-6 relative z-10 pt-24 md:pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Texte */}
             <div className="space-y-8">
