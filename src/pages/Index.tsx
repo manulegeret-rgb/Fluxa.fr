@@ -457,7 +457,7 @@ Merci !`
           <form
   id="contact"
   onSubmit={onSubmitInfo}
-  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[60px] md:scroll-mt-24"
+  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[100px] md:scroll-mt-24"
 >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
