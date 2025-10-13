@@ -219,7 +219,7 @@ Merci !`
                   className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
                   aria-label="En savoir plus"
                 >
-                  Obtenir une maquette gratuite
+                  En savoir plus
                 </a>
 
                 <a
