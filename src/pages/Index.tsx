@@ -113,7 +113,7 @@ Merci !`
                   </nav>
                   <div className="mt-4 flex flex-col gap-2">
                     <Button asChild className="w-full">
-                      <a href="#infos">Obtenir une maquette gratuite</a>
+                      <a href="#infos">En savoir plus</a>
                     </Button>
                     <Button asChild variant="outline" className="w-full">
                       <a href="#pricing">Voir les formules</a>
