@@ -97,7 +97,7 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <div className="mt-2 mb-4 flex items-center gap-2">
-                    <img src={fluxaLogo} alt="Fluxa" className="h-6 w-auto" />
+                    <img src={fluxaLogo} alt="Fluxa" className="h-8 md:h-10 w-auto" />
                     <span className="text-base font-semibold">Fluxa</span>
                   </div>
                   <nav className="flex flex-col gap-2">
@@ -314,16 +314,6 @@ Merci !`
       {/* ================= AUTOMATIONS ================= */}
       <section id="automations">
         <Automations />
-
-        {/* CTA contextuel */}
-        <div className="text-center mt-8">
-          <a
-            href="#infos"
-            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
-          >
-            Discuter d’une automatisation sur mesure
-          </a>
-        </div>
       </section>
 
       {/* ================= PRICING ================= */}
