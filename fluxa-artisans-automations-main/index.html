@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO de base -->
+  <title>Fluxa — Application de gestion sur mesure pour artisans & indépendants</title>
+  <meta name="description" content="Centralisez clients, agenda, factures et messages. Automatisations (rappels, relances), statistiques en temps réel. Devis personnalisé sous 24–48h." />
+  <meta name="author" content="Fluxa" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://fluxa.fr/" />
+
+  <!-- Couleur d’UI mobile -->
+  <meta name="theme-color" content="#0b0b0b" />
+
+  <!-- Open Graph / réseaux -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fluxa" />
+  <meta property="og:title" content="Fluxa — Application de gestion sur mesure" />
+  <meta property="og:description" content="Centralisez, automatisez, gagnez du temps. Devis personnalisé sous 24–48h." />
+  <meta property="og:url" content="https://fluxa.fr/" />
+  <!-- Mets ton image locale quand prête : /og-image.png (1200x630) -->
+  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fluxa — Application de gestion sur mesure" />
+  <meta name="twitter:description" content="Centralisez, automatisez, gagnez du temps. Devis sous 24–48h." />
+  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+  <!-- Favicon + préchargement logo header pour netteté -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preload" as="image" href="/logo.png" imagesizes="24px" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fluxa",
+    "url": "https://fluxa.fr/",
+    "logo": "https://fluxa.fr/logo.png",
+    "sameAs": ["https://instagram.com/fluxa.fr"],
+    "description": "Création d’applications de gestion sur mesure pour artisans, indépendants et TPE."
+  }
+  </script>
+
+  <!-- Comportement de scroll (garde tes styles existants) -->
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { margin: 0; }
+  </style>
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
