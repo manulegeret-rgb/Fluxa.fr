@@ -97,7 +97,7 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <div className="mt-2 mb-4 flex items-center gap-2">
-                    <img src={fluxaLogo} alt="Fluxa" className="h-18 md:h-20 w-auto" />
+                    <img src={fluxaLogo} alt="Fluxa" className="h-24 md:h-20 w-auto" />
                     <span className="text-base font-semibold">Fluxa</span>
                   </div>
                   <nav className="flex flex-col gap-2">
