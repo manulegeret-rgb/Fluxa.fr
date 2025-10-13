@@ -130,7 +130,7 @@ Merci !`
     <img
       src={fluxaLogo}
       alt="Fluxa"
-      className="h-40 w-auto object-contain -translate-y-[14px]"
+      className="h-40 w-auto object-contain -translate-y-[16px]"
     />
   </a>
 </div>
