@@ -186,7 +186,7 @@ Merci !`
                 <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
                   Votre app de gestion&nbsp;sur-mesure,{" "}
                   <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-                    pensée pour artisans & indépendants
+                    pensée pour votre entreprise.
                   </span>
                 </h1>
 
@@ -217,7 +217,7 @@ Merci !`
                 <a
                   href="#infos"
                   className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
-                  aria-label="Obtenir une maquette gratuite"
+                  aria-label="En savoir plus"
                 >
                   Obtenir une maquette gratuite
                 </a>
