@@ -125,11 +125,15 @@ Merci !`
             </div>
 
             {/* Logo centré */}
-            <div className="flex justify-center">
-              <a href="/" aria-label="Fluxa" className="inline-flex items-center">
-                <img src={fluxaLogo} alt="Fluxa" className="h-32 w-auto object-contain" />
-              </a>
-            </div>
+<div className="flex justify-center items-center translate-y-[2px]">
+  <a href="/" aria-label="Fluxa" className="inline-flex items-center">
+    <img
+      src={fluxaLogo}
+      alt="Fluxa"
+      className="h-32 w-auto object-contain translate-y-[2px]"
+    />
+  </a>
+</div>
 
             {/* Espace à droite pour centrage parfait */}
             <div />
