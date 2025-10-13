@@ -455,10 +455,10 @@ Merci !`
 
           {/* Formulaire court */}
           <form
-            id="contact" /* ancre directe pour mobile */
-            onSubmit={onSubmitInfo}
-            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-24"
-          >
+  id="contact"
+  onSubmit={onSubmitInfo}
+  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[140px] md:scroll-mt-24"
+>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm">Nom</label>
