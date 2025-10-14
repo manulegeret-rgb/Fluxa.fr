@@ -349,7 +349,9 @@ Merci !`
       </section>
 
       {/* ================= PRICING ================= */}
-      <section id="pricing" className="py-24 bg-background">
+      <section
+  id="pricing"
+  className="pt-10 pb-16 md:py-24 bg-background scroll-mt-24 md:scroll-mt-[160px]">
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
@@ -366,12 +368,13 @@ Merci !`
     overflow-x-auto md:overflow-visible
     snap-x snap-mandatory md:snap-none
     scroll-smooth
-    -mx-6
+    -mx-6 px-6  /* match le px-6 du container parent */
     [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
   "
+  aria-label="Formules"
 >
   {/* Carte 1 */}
-  <div className="snap-center shrink-0 w-screen md:w-auto md:shrink md:snap-none px-6">
+  <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
     <PricingCard
       title="Essentielle"
       price="800 €"
@@ -385,10 +388,10 @@ Merci !`
     />
   </div>
 
-  {/* Carte 2 */}
-  <div className="relative snap-center shrink-0 w-screen md:w-auto md:shrink md:snap-none px-6">
+  {/* Carte 2 (Populaire) */}
+  <div className="relative snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
     <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium
-         bg-primary/15 text-primary border border-primary/30 backdrop-blur">
+      bg-primary/15 text-primary border border-primary/30 backdrop-blur">
       ⭐ Populaire
     </span>
     <PricingCard
@@ -408,7 +411,7 @@ Merci !`
   </div>
 
   {/* Carte 3 */}
-  <div className="snap-center shrink-0 w-screen md:w-auto md:shrink md:snap-none px-6">
+  <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
     <PricingCard
       title="Premium"
       price="1 800 €"
