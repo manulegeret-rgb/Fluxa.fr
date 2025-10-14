@@ -2,6 +2,7 @@ import { Faq } from "@/components/Faq";
 import { Automations } from "@/components/Automations";
 import { useEffect, useMemo, useState } from "react";
 import { PricingCard } from "@/components/PricingCard";
+import HowItWorks from "@/components/HowItWorks";
 import {
   Calendar,
   DollarSign,
@@ -16,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
-import fluxaLogo from "@/assets/logo transparent.png"; // renomme en logo-transparent.png si besoin
+import fluxaLogo from "@/assets/logo transparent.png"; // <-- renomme bien le fichier dans /assets
 
 const Index = () => {
   // ========= État du scroll pour styliser le header (bordure bleue après scroll)
@@ -35,6 +36,7 @@ const Index = () => {
   const onSubmitInfo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
+
     const f = new FormData(e.currentTarget);
     const name = encodeURIComponent((f.get("name") as string) || "");
     const email = encodeURIComponent((f.get("email") as string) || "");
@@ -99,6 +101,7 @@ Merci !`
                   <nav className="flex flex-col gap-2">
                     <a href="#pricing" className="py-2 text-base">Formules</a>
                     <a href="#automations" className="py-2 text-base">Automatisations</a>
+                    <a href="#howitworks" className="hover:text-foreground transition">Comment ça marche ?</a>
                     <a href="#faq" className="py-2 text-base">FAQ</a>
                     <a href="#infos" className="py-2 text-base">En savoir plus</a>
                     <a
@@ -139,7 +142,7 @@ Merci !`
             <div />
           </div>
 
-          {/* Barre desktop (inchangée) */}
+          {/* Barre desktop */}
           <div className="hidden md:flex items-center justify-between h-[160px]">
             <a href="/" aria-label="Fluxa" className="flex items-center gap-2">
               <img
@@ -152,6 +155,7 @@ Merci !`
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
               <a href="#pricing" className="hover:text-foreground transition">Formules</a>
               <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
+              <a href="#howitworks" className="hover:text-foreground transition">Comment ça marche ?</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
               <a
@@ -431,34 +435,16 @@ Merci !`
             </p>
           </div>
 
-          {/* Mini-process en 3 étapes */}
-          <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
-            <li className="rounded-2xl border border-border bg-card p-4">
-              <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <MessageSquare className="w-4 h-4" /> Diagnostic
-              </div>
-              <p>15–20 min pour comprendre vos besoins et priorités.</p>
-            </li>
-            <li className="rounded-2xl border border-border bg-card p-4">
-              <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <Calendar className="w-4 h-4" /> Maquette
-              </div>
-              <p>Proposition d’interface adaptée à votre activité.</p>
-            </li>
-            <li className="rounded-2xl border border-border bg-card p-4">
-              <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <CheckCircle2 className="w-4 h-4 text-primary" /> Livraison
-              </div>
-              <p>Mise en ligne + accompagnement au démarrage.</p>
-            </li>
-          </ul>
+        // juste avant <HowItWorks />
+<div id="howitworks" />
+          <HowItWorks />
 
           {/* Formulaire court */}
           <form
-  id="contact"
-  onSubmit={onSubmitInfo}
-  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[10px] md:scroll-mt-24"
->
+            id="contact"
+            onSubmit={onSubmitInfo}
+            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[10px] md:scroll-mt-24"
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm">Nom</label>
