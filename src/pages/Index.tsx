@@ -1,6 +1,6 @@
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Faq } from "@/components/Faq";
 import { Automations } from "@/components/Automations";
-import { useEffect, useMemo, useState } from "react";
 import { PricingCard } from "@/components/PricingCard";
 import {
   Calendar,
@@ -27,6 +27,15 @@ const Index = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // ========= Carrousel des formules (mobile)
+  const pricingRef = useRef<HTMLDivElement>(null);
+  const scrollPricing = (dir: 1 | -1) => {
+    const el = pricingRef.current;
+    if (!el) return;
+    const step = el.clientWidth; // largeur utile du conteneur visible
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
 
   // ========= Contrôle du menu mobile (Sheet)
   const [menuOpen, setMenuOpen] = useState(false);
@@ -91,10 +100,7 @@ Merci !`
             <div className="flex">
               <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                 <SheetTrigger asChild>
-                  <button
-                    aria-label="Ouvrir le menu"
-                    className="p-2 -ml-2"
-                  >
+                  <button aria-label="Ouvrir le menu" className="p-2 -ml-2">
                     <Menu size={22} />
                   </button>
                 </SheetTrigger>
@@ -116,7 +122,6 @@ Merci !`
                     </a>
                   </nav>
                   <div className="mt-4 flex flex-col gap-2">
-                    {/* MOBILE: bouton principal -> ancre directe formulaire + libellé plus clair */}
                     <Button asChild className="w-full">
                       <a href="#contact" onClick={() => setMenuOpen(false)}>Nous contacter</a>
                     </Button>
@@ -350,8 +355,9 @@ Merci !`
 
       {/* ================= PRICING ================= */}
       <section
-  id="pricing"
-  className="pt-10 pb-16 md:py-24 bg-background scroll-mt-24 md:scroll-mt-[160px]">
+        id="pricing"
+        className="pt-10 pb-16 md:py-24 bg-background scroll-mt-24 md:scroll-mt-[160px]"
+      >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
@@ -360,74 +366,93 @@ Merci !`
             </p>
           </div>
 
-          <div
-  className="
-    flex md:grid md:grid-cols-3
-    gap-0 md:gap-8
-    max-w-6xl mx-auto
-    overflow-x-auto md:overflow-visible
-    snap-x snap-mandatory md:snap-none
-    scroll-smooth
-    -mx-6 px-6  /* match le px-6 du container parent */
-    [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-  "
-  aria-label="Formules"
->
-  {/* Carte 1 */}
-  <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
-    <PricingCard
-      title="Essentielle"
-      price="800 €"
-      features={[
-        "Modules de base",
-        "1 automatisation incluse",
-        "Rappel RDV automatique",
-        "Mail après prestation",
-        "Support email",
-      ]}
-    />
-  </div>
+          {/* Wrapper relatif pour injecter les boutons mobiles */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Boutons nav — mobile only */}
+            <div className="md:hidden pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1 z-10">
+              <button
+                aria-label="Précédent"
+                onClick={() => scrollPricing(-1)}
+                className="pointer-events-auto h-10 w-10 rounded-full bg-background/80 border border-border shadow hover:bg-muted/80 active:scale-95 grid place-items-center"
+              >
+                ‹
+              </button>
+              <button
+                aria-label="Suivant"
+                onClick={() => scrollPricing(1)}
+                className="pointer-events-auto h-10 w-10 rounded-full bg-background/80 border border-border shadow hover:bg-muted/80 active:scale-95 grid place-items-center"
+              >
+                ›
+              </button>
+            </div>
 
-  {/* Carte 2 (Populaire) */}
-  <div className="relative snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
-    <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium
-      bg-primary/15 text-primary border border-primary/30 backdrop-blur">
-      ⭐ Populaire
-    </span>
-    <PricingCard
-      title="Professionnelle"
-      price="1 200 €"
-      features={[
-        "Tout Essentielle +",
-        "Gestion des paiements",
-        "Messagerie client intégrée",
-        "3 automatisations",
-        "Facturation automatique",
-        "Rapport hebdomadaire",
-        "Synchronisation agenda",
-      ]}
-      className="md:-translate-y-4 border-primary"
-    />
-  </div>
+            {/* Carrousel mobile + grille desktop */}
+            <div
+              ref={pricingRef}
+              className="
+                flex md:grid md:grid-cols-3
+                gap-0 md:gap-8
+                overflow-x-auto md:overflow-visible
+                snap-x snap-mandatory md:snap-none
+                scroll-smooth
+                -mx-6 px-6 pb-2
+                [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+              "
+              aria-label="Formules"
+            >
+              {/* Carte 1 */}
+              <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
+                <PricingCard
+                  title="Essentielle"
+                  price="800 €"
+                  features={[
+                    "Modules de base",
+                    "1 automatisation incluse",
+                    "Rappel RDV automatique",
+                    "Mail après prestation",
+                    "Support email",
+                  ]}
+                />
+              </div>
 
-  {/* Carte 3 */}
-  <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
-    <PricingCard
-      title="Premium"
-      price="1 800 €"
-      features={[
-        "Tout Professionnelle +",
-        "Espace client personnalisé",
-        "Reporting avancé",
-        "Maintenance 1 mois offerte",
-        "Support prioritaire",
-        "Automatisations illimitées",
-      ]}
-    />
-  </div>
-</div>
+              {/* Carte 2 (Populaire) */}
+              <div className="relative snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
+                <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium bg-primary/15 text-primary border border-primary/30 backdrop-blur">
+                  ⭐ Populaire
+                </span>
+                <PricingCard
+                  title="Professionnelle"
+                  price="1 200 €"
+                  features={[
+                    "Tout Essentielle +",
+                    "Gestion des paiements",
+                    "Messagerie client intégrée",
+                    "3 automatisations",
+                    "Facturation automatique",
+                    "Rapport hebdomadaire",
+                    "Synchronisation agenda",
+                  ]}
+                  className="md:-translate-y-4 border-primary"
+                />
+              </div>
 
-
+              {/* Carte 3 */}
+              <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
+                <PricingCard
+                  title="Premium"
+                  price="1 800 €"
+                  features={[
+                    "Tout Professionnelle +",
+                    "Espace client personnalisé",
+                    "Reporting avancé",
+                    "Maintenance 1 mois offerte",
+                    "Support prioritaire",
+                    "Automatisations illimitées",
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -489,10 +514,10 @@ Merci !`
 
           {/* Formulaire court */}
           <form
-  id="contact"
-  onSubmit={onSubmitInfo}
-  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[10px] md:scroll-mt-24"
->
+            id="contact"
+            onSubmit={onSubmitInfo}
+            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[10px] md:scroll-mt-24"
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm">Nom</label>
