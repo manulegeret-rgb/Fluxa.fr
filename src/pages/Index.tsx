@@ -100,7 +100,7 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Formules</a>
+                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos formules</a>
                     <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
                     <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
@@ -154,7 +154,7 @@ Merci !`
             </a>
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
-              <a href="#pricing" className="hover:text-foreground transition">Formules</a>
+              <a href="#pricing" className="hover:text-foreground transition">Nos formules</a>
               <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
@@ -361,31 +361,36 @@ Merci !`
           <div
   className="
     flex md:grid md:grid-cols-3
-    gap-4 md:gap-8
+    gap-0 md:gap-8
     max-w-6xl mx-auto
     overflow-x-auto md:overflow-visible
     snap-x snap-mandatory md:snap-none
-    -mx-6 px-6 pb-2
+    scroll-smooth
+    -mx-6
     [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
   "
-  aria-label="Formules"
 >
   {/* Carte 1 */}
-  <div className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-auto md:shrink md:snap-none">
+  <div className="snap-center shrink-0 w-screen md:w-auto md:shrink md:snap-none px-6">
     <PricingCard
       title="Essentielle"
       price="800 €"
-      features={["Modules de base", "1 automatisation incluse", "Rappel RDV automatique", "Mail après prestation", "Support email"]}
+      features={[
+        "Modules de base",
+        "1 automatisation incluse",
+        "Rappel RDV automatique",
+        "Mail après prestation",
+        "Support email",
+      ]}
     />
   </div>
 
-  {/* Carte 2 (populaire) */}
-  <div className="relative snap-start shrink-0 w-[85%] sm:w-[70%] md:w-auto md:shrink md:snap-none">
+  {/* Carte 2 */}
+  <div className="relative snap-center shrink-0 w-screen md:w-auto md:shrink md:snap-none px-6">
     <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium
          bg-primary/15 text-primary border border-primary/30 backdrop-blur">
       ⭐ Populaire
     </span>
-
     <PricingCard
       title="Professionnelle"
       price="1 200 €"
@@ -403,7 +408,7 @@ Merci !`
   </div>
 
   {/* Carte 3 */}
-  <div className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-auto md:shrink md:snap-none">
+  <div className="snap-center shrink-0 w-screen md:w-auto md:shrink md:snap-none px-6">
     <PricingCard
       title="Premium"
       price="1 800 €"
@@ -418,6 +423,7 @@ Merci !`
     />
   </div>
 </div>
+
 
         </div>
       </section>
