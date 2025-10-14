@@ -28,6 +28,9 @@ const Index = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // ========= Contrôle du menu mobile (Sheet)
+  const [menuOpen, setMenuOpen] = useState(false);
+
   // ========= Mailto pour le formulaire "En savoir plus"
   const subject = useMemo(() => encodeURIComponent("Demande d'infos Fluxa"), []);
   const [sending, setSending] = useState(false);
@@ -86,7 +89,7 @@ Merci !`
           <div className="md:hidden grid grid-cols-3 items-center h-20">
             {/* Hamburger */}
             <div className="flex">
-              <Sheet>
+              <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                 <SheetTrigger asChild>
                   <button
                     aria-label="Ouvrir le menu"
@@ -97,15 +100,16 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#pricing" className="py-2 text-base">Formules</a>
-                    <a href="#automations" className="py-2 text-base">Automatisations</a>
-                    <a href="#faq" className="py-2 text-base">FAQ</a>
-                    <a href="#infos" className="py-2 text-base">En savoir plus</a>
+                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Formules</a>
+                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
+                    <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
+                    <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
                     <a
                       href="https://instagram.com/fluxa.fr"
                       target="_blank"
                       rel="noreferrer"
                       className="py-2 text-base inline-flex items-center gap-2"
+                      onClick={() => setMenuOpen(false)}
                     >
                       <Instagram className="w-4 h-4" />
                       fluxa.fr
@@ -114,10 +118,10 @@ Merci !`
                   <div className="mt-4 flex flex-col gap-2">
                     {/* MOBILE: bouton principal -> ancre directe formulaire + libellé plus clair */}
                     <Button asChild className="w-full">
-                      <a href="#contact">Nous contacter</a>
+                      <a href="#contact" onClick={() => setMenuOpen(false)}>Nous contacter</a>
                     </Button>
                     <Button asChild variant="outline" className="w-full">
-                      <a href="#pricing">Voir les formules</a>
+                      <a href="#pricing" onClick={() => setMenuOpen(false)}>Voir les formules</a>
                     </Button>
                   </div>
                 </SheetContent>
