@@ -8,24 +8,28 @@ const QUESTIONS = [
     a: "Fluxa conçoit des applications entièrement personnalisées. Chaque client reçoit son propre espace, pensé selon ses besoins réels : modules, design, automatisations, tout est ajusté à la main.",
   },
   {
-    q: "Combien ça coûte ?",
-    a: "Fluxa propose trois formules principales (Essentielle, Professionnelle et Premium) pour donner une idée du budget. Mais chaque projet reste unique : le tarif exact dépend des besoins, des modules choisis et des automatisations à mettre en place. Un devis sur mesure est réalisé après un premier échange.",
-  },
-  {
-    q: "Qu’est-ce que je peux faire avec mon application ?",
-    a: "Tout centraliser : clients, devis/factures, agenda, paiements, messages, statistiques, et des automatisations (rappels, relances, mails, etc.). Le but est de gagner du temps sans sacrifier l’organisation.",
+    q: "Combien de temps pour créer mon application ?",
+    a: "En moyenne entre 7 et 21 jours selon la complexité du projet. Une maquette est d’abord validée avant le développement, puis la mise en ligne se fait avec accompagnement.",
   },
   {
     q: "Je ne suis pas à l’aise avec l’informatique, est-ce que je vais m’en sortir ?",
-    a: "Oui. Chaque app est livrée prête à l’emploi avec un mini guide vidéo, et un accompagnement à la prise en main si besoin. Aucune compétence technique nécessaire.",
+    a: "Oui. Chaque app est livrée prête à l’emploi avec un mini guide vidéo, et un accompagnement à la prise en main inclus dans les formules Professionnelle et Premium (à partir de 49 €/mois).",
   },
   {
     q: "Est-ce que mes données sont sécurisées ?",
-    a: "Oui. Hébergement en France, chiffrement SSL et sauvegardes régulières. Accès limité à toi (et ton équipe si tu le souhaites).",
+    a: "Oui. Hébergement en France, chiffrement SSL, sauvegardes automatiques et conformité RGPD. L’accès est strictement limité à toi et à ton équipe si tu le souhaites.",
   },
   {
     q: "Et si je veux faire évoluer mon app plus tard ?",
-    a: "C’est prévu : on peut ajouter de nouvelles fonctionnalités ou automatisations à tout moment, selon l’évolution de ton activité.",
+    a: "C’est prévu : on peut ajouter de nouvelles fonctionnalités, modules ou automatisations à tout moment selon l’évolution de ton activité.",
+  },
+  {
+    q: "Fluxa, c’est pour quel type d’activité ?",
+    a: "Beauté et bien-être, immobilier, coaching, artisanat, restauration, formation, services… L’application s’adapte à tous les métiers grâce à son approche 100 % personnalisée.",
+  },
+  {
+    q: "Comment ça se passe concrètement ?",
+    a: "Diagnostic gratuit (15–20 min) → maquette personnalisée → développement sur mesure → mise en ligne et accompagnement selon la formule choisie.",
   },
 ];
 
@@ -54,9 +58,9 @@ export function Faq() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed">
-                    {item.a}
-                  </div>
+                  <div className="px-5 pb-5 text-muted-foreground text-base leading-relaxed">
+  {item.a}
+</div>
                 )}
               </div>
             );
