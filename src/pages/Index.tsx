@@ -358,46 +358,67 @@ Merci !`
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <PricingCard
-              title="Essentielle"
-              price="800 €"
-              features={["Modules de base", "1 automatisation incluse", "Rappel RDV automatique", "Mail après prestation", "Support email"]}
-            />
-            <div className="relative">
-              <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium
-                   bg-primary/15 text-primary border border-primary/30 backdrop-blur">
-                ⭐ Populaire
-              </span>
+          <div
+  className="
+    flex md:grid md:grid-cols-3
+    gap-4 md:gap-8
+    max-w-6xl mx-auto
+    overflow-x-auto md:overflow-visible
+    snap-x snap-mandatory md:snap-none
+    -mx-6 px-6 pb-2
+    [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+  "
+  aria-label="Formules"
+>
+  {/* Carte 1 */}
+  <div className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-auto md:shrink md:snap-none">
+    <PricingCard
+      title="Essentielle"
+      price="800 €"
+      features={["Modules de base", "1 automatisation incluse", "Rappel RDV automatique", "Mail après prestation", "Support email"]}
+    />
+  </div>
 
-              <PricingCard
-                title="Professionnelle"
-                price="1 200 €"
-                features={[
-                  "Tout Essentielle +",
-                  "Gestion des paiements",
-                  "Messagerie client intégrée",
-                  "3 automatisations",
-                  "Facturation automatique",
-                  "Rapport hebdomadaire",
-                  "Synchronisation agenda",
-                ]}
-                className="md:-translate-y-4 border-primary"
-              />
-            </div>
-            <PricingCard
-              title="Premium"
-              price="1 800 €"
-              features={[
-                "Tout Professionnelle +",
-                "Espace client personnalisé",
-                "Reporting avancé",
-                "Maintenance 1 mois offerte",
-                "Support prioritaire",
-                "Automatisations illimitées",
-              ]}
-            />
-          </div>
+  {/* Carte 2 (populaire) */}
+  <div className="relative snap-start shrink-0 w-[85%] sm:w-[70%] md:w-auto md:shrink md:snap-none">
+    <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium
+         bg-primary/15 text-primary border border-primary/30 backdrop-blur">
+      ⭐ Populaire
+    </span>
+
+    <PricingCard
+      title="Professionnelle"
+      price="1 200 €"
+      features={[
+        "Tout Essentielle +",
+        "Gestion des paiements",
+        "Messagerie client intégrée",
+        "3 automatisations",
+        "Facturation automatique",
+        "Rapport hebdomadaire",
+        "Synchronisation agenda",
+      ]}
+      className="md:-translate-y-4 border-primary"
+    />
+  </div>
+
+  {/* Carte 3 */}
+  <div className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-auto md:shrink md:snap-none">
+    <PricingCard
+      title="Premium"
+      price="1 800 €"
+      features={[
+        "Tout Professionnelle +",
+        "Espace client personnalisé",
+        "Reporting avancé",
+        "Maintenance 1 mois offerte",
+        "Support prioritaire",
+        "Automatisations illimitées",
+      ]}
+    />
+  </div>
+</div>
+
         </div>
       </section>
 
