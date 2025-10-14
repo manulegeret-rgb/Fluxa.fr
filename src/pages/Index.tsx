@@ -169,9 +169,7 @@ Merci !`
                 rel="noreferrer"
                 className="hover:text-foreground transition flex items-center gap-1.5"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18 6.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                </svg>
+                <Instagram className="w-4 h-4" />
                 fluxa.fr
               </a>
             </nav>
@@ -276,86 +274,18 @@ Merci !`
         </div>
       </section>
 
-      {/* ================= PROBLÈME / SOLUTION ================= */}
-      <section className="py-24 bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold">
-              Marre de jongler entre Excel, mails et post-it ?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Outils qui ne se parlent pas, informations éparpillées, tâches répétitives…
-              résultat&nbsp;: perte de temps, erreurs et aucun suivi fiable.
-            </p>
-          </div>
-
-          {/* Problèmes vs Solutions */}
-          <div className="grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
-            {/* Problèmes */}
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <XCircle className="w-5 h-5 text-destructive" />
-                Problèmes fréquents
-              </h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li>• Données éparpillées (Excel, mails, WhatsApp, agenda papier).</li>
-                <li>• Duplications / erreurs de saisie, aucune version “source”.</li>
-                <li>• Relances manuelles, oublis de rendez-vous et de paiements.</li>
-                <li>• Zéro visibilité sur le chiffre, la marge, l’activité réelle.</li>
-                <li>• Perte de temps → moins de production, moins de ventes.</li>
-              </ul>
-            </div>
-
-            {/* Solutions */}
-            <div className="rounded-2xl border border-border bg-card p-6 text-center md:text-left">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                Ce que Fluxa simplifie
-              </h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li>• Un seul espace pour clients, rendez-vous, devis/factures.</li>
-                <li>• Automatisations : rappels, relances, mails après prestation.</li>
-                <li>• Suivi des paiements & statistiques en temps réel.</li>
-                <li>• Process clair, cohérent, partagé avec votre équipe.</li>
-                <li>• Vous regagnez du temps pour votre savoir-faire.</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Fonctionnalités — icônes centrées */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {[
-              { icon: Calendar,    label: "Agenda intelligent",          color: "from-primary to-[hsl(217,77%,39%)]" },
-              { icon: DollarSign,  label: "Suivi factures et paiements", color: "from-primary to-[hsl(217,77%,39%)]" },
-              { icon: MessageSquare,label: "Messagerie intégrée",         color: "from-primary to-[hsl(217,77%,39%)]" },
-              { icon: BarChart3,   label: "Statistiques en temps réel",  color: "from-primary to-[hsl(217,77%,39%)]" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="p-8 bg-card rounded-2xl border border-border hover:border-primary transition-all duration-300 group flex flex-col items-center text-center"
-              >
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.color} p-4 mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className="w-full h-full text-white" />
-                </div>
-                <h3 className="text-lg font-semibold">{item.label}</h3>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-muted-foreground text-lg">
-            Simplifiez votre quotidien et concentrez-vous sur votre savoir-faire.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= AUTOMATIONS ================= */}
-      <Automations />
+      <section
+  id="automations"
+  className="scroll-mt-[-60px] md:scroll-mt-[-54px]"
+>
+  <Automations />
+</section>
 
       {/* ================= PRICING ================= */}
       <section
-  id="pricing"
-  className="mt-4 pt-4 md:pt-0 pb-14 md:pb-20 bg-background scroll-mt-24 md:scroll-mt-[120px] -mt-2 md:mt-0"
->
+        id="pricing"
+        className="mt-4 pt-4 md:pt-0 pb-14 md:pb-20 bg-background scroll-mt-24 md:scroll-mt-[40px] -mt-2 md:mt-0"
+      >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
@@ -453,26 +383,13 @@ Merci !`
         </div>
       </section>
 
-      {/* ================= TECHNO ================= */}
-      <section className="py-24 bg-gradient-to-b from-muted/20 to-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-bold">
-              Une technologie de pointe pour votre tranquillité
-            </h2>
-
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Fluxa repose sur une architecture moderne, sécurisée et 100% automatisable.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ================= CTA / INFOS (formulaire) ================= */}
       <section
-        id="infos"
-        className="pt-0 pb-16 scroll-mt-16 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background relative overflow-hidden"
-      >
+  id="infos"
+  className="pt-0 pb-10 md:pb-16 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background
+             relative overflow-hidden
+             scroll-mt-[84px] md:scroll-mt-[-30px]"
+>
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
         </div>
@@ -604,9 +521,12 @@ Merci !`
       </section>
 
       {/* ================= FAQ ================= */}
-      <section id="faq">
-        <Faq />
-      </section>
+<section
+  id="faq"
+  className="scroll-mt-[-60px] md:scroll-mt-[-60px]"
+>
+  <Faq />
+</section>
 
       {/* ================= FOOTER ================= */}
       <footer className="py-8 border-t border-border">

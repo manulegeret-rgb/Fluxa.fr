@@ -1,4 +1,3 @@
-// src/components/Automations.tsx
 import {
   CalendarClock,
   Bell,
@@ -55,10 +54,7 @@ export function Automations() {
   ];
 
   return (
-    <section
-      id="automations"
-      className="py-24 bg-gradient-to-b from-muted/20 to-background"
-    >
+    <section id="automations" className="pt-10 pb-6 md:pt-8 md:pb-2 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-6 mb-14">
           <h2 className="text-4xl lg:text-5xl font-bold">
@@ -92,7 +88,7 @@ export function Automations() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 md:mt-20 pb-20 md:pb-32">
           <a
             href="#infos"
             className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
