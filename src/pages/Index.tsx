@@ -148,8 +148,8 @@ Merci !`
             <div />
           </div>
 
-          {/* Barre desktop (inchangée) */}
-          <div className="hidden md:flex items-center justify-between h-[160px]">
+          {/* Barre desktop */}
+          <div className="hidden md:flex items-center justify-between h-[110px]">
             <a href="/" aria-label="Fluxa" className="flex items-center gap-2">
               <img
                 src={fluxaLogo}
@@ -233,7 +233,7 @@ Merci !`
                   Nous contacter
                 </a>
 
-                {/* DESKTOP: CTA inchangé */}
+                {/* DESKTOP: CTA */}
                 <a
                   href="#infos"
                   className="hidden md:inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
@@ -349,14 +349,12 @@ Merci !`
       </section>
 
       {/* ================= AUTOMATIONS ================= */}
-      <section id="automations" className="pb-0 mb-0">
-        <Automations />
-      </section>
+      <Automations />
 
       {/* ================= PRICING ================= */}
       <section
         id="pricing"
-        className="pt-6 pb-16 md:py-24 bg-background scroll-mt-24 md:scroll-mt-[160px] -mt-4 md:mt-0"
+        className="pt-4 md:pt-6 pb-14 md:pb-20 bg-background scroll-mt-24 md:scroll-mt-[160px] -mt-2 md:mt-0"
       >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-16">
@@ -434,7 +432,7 @@ Merci !`
               </div>
             </div>
 
-            {/* Contrôles discrets — MOBILE ONLY (sous le carrousel) */}
+            {/* Contrôles discrets — MOBILE ONLY */}
             <div className="md:hidden mt-3 flex items-center justify-center gap-4">
               <button
                 onClick={() => scrollPricing(-1)}
