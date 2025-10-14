@@ -217,33 +217,173 @@ Merci !`
       <section
   id="infos"
   className="pt-0 pb-16 scroll-mt-24 md:scroll-mt-40 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background relative overflow-visible md:overflow-hidden"
->   
-      >
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold">
-              En savoir plus sur{" "}
-              <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-                Fluxa
-              </span>
-            </h2>
-          </div>
+>
+  <div className="absolute inset-0">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
+  </div>
 
-          {/* 👇 Ancre déplacée juste autour du composant */}
-          <div id="howitworks" className="scroll-mt-24 md:scroll-mt-40">
-            <HowItWorks />
-          </div>
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="max-w-3xl mx-auto text-center">
+      <h2 className="text-4xl lg:text-5xl font-bold">
+        En savoir plus sur{" "}
+        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
+          Fluxa
+        </span>
+      </h2>
+      <p className="mt-3 text-lg text-muted-foreground">
+        Dites-nous en un peu plus : on revient vers vous sous 24–48h avec des infos et une proposition adaptée.
+      </p>
+    </div>
 
-          <form
-  id="contact"
-  onSubmit={onSubmitInfo}
-  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-24 md:scroll-mt-40 block visible"
-          >
-            {/* formulaire inchangé */}
-          </form>
+    {/* 👇 Ancre déplacée juste autour du composant */}
+    <div id="howitworks" className="scroll-mt-24 md:scroll-mt-40">
+      <HowItWorks />
+    </div>
+
+    {/* ========= FORMULAIRE ========= */}
+    <form
+      id="contact"
+      onSubmit={onSubmitInfo}
+      className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-24 md:scroll-mt-40 block visible relative z-20"
+    >
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm">Nom</label>
+          <input
+            name="name"
+            required
+            className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+          />
         </div>
-      </section>
+        <div>
+          <label className="text-sm">Email</label>
+          <input
+            name="email"
+            type="email"
+            required
+            className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+          />
+        </div>
+      </div>
 
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm">Secteur d'activité</label>
+          <input
+            name="activity"
+            className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+          />
+        </div>
+        <div>
+          <label className="text-sm">Besoin principal</label>
+          <select
+            name="need"
+            required
+            defaultValue=""
+            className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+          >
+            <option value="" disabled>
+              — Sélectionner —
+            </option>
+            <option>Vitrine pro</option>
+            <option>Formulaire & suivi prospects</option>
+            <option>Devis & paiements</option>
+            <option>Automatisations</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm">Budget (approx.)</label>
+          <select
+            name="budget"
+            required
+            defaultValue=""
+            className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+          >
+            <option value="" disabled>
+              — Sélectionner —
+            </option>
+            <option>&lt; 500 €</option>
+            <option>500–1 000 €</option>
+            <option>1 000–2 000 €</option>
+            <option>&gt; 2 000 €</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-sm">Délai souhaité</label>
+          <select
+            name="delay"
+            required
+            defaultValue=""
+            className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+          >
+            <option value="" disabled>
+              — Sélectionner —
+            </option>
+            <option>Dès que possible</option>
+            <option>Dans le mois</option>
+            <option>2–3 mois</option>
+            <option>Plus tard</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label className="text-sm">Message</label>
+        <textarea
+          name="message"
+          rows={4}
+          placeholder="Parlez-nous de votre activité et de vos besoins…"
+          className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
+        />
+      </div>
+
+      <div className="flex items-center gap-3">
+        <button
+          type="submit"
+          className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
+          disabled={sending}
+        >
+          {sending ? "Ouverture de l’email…" : "Envoyer ma demande"}
+        </button>
+      </div>
+
+      <p className="mt-2 text-xs text-muted-foreground">
+        Réponse sous 24–48h — sans engagement.
+      </p>
+    </form>
+
+    {/* Preuves (mobile) */}
+    <ul className="md:hidden mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+      <li className="rounded-full border border-border/70 px-3 py-1">🔐 Données hébergées en Europe</li>
+      <li className="rounded-full border border-border/70 px-3 py-1">⚙️ Automatisations incluses</li>
+      <li className="rounded-full border border-border/70 px-3 py-1">🎯 Mise en place guidée</li>
+    </ul>
+
+    {/* Lien contact — mail + Instagram */}
+    <div className="mt-10 text-muted-foreground">
+      <div className="flex flex-wrap justify-center gap-6 text-sm">
+        <a
+          href="mailto:fluxa.contact@gmail.com"
+          className="hover:text-primary transition-colors flex items-center gap-2"
+        >
+          <Mail className="w-4 h-4" /> fluxa.contact@gmail.com
+        </a>
+        <a
+          href="https://instagram.com/fluxa.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors flex items-center gap-2"
+        >
+          <Instagram className="w-4 h-4" /> fluxa.fr
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
       {/* ================= FAQ ================= */}
       <section>
         <div id="faq" className="scroll-mt-24 md:scroll-mt-40">
