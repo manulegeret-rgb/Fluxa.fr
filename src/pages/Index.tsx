@@ -349,14 +349,14 @@ Merci !`
       </section>
 
       {/* ================= AUTOMATIONS ================= */}
-      <section id="automations">
+      <section id="automations" className="pb-0 mb-0">
         <Automations />
       </section>
 
       {/* ================= PRICING ================= */}
       <section
         id="pricing"
-        className="pt-10 pb-16 md:py-24 bg-background scroll-mt-24 md:scroll-mt-[160px]"
+        className="pt-6 pb-16 md:py-24 bg-background scroll-mt-24 md:scroll-mt-[160px] -mt-4 md:mt-0"
       >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-16">
@@ -366,27 +366,8 @@ Merci !`
             </p>
           </div>
 
-          {/* Wrapper relatif pour injecter les boutons mobiles */}
-          <div className="relative max-w-6xl mx-auto">
-            {/* Boutons nav — mobile only */}
-            <div className="md:hidden pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1 z-10">
-              <button
-                aria-label="Précédent"
-                onClick={() => scrollPricing(-1)}
-                className="pointer-events-auto h-10 w-10 rounded-full bg-background/80 border border-border shadow hover:bg-muted/80 active:scale-95 grid place-items-center"
-              >
-                ‹
-              </button>
-              <button
-                aria-label="Suivant"
-                onClick={() => scrollPricing(1)}
-                className="pointer-events-auto h-10 w-10 rounded-full bg-background/80 border border-border shadow hover:bg-muted/80 active:scale-95 grid place-items-center"
-              >
-                ›
-              </button>
-            </div>
-
-            {/* Carrousel mobile + grille desktop */}
+          {/* Carrousel + grille */}
+          <div className="max-w-6xl mx-auto">
             <div
               ref={pricingRef}
               className="
@@ -451,6 +432,24 @@ Merci !`
                   ]}
                 />
               </div>
+            </div>
+
+            {/* Contrôles discrets — MOBILE ONLY (sous le carrousel) */}
+            <div className="md:hidden mt-3 flex items-center justify-center gap-4">
+              <button
+                onClick={() => scrollPricing(-1)}
+                className="text-sm px-3 py-1.5 rounded-full border border-border bg-background/70 hover:bg-muted/70 active:scale-95"
+                aria-label="Voir la formule précédente"
+              >
+                ← Précédent
+              </button>
+              <button
+                onClick={() => scrollPricing(1)}
+                className="text-sm px-3 py-1.5 rounded-full border border-border bg-background/70 hover:bg-muted/70 active:scale-95"
+                aria-label="Voir la formule suivante"
+              >
+                Suivant →
+              </button>
             </div>
           </div>
         </div>
