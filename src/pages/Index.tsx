@@ -156,8 +156,8 @@ Merci !`
               <a href="#pricing" className="hover:text-foreground transition">Formules</a>
               <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
               <a href="#howitworks" className="hover:text-foreground transition">Comment ça marche ?</a>
-              <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
+              <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a
                 href="https://instagram.com/fluxa.fr"
                 target="_blank"
