@@ -149,7 +149,7 @@ Merci !`
           </div>
 
           {/* Barre desktop */}
-          <div className="hidden md:flex items-center justify-between h-[110px]">
+          <div className="hidden md:flex items-center justify-between h-[120px]">
             <a href="/" aria-label="Fluxa" className="flex items-center gap-2">
               <img
                 src={fluxaLogo}
@@ -353,9 +353,9 @@ Merci !`
 
       {/* ================= PRICING ================= */}
       <section
-        id="pricing"
-        className="pt-4 md:pt-6 pb-14 md:pb-20 bg-background scroll-mt-24 md:scroll-mt-[160px] -mt-2 md:mt-0"
-      >
+  id="pricing"
+  className="mt-4 pt-4 md:pt-0 pb-14 md:pb-20 bg-background scroll-mt-24 md:scroll-mt-[120px] -mt-2 md:mt-0"
+>
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
