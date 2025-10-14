@@ -215,8 +215,9 @@ Merci !`
 
       {/* ================= CTA / INFOS ================= */}
       <section
-        id="infos"
-        className="pt-0 pb-16 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background relative overflow-hidden scroll-mt-24 md:scroll-mt-40"
+  id="infos"
+  className="pt-0 pb-16 scroll-mt-24 md:scroll-mt-40 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background relative overflow-visible md:overflow-hidden"
+>   
       >
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -234,9 +235,9 @@ Merci !`
           </div>
 
           <form
-            id="contact"
-            onSubmit={onSubmitInfo}
-            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-24 md:scroll-mt-40"
+  id="contact"
+  onSubmit={onSubmitInfo}
+  className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-24 md:scroll-mt-40 block visible"
           >
             {/* formulaire inchangé */}
           </form>
