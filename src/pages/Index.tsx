@@ -283,11 +283,17 @@ Merci !`
 
       {/* ================= PRICING ================= */}
       <section
-        id="pricing"
-        className="mt-4 pt-4 md:pt-0 pb-14 md:pb-20 bg-background scroll-mt-24 md:scroll-mt-[40px] -mt-2 md:mt-0"
-      >
+  id="pricing"
+  className="
+    mt-0 pt-2 md:pt-0
+    pb-14 md:pb-20
+    bg-background
+    scroll-mt-[-4px] md:scroll-mt-[40px]
+    -mt-px md:mt-0
+  "
+>
         <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 mb-16">
+          <div className="text-center space-y-6 mb-10 md:mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
             <p className="text-xl text-muted-foreground">
               Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
@@ -310,57 +316,86 @@ Merci !`
               aria-label="Formules"
             >
               {/* Carte 1 */}
-              <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
-                <PricingCard
-                  title="Essentielle"
-                  price="800 €"
-                  features={[
-                    "Modules de base",
-                    "1 automatisation incluse",
-                    "Rappel RDV automatique",
-                    "Mail après prestation",
-                    "Support email",
-                  ]}
-                />
-              </div>
+<div
+  className="
+    max-md:snap-center
+    max-md:shrink-0
+    max-md:w-[calc(100vw-3rem)]
+    max-md:mr-8            /* espace après chaque carte */
+    max-md:first:ml-6      /* marge au début du carrousel */
+    max-md:last:mr-6       /* marge à la fin du carrousel */
+    md:w-auto md:shrink md:snap-none
+  "
+>
+  <PricingCard
+    title="Essentielle"
+    price="800 €"
+    features={[
+      'Modules de base',
+      '1 automatisation incluse',
+      'Rappel RDV automatique',
+      'Mail après prestation',
+      'Support email',
+    ]}
+  />
+</div>
 
               {/* Carte 2 (Populaire) */}
-              <div className="relative snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
-                <span className="absolute -top-3 right-3 rounded-full px-3 py-1 text-xs font-medium bg-primary/15 text-primary border border-primary/30 backdrop-blur">
-                  ⭐ Populaire
-                </span>
-                <PricingCard
-                  title="Professionnelle"
-                  price="1 200 €"
-                  features={[
-                    "Tout Essentielle +",
-                    "Gestion des paiements",
-                    "Messagerie client intégrée",
-                    "3 automatisations",
-                    "Facturation automatique",
-                    "Rapport hebdomadaire",
-                    "Synchronisation agenda",
-                  ]}
-                  className="md:-translate-y-4 border-primary"
-                />
-              </div>
+{/* Carte 2 (Populaire) */}
+<div className="
+  relative
+  max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
+  max-md:mr-8
+  md:w-auto md:shrink md:snap-none
+">
+  <span
+    className="
+      absolute right-3 z-10
+      max-md:top-2              /* mobile : badge visible dans la carte */
+      md:-top-3                 /* desktop : léger débordement (comme avant) */
+      rounded-full px-3 py-1 text-xs font-medium
+      bg-primary/15 text-primary border border-primary/30 backdrop-blur
+    "
+  >
+    ⭐ Populaire
+  </span>
+
+  <PricingCard
+    title="Professionnelle"
+    price="1 200 €"
+    features={[
+      'Tout Essentielle +',
+      'Gestion des paiements',
+      'Messagerie client intégrée',
+      '3 automatisations',
+      'Facturation automatique',
+      'Rapport hebdomadaire',
+      'Synchronisation agenda',
+    ]}
+    className="md:-translate-y-4 border-primary"
+  />
+</div>
 
               {/* Carte 3 */}
-              <div className="snap-start shrink-0 w-[calc(100vw-3rem)] md:w-auto md:shrink md:snap-none">
-                <PricingCard
-                  title="Premium"
-                  price="1 800 €"
-                  features={[
-                    "Tout Professionnelle +",
-                    "Espace client personnalisé",
-                    "Reporting avancé",
-                    "Maintenance 1 mois offerte",
-                    "Support prioritaire",
-                    "Automatisations illimitées",
-                  ]}
-                />
-              </div>
-            </div>
+<div className="
+  max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
+  max-md:mr-8 max-md:last:mr-6    /* espace + marge de fin du carrousel */
+  md:w-auto md:shrink md:snap-none
+">
+  <PricingCard
+    title="Premium"
+    price="1 800 €"
+    features={[
+      "Tout Professionnelle +",
+      "Espace client personnalisé",
+      "Reporting avancé",
+      "Maintenance 1 mois offerte",
+      "Support prioritaire",
+      "Automatisations illimitées",
+    ]}
+  />
+  </div>
+</div>
 
             {/* Contrôles discrets — MOBILE ONLY */}
             <div className="md:hidden mt-3 flex items-center justify-center gap-4">
