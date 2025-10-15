@@ -298,7 +298,7 @@ Merci !`
         </div>
       </section>
 
-      <section id="automations" className="scroll-mt-[-60px] md:scroll-mt-[-54px]">
+      <section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
         <Automations />
       </section>
 
@@ -602,7 +602,7 @@ Merci !`
           </form>
 
           {/* Preuves (mobile) sous le formulaire */}
-          <ul className="md:hidden mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+          <ul className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-start md:justify-center">
             <li className="rounded-full border border-border/70 px-3 py-1">🔐 Données hébergées en Europe</li>
             <li className="rounded-full border border-border/70 px-3 py-1">⚙️ Automatisations incluses</li>
             <li className="rounded-full border border-border/70 px-3 py-1">🎯 Mise en place guidée</li>
