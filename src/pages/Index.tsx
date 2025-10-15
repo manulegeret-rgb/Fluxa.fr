@@ -16,10 +16,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
-import fluxaLogo from "@/assets/logo transparent.png"; // renomme en logo-transparent.png si besoin
+import fluxaLogo from "@/assets/logo transparent.png";
 
 const Index = () => {
-  // ========= État du scroll pour styliser le header (bordure bleue après scroll)
+  // ========= État du scroll pour styliser le header
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -30,12 +30,6 @@ const Index = () => {
 
   // ========= Carrousel des formules (mobile)
   const pricingRef = useRef<HTMLDivElement>(null);
-  const scrollPricing = (dir: 1 | -1) => {
-    const el = pricingRef.current;
-    if (!el) return;
-    const step = el.clientWidth; // largeur utile du conteneur visible
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
 
   // ========= Contrôle du menu mobile (Sheet)
   const [menuOpen, setMenuOpen] = useState(false);
@@ -180,7 +174,7 @@ Merci !`
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* fond halo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-pulse delay-1000"></div>
         </div>
@@ -274,24 +268,21 @@ Merci !`
         </div>
       </section>
 
-      <section
-  id="automations"
-  className="scroll-mt-[-60px] md:scroll-mt-[-54px]"
->
-  <Automations />
-</section>
+      <section id="automations" className="scroll-mt-[-60px] md:scroll-mt-[-54px]">
+        <Automations />
+      </section>
 
       {/* ================= PRICING ================= */}
       <section
-  id="pricing"
-  className="
-    mt-0 pt-2 md:pt-0
-    pb-14 md:pb-20
-    bg-background
-    scroll-mt-[4px] md:scroll-mt-[40px]
-    -mt-px md:mt-0
-  "
->
+        id="pricing"
+        className="
+          mt-0 pt-2 md:pt-0
+          pb-14 md:pb-20
+          bg-background
+          scroll-mt-[4px] md:scroll-mt-[40px]
+          -mt-px md:mt-0
+        "
+      >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-10 md:mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
@@ -302,115 +293,147 @@ Merci !`
 
           {/* Carrousel + grille */}
           <div className="max-w-6xl mx-auto">
-            <div
-              ref={pricingRef}
-              className="
-                flex md:grid md:grid-cols-3
-                gap-0 md:gap-8
-                overflow-x-auto md:overflow-visible
-                snap-x snap-mandatory md:snap-none
-                scroll-smooth
-                -mx-6 px-6 pb-2
-                [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-              "
-              aria-label="Formules"
-            >
-              {/* Carte 1 */}
-<div
-  className="
-    max-md:snap-center
-    max-md:shrink-0
-    max-md:w-[calc(100vw-3rem)]
-    max-md:mr-8            /* espace après chaque carte */
-    max-md:first:ml-6      /* marge au début du carrousel */
-    max-md:last:mr-6       /* marge à la fin du carrousel */
-    md:w-auto md:shrink md:snap-none
-  "
->
-  <PricingCard
-    title="Essentielle"
-    price="800 €"
-    features={[
-      'Modules de base',
-      '1 automatisation incluse',
-      'Rappel RDV automatique',
-      'Mail après prestation',
-      'Support email',
-    ]}
-  />
-</div>
-
-{/* Carte 2 (Populaire) */}
-<div className="
-  relative
-  max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
-  max-md:mr-8
-  md:w-auto md:shrink md:snap-none md:overflow-visible
-">
-  <span
-    className="
-      absolute left-1/2 -translate-x-1/2 z-10
-      max-md:top-2        /* mobile : bien à l’intérieur, plus de coupe */
-      md:-top-3           /* desktop : petit débordement propre */
-      rounded-full px-3 py-1 text-xs font-medium
-      bg-primary/15 text-primary border border-primary/30 backdrop-blur
-    "
-  >
-    ⭐ Populaire
-  </span>
-
-  <PricingCard
-    title="Professionnelle"
-    price="1 200 €"
-    features={[
-      'Tout Essentielle +',
-      'Gestion des paiements',
-      'Messagerie client intégrée',
-      '3 automatisations',
-      'Facturation automatique',
-      'Rapport hebdomadaire',
-      'Synchronisation agenda',
-    ]}
-    className="md:-translate-y-4 border-primary"
-  />
-</div>
-
-              {/* Carte 3 */}
-<div className="
-  max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
-  max-md:mr-8 max-md:last:mr-6    /* espace + marge de fin du carrousel */
-  md:w-auto md:shrink md:snap-none
-">
-  <PricingCard
-    title="Premium"
-    price="1 800 €"
-    features={[
-      "Tout Professionnelle +",
-      "Espace client personnalisé",
-      "Reporting avancé",
-      "Maintenance 1 mois offerte",
-      "Support prioritaire",
-      "Automatisations illimitées",
-    ]}
-  />
-  </div>
-</div>
-
-            {/* Contrôles discrets — MOBILE ONLY */}
-            <div className="md:hidden mt-3 flex items-center justify-center gap-4">
-              <button
-                onClick={() => scrollPricing(-1)}
-                className="text-sm px-3 py-1.5 rounded-full border border-border bg-background/70 hover:bg-muted/70 active:scale-95"
-                aria-label="Voir la formule précédente"
+            <div className="relative">
+              {/* Piste de cartes */}
+              <div
+                ref={pricingRef}
+                className="
+                  flex md:grid md:grid-cols-3
+                  gap-0 md:gap-8
+                  overflow-x-auto md:overflow-visible
+                  snap-x snap-mandatory md:snap-none
+                  scroll-smooth
+                  -mx-6 px-6 pb-2
+                  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                "
+                aria-label="Formules"
               >
-                ← Précédent
+                {/* Carte 1 */}
+                <div
+                  data-pricing-card
+                  className="
+                    max-md:snap-center
+                    max-md:shrink-0
+                    max-md:w-[calc(100vw-3rem)]
+                    max-md:mr-8
+                    max-md:first:ml-6
+                    max-md:last:mr-6
+                    md:w-auto md:shrink md:snap-none
+                  "
+                >
+                  <PricingCard
+                    title="Essentielle"
+                    price="800 €"
+                    features={[
+                      "Modules de base",
+                      "1 automatisation incluse",
+                      "Rappel RDV automatique",
+                      "Mail après prestation",
+                      "Support email",
+                    ]}
+                  />
+                </div>
+
+                {/* Carte 2 (Populaire) */}
+                <div
+                  data-pricing-card
+                  className="
+                    relative
+                    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
+                    max-md:mr-8
+                    md:w-auto md:shrink md:snap-none md:overflow-visible
+                  "
+                >
+                  <span
+                    className="
+                      absolute z-10
+                      right-3 max-md:top-2 md:-top-3
+                      rounded-full px-3 py-1 text-xs font-medium
+                      bg-primary/15 text-primary border border-primary/30 backdrop-blur
+                    "
+                  >
+                    ⭐ Populaire
+                  </span>
+
+                  <PricingCard
+                    title="Professionnelle"
+                    price="1 200 €"
+                    features={[
+                      "Tout Essentielle +",
+                      "Gestion des paiements",
+                      "Messagerie client intégrée",
+                      "3 automatisations",
+                      "Facturation automatique",
+                      "Rapport hebdomadaire",
+                      "Synchronisation agenda",
+                    ]}
+                    className="md:-translate-y-4 border-primary"
+                  />
+                </div>
+
+                {/* Carte 3 */}
+                <div
+                  data-pricing-card
+                  className="
+                    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
+                    max-md:mr-8 max-md:last:mr-6
+                    md:w-auto md:shrink md:snap-none
+                  "
+                >
+                  <PricingCard
+                    title="Premium"
+                    price="1 800 €"
+                    features={[
+                      "Tout Professionnelle +",
+                      "Espace client personnalisé",
+                      "Reporting avancé",
+                      "Maintenance 1 mois offerte",
+                      "Support prioritaire",
+                      "Automatisations illimitées",
+                    ]}
+                  />
+                </div>
+              </div>
+
+              {/* Flèches intégrées — MOBILE ONLY */}
+              <button
+                onClick={() => {
+                  const el = pricingRef.current;
+                  if (!el) return;
+                  const card = el.querySelector<HTMLElement>("[data-pricing-card]");
+                  const gap = 32; // ~ mr-8 (8 * 4px)
+                  const w = card?.getBoundingClientRect().width ?? el.clientWidth;
+                  el.scrollBy({ left: -(w + gap), behavior: "smooth" });
+                }}
+                className="
+                  md:hidden
+                  absolute left-1 top-1/2 -translate-y-1/2 z-20
+                  rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur
+                  active:scale-95
+                "
+                aria-label="Carte précédente"
+              >
+                ‹
               </button>
+
               <button
-                onClick={() => scrollPricing(1)}
-                className="text-sm px-3 py-1.5 rounded-full border border-border bg-background/70 hover:bg-muted/70 active:scale-95"
-                aria-label="Voir la formule suivante"
+                onClick={() => {
+                  const el = pricingRef.current;
+                  if (!el) return;
+                  const card = el.querySelector<HTMLElement>("[data-pricing-card]");
+                  const gap = 32; // ~ mr-8
+                  const w = card?.getBoundingClientRect().width ?? el.clientWidth;
+                  el.scrollBy({ left: w + gap, behavior: "smooth" });
+                }}
+                className="
+                  md:hidden
+                  absolute right-1 top-1/2 -translate-y-1/2 z-20
+                  rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur
+                  active:scale-95
+                "
+                aria-label="Carte suivante"
               >
-                Suivant →
+                ›
               </button>
             </div>
           </div>
@@ -419,11 +442,14 @@ Merci !`
 
       {/* ================= CTA / INFOS (formulaire) ================= */}
       <section
-  id="infos"
-  className="pt-0 pb-10 md:pb-16 bg-gradient-to-b from-background via-[hsl(217,40%,8%)] to-background
-             relative overflow-hidden
-             scroll-mt-[84px] md:scroll-mt-[-30px]"
->
+        id="infos"
+        className={`
+          pt-0 pb-10 md:pb-16
+          bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background
+          relative overflow-hidden
+          scroll-mt-[84px] md:scroll-mt-[-30px]
+        `}
+      >
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
         </div>
@@ -555,12 +581,9 @@ Merci !`
       </section>
 
       {/* ================= FAQ ================= */}
-<section
-  id="faq"
-  className="scroll-mt-[-60px] md:scroll-mt-[-60px]"
->
-  <Faq />
-</section>
+      <section id="faq" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
+        <Faq />
+      </section>
 
       {/* ================= FOOTER ================= */}
       <footer className="py-8 border-t border-border">
