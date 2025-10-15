@@ -284,7 +284,7 @@ Merci !`
         "
       >
         <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 mb-10 md:mb-16">
+          <div className="text-center space-y-6 max-md:mb-16 md:mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
             <p className="text-xl text-muted-foreground">
               Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
