@@ -10,9 +10,7 @@ interface PricingCardProps {
 
 export const PricingCard = ({ title, price, features, className }: PricingCardProps) => {
   return (
-    <Card
-      className={`p-8 bg-card border-2 border-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_40px_hsl(217,91%,60%,0.3)] hover:-translate-y-2 ${className || ""}`}
-    >
+    <Card className={`p-8 bg-card border-2 border-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_40px_hsl(217,91%,60%,0.3)] md:hover:-translate-y-2 ${className || ""}`}>
       <div className="space-y-6">
         {/* Titre + Prix */}
         <div>
@@ -23,7 +21,7 @@ export const PricingCard = ({ title, price, features, className }: PricingCardPr
         </div>
 
         {/* Liste des features — alignement icône/texte nickel */}
-        <ul className="space-y-3 text-muted-foreground md:min-h-[200px] max-md:w-fit max-md:mx-auto">
+        <ul className="space-y-3 text-muted-foreground min-h-[200px] max-md:w-fit max-md:mx-auto">
           {features.map((feature, index) => (
             <li
               key={index}
