@@ -316,9 +316,14 @@ Merci !`
                     max-md:shrink-0
                     max-md:w-[calc(100vw-3rem)]
                     max-md:mr-8
+                    max-md:scale-[0.925] max-md:origin-top   /* carte un peu plus compacte en mobile */
                     max-md:first:ml-6
                     max-md:last:mr-6
                     md:w-auto md:shrink md:snap-none
+                    max-md:text-center
+                    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
+                    max-md:[&_ul>li]:justify-center
+                   max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
                   "
                 >
                   <PricingCard
@@ -335,15 +340,21 @@ Merci !`
                 </div>
 
                 {/* Carte 2 (Populaire) */}
-                <div
-                  data-pricing-card
-                  className="
-                    relative
-                    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
-                    max-md:mr-8
-                    md:w-auto md:shrink md:snap-none md:overflow-visible
-                  "
-                >
+<div
+  data-pricing-card
+  className="
+    relative
+    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
+    max-md:mr-8
+    max-md:scale-[0.925] max-md:origin-top   /* carte un peu plus compacte en mobile */
+    md:w-auto md:shrink md:snap-none md:overflow-visible
+    md:-translate-y-4 border-primary
+    max-md:text-center
+    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
+    max-md:[&_ul>li]:justify-center
+    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
+  "
+>
                   <span
                     className="
                       absolute z-10
@@ -377,7 +388,12 @@ Merci !`
                   className="
                     max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
                     max-md:mr-8 max-md:last:mr-6
+                    max-md:scale-[0.925] max-md:origin-top   /* carte un peu plus compacte en mobile */
                     md:w-auto md:shrink md:snap-none
+                    max-md:text-center
+    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
+    max-md:[&_ul>li]:justify-center
+    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
                   "
                 >
                   <PricingCard
