@@ -31,6 +31,34 @@ const Index = () => {
   // ========= Carrousel des formules (mobile)
   const pricingRef = useRef<HTMLDivElement>(null);
 
+  // ========= Arrows visibility (mobile)
+const [canLeft, setCanLeft] = useState(false);
+const [canRight, setCanRight] = useState(true);
+
+const updateArrows = () => {
+  const el = pricingRef.current;
+  if (!el) return;
+  const atStart = el.scrollLeft <= 1;
+  const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+  setCanLeft(!atStart);
+  setCanRight(!atEnd);
+};
+
+useEffect(() => {
+  const el = pricingRef.current;
+  if (!el) return;
+  updateArrows();
+  const onScroll = () => updateArrows();
+  el.addEventListener("scroll", onScroll, { passive: true });
+  const ro = new ResizeObserver(updateArrows);
+  ro.observe(el);
+  return () => {
+    el.removeEventListener("scroll", onScroll);
+    ro.disconnect();
+  };
+}, []);
+
+
   // ========= Contrôle du menu mobile (Sheet)
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -411,46 +439,44 @@ Merci !`
                 </div>
               </div>
 
-              {/* Flèches intégrées — MOBILE ONLY */}
-              <button
-                onClick={() => {
-                  const el = pricingRef.current;
-                  if (!el) return;
-                  const card = el.querySelector<HTMLElement>("[data-pricing-card]");
-                  const gap = 32; // ~ mr-8 (8 * 4px)
-                  const w = card?.getBoundingClientRect().width ?? el.clientWidth;
-                  el.scrollBy({ left: -(w + gap), behavior: "smooth" });
-                }}
-                className="
-                  md:hidden
-                  absolute left-1 top-1/2 -translate-y-1/2 z-20
-                  rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur
-                  active:scale-95
-                "
-                aria-label="Carte précédente"
-              >
-                ‹
-              </button>
+              {/* Flèche gauche (mobile) */}
+{canLeft && (
+  <button
+    onClick={() => {
+      const el = pricingRef.current;
+      if (!el) return;
+      const card = el.querySelector<HTMLElement>("[data-pricing-card]");
+      const gap = 32;
+      const w = card?.getBoundingClientRect().width ?? el.clientWidth;
+      el.scrollBy({ left: -(w + gap), behavior: "smooth" });
+      setTimeout(updateArrows, 350);
+    }}
+    className="md:hidden absolute left-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
+    aria-label="Carte précédente"
+  >
+    ‹
+  </button>
+)}
 
-              <button
-                onClick={() => {
-                  const el = pricingRef.current;
-                  if (!el) return;
-                  const card = el.querySelector<HTMLElement>("[data-pricing-card]");
-                  const gap = 32; // ~ mr-8
-                  const w = card?.getBoundingClientRect().width ?? el.clientWidth;
-                  el.scrollBy({ left: w + gap, behavior: "smooth" });
-                }}
-                className="
-                  md:hidden
-                  absolute right-1 top-1/2 -translate-y-1/2 z-20
-                  rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur
-                  active:scale-95
-                "
-                aria-label="Carte suivante"
-              >
-                ›
-              </button>
+{/* Flèche droite (mobile) */}
+{canRight && (
+  <button
+    onClick={() => {
+      const el = pricingRef.current;
+      if (!el) return;
+      const card = el.querySelector<HTMLElement>("[data-pricing-card]");
+      const gap = 32;
+      const w = card?.getBoundingClientRect().width ?? el.clientWidth;
+      el.scrollBy({ left: w + gap, behavior: "smooth" });
+      setTimeout(updateArrows, 350);
+    }}
+    className="md:hidden absolute right-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
+    aria-label="Carte suivante"
+  >
+    ›
+  </button>
+)}
+
             </div>
           </div>
         </div>
