@@ -288,7 +288,7 @@ Merci !`
     mt-0 pt-2 md:pt-0
     pb-14 md:pb-20
     bg-background
-    scroll-mt-[-4px] md:scroll-mt-[40px]
+    scroll-mt-[4px] md:scroll-mt-[40px]
     -mt-px md:mt-0
   "
 >
