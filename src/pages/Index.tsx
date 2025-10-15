@@ -340,19 +340,18 @@ Merci !`
   />
 </div>
 
-              {/* Carte 2 (Populaire) */}
 {/* Carte 2 (Populaire) */}
 <div className="
   relative
   max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
   max-md:mr-8
-  md:w-auto md:shrink md:snap-none
+  md:w-auto md:shrink md:snap-none md:overflow-visible
 ">
   <span
     className="
-      absolute right-3 z-10
-      max-md:top-2              /* mobile : badge visible dans la carte */
-      md:-top-3                 /* desktop : léger débordement (comme avant) */
+      absolute left-1/2 -translate-x-1/2 z-10
+      max-md:top-2        /* mobile : bien à l’intérieur, plus de coupe */
+      md:-top-3           /* desktop : petit débordement propre */
       rounded-full px-3 py-1 text-xs font-medium
       bg-primary/15 text-primary border border-primary/30 backdrop-blur
     "
