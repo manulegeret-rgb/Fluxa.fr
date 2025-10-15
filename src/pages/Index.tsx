@@ -314,7 +314,7 @@ Merci !`
         "
       >
         <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 max-md:mb-16 md:mb-16">
+          <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
             <p className="text-xl text-muted-foreground">
               Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
@@ -532,7 +532,7 @@ Merci !`
           <form
             id="contact"
             onSubmit={onSubmitInfo}
-            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[10px] md:scroll-mt-24"
+            className="mt-10 max-w-2xl mx-auto space-y-4 scroll-mt-[64px] md:scroll-mt-24"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
