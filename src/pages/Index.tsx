@@ -32,32 +32,34 @@ const Index = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
 
   // ========= Arrows visibility (mobile)
-const [canLeft, setCanLeft] = useState(false);
-const [canRight, setCanRight] = useState(true);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(true);
 
-const updateArrows = () => {
-  const el = pricingRef.current;
-  if (!el) return;
-  const atStart = el.scrollLeft <= 1;
-  const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
-  setCanLeft(!atStart);
-  setCanRight(!atEnd);
-};
-
-useEffect(() => {
-  const el = pricingRef.current;
-  if (!el) return;
-  updateArrows();
-  const onScroll = () => updateArrows();
-  el.addEventListener("scroll", onScroll, { passive: true });
-  const ro = new ResizeObserver(updateArrows);
-  ro.observe(el);
-  return () => {
-    el.removeEventListener("scroll", onScroll);
-    ro.disconnect();
+  const updateArrows = () => {
+    const el = pricingRef.current;
+    if (!el) return;
+    const EPS = 40; // tolérance (marges: ml-6/mr-6, mr-8, -mx-6)
+    const atStart = el.scrollLeft <= EPS;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - EPS;
+    setCanLeft(!atStart);
+    setCanRight(!atEnd);
   };
-}, []);
 
+  useEffect(() => {
+    const el = pricingRef.current;
+    if (!el) return;
+    const onScroll = () => updateArrows();
+    updateArrows();                 // 1) au montage
+    const t = setTimeout(updateArrows, 0); // 2) juste après layout
+    el.addEventListener("scroll", onScroll, { passive: true });
+    const ro = new ResizeObserver(updateArrows);
+    ro.observe(el);
+    return () => {
+      clearTimeout(t);
+      el.removeEventListener("scroll", onScroll);
+      ro.disconnect();
+    };
+  }, []);
 
   // ========= Contrôle du menu mobile (Sheet)
   const [menuOpen, setMenuOpen] = useState(false);
@@ -331,7 +333,7 @@ Merci !`
                   overflow-x-auto md:overflow-visible
                   snap-x snap-mandatory md:snap-none
                   scroll-smooth
-                  -mx-6 px-6 pb-2
+                  -mx-6 px-6 pb-8 md:pb-2
                   [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
                 "
                 aria-label="Formules"
@@ -344,14 +346,14 @@ Merci !`
                     max-md:shrink-0
                     max-md:w-[calc(100vw-3rem)]
                     max-md:mr-8
-                    max-md:scale-[0.925] max-md:origin-top   /* carte un peu plus compacte en mobile */
+                    max-md:scale-[0.925] max-md:origin-top
                     max-md:first:ml-6
                     max-md:last:mr-6
                     md:w-auto md:shrink md:snap-none
                     max-md:text-center
                     max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
                     max-md:[&_ul>li]:justify-center
-                   max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
+                    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
                   "
                 >
                   <PricingCard
@@ -368,21 +370,20 @@ Merci !`
                 </div>
 
                 {/* Carte 2 (Populaire) */}
-<div
-  data-pricing-card
-  className="
-    relative
-    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
-    max-md:mr-8
-    max-md:scale-[0.925] max-md:origin-top   /* carte un peu plus compacte en mobile */
-    md:w-auto md:shrink md:snap-none md:overflow-visible
-    md:-translate-y-4 border-primary
-    max-md:text-center
-    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
-    max-md:[&_ul>li]:justify-center
-    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
-  "
->
+                <div
+                  data-pricing-card
+                  className="
+                    relative
+                    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
+                    max-md:mr-8
+                    max-md:scale-[0.925] max-md:origin-top
+                    md:w-auto md:shrink md:snap-none md:overflow-visible
+                    max-md:text-center
+                    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
+                    max-md:[&_ul>li]:justify-center
+                    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
+                  "
+                >
                   <span
                     className="
                       absolute z-10
@@ -416,12 +417,12 @@ Merci !`
                   className="
                     max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
                     max-md:mr-8 max-md:last:mr-6
-                    max-md:scale-[0.925] max-md:origin-top   /* carte un peu plus compacte en mobile */
+                    max-md:scale-[0.925] max-md:origin-top
                     md:w-auto md:shrink md:snap-none
                     max-md:text-center
-    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
-    max-md:[&_ul>li]:justify-center
-    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
+                    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
+                    max-md:[&_ul>li]:justify-center
+                    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
                   "
                 >
                   <PricingCard
@@ -440,43 +441,42 @@ Merci !`
               </div>
 
               {/* Flèche gauche (mobile) */}
-{canLeft && (
-  <button
-    onClick={() => {
-      const el = pricingRef.current;
-      if (!el) return;
-      const card = el.querySelector<HTMLElement>("[data-pricing-card]");
-      const gap = 32;
-      const w = card?.getBoundingClientRect().width ?? el.clientWidth;
-      el.scrollBy({ left: -(w + gap), behavior: "smooth" });
-      setTimeout(updateArrows, 350);
-    }}
-    className="md:hidden absolute left-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
-    aria-label="Carte précédente"
-  >
-    ‹
-  </button>
-)}
+              {canLeft && (
+                <button
+                  onClick={() => {
+                    const el = pricingRef.current;
+                    if (!el) return;
+                    const card = el.querySelector<HTMLElement>("[data-pricing-card]");
+                    const gap = 32; // ~ mr-8
+                    const w = card?.getBoundingClientRect().width ?? el.clientWidth;
+                    el.scrollBy({ left: -(w + gap), behavior: "smooth" });
+                    setTimeout(updateArrows, 350);
+                  }}
+                  className="md:hidden absolute left-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
+                  aria-label="Carte précédente"
+                >
+                  ‹
+                </button>
+              )}
 
-{/* Flèche droite (mobile) */}
-{canRight && (
-  <button
-    onClick={() => {
-      const el = pricingRef.current;
-      if (!el) return;
-      const card = el.querySelector<HTMLElement>("[data-pricing-card]");
-      const gap = 32;
-      const w = card?.getBoundingClientRect().width ?? el.clientWidth;
-      el.scrollBy({ left: w + gap, behavior: "smooth" });
-      setTimeout(updateArrows, 350);
-    }}
-    className="md:hidden absolute right-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
-    aria-label="Carte suivante"
-  >
-    ›
-  </button>
-)}
-
+              {/* Flèche droite (mobile) */}
+              {canRight && (
+                <button
+                  onClick={() => {
+                    const el = pricingRef.current;
+                    if (!el) return;
+                    const card = el.querySelector<HTMLElement>("[data-pricing-card]");
+                    const gap = 32; // ~ mr-8
+                    const w = card?.getBoundingClientRect().width ?? el.clientWidth;
+                    el.scrollBy({ left: w + gap, behavior: "smooth" });
+                    setTimeout(updateArrows, 350);
+                  }}
+                  className="md:hidden absolute right-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
+                  aria-label="Carte suivante"
+                >
+                  ›
+                </button>
+              )}
             </div>
           </div>
         </div>
