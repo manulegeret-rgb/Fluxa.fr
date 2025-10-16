@@ -24,6 +24,46 @@ import fluxaLogo from "@/assets/logo transparent.png";
 
 
 const Index = () => {
+    // === SEO HEAD (title, description, canonical, favicon) ===
+  useEffect(() => {
+    // Title
+    document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
+
+    // Meta description
+    const ensureMeta = (name: string, content: string) => {
+      let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+    ensureMeta(
+      "description",
+      "Fluxa centralise clients, devis, factures, agenda et messages. Automatisations (rappels, relances), statistiques en temps réel. Devis personnalisé sous 24–48 h."
+    );
+
+    // Canonical
+    let linkCanonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement("link");
+      linkCanonical.rel = "canonical";
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.href = "https://fluxa.fr/";
+
+    // Favicon (si pas déjà présent dans index.html)
+    const hasFavicon = document.querySelector('link[rel="icon"]');
+    if (!hasFavicon) {
+      const fav = document.createElement("link");
+      fav.rel = "icon";
+      fav.href = "/favicon.ico";
+      fav.type = "image/x-icon";
+      document.head.appendChild(fav);
+    }
+  }, []);
+
   // ========= État du scroll pour styliser le header
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -111,47 +151,50 @@ Merci !`
     setTimeout(() => setSending(false), 800);
     (e.currentTarget as HTMLFormElement).reset();
   };
-  <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Fluxa",
-        "applicationCategory": "BusinessApplication",
-        "applicationSubCategory": "SaaS",
-        "operatingSystem": "Web",
-        "url": "https://fluxa.fr/",
-        "image": "https://fluxa.fr/og-image.jpg",
-        "description": "Application de gestion sur mesure pour artisans & indépendants : clients, devis, factures, agenda, messages, automatisations.",
-        "offers": {
-          "@type": "Offer",
-          "price": "800",
-          "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Fluxa",
-          "url": "https://fluxa.fr/",
-          "logo": "https://fluxa.fr/logo.png",
-          "sameAs": [
-            "https://instagram.com/fluxa.fr",
-            "https://linkedin.com/company/fluxa-fr",
-            "https://facebook.com/fluxa.fr"
-          ]
-        }
-      },
-      null,
-      2
-    ),
-  }}
-/>
   
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+          {/* =================== JSON-LD =================== */}
+      <script
+        type="application/ld+json"
+        // @ts-ignore
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Fluxa",
+              "applicationCategory": "BusinessApplication",
+              "applicationSubCategory": "SaaS",
+              "operatingSystem": "Web",
+              "url": "https://fluxa.fr/",
+              "image": "https://fluxa.fr/og-image.jpg",
+              "description":
+                "Application de gestion sur mesure pour artisans & indépendants : clients, devis, factures, agenda, messages, automatisations.",
+              "offers": {
+                "@type": "Offer",
+                "price": "800",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Fluxa",
+                "url": "https://fluxa.fr/",
+                "logo": "https://fluxa.fr/logo.png",
+                "sameAs": [
+                  "https://instagram.com/fluxa.fr",
+                  "https://linkedin.com/company/fluxa-fr",
+                  "https://facebook.com/fluxa.fr",
+                ],
+              },
+            },
+            null,
+            2
+          ),
+        }}
+      />
       {/* ================= HEADER ================= */}
       <header
         className={[
