@@ -3,14 +3,12 @@ import { Faq } from "@/components/Faq";
 import { Automations } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
 import {
-  Instagram,
-  Linkedin,
-  Facebook,
   Calendar,
   DollarSign,
   MessageSquare,
   BarChart3,
   Mail,
+  Instagram,
   CheckCircle2,
   XCircle,
   Menu,
@@ -20,77 +18,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
 import fluxaLogo from "@/assets/logo transparent.png";
 
-
-
-
 const Index = () => {
-    // === SEO HEAD (title, description, canonical, favicon) ===
-  useEffect(() => {
-    // Title
-    document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
-
-    // Meta description
-    const ensureMeta = (name: string, content: string) => {
-      let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute("name", name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-    ensureMeta(
-      "description",
-      "Fluxa centralise clients, devis, factures, agenda et messages. Automatisations (rappels, relances), statistiques en temps réel. Devis personnalisé sous 24–48 h."
-    );
-
-    // Canonical
-    let linkCanonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!linkCanonical) {
-      linkCanonical = document.createElement("link");
-      linkCanonical.rel = "canonical";
-      document.head.appendChild(linkCanonical);
-    }
-    linkCanonical.href = "https://fluxa.fr/";
-
-    // Favicon (si pas déjà présent dans index.html)
-    const hasFavicon = document.querySelector('link[rel="icon"]');
-    if (!hasFavicon) {
-      const fav = document.createElement("link");
-      fav.rel = "icon";
-      fav.href = "/favicon.ico";
-      fav.type = "image/x-icon";
-      document.head.appendChild(fav);
-    }
-    // --- Open Graph & Twitter ---
-const setMeta = (attr: "name" | "property", key: string, content: string) => {
-  let tag = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
-  if (!tag) {
-    tag = document.createElement("meta");
-    tag.setAttribute(attr, key);
-    document.head.appendChild(tag);
-  }
-  tag.setAttribute("content", content);
-};
-
-const ogTitle = "Fluxa — application de gestion sur mesure pour artisans & indépendants";
-const ogDesc  = "Fluxa centralise clients, devis, factures, agenda, messages et automatisations. Gagnez du temps, réduisez l’administratif, suivez vos indicateurs en temps réel.";
-
-setMeta("property", "og:type", "website");
-setMeta("property", "og:url", "https://fluxa.fr/");
-setMeta("property", "og:site_name", "Fluxa");
-setMeta("property", "og:title", ogTitle);
-setMeta("property", "og:description", ogDesc);
-setMeta("property", "og:image", "https://fluxa.fr/og-image.jpg");
-setMeta("property", "og:image:alt", "Fluxa — application de gestion pour artisans & indépendants");
-
-// Twitter Card
-setMeta("name", "twitter:card", "summary_large_image");
-setMeta("name", "twitter:title", ogTitle);
-setMeta("name", "twitter:description", ogDesc);
-setMeta("name", "twitter:image", "https://fluxa.fr/og-image.jpg");
-  }, []);
-
   // ========= État du scroll pour styliser le header
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -178,50 +106,9 @@ Merci !`
     setTimeout(() => setSending(false), 800);
     (e.currentTarget as HTMLFormElement).reset();
   };
-  
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-          {/* =================== JSON-LD =================== */}
-      <script
-        type="application/ld+json"
-        // @ts-ignore
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            {
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Fluxa",
-              "applicationCategory": "BusinessApplication",
-              "applicationSubCategory": "SaaS",
-              "operatingSystem": "Web",
-              "url": "https://fluxa.fr/",
-              "image": "https://fluxa.fr/og-image.jpg",
-              "description":
-                "Application de gestion sur mesure pour artisans & indépendants : clients, devis, factures, agenda, messages, automatisations.",
-              "offers": {
-                "@type": "Offer",
-                "price": "800",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "Fluxa",
-                "url": "https://fluxa.fr/",
-                "logo": "https://fluxa.fr/logo.png",
-                "sameAs": [
-                  "https://instagram.com/fluxa.fr",
-                  "https://linkedin.com/company/fluxa-fr",
-                  "https://facebook.com/fluxa.fr",
-                ],
-              },
-            },
-            null,
-            2
-          ),
-        }}
-      />
       {/* ================= HEADER ================= */}
       <header
         className={[
@@ -315,10 +202,7 @@ Merci !`
       </header>
 
       {/* ================= HERO ================= */}
-      <noscript>
-  <h1>Fluxa — application de gestion complète pour artisans et entreprises</h1>
-</noscript>
-      <section id="hero" aria-label="Présentation de Fluxa — application de gestion pour artisans et indépendants" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* fond halo */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -329,25 +213,19 @@ Merci !`
         <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Texte */}
-<div className="space-y-8 text-center md:text-left">
-  <div className="space-y-4">
-    <h1 className="text-[clamp(36px,6.5vw,60px)] font-bold leading-tight tracking-tight text-white">
-  Fluxa — application de gestion complète pour{" "}
-  <span className="text-blue-400">artisans</span> et{" "}
-  <span className="text-blue-400">entreprises</span>.
-</h1>
+            <div className="space-y-8 text-center md:text-left">
+              <div className="space-y-4">
+                <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
+                  Votre app de gestion&nbsp;sur-mesure,{" "}
+                  <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
+                    pensée pour votre entreprise.
+                  </span>
+                </h1>
 
-<h2 className="text-[clamp(26px,5.5vw,52px)] font-semibold leading-tight text-gray-200">
-  Moins d’administratif,&nbsp;
-  <span className="text-blue-400">plus de production</span>.
-</h2>
-
-<p className="mt-4 text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
-  Fluxa centralise vos clients, devis, factures, agenda et messages — une application sur mesure pour simplifier la gestion de votre activité.
-</p>
-
-
-
+                <p className="text-[15px] md:text-lg text-muted-foreground/90">
+                  Centralisez clients, devis/factures, agenda et messages.{" "}
+                  <span className="text-foreground">Moins d’administratif, plus de production.</span>
+                </p>
 
                 {/* Bénéfices chiffrés */}
                 <ul className="mt-4 flex flex-wrap items-center gap-2 justify-center md:justify-start">
@@ -407,15 +285,11 @@ Merci !`
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
               <img
-  src={dashboardMockup}
-  alt="Aperçu du tableau de bord Fluxa : modules clients, factures et agenda"
-  width={1200}
-  height={800}
-  decoding="async"
-  fetchPriority="high"
-  loading="eager"
-  className="relative w-full h-auto rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] select-none [image-rendering:crisp-edges]"
-/>
+                src={dashboardMockup}
+                alt="Aperçu du tableau de bord Fluxa pour artisans"
+                loading="eager"
+                className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
+              />
               <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
                 Exemple d’interface — chiffres factices
               </div>
@@ -424,89 +298,27 @@ Merci !`
         </div>
       </section>
 
-      <section id="automations" aria-label="Automatisations Fluxa pour artisans et indépendants" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
+      <section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
         <Automations />
       </section>
-      <section
-  id="presentation"
-  className="max-w-4xl mx-auto px-6 py-20 text-center md:text-left text-gray-300"
->
-  <h2 className="text-3xl font-bold mb-6 text-white">
-    Pourquoi choisir Fluxa pour votre activité ?
-  </h2>
-
-  <p className="mb-4">
-    Fluxa est une <strong>application de gestion moderne et intuitive</strong> conçue pour
-    simplifier le quotidien des <strong>artisans, indépendants et petites entreprises</strong>.
-    En centralisant vos <strong>clients</strong>, <strong>rendez-vous</strong>,
-    <strong>devis</strong> et <strong>factures</strong> dans un même espace,
-    vous gagnez du temps tout en améliorant votre organisation.
-  </p>
-
-  <p className="mb-4">
-    Que vous soyez plombier, coiffeur, photographe, menuisier ou gérant d’un atelier,
-    Fluxa s’adapte à vos besoins. Grâce à ses modules flexibles,
-    vous pouvez activer uniquement les fonctionnalités utiles à votre activité :
-    <em>gestion client, agenda automatisé, relances, statistiques, paiements</em> et bien plus.
-  </p>
-
-  <p className="mb-4">
-    Contrairement aux logiciels traditionnels souvent lourds et coûteux,
-    Fluxa se distingue par sa <strong>simplicité</strong>, sa
-    <strong>rapidité</strong> et son <strong>hébergement sécurisé en Europe</strong>.
-    Aucun téléchargement n’est requis : tout fonctionne directement en ligne,
-    depuis votre ordinateur ou votre smartphone.
-  </p>
-
-  <h3 className="text-2xl font-semibold mt-10 mb-4 text-white">
-    Des automatismes puissants pour gagner du temps
-  </h3>
-  <p className="mb-4">
-    Grâce à l’automatisation intégrée, Fluxa vous permet de configurer des
-    <strong>rappels de rendez-vous</strong>, des <strong>relances automatiques</strong>,
-    ou encore l’envoi d’un <strong>email de suivi client</strong> après chaque prestation.
-    Ces outils réduisent considérablement les oublis et améliorent la satisfaction client.
-  </p>
-
-  <h3 className="text-2xl font-semibold mt-10 mb-4 text-white">
-    Une vision claire de votre activité
-  </h3>
-  <p className="mb-4">
-    Le tableau de bord Fluxa vous offre une vue complète sur vos indicateurs :
-    chiffre d’affaires, taux de fidélité, rendez-vous honorés, retards de paiement, etc.
-    Vous savez en un coup d’œil où en est votre activité, et pouvez prendre de meilleures décisions.
-  </p>
-
-  <p className="mt-8 text-gray-400">
-    En résumé, Fluxa est plus qu’un simple outil de gestion — c’est un assistant digital qui automatise votre administratif pour
-    que vous puissiez vous concentrer sur l’essentiel : <strong>votre métier</strong>.
-  </p>
-</section>
 
       {/* ================= PRICING ================= */}
       <section
-  id="pricing"
-  aria-label="Formules d'accompagnement Fluxa — application de gestion"
-  className="
-    mt-0 pt-2 md:pt-0
-    pb-14 md:pb-20
-    bg-background
-    scroll-mt-[4px] md:scroll-mt-[40px]
-    -mt-px md:mt-0
-  "
->
+        id="pricing"
+        className="
+          mt-0 pt-2 md:pt-0
+          pb-14 md:pb-20
+          bg-background
+          scroll-mt-[4px] md:scroll-mt-[40px]
+          -mt-px md:mt-0
+        "
+      >
         <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 max-md:mb-4 md:mb-12">
+          <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
             <p className="text-xl text-muted-foreground">
               Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
             </p>
-            <p className="mt-3 md:mt-4 text-sm text-muted-foreground max-w-3xl mx-auto">
-  Fluxa est une application de gestion pensée pour les artisans et indépendants :
-  centralisation des clients, agenda connecté, devis et factures, messagerie intégrée
-  et automatisations intelligentes. Une solution sur mesure pour réduire l’administratif
-  et se concentrer sur la production.
-</p>
           </div>
 
           {/* Carrousel + grille */}
@@ -672,14 +484,14 @@ Merci !`
 
       {/* ================= CTA / INFOS (formulaire) ================= */}
       <section
-  id="infos"
-  className={`
-    pt-0 pb-10 md:pb-16
-    bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background
-    relative overflow-hidden
-    scroll-mt-[84px] md:scroll-mt-[-30px]
-  `}
->
+        id="infos"
+        className={`
+          pt-0 pb-10 md:pb-16
+          bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background
+          relative overflow-hidden
+          scroll-mt-[84px] md:scroll-mt-[-30px]
+        `}
+      >
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
         </div>
@@ -811,96 +623,87 @@ Merci !`
       </section>
 
       {/* ================= FAQ ================= */}
-      <section
-  id="faq"
-  className="scroll-mt-[-60px] md:scroll-mt-[-60px] -mb-16 md:-mb-24"
->
-  <Faq />
-</section>
-  <section
-  id="about"
-  aria-label="À propos de Fluxa"
-  className="mt-6 mb-12 md:mb-20 px-6"
->
-  <div className="max-w-3xl mx-auto text-center">
-    <h2 className="text-xl font-semibold mb-3 text-white">
-      À propos de Fluxa
+      <section id="faq" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
+        <Faq />
+      </section>
+     {/* ================= À PROPOS ================= */}
+<section className="pt-10 pb-2 bg-background border-t border-border/50 flex items-center justify-center text-center">
+  <div className="max-w-3xl px-6">
+    <h2 className="text-2xl md:text-3xl font-bold mb-3">
+      À propos de <span className="text-primary">Fluxa</span>
     </h2>
-    <p className="text-base md:text-lg text-muted-foreground">
-  Fluxa aide les artisans et indépendants à piloter leur activité au quotidien :
-  gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
-  Notre solution logicielle sur mesure simplifie la vie des professionnels, auto-entrepreneurs et petites entreprises,
-  tout en leur offrant un outil de gestion moderne et personnalisable.
-</p>
+    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
+      Fluxa aide les artisans et indépendants à piloter leur activité au quotidien :
+      gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
+      Notre solution logicielle sur mesure simplifie la vie des professionnels, auto-entrepreneurs et petites entreprises,
+      tout en leur offrant un outil de gestion moderne et personnalisable.
+    </p>
   </div>
 </section>
 
-      {/* ================= FOOTER ================= */}
-      <footer className="py-4 md:py-5 border-t border-border">
-  <div className="max-w-7xl mx-auto px-6 grid gap-3 md:grid-cols-3 items-center text-sm text-slate-400">
-    {/* Col 1 : copyright */}
-    <p className="text-center md:text-left">
-      © {new Date().getFullYear()} Fluxa. Tous droits réservés.
-    </p>
 
-    {/* Col 2 : réseaux */}
-    <ul className="flex justify-center gap-5">
-      <li>
+
+      {/* ================= FOOTER ================= */}
+<footer className="mt-16 py-10 border-t border-border/80">
+  <div className="container mx-auto px-6">
+    {/* Ligne 1 : logo + baseline */}
+    <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
+      <div className="flex items-center gap-3">
+        <img
+          src={fluxaLogo}
+          alt="Fluxa"
+          className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
+        />
+        <p className="text-sm text-muted-foreground">
+          Fluxa — Automatisation & gestion sur mesure
+        </p>
+      </div>
+
+      {/* Réseaux */}
+      <nav className="flex items-center gap-5 text-sm">
+        <a
+          href="mailto:fluxa.contact@gmail.com"
+          className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
+        >
+          <Mail className="w-4 h-4" />
+          Email
+        </a>
         <a
           href="https://instagram.com/fluxa.fr"
           target="_blank"
-          rel="me noopener noreferrer"
-          aria-label="Instagram"
-          className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
-          <Instagram size={18} strokeWidth={1.5} />
+          <Instagram className="w-4 h-4" />
           Instagram
         </a>
-      </li>
-      <li>
-        <a
-          href="https://linkedin.com/company/fluxa-fr"
-          target="_blank"
-          rel="me noopener noreferrer"
-          aria-label="LinkedIn"
-          className="flex items-center gap-2 hover:text-slate-200 transition-colors"
-        >
-          <Linkedin size={18} strokeWidth={1.5} />
+        {/* Ajoute d’autres liens si tu veux :
+        <a href="#" className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground">
+          <Linkedin className="w-4 h-4" />
           LinkedIn
         </a>
-      </li>
-      <li>
-        <a
-          href="https://facebook.com/fluxa.fr"
-          target="_blank"
-          rel="me noopener noreferrer"
-          aria-label="Facebook"
-          className="flex items-center gap-2 hover:text-slate-200 transition-colors"
-        >
-          <Facebook size={18} strokeWidth={1.5} />
-          Facebook
-        </a>
-      </li>
-    </ul>
+        */}
+      </nav>
+    </div>
 
-    {/* Col 3 : 2e bloc (légaux / contact) */}
-    <ul className="flex justify-center md:justify-end gap-5">
-      <li>
-        <a href="#contact" className="hover:text-slate-200 transition-colors">
-          Contact
-        </a>
-      </li>
-      <li>
-        <a href="/mentions-legales" className="hover:text-slate-200 transition-colors">
-          Mentions légales
-        </a>
-      </li>
-      <li>
-        <a href="/politique-de-confidentialite" className="hover:text-slate-200 transition-colors">
-          Confidentialité
-        </a>
-      </li>
-    </ul>
+    {/* Séparateur */}
+    <div className="my-6 border-t border-border/60" />
+
+    {/* Ligne 2 : liens légaux + © */}
+    <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
+      <p className="text-xs text-muted-foreground">
+        © {new Date().getFullYear()} Fluxa — Tous droits réservés.
+      </p>
+
+      <div className="flex items-center gap-4 text-sm">
+        {/* Si tu as mis les fichiers dans /public, garde .html pour éviter les 404 */}
+        <a href="/mentions-legales" className="hover:text-primary transition">Mentions légales</a>
+        <span className="text-border">•</span>
+        <a href="/politique-confidentialite" className="hover:text-primary transition">
+  Politique de confidentialité
+</a>
+      </div>
+    </div>
   </div>
 </footer>
     </div>

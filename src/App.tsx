@@ -7,6 +7,8 @@ import { useEffect } from "react";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import MentionsLegales from "./pages/Mentions-Legales"; // ✅
+import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
 
 const queryClient = new QueryClient();
 
@@ -36,9 +38,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src="/logo.png" alt="Fluxa" className="h-6 w-auto" />
-          <span className="text-lg font-semibold tracking-wide text-white">
-            FLUXA
-          </span>
+          <span className="text-lg font-semibold tracking-wide text-white">FLUXA</span>
         </Link>
 
         {/* Menu */}
@@ -77,16 +77,18 @@ const Header = () => {
 
 const AppInner = () => {
   const location = useLocation();
-  const showGlobalHeader = location.pathname !== "/";
+  // Pages où l’on cache le header global
+const hideHeaderPaths = ["/", "/mentions-legales", "/politique-confidentialite"];
+const showGlobalHeader = !hideHeaderPaths.includes(location.pathname);
 
   return (
     <>
-      {/* HEADER GLOBAL (masqué sur la home) */}
       {showGlobalHeader && <Header />}
 
-      {/* ROUTES */}
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
+        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ NOUVELLE ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
