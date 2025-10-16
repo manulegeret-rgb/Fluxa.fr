@@ -62,6 +62,33 @@ const Index = () => {
       fav.type = "image/x-icon";
       document.head.appendChild(fav);
     }
+    // --- Open Graph & Twitter ---
+const setMeta = (attr: "name" | "property", key: string, content: string) => {
+  let tag = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute(attr, key);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", content);
+};
+
+const ogTitle = "Fluxa — application de gestion sur mesure pour artisans & indépendants";
+const ogDesc  = "Fluxa centralise clients, devis, factures, agenda, messages et automatisations. Gagnez du temps, réduisez l’administratif, suivez vos indicateurs en temps réel.";
+
+setMeta("property", "og:type", "website");
+setMeta("property", "og:url", "https://fluxa.fr/");
+setMeta("property", "og:site_name", "Fluxa");
+setMeta("property", "og:title", ogTitle);
+setMeta("property", "og:description", ogDesc);
+setMeta("property", "og:image", "https://fluxa.fr/og-image.jpg");
+setMeta("property", "og:image:alt", "Fluxa — application de gestion pour artisans & indépendants");
+
+// Twitter Card
+setMeta("name", "twitter:card", "summary_large_image");
+setMeta("name", "twitter:title", ogTitle);
+setMeta("name", "twitter:description", ogDesc);
+setMeta("name", "twitter:image", "https://fluxa.fr/og-image.jpg");
   }, []);
 
   // ========= État du scroll pour styliser le header
@@ -288,6 +315,9 @@ Merci !`
       </header>
 
       {/* ================= HERO ================= */}
+      <noscript>
+  <h1>Fluxa — application de gestion complète pour artisans et entreprises</h1>
+</noscript>
       <section id="hero" aria-label="Présentation de Fluxa — application de gestion pour artisans et indépendants" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* fond halo */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
@@ -807,47 +837,70 @@ Merci !`
 
       {/* ================= FOOTER ================= */}
       <footer className="py-4 md:py-5 border-t border-border">
-  <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
-    <p>© {new Date().getFullYear()} Fluxa. Tous droits réservés.</p>
+  <div className="max-w-7xl mx-auto px-6 grid gap-3 md:grid-cols-3 items-center text-sm text-slate-400">
+    {/* Col 1 : copyright */}
+    <p className="text-center md:text-left">
+      © {new Date().getFullYear()} Fluxa. Tous droits réservés.
+    </p>
 
-    <ul className="flex gap-5 mt-2 md:mt-0">
-  <li>
-    <a
-      href="https://instagram.com/fluxa.fr"
-      target="_blank"
-      rel="me noopener noreferrer"
-      aria-label="Instagram"
-      className="flex items-center gap-2 hover:text-slate-200 transition-colors"
-    >
-      <Instagram size={18} strokeWidth={1.5} />
-      Instagram
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://linkedin.com/company/fluxa-fr"
-      target="_blank"
-      rel="me noopener noreferrer"
-      aria-label="LinkedIn"
-      className="flex items-center gap-2 hover:text-slate-200 transition-colors"
-    >
-      <Linkedin size={18} strokeWidth={1.5} />
-      LinkedIn
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://facebook.com/fluxa.fr"
-      target="_blank"
-      rel="me noopener noreferrer"
-      aria-label="Facebook"
-      className="flex items-center gap-2 hover:text-slate-200 transition-colors"
-    >
-      <Facebook size={18} strokeWidth={1.5} />
-      Facebook
-    </a>
-  </li>
-</ul>
+    {/* Col 2 : réseaux */}
+    <ul className="flex justify-center gap-5">
+      <li>
+        <a
+          href="https://instagram.com/fluxa.fr"
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label="Instagram"
+          className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+        >
+          <Instagram size={18} strokeWidth={1.5} />
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://linkedin.com/company/fluxa-fr"
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label="LinkedIn"
+          className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+        >
+          <Linkedin size={18} strokeWidth={1.5} />
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://facebook.com/fluxa.fr"
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label="Facebook"
+          className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+        >
+          <Facebook size={18} strokeWidth={1.5} />
+          Facebook
+        </a>
+      </li>
+    </ul>
+
+    {/* Col 3 : 2e bloc (légaux / contact) */}
+    <ul className="flex justify-center md:justify-end gap-5">
+      <li>
+        <a href="#contact" className="hover:text-slate-200 transition-colors">
+          Contact
+        </a>
+      </li>
+      <li>
+        <a href="/mentions-legales" className="hover:text-slate-200 transition-colors">
+          Mentions légales
+        </a>
+      </li>
+      <li>
+        <a href="/politique-de-confidentialite" className="hover:text-slate-200 transition-colors">
+          Confidentialité
+        </a>
+      </li>
+    </ul>
   </div>
 </footer>
     </div>
