@@ -201,8 +201,12 @@ Merci !`
         </div>
       </header>
 
+      <h1 className="sr-only">
+  Application de gestion sur mesure pour artisans et indépendants – Fluxa
+</h1>
+
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="hero" aria-label="Présentation de Fluxa — application de gestion pour artisans et indépendants" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* fond halo */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -215,12 +219,12 @@ Merci !`
             {/* Texte */}
             <div className="space-y-8 text-center md:text-left">
               <div className="space-y-4">
-                <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
-                  Votre app de gestion&nbsp;sur-mesure,{" "}
-                  <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-                    pensée pour votre entreprise.
-                  </span>
-                </h1>
+                <h2 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
+  Votre app de gestion&nbsp;sur-mesure,{" "}
+  <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
+    pensée pour votre entreprise.
+  </span>
+</h2> 
 
                 <p className="text-[15px] md:text-lg text-muted-foreground/90">
                   Centralisez clients, devis/factures, agenda et messages.{" "}
@@ -298,27 +302,34 @@ Merci !`
         </div>
       </section>
 
-      <section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
+      <section id="automations" aria-label="Automatisations Fluxa pour artisans et indépendants" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
         <Automations />
       </section>
 
       {/* ================= PRICING ================= */}
       <section
-        id="pricing"
-        className="
-          mt-0 pt-2 md:pt-0
-          pb-14 md:pb-20
-          bg-background
-          scroll-mt-[4px] md:scroll-mt-[40px]
-          -mt-px md:mt-0
-        "
-      >
+  id="pricing"
+  aria-label="Formules d'accompagnement Fluxa — application de gestion"
+  className="
+    mt-0 pt-2 md:pt-0
+    pb-14 md:pb-20
+    bg-background
+    scroll-mt-[4px] md:scroll-mt-[40px]
+    -mt-px md:mt-0
+  "
+>
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
             <p className="text-xl text-muted-foreground">
               Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
             </p>
+            <p className="mt-6 text-sm text-muted-foreground max-w-3xl mx-auto">
+  Fluxa est une application de gestion pensée pour les artisans et indépendants :
+  centralisation des clients, agenda connecté, devis et factures, messagerie intégrée
+  et automatisations intelligentes. Une solution sur mesure pour réduire l’administratif
+  et se concentrer sur la production.
+</p>
           </div>
 
           {/* Carrousel + grille */}
@@ -484,14 +495,14 @@ Merci !`
 
       {/* ================= CTA / INFOS (formulaire) ================= */}
       <section
-        id="infos"
-        className={`
-          pt-0 pb-10 md:pb-16
-          bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background
-          relative overflow-hidden
-          scroll-mt-[84px] md:scroll-mt-[-30px]
-        `}
-      >
+  id="infos"
+  className={`
+    pt-0 pb-10 md:pb-16
+    bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background
+    relative overflow-hidden
+    scroll-mt-[84px] md:scroll-mt-[-30px]
+  `}
+>
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
         </div>
@@ -623,9 +634,26 @@ Merci !`
       </section>
 
       {/* ================= FAQ ================= */}
-      <section id="faq" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
+      <section id="faq" aria-label="Questions fréquentes Fluxa" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
         <Faq />
       </section>
+      <section
+  id="about"
+  aria-label="À propos de Fluxa"
+  className="mt-20 px-6"
+>
+  <div className="max-w-3xl mx-auto text-center">
+    <h2 className="text-xl font-semibold mb-3 text-white">
+      À propos de Fluxa
+    </h2>
+    <p className="text-sm text-muted-foreground">
+      Fluxa aide les artisans et indépendants à piloter leur activité au quotidien :
+      gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
+      Notre accompagnement sur mesure permet d’implémenter rapidement les fonctionnalités adaptées à chaque métier,
+      pour gagner du temps et améliorer la satisfaction client.
+    </p>
+  </div>
+</section>
 
       {/* ================= FOOTER ================= */}
       <footer className="py-8 border-t border-border">
