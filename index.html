@@ -2,11 +2,14 @@
 <html lang="fr" class="scroll-smooth">
   <head>
   <meta charset="UTF-8" />
+  <link rel="preload" as="image" href="/assets/dashboard-mockup.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- SEO de base -->
-  <title>Fluxa — Application de gestion sur mesure pour artisans & indépendants</title>
-  <meta name="description" content="Centralisez clients, agenda, factures et messages. Automatisations (rappels, relances), statistiques en temps réel. Devis personnalisé sous 24–48h." />
+  <title>Fluxa — Application de gestion pour artisans & entreprises</title>
+  <meta name="description" content="Centralisez clients, devis, factures, agenda et messages. Automatisations et stats en temps réel. Devis sous 24–48 h." />
   <meta name="author" content="Fluxa" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://fluxa.fr/" />
@@ -14,13 +17,13 @@
   <!-- Couleur d’UI mobile -->
   <meta name="theme-color" content="#0b0b0b" />
 
-  <!-- Open Graph / réseaux -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fluxa" />
   <meta property="og:title" content="Fluxa — Application de gestion sur mesure" />
   <meta property="og:description" content="Centralisez, automatisez, gagnez du temps. Devis personnalisé sous 24–48h." />
   <meta property="og:url" content="https://fluxa.fr/" />
-  <!-- Mets ton image locale quand prête : /og-image.png (1200x630) -->
+  <!-- TODO: remplace par une image hébergée chez toi (ex: https://fluxa.fr/og-image.png 1200x630) -->
   <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -32,9 +35,9 @@
   <meta name="twitter:description" content="Centralisez, automatisez, gagnez du temps. Devis sous 24–48h." />
   <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-  <!-- Favicon + préchargement logo header pour netteté -->
+  <!-- Favicon + préchargement logo -->
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preload" as="image" href="/logo.png" imagesizes="24px" />
+  <link rel="preload" as="image" href="/logo.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,12 +57,29 @@
   }
   </script>
 
-  <!-- Comportement de scroll (garde tes styles existants) -->
+  <!-- Comportement de scroll -->
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    body { margin: 0; }
-  </style>
+  html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; }
+</style>
+
+  <!-- Google tag (gtag.js) - GA4 -->
+  <!-- Google tag (gtag.js) - GA4 -->
+<script
+  src="https://www.googletagmanager.com/gtag/js?id=G-BRE2ZDN6P4"
+  defer
+></script>
+<script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  window.addEventListener("load", function () {
+    gtag("js", new Date());
+    gtag("config", "G-BRE2ZDN6P4");
+  });
+</script>
 </head>
 
   <body>
