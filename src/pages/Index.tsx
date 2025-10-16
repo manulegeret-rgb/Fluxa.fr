@@ -118,31 +118,30 @@ Merci !`
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        name: "Fluxa",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory: "SaaS",
-        operatingSystem: "Web",
-        url: "https://fluxa.fr/",
-        image: "https://fluxa.fr/og-image.jpg",
-        description:
-          "Application de gestion sur mesure pour artisans & indépendants : clients, devis, factures, agenda, messages, automatisations.",
-        offers: {
+        "name": "Fluxa",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "SaaS",
+        "operatingSystem": "Web",
+        "url": "https://fluxa.fr/",
+        "image": "https://fluxa.fr/og-image.jpg",
+        "description": "Application de gestion sur mesure pour artisans & indépendants : clients, devis, factures, agenda, messages, automatisations.",
+        "offers": {
           "@type": "Offer",
-          price: "800",
-          priceCurrency: "EUR",
-          availability: "https://schema.org/InStock",
+          "price": "800",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
         },
-        publisher: {
+        "publisher": {
           "@type": "Organization",
-          name: "Fluxa",
-          url: "https://fluxa.fr/",
-          logo: "https://fluxa.fr/logo.png",
-          sameAs: [
+          "name": "Fluxa",
+          "url": "https://fluxa.fr/",
+          "logo": "https://fluxa.fr/logo.png",
+          "sameAs": [
             "https://instagram.com/fluxa.fr",
             "https://linkedin.com/company/fluxa-fr",
             "https://facebook.com/fluxa.fr"
-          ],
-        },
+          ]
+        }
       },
       null,
       2
