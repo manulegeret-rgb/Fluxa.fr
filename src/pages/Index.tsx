@@ -357,8 +357,7 @@ Merci !`
   </p>
 
   <p className="mt-8 text-gray-400">
-    En résumé, Fluxa est plus qu’un simple outil de gestion — c’est un
-    <strong>assistant digital</strong> qui automatise votre administratif pour
+    En résumé, Fluxa est plus qu’un simple outil de gestion — c’est un assistant digital qui automatise votre administratif pour
     que vous puissiez vous concentrer sur l’essentiel : <strong>votre métier</strong>.
   </p>
 </section>
