@@ -18,6 +18,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
 import fluxaLogo from "@/assets/logo transparent.png";
 
+
 const Index = () => {
   // ========= État du scroll pour styliser le header
   const [scrolled, setScrolled] = useState(false);
@@ -202,10 +203,6 @@ Merci !`
         </div>
       </header>
 
-      <h1 className="absolute opacity-0 -z-10">
-  Application de gestion sur mesure pour artisans et indépendants – Fluxa
-</h1>
-
       {/* ================= HERO ================= */}
       <section id="hero" aria-label="Présentation de Fluxa — application de gestion pour artisans et indépendants" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* fond halo */}
@@ -218,19 +215,22 @@ Merci !`
         <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Texte */}
-            <div className="space-y-8 text-center md:text-left">
-              <div className="space-y-4">
-                <h2 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
-  Votre app de gestion&nbsp;sur-mesure,{" "}
-  <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-    pensée pour votre entreprise.
-  </span>
-</h2> 
+<div className="space-y-8 text-center md:text-left">
+  <div className="space-y-4">
+    <h1 className="text-[clamp(36px,6.5vw,60px)] font-bold leading-tight tracking-tight text-white">
+  Application de gestion pour artisans et{" "}
+  <span className="text-blue-400">entreprises</span>.
+</h1>
 
-                <p className="text-[15px] md:text-lg text-muted-foreground/90">
-                  Centralisez clients, devis/factures, agenda et messages.{" "}
-                  <span className="text-foreground">Moins d’administratif, plus de production.</span>
-                </p>
+    <h2 className="text-[clamp(26px,5.5vw,52px)] font-semibold leading-tight text-gray-200">
+      Moins d’administratif,&nbsp;
+      <span className="text-blue-400">plus de production</span>.
+    </h2>
+
+    <p className="mt-4 text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
+      Centralisez vos clients, devis, factures, agenda et messages — tout au même endroit, en toute simplicité.
+    </p>
+
 
                 {/* Bénéfices chiffrés */}
                 <ul className="mt-4 flex flex-wrap items-center gap-2 justify-center md:justify-start">
@@ -306,6 +306,62 @@ Merci !`
       <section id="automations" aria-label="Automatisations Fluxa pour artisans et indépendants" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
         <Automations />
       </section>
+      <section
+  id="presentation"
+  className="max-w-4xl mx-auto px-6 py-20 text-center md:text-left text-gray-300"
+>
+  <h2 className="text-3xl font-bold mb-6 text-white">
+    Pourquoi choisir Fluxa pour votre activité ?
+  </h2>
+
+  <p className="mb-4">
+    Fluxa est une <strong>application de gestion moderne et intuitive</strong> conçue pour
+    simplifier le quotidien des <strong>artisans, indépendants et petites entreprises</strong>.
+    En centralisant vos <strong>clients</strong>, <strong>rendez-vous</strong>,
+    <strong>devis</strong> et <strong>factures</strong> dans un même espace,
+    vous gagnez du temps tout en améliorant votre organisation.
+  </p>
+
+  <p className="mb-4">
+    Que vous soyez plombier, coiffeur, photographe, menuisier ou gérant d’un atelier,
+    Fluxa s’adapte à vos besoins. Grâce à ses modules flexibles,
+    vous pouvez activer uniquement les fonctionnalités utiles à votre activité :
+    <em>gestion client, agenda automatisé, relances, statistiques, paiements</em> et bien plus.
+  </p>
+
+  <p className="mb-4">
+    Contrairement aux logiciels traditionnels souvent lourds et coûteux,
+    Fluxa se distingue par sa <strong>simplicité</strong>, sa
+    <strong>rapidité</strong> et son <strong>hébergement sécurisé en Europe</strong>.
+    Aucun téléchargement n’est requis : tout fonctionne directement en ligne,
+    depuis votre ordinateur ou votre smartphone.
+  </p>
+
+  <h3 className="text-2xl font-semibold mt-10 mb-4 text-white">
+    Des automatismes puissants pour gagner du temps
+  </h3>
+  <p className="mb-4">
+    Grâce à l’automatisation intégrée, Fluxa vous permet de configurer des
+    <strong>rappels de rendez-vous</strong>, des <strong>relances automatiques</strong>,
+    ou encore l’envoi d’un <strong>email de suivi client</strong> après chaque prestation.
+    Ces outils réduisent considérablement les oublis et améliorent la satisfaction client.
+  </p>
+
+  <h3 className="text-2xl font-semibold mt-10 mb-4 text-white">
+    Une vision claire de votre activité
+  </h3>
+  <p className="mb-4">
+    Le tableau de bord Fluxa vous offre une vue complète sur vos indicateurs :
+    chiffre d’affaires, taux de fidélité, rendez-vous honorés, retards de paiement, etc.
+    Vous savez en un coup d’œil où en est votre activité, et pouvez prendre de meilleures décisions.
+  </p>
+
+  <p className="mt-8 text-gray-400">
+    En résumé, Fluxa est plus qu’un simple outil de gestion — c’est un
+    <strong>assistant digital</strong> qui automatise votre administratif pour
+    que vous puissiez vous concentrer sur l’essentiel : <strong>votre métier</strong>.
+  </p>
+</section>
 
       {/* ================= PRICING ================= */}
       <section
