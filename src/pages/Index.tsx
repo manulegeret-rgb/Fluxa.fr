@@ -201,7 +201,7 @@ Merci !`
         </div>
       </header>
 
-      <h1 className="sr-only">
+      <h1 className="absolute opacity-0 -z-10">
   Application de gestion sur mesure pour artisans et indépendants – Fluxa
 </h1>
 
@@ -319,12 +319,12 @@ Merci !`
   "
 >
         <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
+          <div className="text-center space-y-6 max-md:mb-4 md:mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
             <p className="text-xl text-muted-foreground">
               Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
             </p>
-            <p className="mt-6 text-sm text-muted-foreground max-w-3xl mx-auto">
+            <p className="mt-3 md:mt-4 text-sm text-muted-foreground max-w-3xl mx-auto">
   Fluxa est une application de gestion pensée pour les artisans et indépendants :
   centralisation des clients, agenda connecté, devis et factures, messagerie intégrée
   et automatisations intelligentes. Une solution sur mesure pour réduire l’administratif
@@ -634,35 +634,38 @@ Merci !`
       </section>
 
       {/* ================= FAQ ================= */}
-      <section id="faq" aria-label="Questions fréquentes Fluxa" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
-        <Faq />
-      </section>
       <section
+  id="faq"
+  className="scroll-mt-[-60px] md:scroll-mt-[-60px] -mb-16 md:-mb-24"
+>
+  <Faq />
+</section>
+  <section
   id="about"
   aria-label="À propos de Fluxa"
-  className="mt-20 px-6"
+  className="mt-6 mb-12 md:mb-20 px-6"
 >
   <div className="max-w-3xl mx-auto text-center">
     <h2 className="text-xl font-semibold mb-3 text-white">
       À propos de Fluxa
     </h2>
-    <p className="text-sm text-muted-foreground">
-      Fluxa aide les artisans et indépendants à piloter leur activité au quotidien :
-      gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
-      Notre accompagnement sur mesure permet d’implémenter rapidement les fonctionnalités adaptées à chaque métier,
-      pour gagner du temps et améliorer la satisfaction client.
-    </p>
+    <p className="text-base md:text-lg text-muted-foreground">
+  Fluxa aide les artisans et indépendants à piloter leur activité au quotidien :
+  gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
+  Notre solution logicielle sur mesure simplifie la vie des professionnels, auto-entrepreneurs et petites entreprises,
+  tout en leur offrant un outil de gestion moderne et personnalisable.
+</p>
   </div>
 </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="py-8 border-t border-border">
-        <div className="container mx-auto px-6">
-          <p className="text-center text-muted-foreground">
-            © {new Date().getFullYear()} Fluxa — Automatisation & Gestion sur mesure. Tous droits réservés.
-          </p>
-        </div>
-      </footer>
+      <footer className="py-4 md:py-5 border-t border-border">
+  <div className="container mx-auto px-6">
+    <p className="text-center text-muted-foreground text-sm md:text-base">
+      © {new Date().getFullYear()} Fluxa — Automatisation & Gestion sur mesure. Tous droits réservés.
+    </p>
+  </div>
+</footer>
     </div>
   );
 };
