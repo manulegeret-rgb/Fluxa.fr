@@ -331,11 +331,15 @@ Merci !`
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
               <img
-                src={dashboardMockup}
-                alt="Aperçu du tableau de bord Fluxa pour artisans"
-                loading="eager"
-                className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
-              />
+  src={dashboardMockup}
+  alt="Aperçu du tableau de bord Fluxa : modules clients, factures et agenda"
+  width={1200}
+  height={800}
+  decoding="async"
+  fetchPriority="high"
+  loading="eager"
+  className="relative w-full h-auto rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] select-none [image-rendering:crisp-edges]"
+/>
               <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
                 Exemple d’interface — chiffres factices
               </div>
