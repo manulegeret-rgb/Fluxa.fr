@@ -106,6 +106,7 @@ Merci !`
     setTimeout(() => setSending(false), 800);
     (e.currentTarget as HTMLFormElement).reset();
   };
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">
