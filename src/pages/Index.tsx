@@ -3,12 +3,14 @@ import { Faq } from "@/components/Faq";
 import { Automations } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
 import {
+  Instagram,
+  Linkedin,
+  Facebook,
   Calendar,
   DollarSign,
   MessageSquare,
   BarChart3,
   Mail,
-  Instagram,
   CheckCircle2,
   XCircle,
   Menu,
@@ -17,6 +19,8 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
 import fluxaLogo from "@/assets/logo transparent.png";
+
+
 
 
 const Index = () => {
@@ -716,10 +720,47 @@ Merci !`
 
       {/* ================= FOOTER ================= */}
       <footer className="py-4 md:py-5 border-t border-border">
-  <div className="container mx-auto px-6">
-    <p className="text-center text-muted-foreground text-sm md:text-base">
-      © {new Date().getFullYear()} Fluxa — Automatisation & Gestion sur mesure. Tous droits réservés.
-    </p>
+  <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
+    <p>© {new Date().getFullYear()} Fluxa. Tous droits réservés.</p>
+
+    <ul className="flex gap-5 mt-2 md:mt-0">
+  <li>
+    <a
+      href="https://instagram.com/fluxa.fr"
+      target="_blank"
+      rel="me noopener noreferrer"
+      aria-label="Instagram"
+      className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+    >
+      <Instagram size={18} strokeWidth={1.5} />
+      Instagram
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://linkedin.com/company/fluxa-fr"
+      target="_blank"
+      rel="me noopener noreferrer"
+      aria-label="LinkedIn"
+      className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+    >
+      <Linkedin size={18} strokeWidth={1.5} />
+      LinkedIn
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://facebook.com/fluxa.fr"
+      target="_blank"
+      rel="me noopener noreferrer"
+      aria-label="Facebook"
+      className="flex items-center gap-2 hover:text-slate-200 transition-colors"
+    >
+      <Facebook size={18} strokeWidth={1.5} />
+      Facebook
+    </a>
+  </li>
+</ul>
   </div>
 </footer>
     </div>
