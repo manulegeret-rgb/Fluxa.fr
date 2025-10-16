@@ -302,18 +302,21 @@ Merci !`
 <div className="space-y-8 text-center md:text-left">
   <div className="space-y-4">
     <h1 className="text-[clamp(36px,6.5vw,60px)] font-bold leading-tight tracking-tight text-white">
-  Application de gestion pour artisans et{" "}
+  Fluxa — application de gestion complète pour{" "}
+  <span className="text-blue-400">artisans</span> et{" "}
   <span className="text-blue-400">entreprises</span>.
 </h1>
 
-    <h2 className="text-[clamp(26px,5.5vw,52px)] font-semibold leading-tight text-gray-200">
-      Moins d’administratif,&nbsp;
-      <span className="text-blue-400">plus de production</span>.
-    </h2>
+<h2 className="text-[clamp(26px,5.5vw,52px)] font-semibold leading-tight text-gray-200">
+  Moins d’administratif,&nbsp;
+  <span className="text-blue-400">plus de production</span>.
+</h2>
 
-    <p className="mt-4 text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
-      Centralisez vos clients, devis, factures, agenda et messages — tout au même endroit, en toute simplicité.
-    </p>
+<p className="mt-4 text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
+  Fluxa centralise vos clients, devis, factures, agenda et messages — une application sur mesure pour simplifier la gestion de votre activité.
+</p>
+
+
 
 
                 {/* Bénéfices chiffrés */}
