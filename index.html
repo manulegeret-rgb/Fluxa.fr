@@ -1,11 +1,8 @@
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
-  <head>
+<head>
   <meta charset="UTF-8" />
-  <link rel="preload" as="image" href="/assets/dashboard-mockup.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- SEO de base -->
   <title>Fluxa — Application de gestion pour artisans & entreprises</title>
@@ -14,81 +11,73 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://fluxa.fr/" />
 
-  <!-- Couleur d’UI mobile -->
+  <!-- UI mobile -->
   <meta name="theme-color" content="#0b0b0b" />
 
-  <!-- Open Graph -->
+  <!-- OG/Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fluxa" />
   <meta property="og:title" content="Fluxa — Application de gestion sur mesure" />
   <meta property="og:description" content="Centralisez, automatisez, gagnez du temps. Devis personnalisé sous 24–48h." />
   <meta property="og:url" content="https://fluxa.fr/" />
-  <!-- TODO: remplace par une image hébergée chez toi (ex: https://fluxa.fr/og-image.png 1200x630) -->
   <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="fr_FR" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fluxa — Application de gestion sur mesure" />
   <meta name="twitter:description" content="Centralisez, automatisez, gagnez du temps. Devis sous 24–48h." />
   <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-  <!-- Favicon + préchargement logo -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./favicon.png" />
-  <link rel="preload" as="image" href="/logo.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Schema.org (Organization) -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Fluxa",
-  "url": "https://fluxa.fr/",
-  "logo": "https://fluxa.fr/logo.png",
-  "sameAs": [
-    "https://instagram.com/fluxa.fr",
-    "https://linkedin.com/company/fluxa-fr",
-    "https://facebook.com/fluxa.fr"
-  ],
-  "description": "Création d’applications de gestion sur mesure pour artisans, indépendants et TPE."
-}
-</script>
-
-  <!-- Comportement de scroll -->
-  <style>
-  html { scroll-behavior: smooth; scroll-padding-top: 104px; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body { margin: 0; }
-</style>
-
-  <!-- Google tag (gtag.js) - GA4 -->
-  <!-- Google tag (gtag.js) - GA4 -->
-<script
-  src="https://www.googletagmanager.com/gtag/js?id=G-BRE2ZDN6P4"
-  defer
-></script>
-<script defer>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fluxa",
+    "url": "https://fluxa.fr/",
+    "logo": "https://fluxa.fr/favicon.png",
+    "sameAs": [
+      "https://instagram.com/fluxa.fr",
+      "https://linkedin.com/company/fluxa-fr",
+      "https://facebook.com/fluxa.fr"
+    ],
+    "description": "Création d’applications de gestion sur mesure pour artisans, indépendants et TPE."
   }
-  window.addEventListener("load", function () {
-    gtag("js", new Date());
-    gtag("config", "G-BRE2ZDN6P4");
-  });
-</script>
-  <script type="module" crossorigin src="./assets/index-Dmnkb5vK.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-B8xXx803.css">
-</head>
+  </script>
 
-  <body>
-    <div id="root"></div>
-  </body>
+  <!-- Style de base -->
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { margin: 0; }
+  </style>
+
+  <!-- GA4 -->
+  <script src="https://www.googletagmanager.com/gtag/js?id=G-BRE2ZDN6P4" defer></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.addEventListener("load", function () {
+      gtag("js", new Date());
+      gtag("config", "G-BRE2ZDN6P4");
+    });
+  </script>
+
+  <!-- CSS & JS build (chemins RELATIFS) -->
+  <link rel="stylesheet" crossorigin href="./assets/index-B8xXx803.css">
+  <script type="module" crossorigin src="./assets/index-Dmnkb5vK.js"></script>
+</head>
+<body>
+  <noscript>Activez JavaScript pour afficher cette application.</noscript>
+  <div id="root"></div>
+</body>
 </html>
