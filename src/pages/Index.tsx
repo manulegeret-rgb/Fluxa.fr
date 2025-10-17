@@ -27,24 +27,14 @@ const Index = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  // ========= Scroll deep-link sans hash (depuis pages /nos-formules, /automatisations, /faq, /en-savoir-plus)
+  // ========= Scroll deep-link sans hash (depuis /nos-formules)
 useEffect(() => {
-  const target = sessionStorage.getItem("scrollTo");
-  if (!target) return;
-  sessionStorage.removeItem("scrollTo");
-
-  // scroll vers la section
-  document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  // garde une URL propre en fonction de la section
-  const prettyPath: Record<string, string> = {
-    pricing: "/nos-formules",
-    automations: "/automatisations",
-    faq: "/faq",
-    infos: "/en-savoir-plus",
-  };
-  const path = prettyPath[target];
-  if (path) history.replaceState(null, "", path);
+  const target = sessionStorage.getItem('scrollTo');
+  if (target) {
+    sessionStorage.removeItem('scrollTo');
+    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '/nos-formules'); // garde l’URL propre
+  }
 }, []);
     // ========= SEO (title + meta)
   useEffect(() => {
@@ -176,9 +166,9 @@ Merci !`
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
                     <a href="/nos-formules" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos formules</a>
-<a href="/automatisations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
-<a href="/faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
-<a href="/en-savoir-plus" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
+                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
+                    <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
+                    <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
                     <a
                       href="https://instagram.com/fluxa.fr"
                       target="_blank"
@@ -192,11 +182,11 @@ Merci !`
                   </nav>
                   <div className="mt-4 flex flex-col gap-2">
                     <Button asChild className="w-full">
-  <a href="#contact" onClick={() => setMenuOpen(false)}>Nous contacter</a>
-</Button>
-<Button asChild variant="outline" className="w-full">
-  <a href="/nos-formules" onClick={() => setMenuOpen(false)}>Voir les formules</a>
-</Button>
+                      <a href="#contact" onClick={() => setMenuOpen(false)}>Nous contacter</a>
+                    </Button>
+                    <Button asChild variant="outline" className="w-full">
+                      <a href="#pricing" onClick={() => setMenuOpen(false)}>Voir les formules</a>
+                    </Button>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -228,10 +218,10 @@ Merci !`
             </a>
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
-              <a href="/nos-formules" className="hover:text-foreground transition">Nos formules</a>
-<a href="/automatisations" className="hover:text-foreground transition">Automatisations</a>
-<a href="/faq" className="hover:text-foreground transition">FAQ</a>
-<a href="/en-savoir-plus" className="hover:text-foreground transition">En savoir plus</a>
+              <a href="#pricing" className="hover:text-foreground transition">Nos formules</a>
+              <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
+              <a href="#faq" className="hover:text-foreground transition">FAQ</a>
+              <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
               <a
                 href="https://instagram.com/fluxa.fr"
                 target="_blank"
@@ -310,7 +300,7 @@ Merci !`
                 </a>
 
                 <a
-                  href="/nos-formules"
+                  href="#pricing"
                   className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border border-border hover:bg-muted transition w-full md:w-auto"
                   aria-label="Voir les formules"
                 >
