@@ -27,6 +27,32 @@ const Index = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+    // ========= SEO (title + meta)
+  useEffect(() => {
+    document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
+
+    const desc =
+      "Centralisez clients, devis, factures et rendez-vous dans une seule application. Automatisations, rappels et statistiques en temps réel pour artisans et indépendants.";
+
+    // Meta description
+    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "description";
+      document.head.appendChild(meta);
+    }
+    meta.content = desc;
+
+    // Canonical
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "canonical";
+      document.head.appendChild(link);
+    }
+    link.href = "https://fluxa.fr/";
+  }, []);
+
 
   // ========= Carrousel des formules (mobile)
   const pricingRef = useRef<HTMLDivElement>(null);
