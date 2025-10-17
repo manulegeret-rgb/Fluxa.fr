@@ -27,6 +27,15 @@ const Index = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  // ========= Scroll deep-link sans hash (depuis /nos-formules)
+useEffect(() => {
+  const target = sessionStorage.getItem('scrollTo');
+  if (target) {
+    sessionStorage.removeItem('scrollTo');
+    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '/nos-formules'); // garde l’URL propre
+  }
+}, []);
     // ========= SEO (title + meta)
   useEffect(() => {
     document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
@@ -156,7 +165,7 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos formules</a>
+                    <a href="/nos-formules" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos formules</a>
                     <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
                     <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
