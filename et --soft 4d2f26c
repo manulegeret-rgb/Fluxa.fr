@@ -1,0 +1,83 @@
+[33m4d2f26c[m[33m ([m[1;36mHEAD[m[33m)[m Ajout de la page Articles complète optimisée SEO
+[33mb9152d7[m update: section HERO + lien Découvrir l’outil vers automatisations
+[33m6d490c7[m update: section HERO + lien Découvrir l’outil vers automatisations
+[33m1113507[m[33m ([m[1;33mtag: [m[1;33mversion-stable_2025-10-17_10-28[m[33m)[m revert: restauration Index.tsx et suppression fichiers redirection (version stable clean)
+[33md9d29d0[m[33m ([m[1;33mtag: [m[1;33mversion-stable_2025-10-17_10-10[m[33m)[m feat(seo): URLs FR propres (/nos-formules, /automatisations, /faq, /en-savoir-plus) + deep-link sans hash (version stable)
+[33mb62ce72[m[33m ([m[1;33mtag: [m[1;33mversion-stable_2025-10-17_10-01[m[33m)[m feat(seo): URL propre /nos-formules sans hash + deep-link smooth (version stable)
+[33m38619d2[m[33m ([m[1;33mtag: [m[1;33mversion-stable_2025-10-17_09-52[m[33m)[m feat(seo): ajout redirection /nos-formules → /#pricing (version stable)
+[33m553045e[m[33m ([m[1;33mtag: [m[1;33mversion-stable_[m[33m)[m feat: ajout des pages Mentions légales et Politique de confidentialité + masquage du header
+[33m121c1f4[m fix: rebuild vite + chemins relatifs
+[33mf24a557[m publish: build Vite (base ./) + 404
+[33md7b8986[m fix: base ./ pour GitHub Pages + fallback 404
+[33meebdb6c[m fix: chemins relatifs Vite + fallback 404
+[33maf955e8[m build: déploiement du site
+[33mbfe75e3[m Create CNAME
+[33m5ee4aba[m SEO: cohérence titre h1 + favicon
+[33mbf47470[m fix: JSON-LD placé correctement dans le JSX
+[33m3ce057c[m fix: mise à jour SEO + articles invités + backlinks Fluxa
+[33mf057674[m perf(lcp): optimisation image principale (fetchPriority, dimensions, decoding)
+[33m538dce6[m seo(schema): Organization mis à jour + SoftwareApplication unique et cohérent
+[33m2b58ee9[m fix: retire caractère stray 'A' dans style inline (postcss error)
+[33m156e8aa[m seo: JSON-LD SoftwareApplication avec sameAs (Instagram, LinkedIn, Facebook)
+[33ma7c5e2a[m ui(footer): ajout icônes + texte des réseaux sociaux
+[33m96bb991[m seo: ajout du bloc texte visible entre hero et automatisations
+[33mcbbb40e[m seo: ajout du bloc texte visible entre hero et automatisations
+[33mfb74145[m chore(seo): ajout du sitemap XML
+[33m346ec39[m chore(seo): ajout du lien sitemap dans robots.txt
+[33mccc0718[m fix(seo): ajout H1 invisible + section À propos + texte descriptif Fluxa + ajustement spacing
+[33m2289300[m fix(mobile): spacing & carousel arrows in pricing, badge Populaire visible, alignement puces, auto height, section infos scroll offset
+[33m379513f[m fix(mobile): spacing & carousel arrows in pricing, badge Populaire visible, alignement puces, auto height, section infos scroll offset
+[33mf786191[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33medf962e[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33m66fd35d[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33m879e1dc[m fix(mobile): formules — spacing & arrows, badge, centrage, puces alignées, auto-hauteur; fix hsl underscores
+[33m33ea293[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33ma7ae6e7[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33m5564bff[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33ma9b877b[m feat: ajout du layout
+[33mc96d6ed[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33mb244628[m fix(mobile): formules — spacing & arrows du carrousel, badge Populaire visible, centrage contenu, alignement puces + auto-hauteur; fix: section #infos className (hsl underscores)
+[33me880b0c[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m91042e1[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m1b6d17a[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m00c350e[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m21690a1[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33mb840d02[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m8c85062[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m0938070[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m4b900ee[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m6222ea6[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m5e58f24[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33mf0a2b8f[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m11c717c[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33md1f0f73[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m5c880a5[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33mace677f[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33mb7ca20f[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33m2734499[m fix: correction ancrages mobile (#automations, #pricing, #faq, #howitworks, #contact)
+[33mefd02f0[m feat: intégration <HowItWorks/>, retrait du doublon 3-étapes, CTA vers #contact, petites améliorations UI/UX
+[33m9cf3369[m feat: intégration <HowItWorks/>, retrait du doublon 3-étapes, CTA vers #contact, petites améliorations UI/UX
+[33m20bee67[m[33m ([m[1;32mmain[m[33m)[m feat: intégration <HowItWorks/>, retrait du doublon 3-étapes, CTA vers #contact, petites améliorations UI/UX
+[33mcf99412[m feat: intégration <HowItWorks/>, retrait du doublon 3-étapes, CTA vers #contact, petites améliorations UI/UX
+[33m1b0a6a3[m feat: intégration <HowItWorks/>, retrait du doublon 3-étapes, CTA vers #contact, petites améliorations UI/UX
+[33m4216cc9[m Update: amélioration FAQ (contenu et taille du texte)
+[33md994e22[m Fix: agrandissement du logo mobile Fluxa
+[33mfccb8a7[m Fix: agrandissement du logo mobile Fluxa
+[33m79902c3[m Fix: agrandissement du logo mobile Fluxa
+[33m82f0807[m Fix: agrandissement du logo mobile Fluxa
+[33m8df5748[m Fix: agrandissement du logo mobile Fluxa
+[33m4340432[m Fix: agrandissement du logo mobile Fluxa
+[33mdffdd7b[m Fix: agrandissement du logo mobile Fluxa
+[33me3db8ab[m Fix: agrandissement du logo mobile Fluxa
+[33mc62febc[m Fix: agrandissement du logo mobile Fluxa
+[33m2f1736e[m Fix: agrandissement du logo mobile Fluxa
+[33m4dc7040[m Fix: agrandissement du logo mobile Fluxa
+[33mb1f1287[m Fix: agrandissement du logo mobile Fluxa
+[33m953fab1[m Fix: agrandissement du logo mobile Fluxa
+[33me2070c9[m Fix: agrandissement du logo mobile Fluxa
+[33m8b8c2d2[m Fix: agrandissement du logo mobile Fluxa
+[33m2ba135d[m Fix: agrandissement du logo mobile Fluxa
+[33mb0581d2[m Fix: agrandissement du logo mobile Fluxa
+[33m762684d[m Fix: agrandissement du logo mobile Fluxa
+[33ma898ee6[m Fix: agrandissement du logo mobile Fluxa
+[3

@@ -11,6 +11,13 @@ import MentionsLegales from "./pages/Mentions-Legales"; // ✅
 import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
 import Ressources from "./pages/Ressources/Ressources"; // ✅ NOUVELLE PAGE (blog)
 import Articles from "./pages/Articles";
+import DemoLayout from "@/_import_demo/components/demo/DemoLayout";
+import Dashboard from "@/_import_demo/pages/demo/Dashboard";
+import Clients from "@/_import_demo/pages/demo/Clients";
+import Messages from "@/_import_demo/pages/demo/Messages";
+import Factures from "@/_import_demo/pages/demo/Factures";
+import Automations from "@/_import_demo/pages/demo/Automations";
+import { Navigate } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -79,21 +86,38 @@ const Header = () => {
 
 const AppInner = () => {
   const location = useLocation();
-  // Pages où l’on cache le header global
-  const hideHeaderPaths = ["/", "/mentions-legales", "/politique-confidentialite", "/ressources", "/articles"];
-  const showGlobalHeader = !hideHeaderPaths.includes(location.pathname);
+
+  // Cache le header sur la home et TOUTES les routes /demo/*
+  const hideHeader =
+    location.pathname === "/" ||
+    location.pathname.startsWith("/demo") ||
+    location.pathname === "/mentions-legales" ||
+    location.pathname === "/politique-confidentialite" ||
+    location.pathname === "/ressources" ||
+    location.pathname === "/articles";
 
   return (
     <>
-      {showGlobalHeader && <Header />}
+      {!hideHeader && <Header />}
 
       <Routes>
+        {/* ... on ajoutera les routes démo juste en dessous */}
+
         <Route path="/" element={<Index />} />
         <Route path="/ressources" element={<Ressources />} /> {/* ✅ nouvelle route */}
         <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
         <Route path="/articles" element={<Articles />} />
+        <Route path="/demo" element={<DemoLayout />}>
+  <Route index element={<Navigate to="dashboard" replace />} />
+  <Route path="dashboard" element={<Dashboard />} />
+  <Route path="clients" element={<Clients />} />
+  <Route path="messages" element={<Messages />} />
+  <Route path="factures" element={<Factures />} />
+  <Route path="automations" element={<Automations />} />
+</Route>
       </Routes>
+      
     </>
   );
 };

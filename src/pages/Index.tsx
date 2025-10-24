@@ -147,6 +147,7 @@ Merci !`
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
                     <a href="/nos-formules" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos formules</a>
+                    <a href="/demo" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Exemple d'interface</a>
                     <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
                     <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
@@ -200,11 +201,11 @@ Merci !`
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
               <a href="#pricing" className="hover:text-foreground transition">Nos formules</a>
+              <a href="/demo" className="hover:text-foreground transition">Exemple d'interface</a>
               <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
-              <a href="/articles" className="hover:text-foreground transition">Articles
-</a>
+              <a href="/articles" className="hover:text-foreground transition">Articles</a>
               <a href="https://instagram.com/fluxa.fr"
                 target="_blank"
                 rel="noreferrer"
