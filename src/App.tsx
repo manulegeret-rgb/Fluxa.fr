@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import MentionsLegales from "./pages/Mentions-Legales"; // ✅
 import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
+import Ressources from "./pages/Ressources/Ressources"; // ✅ NOUVELLE PAGE (blog)
 
 const queryClient = new QueryClient();
 
@@ -43,13 +44,13 @@ const Header = () => {
 
         {/* Menu */}
         <ul className="hidden md:flex items-center gap-x-8">
-          {[
-            { label: "Formules", href: "#pricing" },
-            { label: "Automatisations", href: "#automations" },
-            { label: "FAQ", href: "#faq" },
-            { label: "En savoir plus", href: "#more" },
-            { label: "fluxa.fr", href: "https://fluxa.fr", external: true },
-          ].map((item) => (
+  {[
+    { label: "Formules", href: "/#pricing" },
+    { label: "Automatisations", href: "/#automations" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "En savoir plus", href: "/#more" },
+    { label: "fluxa.fr", href: "https://fluxa.fr", external: true },
+  ].map((item) => (
             <li key={item.label}>
               {item.external ? (
                 <a
@@ -78,8 +79,8 @@ const Header = () => {
 const AppInner = () => {
   const location = useLocation();
   // Pages où l’on cache le header global
-const hideHeaderPaths = ["/", "/mentions-legales", "/politique-confidentialite"];
-const showGlobalHeader = !hideHeaderPaths.includes(location.pathname);
+  const hideHeaderPaths = ["/", "/mentions-legales", "/politique-confidentialite", "/ressources"];
+  const showGlobalHeader = !hideHeaderPaths.includes(location.pathname);
 
   return (
     <>
@@ -87,8 +88,9 @@ const showGlobalHeader = !hideHeaderPaths.includes(location.pathname);
 
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/ressources" element={<Ressources />} /> {/* ✅ nouvelle route */}
         <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
-        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ NOUVELLE ROUTE */}
+        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

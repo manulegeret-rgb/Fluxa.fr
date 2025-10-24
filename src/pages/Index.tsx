@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import dashboardMockup from "@/assets/dashboard-mockup.png";
-import fluxaLogo from "@/assets/logo transparent.png";
+import dashboardMockup from "@/assets/dashboard-mockup.webp";
+import fluxaLogo from "@/assets/logo-transparent.webp";
 
 const Index = () => {
   // ========= État du scroll pour styliser le header
@@ -33,7 +33,7 @@ useEffect(() => {
   if (target) {
     sessionStorage.removeItem('scrollTo');
     document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    history.replaceState(null, '', '/nos-formules'); // garde l’URL propre
+    history.replaceState(null, '', '/'); // garde l’URL propre (home)
   }
 }, []);
     // ========= SEO (title + meta)
@@ -236,106 +236,91 @@ Merci !`
         </div>
       </header>
 
-      {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* fond halo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-pulse delay-1000"></div>
-        </div>
+      {/* ================= HERO (épuré) ================= */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {/* fond halo */}
+  <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
+    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-pulse delay-1000"></div>
+  </div>
 
-        {/* top padding ajusté pour le header fixe */}
-        <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Texte */}
-            <div className="space-y-8 text-center md:text-left">
-              <div className="space-y-4">
-                <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
-                  Votre app de gestion&nbsp;sur-mesure,{" "}
-                  <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-                    pensée pour votre entreprise.
-                  </span>
-                </h1>
+  {/* top padding ajusté pour le header fixe */}
+  <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-24">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Texte (version pro et allégée) */}
+      <div className="space-y-8 text-center md:text-left">
+        <div className="space-y-5">
+          <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
+            Votre <span className="whitespace-nowrap">outil de gestion</span> sur-mesure,{" "}
+            <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
+              pensé pour votre activité.
+            </span>
+          </h1>
 
-                <p className="text-[15px] md:text-lg text-muted-foreground/90">
-                  Centralisez clients, devis/factures, agenda et messages.{" "}
-                  <span className="text-foreground">Moins d’administratif, plus de production.</span>
-                </p>
+          <p className="text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
+            Fluxa centralise vos opérations — <span className="text-foreground">devis & factures, agenda, fichier clients, messages</span> —
+            dans un espace unique, configuré à vos couleurs et adapté à votre métier. Suivez vos chiffres
+            en temps réel et automatisez relances, rappels et suivis pour gagner du temps sans sacrifier la qualité de service.
+          </p>
 
-                {/* Bénéfices chiffrés */}
-                <ul className="mt-4 flex flex-wrap items-center gap-2 justify-center md:justify-start">
-                  {[
-                    "—50% de temps admin",
-                    "+30% de RDV honorés",
-                    "Vue 360° : CA, impayés, fidélité",
-                  ].map((txt, i) => (
-                    <li
-                      key={i}
-                      className="rounded-full border border-border/70 px-3 py-1 text-xs text-muted-foreground"
-                    >
-                      {txt}
-                    </li>
-                  ))}
-                </ul>
+          {/* 3 points forts sobres */}
+          <div className="grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
+            {[
+              "Devis & factures en quelques clics",
+              "Agenda avec rappels automatiques",
+              "Tableau de bord clair (CA, impayés, fidélité)",
+            ].map((txt, i) => (
+              <div key={i} className="rounded-xl border border-border/70 px-4 py-3">
+                {txt}
               </div>
-
-              {/* CTAs */}
-              <div className="mt-1 flex flex-col md:flex-row gap-3 justify-center md:justify-start">
-                {/* MOBILE: CTA -> formulaire direct */}
-                <a
-                  href="#contact"
-                  className="inline-flex md:hidden items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full"
-                  aria-label="Nous contacter"
-                >
-                  Nous contacter
-                </a>
-
-                {/* DESKTOP: CTA */}
-                <a
-                  href="#infos"
-                  className="hidden md:inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
-                  aria-label="En savoir plus"
-                >
-                  En savoir plus
-                </a>
-
-                <a
-                  href="#pricing"
-                  className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border border-border hover:bg-muted transition w-full md:w-auto"
-                  aria-label="Voir les formules"
-                >
-                  Voir les formules
-                </a>
-              </div>
-
-              {/* Micro-preuves */}
-              <ul className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center md:justify-start">
-                <li className="rounded-full border border-border/70 px-3 py-1">🔐 Données hébergées en Europe</li>
-                <li className="rounded-full border border-border/70 px-3 py-1">⚙️ Automatisations incluses</li>
-                <li className="rounded-full border border-border/70 px-3 py-1">🎯 Mise en place guidée</li>
-              </ul>
-            </div>
-
-            {/* Visuel (mockup) */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
-              <img
-                src={dashboardMockup}
-                alt="Aperçu du tableau de bord Fluxa pour artisans"
-                loading="eager"
-                className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
-              />
-              <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
-                Exemple d’interface — chiffres factices
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
 
-      <section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
-        <Automations />
-      </section>
+        {/* CTAs */}
+        <div className="flex flex-col md:flex-row gap-3 justify-center md:justify-start">
+          <a
+            href="#automations"
+            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
+            aria-label="Découvrir l’outil"
+          >
+            Découvrir l’outil
+          </a>
+          <a
+            href="#pricing"
+            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border border-border hover:bg-muted transition w-full md:w-auto"
+            aria-label="Voir les formules"
+          >
+            Voir les formules
+          </a>
+        </div>
+
+        {/* Note de réassurance compacte */}
+        <p className="text-xs text-muted-foreground">
+          🔐 Données hébergées en Europe — ⚙️ Automatisations incluses — 🎯 Mise en place guidée
+        </p>
+      </div>
+
+      {/* Visuel (mockup) */}
+      <div className="relative">
+        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
+        <img
+          src={dashboardMockup}
+          alt="Outil de gestion Fluxa — aperçu du tableau de bord pour artisans"
+          loading="eager"
+          className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
+        />
+        <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
+          Exemple d’interface — chiffres factices
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
+  <Automations />
+</section>
 
       {/* ================= PRICING ================= */}
       <section
