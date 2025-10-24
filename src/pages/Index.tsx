@@ -36,31 +36,33 @@ useEffect(() => {
     history.replaceState(null, '', '/'); // garde l’URL propre (home)
   }
 }, []);
-    // ========= SEO (title + meta)
-  useEffect(() => {
-    document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
+    // === SEO (mise à jour du titre) ===
+useEffect(() => {
+  document.title = "Fluxa — Outil de gestion & automatisations pour artisans et indépendants";
 
-    const desc =
-      "Centralisez clients, devis, factures et rendez-vous dans une seule application. Automatisations, rappels et statistiques en temps réel pour artisans et indépendants.";
-
-    // Meta description
-    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
+  const ensureMeta = (name: string, content: string) => {
+    let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+    if (!tag) {
+      tag = document.createElement("meta");
+      tag.name = name;
+      document.head.appendChild(tag);
     }
-    meta.content = desc;
+    tag.content = content;
+  };
 
-    // Canonical
-    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "canonical";
-      document.head.appendChild(link);
-    }
-    link.href = "https://fluxa.fr/";
-  }, []);
+  ensureMeta(
+    "description",
+    "Fluxa est un outil de gestion et d’automatisation sur mesure pour artisans et indépendants : devis/factures, agenda, suivi client et tâches automatisées. Moins d’administratif, plus d’efficacité."
+  );
+
+  let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.appendChild(canonical);
+  }
+  canonical.href = "https://fluxa.fr/";
+}, []);
 
 
   // ========= Carrousel des formules (mobile)
