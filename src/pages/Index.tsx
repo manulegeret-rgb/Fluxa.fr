@@ -39,7 +39,7 @@ useEffect(() => {
 }, []);
     // === SEO global ===
 useEffect(() => {
-  document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
+  document.title = "Fluxa — Outil de gestion sur mesure pour artisans & indépendants";
 }, []);
 
 
