@@ -1,3 +1,4 @@
+import SEOHead from "@/components/SEOHead";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Faq } from "@/components/Faq";
 import { Automations } from "@/components/Automations";
@@ -36,33 +37,11 @@ useEffect(() => {
     history.replaceState(null, '', '/'); // garde l’URL propre (home)
   }
 }, []);
-    // === SEO (mise à jour du titre) ===
+    // === SEO global ===
 useEffect(() => {
-  document.title = "Fluxa — Outil de gestion & automatisations pour artisans et indépendants";
-
-  const ensureMeta = (name: string, content: string) => {
-    let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
-    if (!tag) {
-      tag = document.createElement("meta");
-      tag.name = name;
-      document.head.appendChild(tag);
-    }
-    tag.content = content;
-  };
-
-  ensureMeta(
-    "description",
-    "Fluxa est un outil de gestion et d’automatisation sur mesure pour artisans et indépendants : devis/factures, agenda, suivi client et tâches automatisées. Moins d’administratif, plus d’efficacité."
-  );
-
-  let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement("link");
-    canonical.rel = "canonical";
-    document.head.appendChild(canonical);
-  }
-  canonical.href = "https://fluxa.fr/";
+  document.title = "Fluxa — Application de gestion sur mesure pour artisans & indépendants";
 }, []);
+
 
 
   // ========= Carrousel des formules (mobile)
@@ -171,8 +150,8 @@ Merci !`
                     <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
                     <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
-                    <a
-                      href="https://instagram.com/fluxa.fr"
+                    <a href="/articles" className="hover:text-foreground transition">Articles</a>
+                    <a href="https://instagram.com/fluxa.fr"
                       target="_blank"
                       rel="noreferrer"
                       className="py-2 text-base inline-flex items-center gap-2"
@@ -224,8 +203,9 @@ Merci !`
               <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
-              <a
-                href="https://instagram.com/fluxa.fr"
+              <a href="/articles" className="hover:text-foreground transition">Articles
+</a>
+              <a href="https://instagram.com/fluxa.fr"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-foreground transition flex items-center gap-1.5"

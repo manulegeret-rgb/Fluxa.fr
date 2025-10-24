@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import MentionsLegales from "./pages/Mentions-Legales"; // ✅
 import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
 import Ressources from "./pages/Ressources/Ressources"; // ✅ NOUVELLE PAGE (blog)
+import Articles from "./pages/Articles";
 
 const queryClient = new QueryClient();
 
@@ -79,7 +80,7 @@ const Header = () => {
 const AppInner = () => {
   const location = useLocation();
   // Pages où l’on cache le header global
-  const hideHeaderPaths = ["/", "/mentions-legales", "/politique-confidentialite", "/ressources"];
+  const hideHeaderPaths = ["/", "/mentions-legales", "/politique-confidentialite", "/ressources", "/articles"];
   const showGlobalHeader = !hideHeaderPaths.includes(location.pathname);
 
   return (
@@ -91,7 +92,7 @@ const AppInner = () => {
         <Route path="/ressources" element={<Ressources />} /> {/* ✅ nouvelle route */}
         <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
-        <Route path="*" element={<NotFound />} />
+        <Route path="/articles" element={<Articles />} />
       </Routes>
     </>
   );
