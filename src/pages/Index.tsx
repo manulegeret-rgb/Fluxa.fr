@@ -640,6 +640,7 @@ Merci !`
       <section id="faq" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
         <Faq />
       </section>
+      
      {/* ================= À PROPOS ================= */}
 <section className="pt-10 pb-2 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6">
@@ -653,9 +654,110 @@ Merci !`
       tout en leur offrant un outil de gestion moderne et personnalisable.
     </p>
   </div>
+</section>{/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
+<section id="pourquoi-choisir-fluxa" className="py-24 border-t border-border/60 bg-gradient-to-b from-background via-card/30 to-background">
+  <div className="max-w-6xl mx-auto px-6 space-y-16">
+    {/* --- Titre principal --- */}
+    <div className="text-center space-y-6">
+      <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+        Pourquoi de plus en plus d’artisans et d’indépendants choisissent Fluxa
+      </h2>
+      <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
+        Fluxa n’est pas un simple logiciel de facturation ou de planning.  
+        C’est un **outil de gestion sur mesure** qui s’adapte à votre manière de travailler,
+        vous aide à gagner du temps, à réduire les oublis et à mieux piloter votre activité.  
+        Découvrez comment il change le quotidien de ceux qui l’utilisent.
+      </p>
+    </div>
+
+    {/* --- 3 grands piliers de valeur --- */}
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          icon: "⚙️",
+          title: "Automatiser sans perdre le contrôle",
+          text: `Rappels SMS, relances de factures, mails post-prestation : tout se fait automatiquement,
+          mais avec vos mots, votre ton et vos règles.  
+          Vous décidez du timing, du contenu et des conditions. L’automatisation devient un vrai
+          prolongement de votre professionnalisme.`,
+        },
+        {
+          icon: "📊",
+          title: "Garder une vision claire en un coup d’œil",
+          text: `Fluxa centralise tout ce qui compte : vos clients, vos devis, vos paiements, vos statistiques.  
+          En un regard, vous savez combien vous avez encaissé, qui doit être relancé, et comment évolue votre
+          chiffre d’affaires semaine après semaine.  
+          Fini les tableurs dispersés et les approximations.`,
+        },
+        {
+          icon: "🧠",
+          title: "Gagner du temps et réduire la charge mentale",
+          text: `Les indépendants perdent souvent jusqu’à 10 heures par semaine dans l’administratif.  
+          Fluxa automatise les tâches répétitives et garde tout à jour : agenda, factures, rappels, relances.  
+          Vous retrouvez du temps pour votre métier, votre famille, ou simplement pour souffler.`,
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="rounded-2xl border border-border/60 bg-card/40 p-8 space-y-4 hover:bg-card/60 transition"
+        >
+          <div className="text-4xl">{item.icon}</div>
+          <h3 className="text-2xl font-semibold">{item.title}</h3>
+          <p className="text-muted-foreground leading-relaxed">{item.text}</p>
+        </div>
+      ))}
+    </div>
+
+    {/* --- Partie narrative / storytelling --- */}
+    <div className="max-w-5xl mx-auto space-y-8">
+      <h3 className="text-3xl font-semibold text-center">Un outil né du terrain, pensé pour le terrain</h3>
+      <p className="text-muted-foreground text-lg leading-relaxed text-center">
+        Fluxa a été conçu en observant le quotidien réel des artisans, freelances et petites entreprises :
+        des journées pleines, des clients à rappeler, des devis à envoyer, et des papiers à classer.
+        L’idée était simple : <strong>recentrer le professionnel sur son savoir-faire</strong>,
+        pas sur ses outils.
+      </p>
+      <p className="text-muted-foreground text-lg leading-relaxed text-center">
+        Chaque module — rappel automatique, tableau de bord, facturation, messages clients —
+        est pensé pour "imiter vos habitudes", pas les bousculer.  
+        Pas besoin d’être expert en informatique : tout est visuel, fluide et paramétrable en quelques clics.
+      </p>
+    </div>
+
+    {/* --- Témoignages / résultats chiffrés --- */}
+    <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
+      {[
+        { value: "6 à 12 h", label: "de temps gagné chaque semaine" },
+        { value: "95 %", label: "de taux de présence aux rendez-vous" },
+        { value: "+37 %", label: "de factures payées dans les délais" },
+      ].map((stat, i) => (
+        <div
+          key={i}
+          className="rounded-2xl border border-border/60 bg-background/40 py-10 px-6 text-center hover:bg-background/60 transition"
+        >
+          <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
+          <p className="text-muted-foreground font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    {/* --- Ouverture vers la suite / renvoi blog --- */}
+    <div className="text-center space-y-4 pt-10 max-w-3xl mx-auto">
+      <h3 className="text-2xl font-semibold">Un outil évolutif, pensé pour durer</h3>
+      <p className="text-muted-foreground leading-relaxed">
+        Chaque mois, Fluxa s’enrichit de nouvelles automatisations et d’améliorations inspirées par ses utilisateurs.
+        Notre objectif : créer un **écosystème complet** pour les professionnels qui veulent
+        travailler plus efficacement, sans changer leurs habitudes.
+      </p>
+      <a
+        href="/articles"
+        className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-medium bg-primary/10 text-primary hover:bg-primary/20 transition"
+      >
+        Découvrir nos guides et articles
+      </a>
+    </div>
+  </div>
 </section>
-
-
 
       {/* ================= FOOTER ================= */}
 <footer className="mt-16 py-10 border-t border-border/80">
