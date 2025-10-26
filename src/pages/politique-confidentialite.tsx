@@ -1,11 +1,12 @@
 import React from "react";
+import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 
 /**
  * Politique de confidentialité — Fluxa (projet individuel)
  * Responsable de traitement : Emmanuel Légeret (Particulier)
- * RGPD / CNIL – Version prête à publier
+ * RGPD / CNIL — Version prête à publier
  *
- * ⓘ Tu peux ajuster les valeurs ci-dessous si besoin.
+ * ☐ Tu peux ajuster les valeurs ci-dessous si besoin.
  */
 type Processor = {
   name: string;
@@ -54,7 +55,7 @@ const CONFIG = {
     { title: "Fourniture du service (site / app)", legalBasis: "Exécution du contrat (art. 6.1.b RGPD)" },
     { title: "Gestion de compte et support", legalBasis: "Intérêt légitime / Exécution du contrat" },
     { title: "Facturation & obligations légales (si applicable)", legalBasis: "Obligation légale (art. 6.1.c RGPD)" },
-    { title: "Statistiques d’audience (si activées)", legalBasis: "Consentement (art. 6.1.a RGPD)" },
+    { title: "Statistiques d'audience (si activées)", legalBasis: "Consentement (art. 6.1.a RGPD)" },
     { title: "Prospection/communications (newsletter, emails)", legalBasis: "Consentement (ou intérêt légitime en B2B)" },
   ],
 
@@ -62,9 +63,9 @@ const CONFIG = {
   dataCategories: [
     "Identité (nom, prénom, société le cas échéant)",
     "Coordonnées (email, téléphone, adresse si fournie)",
-    "Données de compte (identifiants, journaux d’activité si compte/app)",
+    "Données de compte (identifiants, journaux d'activité si compte/app)",
     "Données de facturation (si applicable : paiements, TVA, historique)",
-    "Contenus saisis dans l’app (clients, RDV, devis/factures, messages) si tu utilises l’app",
+    "Contenus saisis dans l'app (clients, RDV, devis/factures, messages) si tu utilises l'app",
     "Données techniques (adresse IP, device, pages vues, cookies)",
   ],
 
@@ -76,12 +77,12 @@ const CONFIG = {
     { item: "Cookies analytiques (si activés)", duration: "13 mois (et 25 mois pour données associées)" },
   ],
 
-  // Sous-traitants (exemples — complète si tu ajoutes d’autres outils)
+  // Sous-traitants (exemples — complète si tu ajoutes d'autres outils)
   processors: [
     {
       name: "Vercel",
       service: "Hébergement / CI",
-      purpose: "Hébergement de l’application et du site",
+      purpose: "Hébergement de l'application et du site",
       dataTypes: ["Logs techniques", "IP", "URLs"],
       location: "UE/EEE (selon datacenter choisi)",
       dpaUrl: "https://vercel.com/legal/dpa",
@@ -89,11 +90,11 @@ const CONFIG = {
     // Dé-commente et adapte si tu actives des analytics :
     // {
     //   name: "Plausible (ou Matomo / Google Analytics)",
-    //   service: "Mesure d’audience",
-    //   purpose: "Statistiques d’utilisation",
+    //   service: "Mesure d'audience",
+    //   purpose: "Statistiques d'utilisation",
     //   dataTypes: ["Cookies/ID (selon outil)", "IP (souvent anonymisée)", "Pages vues"],
     //   location: "UE (Plausible/Matomo auto-hébergé) / Hors UE (GA selon config)",
-    //   dpaUrl: "https://plausible.io/data-policy (ou doc de l’outil)",
+    //   dpaUrl: "https://plausible.io/data-policy (ou doc de l'outil)",
     //   safeguards: "Consentement + mesures adaptées si transfert",
     // },
     // Paiement si tu ajoutes Stripe :
@@ -120,8 +121,8 @@ const CONFIG = {
     // Analytics si activés :
     // {
     //   name: "_pk_id / _pk_ses (Matomo) OU _ga (GA4) OU plausible_local_storage",
-    //   provider: "Outil d’analytics choisi",
-    //   purpose: "Mesure d’audience (avec consentement)",
+    //   provider: "Outil d'analytics choisi",
+    //   purpose: "Mesure d'audience (avec consentement)",
     //   type: "analytics",
     //   duration: "13 mois",
     // },
@@ -129,22 +130,22 @@ const CONFIG = {
 
   // Mineurs / Âge minimum
   agePolicy:
-    "Le service s’adresse à des utilisateurs majeurs (18+). Aucune collecte sciemment réalisée auprès de mineurs.",
+    "Le service s'adresse à des utilisateurs majeurs (18+). Aucune collecte sciemment réalisée auprès de mineurs.",
 
   // Transferts hors UE
   internationalTransfers:
-    "En cas de recours à des prestataires situés hors de l’Union européenne, des garanties appropriées sont mises en place (Clauses Contractuelles Types 2021 de la Commission européenne et mesures complémentaires si nécessaire).",
+    "En cas de recours à des prestataires situés hors de l'Union européenne, des garanties appropriées sont mises en place (Clauses Contractuelles Types 2021 de la Commission européenne et mesures complémentaires si nécessaire).",
 
   // Sécurité (résume tes mesures)
   securityMeasures:
-    "Chiffrement en transit (TLS), contrôles d’accès, principe du moindre privilège, sauvegardes régulières, surveillance des journaux.",
+    "Chiffrement en transit (TLS), contrôles d'accès, principe du moindre privilège, sauvegardes régulières, surveillance des journaux.",
 
   // Droits RGPD & réclamations (CNIL)
   dataSubjectRightsContact:
     "Pour exercer vos droits (accès, rectification, effacement, limitation, opposition, portabilité), contactez : contact@fluxa.fr.",
-  complaintAuthority: "CNIL – https://www.cnil.fr/fr/plaintes",
+  complaintAuthority: "CNIL — https://www.cnil.fr/fr/plaintes",
 
-  // Date d’effet et mises à jour
+  // Date d'effet et mises à jour
   effectiveDate: "17/10/2025",
   lastUpdateDate: "17/10/2025",
 };
@@ -205,10 +206,20 @@ const PrivacyPolicy: React.FC = () => {
 
   return (
     <main className="px-6 md:px-8 py-12 text-gray-100">
-      <header className="max-w-3xl mx-auto mb-10">
+      {/* ⬇️ LOGO FLUXA CLIQUABLE */}
+      <HomeLogoOverlay
+        logoSrc="/logo transparent.png"
+        href="/"
+        size={110}
+        topInsteadOfCenter={true}
+        hideOnDesktop={false}
+      />
+      {/* ⬆️ FIN AJOUT */}
+
+      <header className="max-w-3xl mx-auto mb-10 mt-32 text-center">
         <h1 className="text-3xl md:text-4xl font-bold">Politique de confidentialité</h1>
         <p className="text-sm mt-2 opacity-80">
-          Date d’effet : {c.effectiveDate} • Dernière mise à jour : {c.lastUpdateDate}
+          Date d'effet : {c.effectiveDate} • Dernière mise à jour : {c.lastUpdateDate}
         </p>
         <p className="mt-4">
           La présente politique explique comment <strong>{c.dataControllerName}</strong> (
@@ -238,7 +249,7 @@ const PrivacyPolicy: React.FC = () => {
         <ul className="list-disc ml-5">
           <ListItem label="Responsable de traitement" value={`${c.dataControllerName} (${c.legalForm})`} />
           <ListItem label="Nom commercial" value={c.tradeName} />
-          <ListItem label="Adresse" value={`${c.companyAddress} – ${c.country}`} />
+          <ListItem label="Adresse" value={`${c.companyAddress} — ${c.country}`} />
           <ListItem label="Site" value={c.websiteUrl} />
           <ListItem label="Email de contact" value={c.contactEmail} />
           {c.dpoEmail && <ListItem label="DPO" value={c.dpoEmail} />}
@@ -269,7 +280,7 @@ const PrivacyPolicy: React.FC = () => {
 
       <Section id="destinataires" title="4. Destinataires & sous-traitants">
         <p className="mb-4">
-          Vos données peuvent être accessibles à l’éditeur ({c.dataControllerName}) et à des sous-traitants
+          Vos données peuvent être accessibles à l'éditeur ({c.dataControllerName}) et à des sous-traitants
           dûment encadrés (contrats conformes art. 28 RGPD) strictement nécessaires à la fourniture du service.
         </p>
         <Table
@@ -300,7 +311,7 @@ const PrivacyPolicy: React.FC = () => {
       <Section id="cookies" title="8. Cookies">
         <p className="mb-4">
           Nous utilisons des cookies nécessaires au fonctionnement du site et, avec votre consentement, des
-          cookies de mesure d’audience si ceux-ci sont activés.
+          cookies de mesure d'audience si ceux-ci sont activés.
         </p>
         <Table
           headers={["Nom", "Fournisseur", "Finalité", "Type", "Durée"]}
@@ -319,7 +330,7 @@ const PrivacyPolicy: React.FC = () => {
         </ul>
         <p className="mt-4">{c.dataSubjectRightsContact}</p>
         <p className="mt-2">
-          Vous pouvez également introduire une réclamation auprès de l’autorité de contrôle : {c.complaintAuthority}.
+          Vous pouvez également introduire une réclamation auprès de l'autorité de contrôle : {c.complaintAuthority}.
         </p>
       </Section>
 
@@ -346,4 +357,4 @@ const PrivacyPolicy: React.FC = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyPolicy

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 
 export default function MentionsLegales() {
   useEffect(() => {
@@ -24,6 +25,16 @@ export default function MentionsLegales() {
 
   return (
     <main className="relative min-h-screen bg-[#0B1120] text-[#E5E7EB]">
+      {/* ⬇️ LOGO FLUXA CLIQUABLE */}
+      <HomeLogoOverlay
+        logoSrc="/logo transparent.png"
+        href="/"
+        size={110}
+        topInsteadOfCenter={true}
+        hideOnDesktop={false}
+      />
+      {/* ⬆️ FIN AJOUT */}
+
       {/* === Effet visuel global (halo + dégradé) === */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 -top-32 h-64 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.18),transparent_60%)]" />
@@ -31,7 +42,7 @@ export default function MentionsLegales() {
       </div>
 
       {/* === Contenu principal === */}
-      <div className="max-w-3xl mx-auto px-6 pt-12 pb-12">
+      <div className="max-w-3xl mx-auto px-6 pt-20 pb-12 mt-24">
         <h1 className="text-3xl md:text-4xl font-bold text-[#3B82F6] text-center">
           Mentions légales
         </h1>
@@ -86,13 +97,13 @@ export default function MentionsLegales() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-[#3B82F6]">2. Conditions d’utilisation</h2>
+            <h2 className="text-2xl font-semibold text-[#3B82F6]">2. Conditions d'utilisation</h2>
             <p className="mt-4">
-              L’utilisation du site{" "}
+              L'utilisation du site{" "}
               <a className="text-[#93C5FD]" href="https://fluxa.fr">
                 https://fluxa.fr
               </a>{" "}
-              implique l’acceptation pleine et entière des présentes conditions. Le site est
+              implique l'acceptation pleine et entière des présentes conditions. Le site est
               normalement accessible à tout moment aux utilisateurs, sauf interruption pour maintenance.
             </p>
           </div>
@@ -105,7 +116,7 @@ export default function MentionsLegales() {
                 https://fluxa.fr
               </a>{" "}
               présente le projet Fluxa, une application web en développement, et permet aux visiteurs
-              d’entrer en contact avec son créateur pour obtenir des informations ou une démonstration.
+              d'entrer en contact avec son créateur pour obtenir des informations ou une démonstration.
               Le site est géré à titre personnel et ne propose aucun service commercial payant à ce jour.
             </p>
           </div>
@@ -141,7 +152,7 @@ export default function MentionsLegales() {
           <div>
             <h2 className="text-2xl font-semibold text-[#3B82F6]">6. Droit applicable</h2>
             <p className="mt-4">
-              Tout litige relatif à l’utilisation du site est soumis au droit français.
+              Tout litige relatif à l'utilisation du site est soumis au droit français.
               Tribunal compétent : Chambéry (France).
             </p>
           </div>

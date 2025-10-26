@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 
 /** =========================
  *  TYPO & UX PRESETS
@@ -125,8 +126,17 @@ export default function Articles() {
     setActiveTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
 
   return (
-    <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
-      <article className="max-w-4xl mx-auto space-y-20">
+  <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
+    {/* ⬇️ AJOUTE CE BLOC ICI */}
+    <HomeLogoOverlay
+  logoSrc="/logo transparent.png"
+  href="/"
+  size={110}             // ⬆️ taille du logo dans la bulle
+  topInsteadOfCenter={true}
+  hideOnDesktop={false}
+/>
+    {/* ⬆️ FIN AJOUT */}
+      <article className="max-w-4xl mx-auto space-y-20 mt-20">
         {/* === INTRO === */}
         <header className="text-center space-y-6">
           <p className={T.overline}>Guide complet</p>
