@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import DemoSidebar from "./DemoSidebar";
 import { Sparkles } from "lucide-react";
+import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 
 // ✅ On importe les variables du thème démo (fichier qu'on vient de créer)
 import "@/styles/demo-vars.css";
@@ -10,6 +11,16 @@ const DemoLayout = () => {
   return (
     // ✅ On applique le thème ici : "demo-scope dark"
     <div className="demo-scope dark min-h-screen bg-background text-foreground">
+      {/* ⬇️ LOGO FLUXA CLIQUABLE */}
+      <HomeLogoOverlay
+        logoSrc="/logo transparent.png"
+        href="https://fluxa.fr"
+        size={110}
+        topInsteadOfCenter={true}
+        hideOnDesktop={false}
+      />
+      {/* ⬆️ FIN AJOUT */}
+
       <SidebarProvider>
         <div className="flex w-full">
           <DemoSidebar />
@@ -48,4 +59,4 @@ const DemoLayout = () => {
   );
 };
 
-export default DemoLayout;
+export default DemoLayout
