@@ -74,7 +74,7 @@ export default function SEOHead() {
           "sameAs": [
             "https://www.instagram.com/fluxa",
             "https://www.facebook.com/fluxa.fr",
-            "https://www.linkedin.com/company/fluxa"
+            "https://www.linkedin.com/company/fluxa-fr/"
           ],
           "description":
             "Fluxa est une application de gestion sur mesure conçue pour les artisans, indépendants et TPE. Elle centralise les clients, rendez-vous, factures et statistiques dans une interface simple et moderne.",

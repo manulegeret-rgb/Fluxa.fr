@@ -11,6 +11,7 @@ import {
   Mail,
   Instagram,
   Facebook,
+  Linkedin,
   CheckCircle2,
   XCircle,
   Menu,
@@ -623,7 +624,7 @@ Merci !`
             <li className="rounded-full border border-border/70 px-3 py-1">🎯 Mise en place guidée</li>
           </ul>
 
-          {/* Lien contact — mail + Instagram + Facebook */}
+          {/* Lien contact — mail + Instagram + Facebook + LinkedIn */}
           <div className="mt-10 text-muted-foreground">
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2">
@@ -634,6 +635,9 @@ Merci !`
               </a>
               <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
                 <Facebook className="w-4 h-4" /> fluxa.fr
+              </a>
+              <a href="https://www.linkedin.com/company/fluxa-fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+                <Linkedin className="w-4 h-4" /> Fluxa
               </a>
             </div>
           </div>
@@ -806,12 +810,15 @@ Merci !`
           <Facebook className="w-4 h-4" />
           Facebook
         </a>
-        {/* Ajoute d'autres liens si tu veux :
-        <a href="#" className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground">
+        <a
+          href="https://www.linkedin.com/company/fluxa-fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
+        >
           <Linkedin className="w-4 h-4" />
           LinkedIn
         </a>
-        */}
       </nav>
     </div>
 
