@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import HomeLogoOverlay from "@/components/HomeLogoOverlay";
+import PageSEO from "@/components/PageSEO";
 
 /** =========================
  *  TYPO & UX PRESETS
@@ -24,20 +25,8 @@ type QItem = {
 };
 
 export default function Articles() {
-  // ===== SEO =====
+  // ===== Scroll vers ancre si hash présent =====
   useEffect(() => {
-    document.title =
-      "Automatisation & gestion — Guide complet pour artisans, indépendants et PME | Fluxa";
-    const desc =
-      "Découvrez comment les artisans, indépendants et petites entreprises peuvent automatiser leurs rappels, relances et suivi client avec Fluxa. Gagnez du temps et simplifiez votre gestion quotidienne.";
-    let meta = document.querySelector('meta[name=\"description\"]') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-    meta.content = desc;
-
     if (window.location.hash) {
       const id = window.location.hash.slice(1);
       const el = document.getElementById(id);
@@ -127,15 +116,34 @@ export default function Articles() {
 
   return (
   <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
-    {/* ⬇️ AJOUTE CE BLOC ICI */}
+    {/* SEO optimisé pour cette page */}
+    <PageSEO
+      title="Automatisation & gestion — Guide complet pour artisans, indépendants et PME | Fluxa"
+      description="Découvrez comment les artisans, indépendants et petites entreprises peuvent automatiser leurs rappels, relances et suivi client avec Fluxa. Gagnez du temps et simplifiez votre gestion quotidienne."
+      canonicalPath="/articles"
+      keywords={[
+        "automatisation gestion artisan",
+        "logiciel gestion indépendant",
+        "rappels automatiques SMS",
+        "relances factures impayées",
+        "tableau de bord artisan",
+        "outil gestion TPE",
+        "facturation automatique",
+        "gestion clients automatisée",
+      ]}
+      breadcrumb={[
+        { name: "Accueil", url: "/" },
+        { name: "Articles & Guides", url: "/articles" },
+      ]}
+    />
+
     <HomeLogoOverlay
-  logoSrc="/logo transparent.png"
-  href="/"
-  size={110}             // ⬆️ taille du logo dans la bulle
-  topInsteadOfCenter={true}
-  hideOnDesktop={false}
-/>
-    {/* ⬆️ FIN AJOUT */}
+      logoSrc="/logo transparent.png"
+      href="/"
+      size={110}
+      topInsteadOfCenter={true}
+      hideOnDesktop={false}
+    />
       <article className="max-w-4xl mx-auto space-y-20 mt-20">
         {/* === INTRO === */}
         <header className="text-center space-y-6">

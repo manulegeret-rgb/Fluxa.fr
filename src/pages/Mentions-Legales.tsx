@@ -1,31 +1,17 @@
-import { useEffect } from "react";
 import HomeLogoOverlay from "@/components/HomeLogoOverlay";
+import PageSEO from "@/components/PageSEO";
 
 export default function MentionsLegales() {
-  useEffect(() => {
-    document.title = "Mentions légales — Fluxa";
-    const desc =
-      "Mentions légales du site Fluxa — Application de gestion sur mesure pour artisans et indépendants.";
-    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-    meta.content = desc;
-
-    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "canonical";
-      document.head.appendChild(link);
-    }
-    link.href = "https://fluxa.fr/mentions-legales";
-  }, []);
-
   return (
     <main className="relative min-h-screen bg-[#0B1120] text-[#E5E7EB]">
-      {/* ⬇️ LOGO FLUXA CLIQUABLE */}
+      {/* SEO optimisé */}
+      <PageSEO
+        title="Mentions légales — Fluxa"
+        description="Mentions légales du site Fluxa — Application de gestion sur mesure pour artisans et indépendants."
+        canonicalPath="/mentions-legales"
+        noindex={false}
+      />
+
       <HomeLogoOverlay
         logoSrc="/logo transparent.png"
         href="/"
@@ -33,7 +19,6 @@ export default function MentionsLegales() {
         topInsteadOfCenter={true}
         hideOnDesktop={false}
       />
-      {/* ⬆️ FIN AJOUT */}
 
       {/* === Effet visuel global (halo + dégradé) === */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

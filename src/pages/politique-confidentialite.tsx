@@ -1,5 +1,6 @@
 import React from "react";
 import HomeLogoOverlay from "@/components/HomeLogoOverlay";
+import PageSEO from "@/components/PageSEO";
 
 /**
  * Politique de confidentialité — Fluxa (projet individuel)
@@ -206,7 +207,14 @@ const PrivacyPolicy: React.FC = () => {
 
   return (
     <main className="px-6 md:px-8 py-12 text-gray-100">
-      {/* ⬇️ LOGO FLUXA CLIQUABLE */}
+      {/* SEO optimisé */}
+      <PageSEO
+        title="Politique de confidentialité — Fluxa"
+        description="Politique de confidentialité et protection des données personnelles de Fluxa. Informations sur le traitement RGPD et vos droits."
+        canonicalPath="/politique-confidentialite"
+        noindex={false}
+      />
+
       <HomeLogoOverlay
         logoSrc="/logo transparent.png"
         href="/"
@@ -214,7 +222,6 @@ const PrivacyPolicy: React.FC = () => {
         topInsteadOfCenter={true}
         hideOnDesktop={false}
       />
-      {/* ⬆️ FIN AJOUT */}
 
       <header className="max-w-3xl mx-auto mb-10 mt-32 text-center">
         <h1 className="text-3xl md:text-4xl font-bold">Politique de confidentialité</h1>

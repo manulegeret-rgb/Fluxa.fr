@@ -47,15 +47,19 @@ export default function SEOHead() {
     ensureOG("og:description", description);
     ensureOG("og:type", "website");
     ensureOG("og:url", "https://fluxa.fr/");
-    ensureOG("og:image", "https://fluxa.fr/og-cover.jpg");
+    ensureOG("og:image", "https://fluxa.fr/og-image.png");
+    ensureOG("og:image:width", "1200");
+    ensureOG("og:image:height", "630");
+    ensureOG("og:image:alt", "Fluxa - Outil de gestion automatisé pour artisans et indépendants");
     ensureOG("og:site_name", "Fluxa");
+    ensureOG("og:locale", "fr_FR");
 
     // === TWITTER ===
     ensureMeta("twitter:card", "summary_large_image");
     ensureMeta("twitter:title", title);
     ensureMeta("twitter:description", description);
-    ensureMeta("twitter:image", "https://fluxa.fr/og-cover.jpg");
-    ensureMeta("twitter:creator", "@fluxa_app");
+    ensureMeta("twitter:image", "https://fluxa.fr/og-image.png");
+    ensureMeta("twitter:image:alt", "Fluxa - Outil de gestion automatisé pour artisans et indépendants");
 
     // === STRUCTURED DATA JSON-LD ===
     const jsonLd = {

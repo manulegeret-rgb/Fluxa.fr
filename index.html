@@ -17,20 +17,21 @@
   <!-- Open Graph / réseaux -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fluxa" />
-  <meta property="og:title" content="Fluxa — Application de gestion sur mesure" />
-  <meta property="og:description" content="Centralisez, automatisez, gagnez du temps. Devis personnalisé sous 24–48h." />
+  <meta property="og:title" content="Fluxa — Outil de gestion sur mesure pour artisans & indépendants" />
+  <meta property="og:description" content="Automatisez vos rappels, relances et factures. Gagnez 6-12h par semaine. Devis personnalisé sous 24–48h." />
   <meta property="og:url" content="https://fluxa.fr/" />
-  <!-- Mets ton image locale quand prête : /og-image.png (1200x630) -->
-  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <meta property="og:image" content="https://fluxa.fr/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fluxa - Outil de gestion automatisé pour artisans et indépendants" />
   <meta property="og:locale" content="fr_FR" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fluxa — Application de gestion sur mesure" />
-  <meta name="twitter:description" content="Centralisez, automatisez, gagnez du temps. Devis sous 24–48h." />
-  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <meta name="twitter:title" content="Fluxa — Outil de gestion sur mesure pour artisans" />
+  <meta name="twitter:description" content="Automatisez vos rappels, relances et factures. Gagnez 6-12h par semaine." />
+  <meta name="twitter:image" content="https://fluxa.fr/og-image.png" />
+  <meta name="twitter:image:alt" content="Fluxa - Outil de gestion automatisé pour artisans et indépendants" />
 
   <!-- Favicon + préchargement logo header pour netteté -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -41,16 +42,73 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Schema.org (Organization) -->
+  <!-- Schema.org (Organization + LocalBusiness + WebApplication) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Fluxa",
-    "url": "https://fluxa.fr/",
-    "logo": "https://fluxa.fr/logo.png",
-    "sameAs": ["https://instagram.com/fluxa.fr"],
-    "description": "Création d’applications de gestion sur mesure pour artisans, indépendants et TPE."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Fluxa",
+        "url": "https://fluxa.fr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://fluxa.fr/logo.png",
+          "width": 240,
+          "height": 240
+        },
+        "sameAs": [
+          "https://instagram.com/fluxa.fr"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "fluxa.contact@gmail.com",
+          "contactType": "customer service",
+          "areaServed": "FR",
+          "availableLanguage": "French"
+        },
+        "description": "Fluxa crée des applications de gestion sur mesure pour artisans, indépendants et TPE. Automatisation, facturation, rappels clients et tableau de bord en temps réel."
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Fluxa",
+        "image": "https://fluxa.fr/og-image.png",
+        "url": "https://fluxa.fr/",
+        "telephone": "",
+        "email": "fluxa.contact@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cognin",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 45.5,
+          "longitude": 5.9
+        },
+        "priceRange": "€€",
+        "description": "Outil de gestion sur mesure pour artisans et indépendants : automatisation des rappels, relances et factures. Gagnez 6-12h par semaine."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Fluxa",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "800",
+          "priceCurrency": "EUR",
+          "priceValidUntil": "2025-12-31",
+          "description": "Formule Essentielle à partir de 800€"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "12"
+        },
+        "description": "Application de gestion automatisée : rappels de rendez-vous, relances impayés, génération de factures, messagerie unifiée et tableau de bord statistique."
+      }
+    ]
   }
   </script>
 

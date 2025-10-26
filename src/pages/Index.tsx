@@ -182,10 +182,10 @@ Merci !`
 
             {/* Logo centré */}
             <div className="flex justify-center items-center translate-y-[2px]">
-              <a href="/" aria-label="Fluxa" className="inline-flex items-center">
+              <a href="/" aria-label="Fluxa - Accueil" className="inline-flex items-center">
                 <img
                   src={fluxaLogo}
-                  alt="Fluxa"
+                  alt="Fluxa - Outil de gestion sur mesure pour artisans et indépendants"
                   className="h-[100px] w-auto object-contain -translate-y-[8px]"
                 />
               </a>
@@ -197,10 +197,10 @@ Merci !`
 
           {/* Barre desktop */}
           <div className="hidden md:flex items-center justify-between h-[120px]">
-            <a href="/" aria-label="Fluxa" className="flex items-center gap-2">
+            <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-2">
               <img
                 src={fluxaLogo}
-                alt="Fluxa"
+                alt="Fluxa - Outil de gestion sur mesure pour artisans et indépendants"
                 className="h-[164px] lg:h-[240px] w-auto object-contain shrink-0"
               />
             </a>
@@ -329,9 +329,9 @@ Merci !`
       >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
-            <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules de Gestion pour Artisans</h2>
             <p className="text-xl text-muted-foreground">
-              Trois niveaux d’accompagnement — tous <span className="text-foreground">personnalisables</span> à votre activité.
+              Trois niveaux d'accompagnement pour votre gestion quotidienne — tous <span className="text-foreground">personnalisables</span> à votre activité d'artisan ou d'indépendant.
             </p>
           </div>
 
@@ -513,10 +513,10 @@ Merci !`
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl lg:text-5xl font-bold">
-              En savoir plus sur <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">Fluxa</span>
+              Simplifiez la Gestion de Votre Activité avec <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">Fluxa</span>
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
-              Dites-nous en un peu plus : on revient vers vous sous 24–48h avec des infos et une proposition adaptée.
+              Artisan, auto-entrepreneur ou indépendant ? Dites-nous en un peu plus sur vos besoins : on revient vers vous sous 24–48h avec une proposition adaptée à votre métier.
             </p>
           </div>
 
@@ -645,13 +645,13 @@ Merci !`
 <section className="pt-10 pb-2 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6">
     <h2 className="text-2xl md:text-3xl font-bold mb-3">
-      À propos de <span className="text-primary">Fluxa</span>
+      Logiciel de Gestion Sur Mesure pour Artisans et Indépendants
     </h2>
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      Fluxa aide les artisans et indépendants à piloter leur activité au quotidien :
+      <strong className="text-primary">Fluxa</strong> aide les artisans, auto-entrepreneurs et indépendants à piloter leur activité au quotidien :
       gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
-      Notre solution logicielle sur mesure simplifie la vie des professionnels, auto-entrepreneurs et petites entreprises,
-      tout en leur offrant un outil de gestion moderne et personnalisable.
+      Notre outil de gestion automatisé simplifie la vie des professionnels et petites entreprises,
+      tout en offrant une solution moderne, personnalisable et adaptée à chaque métier.
     </p>
   </div>
 </section>{/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
@@ -710,17 +710,17 @@ Merci !`
 
     {/* --- Partie narrative / storytelling --- */}
     <div className="max-w-5xl mx-auto space-y-8">
-      <h3 className="text-3xl font-semibold text-center">Un outil né du terrain, pensé pour le terrain</h3>
+      <h3 className="text-3xl font-semibold text-center">Un Logiciel de Gestion Pensé pour les Artisans et Indépendants</h3>
       <p className="text-muted-foreground text-lg leading-relaxed text-center">
         Fluxa a été conçu en observant le quotidien réel des artisans, freelances et petites entreprises :
         des journées pleines, des clients à rappeler, des devis à envoyer, et des papiers à classer.
-        L’idée était simple : <strong>recentrer le professionnel sur son savoir-faire</strong>,
-        pas sur ses outils.
+        L'idée était simple : <strong>recentrer le professionnel sur son savoir-faire</strong>,
+        pas sur la gestion administrative.
       </p>
       <p className="text-muted-foreground text-lg leading-relaxed text-center">
-        Chaque module — rappel automatique, tableau de bord, facturation, messages clients —
-        est pensé pour "imiter vos habitudes", pas les bousculer.  
-        Pas besoin d’être expert en informatique : tout est visuel, fluide et paramétrable en quelques clics.
+        Chaque module — rappel automatique, tableau de bord, facturation automatique, messages clients —
+        est pensé pour s'adapter à vos habitudes, pas les bousculer.
+        Pas besoin d'être expert en informatique : tout est visuel, fluide et paramétrable en quelques clics.
       </p>
     </div>
 
@@ -767,7 +767,7 @@ Merci !`
       <div className="flex items-center gap-3">
         <img
           src={fluxaLogo}
-          alt="Fluxa"
+          alt="Logo Fluxa - Automatisation et gestion pour artisans"
           className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
         />
         <p className="text-sm text-muted-foreground">
