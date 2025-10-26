@@ -73,6 +73,7 @@ export default function SEOHead() {
           "email": "fluxa.contact@gmail.com",
           "sameAs": [
             "https://www.instagram.com/fluxa",
+            "https://www.facebook.com/fluxa.fr",
             "https://www.linkedin.com/company/fluxa"
           ],
           "description":
