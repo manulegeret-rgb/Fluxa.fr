@@ -182,38 +182,6 @@ const Dashboard = () => {
 
       {/* Second Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Top Services */}
-        <Card className="lg:col-span-2 p-6 bg-gradient-card border-border shadow-card hover:shadow-card-hover transition-all">
-          <div className="mb-6">
-            <h3 className="text-xl font-semibold text-foreground mb-1">
-              Prestations les plus demandées
-            </h3>
-            <p className="text-sm text-muted-foreground">Top 5 des services</p>
-          </div>
-          <ResponsiveContainer width="100%" height={280}>
-            <BarChart data={mockKPIs.topServices} layout="horizontal">
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" horizontal={false} />
-              <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-              <YAxis 
-                type="category" 
-                dataKey="name" 
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-                width={120}
-              />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "hsl(var(--card))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: "var(--radius)",
-                  boxShadow: "var(--shadow-card)",
-                }}
-              />
-              <Bar dataKey="count" fill="hsl(var(--primary))" radius={[0, 8, 8, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </Card>
-
         {/* Upcoming Appointments */}
         <Card className="p-6 bg-gradient-card border-border shadow-card hover:shadow-card-hover transition-all">
           <div className="mb-6">
