@@ -46,7 +46,7 @@ const Header = () => {
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-4 h-14">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Fluxa" className="h-6 w-auto" />
+          <img src="/logo.png" alt="Fluxa" className="h-6 w-auto" width="24" height="24" loading="lazy" />
           <span className="text-lg font-semibold tracking-wide text-white">FLUXA</span>
         </Link>
 
@@ -116,6 +116,8 @@ const AppInner = () => {
   <Route path="factures" element={<Factures />} />
   <Route path="automations" element={<Automations />} />
 </Route>
+        {/* Catch-all 404 route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       
     </>
