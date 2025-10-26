@@ -1,0 +1,34 @@
+# Fluxa - Configuration Apache pour IONOS
+# Gestion SPA React Router + vraies erreurs 404
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Si le fichier ou dossier existe, on le sert directement
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Sinon, on redirige vers index.html pour React Router
+  RewriteRule ^(.*)$ /index.html [L]
+</IfModule>
+
+# Page d'erreur 404 personnalisée
+ErrorDocument 404 /404.html
+
+# Activer la compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache navigateur pour performances
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

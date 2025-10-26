@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page introuvable | Fluxa</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script>
+    // Redirect to React Router 404 page after a brief moment
+    setTimeout(() => {
+      window.location.href = '/page-introuvable';
+    }, 100);
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .container { max-width: 600px; }
+    h1 { font-size: 80px; color: #3b82f6; margin-bottom: 16px; }
+    h2 { font-size: 28px; margin-bottom: 12px; }
+    p { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    a {
+      display: inline-block;
+      padding: 12px 32px;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    a:hover { background: #2563eb; }
+    .loader {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #3b82f6;
+      animation: spin 0.8s linear infinite;
+      margin-top: 20px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>Page introuvable</h2>
+    <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
+    <a href="/">Retour à l'accueil</a>
+    <div class="loader"></div>
+  </div>
+</body>
+</html>
