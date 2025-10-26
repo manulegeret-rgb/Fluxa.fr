@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluxa - Open Graph Image Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    /* Container exact 1200x630px */
+    .og-container {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0B1120 0%, #1a2332 100%);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Effets visuels de fond */
+    .bg-blur-1 {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+      filter: blur(80px);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .bg-blur-2 {
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+      filter: blur(80px);
+      animation: pulse 6s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    /* Grille de fond subtile */
+    .grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+
+    /* Contenu principal */
+    .content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      padding: 20px 80px 40px 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Logo zone */
+    .logo-zone {
+      position: absolute;
+      top: 20px;
+      left: 80px;
+    }
+
+    .logo-placeholder {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px dashed rgba(59, 130, 246, 0.5);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      padding: 10px;
+    }
+
+    .logo-img {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      display: none;
+    }
+
+    .brand-text {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    /* Titre principal */
+    .main-title {
+      max-width: 900px;
+      margin-left: 260px;
+      margin-top: 50px;
+    }
+
+    .main-title h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Bénéfices */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .benefit-item {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .benefit-text {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .url {
+      font-size: 24px;
+      color: #3B82F6;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .badge {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #3B82F6;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Instructions */
+    .instructions {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .instructions h3 {
+      margin-bottom: 12px;
+      color: #3B82F6;
+    }
+
+    .instructions ol {
+      margin-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 8px;
+    }
+
+    .hide-instructions {
+      display: none;
+    }
+
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+      }
+      .instructions {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Instructions -->
+  <div class="instructions" id="instructions">
+    <h3>📸 Instructions</h3>
+    <ol>
+      <li><strong>Option A</strong> : Appuyez sur <code>H</code> pour masquer ces instructions</li>
+      <li><strong>Option B</strong> : Windows: <code>Win + Shift + S</code> / Mac: <code>Cmd + Shift + 4</code></li>
+      <li>Capturez UNIQUEMENT le rectangle 1200×630px</li>
+      <li>Sauvegardez sous <code>og-image.png</code></li>
+      <li>Placez dans <code>/public/og-image.png</code></li>
+    </ol>
+    <p style="margin-top: 12px; color: #3B82F6;">💡 Astuce : Remplacez le logo en modifiant le HTML ligne 250</p>
+  </div>
+
+  <!-- Container OG 1200x630 -->
+  <div class="og-container">
+    <!-- Effets de fond -->
+    <div class="bg-blur-1"></div>
+    <div class="bg-blur-2"></div>
+    <div class="grid-pattern"></div>
+
+    <!-- Contenu -->
+    <div class="content">
+      <!-- Header avec logo -->
+      <div class="logo-zone">
+        <!-- Logo Fluxa -->
+        <img src="logo%20transparent.png" alt="Fluxa" class="logo-img" style="display: block;">
+      </div>
+
+      <!-- Titre principal -->
+      <div class="main-title">
+        <h1>
+          Outil de gestion <span class="highlight">sur mesure</span><br>
+          pour artisans & indépendants
+        </h1>
+        <p class="subtitle">
+          Automatisez, simplifiez, gagnez du temps
+        </p>
+      </div>
+
+      <!-- Bénéfices -->
+      <div class="benefits">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text">Rappels & relances automatiques</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <div class="benefit-text">Gagnez 6-12h par semaine</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎯</div>
+          <div class="benefit-text">Devis sous 24-48h</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="url">fluxa.fr</div>
+        <div class="badge">Gestion automatisée</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Masquer les instructions avec la touche H
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'h' || e.key === 'H') {
+        const instructions = document.getElementById('instructions');
+        instructions.classList.toggle('hide-instructions');
+      }
+    });
+  </script>
+</body>
+</html>
