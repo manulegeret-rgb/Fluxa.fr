@@ -24,7 +24,7 @@ export default function SEOHead() {
 
     // === TITLE & DESCRIPTION ===
     const title =
-      "Fluxa — Application de gestion sur mesure pour artisans & indépendants | Automatisations, RDV, factures, relances et statistiques";
+      "Fluxa — Gestion automatisée pour artisans & indépendants";
     const description =
       "Fluxa aide les artisans, indépendants et petites entreprises à automatiser votre gestion quotidienne : rappels de rendez-vous pour vos clients, relances automatiques, facturation simplifiée, messagerie centralisée et statistiques claires. Gagnez du temps, réduisez vos oublis et boostez votre chiffre d'affaires.";
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO de base -->
-  <title>Fluxa — Application de gestion sur mesure pour artisans & indépendants</title>
+  <title>Fluxa — Gestion automatisée pour artisans & indépendants</title>
   <meta name="description" content="Centralisez clients, agenda, factures et messages. Automatisations (rappels, relances), statistiques en temps réel. Devis personnalisé sous 24–48h." />
   <meta name="author" content="Fluxa" />
   <meta name="robots" content="index,follow" />
@@ -131,7 +131,16 @@
 </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- H1 pour crawlers SEO (remplacé par React au chargement) -->
+      <noscript>
+        <h1>Fluxa — Outil de gestion automatisé pour artisans et indépendants</h1>
+        <p>Automatisez vos rappels, relances et factures. Gagnez du temps.</p>
+      </noscript>
+      <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+        <h1>Fluxa — Outil de gestion automatisé pour artisans et indépendants</h1>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
