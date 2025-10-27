@@ -11,6 +11,7 @@ import MentionsLegales from "./pages/Mentions-Legales"; // ✅
 import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
 import Ressources from "./pages/Ressources/Ressources"; // ✅ NOUVELLE PAGE (blog)
 import Articles from "./pages/Articles";
+import ArticleViral from "./pages/ArticleViral";
 import DemoLayout from "@/_import_demo/components/demo/DemoLayout";
 import Dashboard from "@/_import_demo/pages/demo/Dashboard";
 import Clients from "@/_import_demo/pages/demo/Clients";
@@ -94,7 +95,8 @@ const AppInner = () => {
     location.pathname === "/mentions-legales" ||
     location.pathname === "/politique-confidentialite" ||
     location.pathname === "/ressources" ||
-    location.pathname === "/articles";
+    location.pathname === "/articles" ||
+    location.pathname === "/guide-complet-roi-automatisation-artisans";
 
   return (
     <>
@@ -108,6 +110,7 @@ const AppInner = () => {
         <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
         <Route path="/articles" element={<Articles />} />
+        <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} /> {/* ✅ Article viral ROI */}
         <Route path="/demo" element={<DemoLayout />}>
   <Route index element={<Navigate to="dashboard" replace />} />
   <Route path="dashboard" element={<Dashboard />} />

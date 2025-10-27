@@ -158,6 +158,45 @@ export default function Articles() {
           </p>
         </header>
 
+        {/* === ENCART ARTICLE RECOMMANDÉ === */}
+        <section className={`${T.card} p-6 bg-gradient-to-br from-primary/10 to-primary/5 border-primary`}>
+          <div className="flex items-start gap-4">
+            <span className="text-3xl">🔥</span>
+            <div className="flex-1">
+              <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-2">
+                📊 Ressource Recommandée
+              </p>
+              <h3 className={`${T.h3} mb-2`}>
+                Combien Perdez-Vous Vraiment Avec la Gestion Manuelle ?
+              </h3>
+              <p className={T.small}>
+                Découvrez notre étude complète 2025 avec <strong>calculateur ROI interactif</strong> et
+                <strong> 150+ automatisations détaillées</strong>. Quantifiez vos pertes actuelles en temps et argent,
+                et découvrez combien vous pourriez gagner.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3 items-center">
+                <a
+                  href="/guide-complet-roi-automatisation-artisans"
+                  className="inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
+                >
+                  Voir l'Étude Complète + Calculateur ROI
+                </a>
+                <div className="flex gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
+                    Calculateur ROI
+                  </span>
+                  <span className="px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
+                    150+ Automatisations
+                  </span>
+                  <span className="px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
+                    Études de Cas Réels
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* === MENU INTERACTIF === */}
         <section className="space-y-6">
           <div className={`${T.card} p-6`}>
