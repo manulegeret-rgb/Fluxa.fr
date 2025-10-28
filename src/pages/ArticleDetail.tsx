@@ -147,10 +147,10 @@ export default function ArticleDetail() {
         </header>
 
         {/* Image avec dégradé coloré */}
-        <div className={`aspect-video bg-gradient-to-br ${getArticleVisual(article).gradient} rounded-2xl mb-12 flex items-center justify-center text-white`}>
-          <div className="text-center space-y-4 px-8">
-            <div className="text-8xl">{getArticleVisual(article).icon}</div>
-            <p className="text-2xl md:text-3xl font-bold drop-shadow-lg line-clamp-2">
+        <div className={`aspect-[3/1] bg-gradient-to-br ${getArticleVisual(article).gradient} rounded-xl mb-6 flex items-center justify-center text-white`}>
+          <div className="text-center space-y-1 px-4">
+            <div className="text-4xl">{getArticleVisual(article).icon}</div>
+            <p className="text-base md:text-lg font-bold drop-shadow-lg line-clamp-2">
               {article.categoryName}
             </p>
           </div>
@@ -160,12 +160,12 @@ export default function ArticleDetail() {
         <ArticleContent filename={article.filename} />
 
         {/* CTA Fluxa */}
-        <div className={`${T.card} p-6 mt-12 bg-gradient-to-br from-primary/10 to-primary/5`}>
-          <h3 className={`${T.h3} mb-4`}>🚀 Prêt à automatiser votre entreprise ?</h3>
-          <p className={T.p}>
+        <div className={`${T.card} p-3 mt-6 bg-gradient-to-br from-primary/10 to-primary/5`}>
+          <h3 className="text-base md:text-lg font-semibold mb-1">🚀 Prêt à automatiser votre entreprise ?</h3>
+          <p className="text-xs text-muted-foreground mb-2">
             Découvrez comment Fluxa peut vous aider à gagner du temps et augmenter votre rentabilité.
           </p>
-          <Button asChild size="lg" className="mt-4">
+          <Button asChild size="sm" className="h-8 text-xs">
             <Link to="/#automations">Découvrir Fluxa</Link>
           </Button>
         </div>

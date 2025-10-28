@@ -159,36 +159,36 @@ export default function Articles() {
         </header>
 
         {/* === ENCART ARTICLE RECOMMANDÉ === */}
-        <section className={`${T.card} p-6 bg-gradient-to-br from-primary/10 to-primary/5 border-primary`}>
-          <div className="flex items-start gap-4">
-            <span className="text-3xl">🔥</span>
+        <section className={`${T.card} p-4 bg-gradient-to-br from-primary/10 to-primary/5 border-primary`}>
+          <div className="flex items-start gap-3">
+            <span className="text-2xl">🔥</span>
             <div className="flex-1">
-              <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-2">
+              <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
                 📊 Ressource Recommandée
               </p>
-              <h3 className={`${T.h3} mb-2`}>
+              <h3 className="text-lg md:text-xl font-semibold leading-snug mb-1">
                 Combien Perdez-Vous Vraiment Avec la Gestion Manuelle ?
               </h3>
-              <p className={T.small}>
+              <p className="text-sm text-muted-foreground">
                 Découvrez notre étude complète 2025 avec <strong>calculateur ROI interactif</strong> et
                 <strong> 150+ automatisations détaillées</strong>. Quantifiez vos pertes actuelles en temps et argent,
                 et découvrez combien vous pourriez gagner.
               </p>
-              <div className="mt-4 flex flex-wrap gap-3 items-center">
+              <div className="mt-3 flex flex-wrap gap-2 items-center">
                 <a
                   href="/guide-complet-roi-automatisation-artisans"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
+                  className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-primary text-primary-foreground hover:opacity-90 transition"
                 >
                   Voir l'Étude Complète + Calculateur ROI
                 </a>
                 <div className="flex gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
+                  <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-medium">
                     Calculateur ROI
                   </span>
-                  <span className="px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
+                  <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-medium">
                     150+ Automatisations
                   </span>
-                  <span className="px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
+                  <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-medium">
                     Études de Cas Réels
                   </span>
                 </div>
@@ -199,9 +199,9 @@ export default function Articles() {
 
         {/* === MENU INTERACTIF === */}
         <section className="space-y-6">
-          <div className={`${T.card} p-6`}>
-            <h2 className={T.h2}>Sommaire interactif</h2>
-            <p className={T.small}>
+          <div className={`${T.card} p-4`}>
+            <h2 className="text-2xl md:text-3xl font-bold leading-tight">Sommaire interactif</h2>
+            <p className="text-sm text-muted-foreground mt-2">
               Tapez un mot-clé (ex. <em>auto-entrepreneur</em>, <em>facture</em>, <em>rendez-vous</em>)
               ou filtrez par tag. Cliquez sur une question pour accéder à la réponse.
             </p>
@@ -239,15 +239,15 @@ export default function Articles() {
               )}
             </div>
 
-            <div className="mt-6 grid md:grid-cols-2 gap-3">
+            <div className="mt-6 grid md:grid-cols-2 gap-2">
               {filtered.map((item, i) => (
                 <a
                   key={i}
                   href={item.href}
-                  className="group rounded-xl border border-border/60 bg-background/50 p-4 hover:bg-background/80 transition"
+                  className="group rounded-xl border border-border/60 bg-background/50 p-3 hover:bg-background/80 transition"
                 >
-                  <p className="font-medium leading-snug group-hover:underline">{item.q}</p>
-                  <p className={`${T.small} mt-1`}>{item.detail}</p>
+                  <p className="font-medium text-sm leading-snug group-hover:underline">{item.q}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{item.detail}</p>
                 </a>
               ))}
             </div>
@@ -354,31 +354,31 @@ export default function Articles() {
     et libère des créneaux. Tout en restant humain grâce à la personnalisation (prénom, créneau, lieu).
   </p>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">✅ Cadence recommandée</p>
-    <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
-      <li><strong>J0 (immédiat)</strong> : confirmation (SMS/email) avec récap du rendez-vous + bouton “Ajouter au calendrier”.</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">✅ Cadence recommandée</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+      <li><strong>J0 (immédiat)</strong> : confirmation (SMS/email) avec récap du rendez-vous + bouton "Ajouter au calendrier".</li>
       <li><strong>J-1 à 18h</strong> : rappel avec lien <em>Confirmer / Déplacer / Annuler</em>.</li>
       <li><strong>J0 à H-1</strong> : micro-rappel SMS (120–160 caractères, ultra concis).</li>
     </ul>
   </div>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">✍️ Exemples de messages (SMS)</p>
-    <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-      <li><em>Confirmation :</em> “{`{prenom}`}, rdv confirmé le {`{date}`}, {`{heure}`}, {`{adresse}`}. Ajoutez au calendrier : {`{lien_ics}`}. À bientôt — Fluxa.”</li>
-      <li><em>Veille 18h :</em> “{`{prenom}`}, rappel rdv demain {`{heure}`}. Confirmer/Déplacer/Annuler : {`{lien_action}`}. Merci ! — Fluxa”</li>
-      <li><em>H-1 :</em> “{`{prenom}`}, rdv dans 1h ({`{heure}`}). Besoin d’ajuster ? {`{lien_action}`}. — Fluxa”</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">✍️ Exemples de messages (SMS)</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+      <li><em>Confirmation :</em> "{`{prenom}`}, rdv confirmé le {`{date}`}, {`{heure}`}, {`{adresse}`}. Ajoutez au calendrier : {`{lien_ics}`}. À bientôt — Fluxa."</li>
+      <li><em>Veille 18h :</em> "{`{prenom}`}, rappel rdv demain {`{heure}`}. Confirmer/Déplacer/Annuler : {`{lien_action}`}. Merci ! — Fluxa"</li>
+      <li><em>H-1 :</em> "{`{prenom}`}, rdv dans 1h ({`{heure}`}). Besoin d'ajuster ? {`{lien_action}`}. — Fluxa"</li>
     </ul>
   </div>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">🔎 Bonnes pratiques</p>
-    <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
-      <li>Un seul lien d’action centralisé (évite les malentendus).</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">🔎 Bonnes pratiques</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+      <li>Un seul lien d'action centralisé (évite les malentendus).</li>
       <li>Toujours arrêter les rappels dès que le client confirme/déplace.</li>
       <li>Limiter les majuscules et emojis pour rester pro.</li>
-      <li>Proposer l’ajout au calendrier (Google/Apple/Outlook).</li>
+      <li>Proposer l'ajout au calendrier (Google/Apple/Outlook).</li>
     </ul>
   </div>
 
@@ -395,29 +395,29 @@ export default function Articles() {
     (J+7 → J+14 → J+30) avec un <em>lien de paiement</em> simple, et stoppez la séquence dès règlement.
   </p>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">🔁 Échelle d’escalade (modèle)</p>
-    <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">
-      <li><strong>J+7</strong> : rappel cordial (ton “oubli probable”), facture & lien de paiement.</li>
-      <li><strong>J+14</strong> : second rappel + proposition d’échéancier (lien d’acceptation en 1 clic).</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">🔁 Échelle d'escalade (modèle)</p>
+    <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground">
+      <li><strong>J+7</strong> : rappel cordial (ton "oubli probable"), facture & lien de paiement.</li>
+      <li><strong>J+14</strong> : second rappel + proposition d'échéancier (lien d'acceptation en 1 clic).</li>
       <li><strong>J+30</strong> : message plus ferme, mention des CGV et des éventuels frais de retard.</li>
     </ol>
   </div>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">✉️ Gabarits d’emails/SMS</p>
-    <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-      <li><em>J+7 (cordial)</em> : “Bonjour {`{prenom}`}, un rappel pour la facture {`{num}`}, montant {`{montant}`}. Règlement ici : {`{lien}`}. Merci beaucoup 🙏”</li>
-      <li><em>J+14 (solution)</em> : “Bonjour {`{prenom}`}, souhaitez-vous un échéancier en 2/3 fois ? Proposez-le ici : {`{lien_echeancier}`}. Sinon paiement : {`{lien}`}.”</li>
-      <li><em>J+30 (ferme)</em> : “Bonjour {`{prenom}`}, sauf erreur, la facture {`{num}`}, {`{montant}`}, reste due. Conformément à nos CGV, des frais peuvent s’appliquer. Règlement : {`{lien}`}.”</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">✉️ Gabarits d'emails/SMS</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+      <li><em>J+7 (cordial)</em> : "Bonjour {`{prenom}`}, un rappel pour la facture {`{num}`}, montant {`{montant}`}. Règlement ici : {`{lien}`}. Merci beaucoup 🙏"</li>
+      <li><em>J+14 (solution)</em> : "Bonjour {`{prenom}`}, souhaitez-vous un échéancier en 2/3 fois ? Proposez-le ici : {`{lien_echeancier}`}. Sinon paiement : {`{lien}`}."</li>
+      <li><em>J+30 (ferme)</em> : "Bonjour {`{prenom}`}, sauf erreur, la facture {`{num}`}, {`{montant}`}, reste due. Conformément à nos CGV, des frais peuvent s'appliquer. Règlement : {`{lien}`}."</li>
     </ul>
   </div>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">🧩 Détails utiles</p>
-    <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">🧩 Détails utiles</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li>Arrêt automatique des relances dès encaissement (évite les doublons).</li>
-      <li>Synchroniser le statut “payé” avec compta/livre de recettes.</li>
+      <li>Synchroniser le statut "payé" avec compta/livre de recettes.</li>
       <li>Conserver une trace (journal des relances) — utile en cas de litige.</li>
       <li>Proposer un paiement en un clic (CB/SEPA) pour lever le dernier frein.</li>
     </ul>
@@ -434,21 +434,21 @@ export default function Articles() {
     évite les questions récurrentes et augmente les avis positifs.
   </p>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">🗓️ Mini séquence (exemple)</p>
-    <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">
-      <li><strong>H+2</strong> : remerciement + conseils d’usage / check-list courte.</li>
-      <li><strong>J+2</strong> : “tout va bien ?” + lien SAV si besoin.</li>
-      <li><strong>J+5</strong> : demande d’avis Google (lien direct), photo avant/après si pertinent.</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">🗓️ Mini séquence (exemple)</p>
+    <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground">
+      <li><strong>H+2</strong> : remerciement + conseils d'usage / check-list courte.</li>
+      <li><strong>J+2</strong> : "tout va bien ?" + lien SAV si besoin.</li>
+      <li><strong>J+5</strong> : demande d'avis Google (lien direct), photo avant/après si pertinent.</li>
     </ol>
   </div>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">💬 Gabarits rapides</p>
-    <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-      <li><em>H+2</em> : “Merci {`{prenom}`}, heureux d’avoir travaillé avec vous. Voici nos conseils : {`{lien_pdf}`}. Bonne journée !”</li>
-      <li><em>J+2</em> : “Tout se passe bien {`{prenom}`} ? Un souci ? On est là : {`{lien_sav}`}.”</li>
-      <li><em>J+5</em> : “Un avis de votre part nous aide beaucoup 🙏 : {`{lien_avis_google}`}”</li>
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">💬 Gabarits rapides</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+      <li><em>H+2</em> : "Merci {`{prenom}`}, heureux d'avoir travaillé avec vous. Voici nos conseils : {`{lien_pdf}`}. Bonne journée !"</li>
+      <li><em>J+2</em> : "Tout se passe bien {`{prenom}`} ? Un souci ? On est là : {`{lien_sav}`}."</li>
+      <li><em>J+5</em> : "Un avis de votre part nous aide beaucoup 🙏 : {`{lien_avis_google}`}"</li>
     </ul>
   </div>
 
@@ -465,9 +465,9 @@ export default function Articles() {
     Pilotez avec des indicateurs <strong>simples mais actionnables</strong>. Mieux vaut 6 KPIs clairs que 30 chiffres confus.
   </p>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">📈 KPIs essentiels (définitions)</p>
-    <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">📈 KPIs essentiels (définitions)</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li><strong>CA du mois</strong> : total encaissé sur période (pas émis).</li>
       <li><strong>Taux de conversion devis</strong> = devis acceptés / devis envoyés.</li>
       <li><strong>Délai moyen de paiement</strong> : jours entre facture et encaissement.</li>
@@ -477,9 +477,9 @@ export default function Articles() {
     </ul>
   </div>
 
-  <div className={`${T.card} p-5 space-y-3`}>
-    <p className="font-medium">🎯 Seuils d’alerte (guidelines)</p>
-    <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
+  <div className={`${T.card} p-3 space-y-2`}>
+    <p className="font-medium text-sm">🎯 Seuils d'alerte (guidelines)</p>
+    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li>No-shows &gt; 10&nbsp;% → renforcer rappels & confirmation.</li>
       <li>Délai moyen &gt; 21 jours → proposer CB/SEPA + échéancier.</li>
       <li>Conversion devis &lt; 30&nbsp;% → retravailler modèle & argumentaire.</li>
@@ -497,22 +497,22 @@ export default function Articles() {
     Fluxa s’adapte à votre métier et à vos habitudes. L’objectif : <strong>des gains rapides</strong> sans courbe d’apprentissage.
   </p>
 
-  <div className="grid md:grid-cols-2 gap-6">
-    <div className={`${T.card} p-6 space-y-3`}>
-      <p className="font-medium">🗓️ Feuille de route (standard)</p>
-      <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">
+  <div className="grid md:grid-cols-2 gap-4">
+    <div className={`${T.card} p-4 space-y-2`}>
+      <p className="font-medium text-sm">🗓️ Feuille de route (standard)</p>
+      <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground">
         <li><strong>Jour 1</strong> : diagnostic + paramétrage (branding, mentions légales, numérotation).</li>
         <li><strong>Jour 2</strong> : scénarios clés (rappels RDV, relances J+7/J+14, post-prestation).</li>
         <li><strong>Jour 3</strong> : import clients/produits + test end-to-end (devis → facture → paiement).</li>
       </ol>
     </div>
-    <div className={`${T.card} p-6 space-y-3`}>
-      <p className="font-medium">📦 Livrables</p>
-      <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
-        <li>Interface brandée et prête à l’emploi.</li>
+    <div className={`${T.card} p-4 space-y-2`}>
+      <p className="font-medium text-sm">📦 Livrables</p>
+      <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+        <li>Interface brandée et prête à l'emploi.</li>
         <li>Modèles (devis, factures, emails/SMS) personnalisés.</li>
         <li>Tableau de bord configuré + rapport hebdomadaire.</li>
-        <li>Guide d’usage 1 page + courte formation.</li>
+        <li>Guide d'usage 1 page + courte formation.</li>
       </ul>
     </div>
   </div>

@@ -1,11 +1,51 @@
 import { useEffect, useState } from "react";
 
+// Fonction pour rendre le texte avec Markdown (gras, italique)
+function renderMarkdown(text: string) {
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let key = 0;
+
+  // Regex pour détecter **gras** et *italique*
+  const regex = /(\*\*.*?\*\*|\*.*?\*)/g;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Ajouter le texte avant le match
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+
+    const matched = match[0];
+    if (matched.startsWith('**') && matched.endsWith('**')) {
+      // Gras
+      parts.push(<strong key={key++} className="font-bold text-foreground">{matched.slice(2, -2)}</strong>);
+    } else if (matched.startsWith('*') && matched.endsWith('*')) {
+      // Italique
+      parts.push(<em key={key++} className="italic">{matched.slice(1, -1)}</em>);
+    }
+
+    lastIndex = regex.lastIndex;
+  }
+
+  // Ajouter le reste du texte
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 const T = {
-  h2: "text-3xl md:text-4xl font-bold leading-tight tracking-tight mt-12 mb-6 scroll-mt-24",
-  h3: "text-2xl md:text-3xl font-semibold leading-snug mt-8 mb-4",
+  h1: "text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mt-8 mb-6 text-foreground",
+  h2: "text-2xl md:text-3xl font-bold leading-tight mt-12 mb-4 text-foreground border-b border-border pb-2",
+  h3: "text-xl md:text-2xl font-semibold leading-snug mt-8 mb-3 text-foreground",
+  h4: "text-lg md:text-xl font-semibold leading-snug mt-6 mb-2 text-foreground/90",
   p: "text-base md:text-lg text-muted-foreground leading-relaxed mb-4",
-  list: "space-y-2 ml-6 list-disc mb-6",
-  alert: "border-l-4 border-primary pl-4 py-3 bg-primary/5 rounded-r mb-6",
+  list: "space-y-3 ml-0 pl-6 mb-6 text-base md:text-lg text-muted-foreground",
+  listItem: "leading-relaxed pl-2",
+  alert: "border-l-4 border-primary pl-4 py-3 bg-primary/10 rounded-r mb-6",
+  section: "mb-10",
 };
 
 interface ArticleParagraph {
@@ -86,17 +126,26 @@ export default function ArticleContent({ filename }: ArticleContentProps) {
   }
 
   return (
-    <div className="prose prose-lg dark:prose-invert max-w-none">
+    <div className="max-w-none">
       {sections.map((section, sectionIndex) => (
-        <div key={sectionIndex} className="mb-8">
+        <div key={sectionIndex} className={T.section}>
           {section.content.map((para, paraIndex) => {
             const { text, style } = para;
+
+            // Titre H1
+            if (style === 'Heading 1') {
+              return (
+                <h1 key={paraIndex} className={T.h1}>
+                  {renderMarkdown(text)}
+                </h1>
+              );
+            }
 
             // Titre H2
             if (style === 'Heading 2') {
               return (
                 <h2 key={paraIndex} className={T.h2}>
-                  {text}
+                  {renderMarkdown(text)}
                 </h2>
               );
             }
@@ -105,8 +154,17 @@ export default function ArticleContent({ filename }: ArticleContentProps) {
             if (style === 'Heading 3') {
               return (
                 <h3 key={paraIndex} className={T.h3}>
-                  {text}
+                  {renderMarkdown(text)}
                 </h3>
+              );
+            }
+
+            // Titre H4
+            if (style === 'Heading 4') {
+              return (
+                <h4 key={paraIndex} className={T.h4}>
+                  {renderMarkdown(text)}
+                </h4>
               );
             }
 
@@ -135,10 +193,11 @@ export default function ArticleContent({ filename }: ArticleContentProps) {
               }
 
               return (
-                <ul key={paraIndex} className={T.list}>
+                <ul key={paraIndex} className={`${T.list} list-none`}>
                   {listItems.map((item, i) => (
-                    <li key={i} className="text-muted-foreground">
-                      {item}
+                    <li key={i} className={`${T.listItem} flex items-start gap-3`}>
+                      <span className="text-primary font-bold mt-1 flex-shrink-0">•</span>
+                      <span className="flex-1">{renderMarkdown(item)}</span>
                     </li>
                   ))}
                 </ul>
@@ -151,14 +210,14 @@ export default function ArticleContent({ filename }: ArticleContentProps) {
               if (text.includes('💡') || text.includes('✅') || text.includes('⚠️') || text.includes('📌')) {
                 return (
                   <div key={paraIndex} className={T.alert}>
-                    <p className={T.p}>{text}</p>
+                    <p className="text-sm md:text-base text-foreground leading-relaxed mb-0">{renderMarkdown(text)}</p>
                   </div>
                 );
               }
 
               return (
                 <p key={paraIndex} className={T.p}>
-                  {text}
+                  {renderMarkdown(text)}
                 </p>
               );
             }

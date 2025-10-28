@@ -47,8 +47,8 @@ def extract_text_from_docx(docx_path):
 
 def main():
     # Chemins
-    articles_dir = r"C:\Users\Utilisateur\Documents\Applications personnalisées\fluxa-artisans-automations-main\Articles à ajouter"
-    output_json = r"C:\Users\Utilisateur\Documents\Applications personnalisées\fluxa-artisans-automations-main\articles_extracted.json"
+    articles_dir = r"C:\Users\Utilisateur\Documents\Applications personnalisées\fluxa-artisans-automations-main\Articles optimisés SEO"
+    output_json = r"C:\Users\Utilisateur\Documents\Applications personnalisées\fluxa-artisans-automations-main\public\articles_extracted.json"
 
     articles_data = {}
 
