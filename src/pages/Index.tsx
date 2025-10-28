@@ -39,10 +39,10 @@ useEffect(() => {
     history.replaceState(null, '', '/'); // garde l’URL propre (home)
   }
 }, []);
-    // === SEO global ===
-useEffect(() => {
-  document.title = "Fluxa — Outil de gestion sur mesure pour artisans & indépendants";
-}, []);
+    // === SEO global (géré par SEOHead component) ===
+// useEffect(() => {
+//   document.title = "Fluxa — Outil de gestion sur mesure pour artisans & indépendants";
+// }, []);
 
 
 
@@ -127,6 +127,7 @@ Merci !`
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead />
       {/* ================= HEADER ================= */}
       <header
         className={[
@@ -247,16 +248,16 @@ Merci !`
       <div className="space-y-8 text-center md:text-left">
         <div className="space-y-5">
           <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
-            Votre <span className="whitespace-nowrap">outil de gestion</span> sur-mesure,{" "}
+            <span className="whitespace-nowrap">Automatisation et gestion</span> sur-mesure{" "}
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-              pensé pour votre activité.
+              pour artisans et PME
             </span>
           </h1>
 
           <p className="text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
-            Fluxa centralise vos opérations — <span className="text-foreground">devis & factures, agenda, fichier clients, messages</span> —
-            dans un espace unique, configuré à vos couleurs et adapté à votre métier. Suivez vos chiffres
-            en temps réel et automatisez relances, rappels et suivis pour gagner du temps sans sacrifier la qualité de service.
+            Fluxa est l'<span className="text-foreground">outil d'automatisation entreprise</span> qui centralise vos opérations : 
+            devis & factures, agenda, fichier clients, messages. Automatisez la gestion de vos tâches répétitives —
+            relances, rappels, suivis clients — pour gagner du temps et vous concentrer sur votre métier d'artisan.
           </p>
 
           {/* 3 points forts sobres */}
@@ -293,7 +294,7 @@ Merci !`
 
         {/* Note de réassurance compacte */}
         <p className="text-xs text-muted-foreground">
-          🔐 Données hébergées en Europe — ⚙️ Automatisations incluses — 🎯 Mise en place guidée
+          🔐 Données hébergées en Europe — ⚙️ Automatisation des tâches incluse — 🎯 Mise en place guidée
         </p>
       </div>
 
@@ -302,7 +303,7 @@ Merci !`
         <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
         <img
           src={dashboardMockup}
-          alt="Outil de gestion Fluxa — aperçu du tableau de bord pour artisans"
+          alt="Outil d'automatisation et gestion Fluxa — aperçu du tableau de bord pour artisans et PME"
           loading="eager"
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
         />
@@ -331,9 +332,9 @@ Merci !`
       >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
-            <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules de Gestion pour Artisans</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules d'Automatisation et Gestion pour Artisans et PME</h2>
             <p className="text-xl text-muted-foreground">
-              Trois niveaux d'accompagnement pour votre gestion quotidienne — tous <span className="text-foreground">personnalisables</span> à votre activité d'artisan ou d'indépendant.
+              Trois niveaux d'automatisation pour votre gestion quotidienne — tous <span className="text-foreground">personnalisables</span> à votre activité d'artisan, PME ou indépendant.
             </p>
           </div>
 
@@ -515,7 +516,7 @@ Merci !`
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl lg:text-5xl font-bold">
-              Simplifiez la Gestion de Votre Activité avec <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">Fluxa</span>
+              Automatisez la Gestion de Votre Entreprise avec <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">Fluxa</span>
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
               Artisan, auto-entrepreneur ou indépendant ? Dites-nous en un peu plus sur vos besoins : on revient vers vous sous 24–48h avec une proposition adaptée à votre métier.
@@ -656,9 +657,9 @@ Merci !`
       Logiciel de Gestion Sur Mesure pour Artisans et Indépendants
     </h2>
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      <strong className="text-primary">Fluxa</strong> aide les artisans, auto-entrepreneurs et indépendants à piloter leur activité au quotidien :
-      gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
-      Notre outil de gestion automatisé simplifie la vie des professionnels et petites entreprises,
+      <strong className="text-primary">Fluxa</strong> est l'outil d'automatisation entreprise qui aide les artisans, PME et indépendants à piloter leur activité :
+      automatisation des tâches répétitives, gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
+      Notre outil d'automatisation et de gestion simplifie le quotidien des professionnels et petites entreprises,
       tout en offrant une solution moderne, personnalisable et adaptée à chaque métier.
     </p>
   </div>

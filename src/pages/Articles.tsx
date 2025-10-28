@@ -118,10 +118,15 @@ export default function Articles() {
   <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
     {/* SEO optimisé pour cette page */}
     <PageSEO
-      title="Automatisation & gestion — Guide complet pour artisans, indépendants et PME | Fluxa"
-      description="Découvrez comment les artisans, indépendants et petites entreprises peuvent automatiser leurs rappels, relances et suivi client avec Fluxa. Gagnez du temps et simplifiez votre gestion quotidienne."
+      title="Outil d'Automatisation Entreprise — Guide Complet pour Artisans et PME | Fluxa"
+      description="Guide complet sur l'automatisation des tâches et la gestion d'entreprise pour artisans et PME. Découvrez notre outil d'automatisation entreprise pour automatiser rappels, relances, facturation et gagner du temps au quotidien."
       canonicalPath="/articles"
       keywords={[
+        "outil d'automatisation entreprise",
+        "automatisation tâches entreprise",
+        "automatisation gestion entreprise",
+        "automatisation PME",
+        "automatisation artisan",
         "automatisation gestion artisan",
         "logiciel gestion indépendant",
         "rappels automatiques SMS",
@@ -152,9 +157,9 @@ export default function Articles() {
             Automatisation & gestion : le guide complet pour artisans, indépendants et PME
           </h1>
           <p className={`${T.p} italic max-w-2xl mx-auto`}>
-            Le monde change, les outils aussi. Ce guide montre comment simplifier la gestion,
-            automatiser les tâches répétitives et reprendre le contrôle de son temps — sans changer
-            ses habitudes de travail.
+            Découvrez comment l'automatisation des tâches entreprise transforme le quotidien des artisans et PME. 
+            Ce guide complet vous montre comment automatiser la gestion de votre entreprise,
+            réduire les tâches répétitives et reprendre le contrôle de votre temps avec notre outil d'automatisation.
           </p>
         </header>
 

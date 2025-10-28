@@ -75,10 +75,13 @@ export function Automations() {
         {/* Titre + sous-titre : espaces réduits en mobile */}
         <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-14">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            Automatisations qui font gagner du temps
+            Automatisation des Tâches pour Artisans et PME
           </h2>
           <p className="text-base leading-7 text-muted-foreground mt-1">
-            Des scénarios simples, efficaces, prêts à adapter à votre activité.
+            Notre outil d'automatisation entreprise vous propose des scénarios simples et efficaces pour automatiser la gestion de votre activité.{" "}
+            <a href="/articles" className="text-primary hover:underline font-medium">
+              Découvrez notre guide complet →
+            </a>
           </p>
         </div>
 

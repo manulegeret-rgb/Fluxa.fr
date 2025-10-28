@@ -24,9 +24,9 @@ export default function SEOHead() {
 
     // === TITLE & DESCRIPTION ===
     const title =
-      "Fluxa — Gestion automatisée pour artisans & indépendants";
+      "Fluxa — Automatisation et Gestion pour Artisans et PME | Outil d'Automatisation Entreprise";
     const description =
-      "Fluxa aide les artisans, indépendants et petites entreprises à automatiser votre gestion quotidienne : rappels de rendez-vous pour vos clients, relances automatiques, facturation simplifiée, messagerie centralisée et statistiques claires. Gagnez du temps, réduisez vos oublis et boostez votre chiffre d'affaires.";
+      "Fluxa : outil d'automatisation entreprise pour artisans, PME et indépendants. Automatisez la gestion de votre entreprise : relances clients, facturation, rappels de rendez-vous et tâches répétitives. Automatisation gestion entreprise pour gagner du temps et augmenter votre chiffre d'affaires.";
 
     document.title = title;
     ensureMeta("description", description);
