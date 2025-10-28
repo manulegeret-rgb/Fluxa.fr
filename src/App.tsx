@@ -10,8 +10,9 @@ import NotFound from "./pages/NotFound";
 import MentionsLegales from "./pages/Mentions-Legales"; // ✅
 import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
 import Ressources from "./pages/Ressources/Ressources"; // ✅ NOUVELLE PAGE (blog)
-import Articles from "./pages/Articles";
-import ArticleViral from "./pages/ArticleViral";
+import ArticlesHub from "./pages/ArticlesHub"; // ✅ Hub des 26 articles optimisés SEO
+import ArticleDetail from "./pages/ArticleDetail"; // ✅ Page dynamique article individuel
+import ArticleViral from "./pages/ArticleViral"; // ✅ Article viral ROI (spécial)
 import DemoLayout from "@/_import_demo/components/demo/DemoLayout";
 import Dashboard from "@/_import_demo/pages/demo/Dashboard";
 import Clients from "@/_import_demo/pages/demo/Clients";
@@ -96,6 +97,7 @@ const AppInner = () => {
     location.pathname === "/politique-confidentialite" ||
     location.pathname === "/ressources" ||
     location.pathname === "/articles" ||
+    location.pathname.startsWith("/articles/") || // Cache aussi sur les pages articles individuels
     location.pathname === "/guide-complet-roi-automatisation-artisans";
 
   return (
@@ -103,13 +105,15 @@ const AppInner = () => {
       {!hideHeader && <Header />}
 
       <Routes>
-        {/* ... on ajoutera les routes démo juste en dessous */}
-
+        {/* Routes principales */}
         <Route path="/" element={<Index />} />
         <Route path="/ressources" element={<Ressources />} /> {/* ✅ nouvelle route */}
         <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
-        <Route path="/articles" element={<Articles />} />
+
+        {/* Routes articles */}
+        <Route path="/articles" element={<ArticlesHub />} /> {/* ✅ Hub des 26 articles */}
+        <Route path="/articles/:slug" element={<ArticleDetail />} /> {/* ✅ Article dynamique */}
         <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} /> {/* ✅ Article viral ROI */}
         <Route path="/demo" element={<DemoLayout />}>
   <Route index element={<Navigate to="dashboard" replace />} />

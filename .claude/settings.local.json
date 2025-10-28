@@ -4,7 +4,16 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(mkdir:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(chcp 65001)",
+      "Bash(test:*)",
+      "Bash(cat:*)",
+      "Bash(awk:*)",
+      "Bash(npm run dev:*)",
+      "Bash(ls \"C:\\Users\\Utilisateur\\Documents\\Applications personnalisées\\fluxa-artisans-automations-main\\public\"\" | findstr \"articles \")"
     ],
     "deny": [],
     "ask": []

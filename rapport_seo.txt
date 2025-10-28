@@ -1,0 +1,191 @@
+================================================================================
+RAPPORT D'OPTIMISATION SEO - FLUXA
+================================================================================
+
+1. STATISTIQUES GÉNÉRALES
+----------------------------------------
+Nombre d'articles analysés : 26
+Nombre de doublons détectés : 0
+
+3. PROBLÈMES SEO IDENTIFIÉS PAR ARTICLE
+----------------------------------------
+
+agent-ia-n8n.docx:
+  - Mot-clé 'tpe' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 178 caractères (optimal: 120-160)
+
+automatisation-administrative-entreprise.docx:
+  - Mot-clé 'workflow' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 169 caractères (optimal: 120-160)
+
+automatisation-communication-client.docx:
+  - Mot-clé 'workflow' sous-utilisé (0 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Mot-clé 'n8n' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 176 caractères (optimal: 120-160)
+
+automatisation-gestion-clients-2025.docx:
+  - Mot-clé 'workflow' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 175 caractères (optimal: 120-160)
+
+automatisation-pour-independants.docx:
+  - CTA marketing détecté : 'découvrez la démo gratuite'
+  - Mot-clé 'workflow' sous-utilisé (1 occurrences)
+  - Mot-clé 'artisan' sous-utilisé (1 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (0 occurrences)
+  - Meta description mal dimensionnée : 173 caractères (optimal: 120-160)
+
+automatisation-seo-contenu-ia.docx:
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 181 caractères (optimal: 120-160)
+
+automatiser-entreprise-n8n.docx:
+  - Mot-clé 'indépendant' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 208 caractères (optimal: 120-160)
+
+automatiser-son-entreprise-en-2025.docx:
+  - Mot-clé 'workflow' sous-utilisé (2 occurrences)
+  - Mot-clé 'n8n' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 176 caractères (optimal: 120-160)
+
+automatiser-taches-repetitives-travail.docx:
+  - CTA marketing détecté : 'découvrez la démo gratuite'
+  - Mot-clé 'tpe' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 167 caractères (optimal: 120-160)
+
+comment-automatiser-sa-facturation.docx:
+  - Mot-clé 'workflow' sous-utilisé (0 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (2 occurrences)
+  - Mot-clé 'n8n' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 184 caractères (optimal: 120-160)
+
+comment-creer-des-automatisations-avec-ia.docx:
+  - CTA marketing détecté : 'découvrez la démo gratuite'
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+
+comment-creer-un-workflow-automatise.docx:
+  - Mot-clé 'automatisation' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+
+comment-utiliser-n8n-debutant.docx:
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 176 caractères (optimal: 120-160)
+
+crm-automatise-tpe.docx:
+  - Mot-clé 'workflow' sous-utilisé (1 occurrences)
+  - Mot-clé 'n8n' sous-utilisé (2 occurrences)
+
+facturation-relances-n8n.docx:
+  - Mot-clé 'artisan' sous-utilisé (1 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (0 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (0 occurrences)
+
+Fluxa_Article2_Automatiser_Generation_Leads_Entreprise.docx:
+  - Mot-clé 'workflow' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 186 caractères (optimal: 120-160)
+
+gain-de-temps-automatisation-tpe.docx:
+  - Mot-clé 'workflow' sous-utilisé (2 occurrences)
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (2 occurrences)
+  - Mot-clé 'n8n' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 164 caractères (optimal: 120-160)
+
+gestion-client-n8n.docx:
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 174 caractères (optimal: 120-160)
+
+meilleur-outil-automatisation-artisans.docx:
+  - Mot-clé 'workflow' sous-utilisé (1 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Mot-clé 'n8n' sous-utilisé (2 occurrences)
+  - Meta description mal dimensionnée : 185 caractères (optimal: 120-160)
+
+Meilleur_Outil_Workflow_Automation.docx:
+  - Meta description mal dimensionnée : 178 caractères (optimal: 120-160)
+
+rappels-rendezvous-n8n.docx:
+  - Mot-clé 'artisan' sous-utilisé (1 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (0 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 173 caractères (optimal: 120-160)
+
+reduire-couts-operationnels-automatisation.docx:
+  - CTA marketing détecté : 'découvrez la démo gratuite'
+  - Mot-clé 'workflow' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 163 caractères (optimal: 120-160)
+
+reseaux-sociaux-n8n.docx:
+  - Mot-clé 'automatisation' sous-utilisé (2 occurrences)
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (0 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 161 caractères (optimal: 120-160)
+
+service-client-n8n.docx:
+  - Mot-clé 'artisan' sous-utilisé (1 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (1 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 169 caractères (optimal: 120-160)
+
+workflow-marketing-automation-gratuit.docx:
+  - CTA marketing détecté : 'offre spéciale'
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (2 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+
+workflow-n8n-pme.docx:
+  - Mot-clé 'artisan' sous-utilisé (2 occurrences)
+  - Mot-clé 'tpe' sous-utilisé (0 occurrences)
+  - Mot-clé 'indépendant' sous-utilisé (1 occurrences)
+  - Meta description mal dimensionnée : 198 caractères (optimal: 120-160)
+
+4. OPTIMISATIONS APPLIQUÉES
+----------------------------------------
+Total d'optimisations: 6
+
+5. RECOMMANDATIONS DE PUBLICATION (PAR PRIORITÉ SEO)
+----------------------------------------
+1. Meilleur_Outil_Workflow_Automation.docx (Score SEO: 95/100)
+   Titre: Le Meilleur Outil de Workflow Automation en 2025 : Comparatif Complet ...
+
+2. automatiser-entreprise-n8n.docx (Score SEO: 90/100)
+   Titre: Automatiser son entreprise avec n8n : gagnez du temps et boostez votre...
+
+3. comment-creer-des-automatisations-avec-ia.docx (Score SEO: 90/100)
+   Titre: Comment Créer des Automatisations avec l’Intelligence Artificielle (IA...
+
+4. comment-creer-un-workflow-automatise.docx (Score SEO: 90/100)
+   Titre: Comment Créer un Workflow Automatisé : Guide Complet 2025...
+
+5. crm-automatise-tpe.docx (Score SEO: 90/100)
+   Titre: CRM Automatisé pour TPE : Le Guide 2025 pour Gagner du Temps et Fidéli...
+
+6. agent-ia-n8n.docx (Score SEO: 85/100)
+   Titre: Créer un agent IA avec n8n : l’automatisation intelligente pour PME et...
+
+7. automatisation-administrative-entreprise.docx (Score SEO: 85/100)
+   Titre: Automatisation Administrative d’Entreprise : Comment Gagner en Efficac...
+
+8. automatisation-gestion-clients-2025.docx (Score SEO: 85/100)
+   Titre: Automatisation de la Gestion Clients en 2025 : Les Nouvelles Méthodes ...
+
+9. automatiser-son-entreprise-en-2025.docx (Score SEO: 85/100)
+   Titre: Automatiser son Entreprise en 2025 : Les Clés pour Gagner du Temps et ...
+
+10. facturation-relances-n8n.docx (Score SEO: 85/100)
+   Titre: Automatiser la facturation et les relances avec n8n : simplifiez votre...
