@@ -40,3 +40,13 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* ✅ Classe pour contenu accessible aux moteurs de recherche et lecteurs d'écran */
+/* mais invisible visuellement (remplace les styles inline) */
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
