@@ -13,9 +13,9 @@ import {
   CheckCircle2,
   Menu,
 } from "lucide-react";
+import mockupAJour from "@/assets/mockup-a-jour.webp"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import dashboardMockup from "@/assets/dashboard-mockup.webp";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 
 const Index = () => {
@@ -270,7 +270,7 @@ Merci !`
       <div className="relative">
         <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
         <img
-          src={dashboardMockup}
+          src={mockupAJour}
           alt="Exemple de site vitrine professionnel créé par Fluxa - Design moderne et responsive"
           loading="eager"
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
@@ -293,7 +293,7 @@ Merci !`
       </p>
     </div>
 
-    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
         <div className="text-4xl mb-4">🎨</div>
         <h3 className="text-xl font-semibold mb-3">Site Portfolio</h3>
@@ -313,6 +313,17 @@ Merci !`
         </p>
         <div className="text-xs text-muted-foreground">
           ✓ Pages services détaillées • ✓ Présentation équipe • ✓ Google Maps intégré
+        </div>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
+        <div className="text-4xl mb-4">💼</div>
+        <h3 className="text-xl font-semibold mb-3">Site Profession Libérale</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+          Parfait pour les consultants, coachs, thérapeutes ou experts indépendants : valorisez votre expertise, vos prestations et facilitez la prise de contact.
+        </p>
+        <div className="text-xs text-muted-foreground">
+          ✓ Présentation claire des services • ✓ Biographie & parcours • ✓ Formulaire de contact rapide
         </div>
       </div>
     </div>
@@ -336,17 +347,19 @@ Merci !`
       >
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 max-md:mb-12 md:mb-16">
-            <div className="relative inline-block">
-              <div className="absolute -top-3 -right-8 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full rotate-12 shadow-lg">
-                NOUVEAU
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-bold">Tarifs Site Vitrine — Transparent et Abordable</h2>
-            </div>
-            <p className="text-xl text-muted-foreground">
-              Une <span className="text-foreground font-semibold">formule unique</span> à partir de 390€, ajustable selon vos besoins.
-              Hébergement et domaine inclus la première année.
-            </p>
-          </div>
+  <div className="relative inline-block">
+    <div className="absolute -top-3 -right-8 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full rotate-12 shadow-lg">
+      NOUVEAU
+    </div>
+    <h2 className="text-4xl lg:text-5xl font-bold">
+      Tarifs site vitrine — Transparent et abordable
+    </h2>
+  </div>
+  <p className="text-xl text-muted-foreground">
+    Une <span className="text-foreground font-semibold">formule unique</span> à partir de 390€, ajustable selon vos besoins.
+    Hébergement et domaine inclus la première année.
+  </p>
+</div>
 
           {/* Formule + Options */}
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
@@ -390,7 +403,7 @@ Merci !`
                     <span className="font-semibold">Galerie photo avancée</span>
                     <span className="text-primary font-bold">+120€</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Lightbox, filtres, mise en page optimisée pour vos réalisations</p>
+                  <p className="text-[0.95rem] md:text-base text-muted-foreground">Lightbox, filtres, mise en page optimisée pour vos réalisations</p>
                 </div>
 
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">

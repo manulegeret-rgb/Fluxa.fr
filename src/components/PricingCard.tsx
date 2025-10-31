@@ -21,12 +21,9 @@ export const PricingCard = ({ title, price, features, className }: PricingCardPr
         </div>
 
         {/* Liste des features — alignement icône/texte nickel */}
-        <ul className="space-y-3 text-muted-foreground min-h-[200px] max-md:w-fit max-md:mx-auto">
+        <ul className="space-y-2 text-[0.95rem] md:text-base text-muted-foreground leading-relaxed">
           {features.map((feature, index) => (
-            <li
-              key={index}
-              className="flex items-start gap-3"
-            >
+            <li key={index} className="flex items-start gap-2 font-medium">
               {/* Puce */}
               <span className="text-primary mt-[2px] shrink-0 leading-none">✓</span>
               {/* Texte */}
