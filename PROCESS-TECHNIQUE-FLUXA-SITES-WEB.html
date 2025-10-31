@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Technique - Création Sites Web Fluxa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background: #F7FAFC;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2C3E50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #4FD1C5;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2C3E50;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #F59E0B;
+        }
+
+        h3 {
+            color: #4FD1C5;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #4A5568;
+        }
+
+        .step {
+            background: #F7FAFC;
+            border-left: 4px solid #4FD1C5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .step h3 {
+            margin-top: 0;
+            color: #2C3E50;
+        }
+
+        .timeline {
+            background: #EDF2F7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .email-template {
+            background: #FFF9E6;
+            border: 2px solid #F59E0B;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .warning {
+            background: #FEE;
+            border-left: 4px solid #EF4444;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .success {
+            background: #ECFDF5;
+            border-left: 4px solid #10B981;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #4A5568;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li::before {
+            content: '☐ ';
+            color: #4FD1C5;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        strong {
+            color: #2C3E50;
+        }
+
+        .highlight {
+            background: #FEF3C7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .price {
+            background: #4FD1C5;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📋 Process Technique - Création Sites Web Fluxa</h1>
+    <p><strong>Dernière mise à jour :</strong> 31/01/2025</p>
+    <p><em>Ce document récapitule le processus complet de A à Z pour la création d'un site web client.</em></p>
+
+    <!-- ÉTAPE 1 -->
+    <h2>🔹 ÉTAPE 1 : Premier Contact Client</h2>
+
+    <div class="step">
+        <h3>📧 Le client vous contacte par mail</h3>
+        <p><strong>Canal :</strong> fluxa.contact@gmail.com ou formulaire du site</p>
+        <p><strong>Délai de réponse :</strong> Moins de 24h (idéalement sous 4h en journée)</p>
+    </div>
+
+    <h3>Template Email de Réponse #1 :</h3>
+    <div class="email-template">Objet : Re: Demande de création de site web - Fluxa
+
+Bonjour [Prénom],
+
+Merci pour votre demande ! 😊
+
+Je serais ravi(e) de créer votre site web professionnel.
+
+Pour bien comprendre votre projet et vos besoins, pourriez-vous prendre 5 minutes pour remplir ce formulaire de brief ?
+
+🔗 <strong>https://docs.google.com/forms/d/11A9GehRoDqpPhW1IKQh4APSRZQcdzArlecbzBkHoCmc/viewform</strong>
+
+Cela me permettra de :
+✅ Comprendre votre activité et votre identité
+✅ Identifier vos besoins précis
+✅ Vous proposer un devis personnalisé sous 24-48h
+
+En attendant, n'hésitez pas si vous avez des questions.
+
+À très bientôt !
+
+L'équipe Fluxa
+fluxa.contact@gmail.com
+www.fluxa.fr
+    </div>
+
+    <div class="success">
+        <strong>✅ Objectif :</strong> Obtenir le formulaire rempli dans les 48h
+    </div>
+
+    <!-- ÉTAPE 2 -->
+    <h2>🔹 ÉTAPE 2 : Réception du Formulaire & Devis</h2>
+
+    <div class="step">
+        <h3>📊 Analyser les réponses</h3>
+        <ul>
+            <li>Consulter les réponses dans Google Forms (Menu > Réponses)</li>
+            <li>Exporter dans Google Sheets si besoin</li>
+            <li>Noter les éléments clés : budget, délais, fonctionnalités</li>
+        </ul>
+    </div>
+
+    <h3>Calcul du Devis :</h3>
+    <div class="timeline">
+        <strong>Formule de base :</strong> <span class="price">390€</span><br><br>
+        <strong>Options courantes :</strong><br>
+        • Page supplémentaire : +80€<br>
+        • Galerie photo avancée : +120€<br>
+        • Prise de RDV en ligne : +150€<br>
+        • Rédaction SEO (2000 mots) : +200€<br>
+        • Multilingue : +180€/langue<br>
+        • Maintenance : 35€/mois<br><br>
+        <strong>Exemple :</strong> 390€ + 2 pages (160€) + Galerie (120€) = <span class="highlight">670€</span>
+    </div>
+
+    <h3>Template Email #2 - Envoi du Devis :</h3>
+    <div class="email-template">Objet : Votre devis personnalisé - Site web [Nom Entreprise]
+
+Bonjour [Prénom],
+
+Merci d'avoir pris le temps de remplir le formulaire ! 🎉
+
+Voici votre devis personnalisé pour la création de votre site web :
+
+<strong>📦 VOTRE PROJET</strong>
+• Formule de base (5 pages) : 390€
+• [Option 1 si applicable] : +XXX€
+• [Option 2 si applicable] : +XXX€
+
+<strong>💰 TOTAL : XXX€ TTC</strong>
+
+<strong>✅ CE QUI EST INCLUS :</strong>
+✓ Design responsive (mobile + desktop)
+✓ Formulaire de contact fonctionnel
+✓ SEO de base
+✓ Hébergement & domaine 1ère année
+✓ 1 round de modifications
+✓ Formation à la gestion du site
+✓ Support technique
+
+<strong>⏱️ DÉLAI DE LIVRAISON :</strong>
+1 à 2 semaines après validation des maquettes
+
+<strong>💳 MODALITÉS DE PAIEMENT :</strong>
+• Acompte de 50% à la validation du devis
+• Solde à la mise en ligne du site
+• Paiement en 2 fois sans frais disponible
+
+<strong>🎨 PROCHAINES ÉTAPES :</strong>
+1. Validation du devis
+2. Paiement de l'acompte (195€)
+3. Création des maquettes (3-5 jours)
+4. Validation & développement (1 semaine)
+5. Mise en ligne
+
+Si ce devis vous convient, répondez simplement "OK, je valide" et je vous enverrai la facture d'acompte.
+
+Des questions ? N'hésitez pas !
+
+À très bientôt,
+L'équipe Fluxa
+    </div>
+
+    <!-- ÉTAPE 3 -->
+    <h2>🔹 ÉTAPE 3 : Validation Devis & Acompte</h2>
+
+    <div class="step">
+        <h3>💰 Paiement Acompte (50%)</h3>
+        <p><strong>Moment :</strong> AVANT de commencer les maquettes</p>
+        <p><strong>Montant :</strong> 50% du total HT</p>
+        <p><strong>Moyen :</strong> Virement bancaire / PayPal / Stripe</p>
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ IMPORTANT :</strong> Ne jamais commencer les maquettes sans avoir reçu l'acompte. C'est votre sécurité.
+    </div>
+
+    <h3>Checklist avant de démarrer :</h3>
+    <ul class="checklist">
+        <li>Devis validé par le client (mail ou signature)</li>
+        <li>Acompte de 50% reçu</li>
+        <li>Formulaire de brief rempli</li>
+        <li>Accès au logo / photos si fournis</li>
+        <li>Confirmation des délais</li>
+    </ul>
+
+    <!-- ÉTAPE 4 -->
+    <h2>🔹 ÉTAPE 4 : Création des Maquettes</h2>
+
+    <div class="step">
+        <h3>🎨 Phase Maquettes (3-5 jours)</h3>
+        <p><strong>Outils recommandés :</strong></p>
+        <ul>
+            <li>Figma (gratuit, collaboratif)</li>
+            <li>Adobe XD</li>
+            <li>Canva (pour sites simples)</li>
+            <li>Webflow (design + code)</li>
+        </ul>
+
+        <p><strong>Livrables :</strong></p>
+        <ul>
+            <li>Maquette page Accueil (desktop + mobile)</li>
+            <li>Maquette 1-2 pages intérieures types</li>
+            <li>Palette de couleurs</li>
+            <li>Typographies choisies</li>
+        </ul>
+    </div>
+
+    <h3>Template Email #3 - Envoi Maquettes :</h3>
+    <div class="email-template">Objet : 🎨 Vos maquettes sont prêtes !
+
+Bonjour [Prénom],
+
+Excellente nouvelle : vos maquettes sont prêtes ! 🎉
+
+Vous pouvez les consulter ici : [Lien Figma / PDF]
+
+<strong>📱 CE QUE VOUS ALLEZ VOIR :</strong>
+• Design de la page d'accueil (version desktop et mobile)
+• [Pages supplémentaires si applicable]
+• Palette de couleurs
+• Choix typographiques
+
+<strong>✅ VALIDATION :</strong>
+Prenez le temps de bien regarder et faites-moi part de vos retours :
+• Ce qui vous plaît
+• Ce que vous souhaiteriez ajuster
+
+👉 <strong>1 round de modifications est inclus</strong>, donc n'hésitez pas à me dire ce qui ne vous convient pas !
+
+Une fois les maquettes validées, je passe au développement (comptez 1 semaine).
+
+À très bientôt,
+L'équipe Fluxa
+    </div>
+
+    <div class="timeline">
+        <strong>⏱️ Délai :</strong> Laisser 2-3 jours au client pour valider<br>
+        <strong>📝 Si modifications :</strong> 1-2 jours supplémentaires<br>
+        <strong>✅ Si validation directe :</strong> Démarrer développement immédiatement
+    </div>
+
+    <!-- ÉTAPE 5 -->
+    <h2>🔹 ÉTAPE 5 : Développement du Site</h2>
+
+    <div class="step">
+        <h3>💻 Phase Développement (5-7 jours)</h3>
+        <p><strong>Stack technique recommandée :</strong></p>
+        <ul>
+            <li><strong>React + Vite</strong> (votre stack actuelle)</li>
+            <li><strong>WordPress</strong> (si client veut gérer contenu facilement)</li>
+            <li><strong>Webflow</strong> (no-code, client autonome)</li>
+            <li><strong>HTML/CSS/JS pur</strong> (sites simples)</li>
+        </ul>
+
+        <p><strong>Checklist développement :</strong></p>
+        <ul class="checklist">
+            <li>Structure HTML sémantique</li>
+            <li>Design 100% responsive (mobile-first)</li>
+            <li>Formulaire de contact fonctionnel</li>
+            <li>Optimisation SEO (meta tags, headings, alt images)</li>
+            <li>Performance (vitesse de chargement &lt;3s)</li>
+            <li>Compatibilité navigateurs (Chrome, Firefox, Safari, Edge)</li>
+            <li>Certificat SSL (HTTPS)</li>
+            <li>Google Analytics (optionnel)</li>
+        </ul>
+    </div>
+
+    <h3>Environnement de test :</h3>
+    <div class="timeline">
+        <strong>Hébergement temporaire :</strong><br>
+        • Netlify (gratuit, facile)<br>
+        • Vercel (gratuit, React-friendly)<br>
+        • Subdomain de votre propre site (staging.fluxa.fr)<br><br>
+        <strong>URL de test :</strong> https://projet-client.netlify.app (par exemple)<br>
+        <strong>Mot de passe :</strong> Protéger avec un mot de passe si besoin
+    </div>
+
+    <!-- ÉTAPE 6 -->
+    <h2>🔹 ÉTAPE 6 : Présentation & Validation Finale</h2>
+
+    <h3>Template Email #4 - Site Prêt :</h3>
+    <div class="email-template">Objet : 🚀 Votre site est prêt !
+
+Bonjour [Prénom],
+
+Excellente nouvelle : votre site web est terminé ! 🎉
+
+Vous pouvez le consulter ici (version de test) :
+🔗 <strong>[URL de staging]</strong>
+
+<strong>✅ CE QUI A ÉTÉ RÉALISÉ :</strong>
+• Design responsive (testez sur mobile !)
+• Toutes les pages demandées
+• Formulaire de contact opérationnel
+• Optimisation SEO de base
+• Certificat SSL (sécurisé)
+
+<strong>📝 VOS RETOURS :</strong>
+Testez bien le site et faites-moi part de vos éventuelles remarques :
+• Corrections de textes
+• Ajustements visuels mineurs
+• Bugs éventuels
+
+Une fois que tout est validé, je procéderai à :
+1. Mise en ligne sur votre nom de domaine
+2. Formation à la gestion du site (30 min visio)
+3. Remise du solde (195€)
+
+Prêt(e) pour la mise en ligne ? 🚀
+
+À très bientôt,
+L'équipe Fluxa
+    </div>
+
+    <div class="success">
+        <strong>✅ Objectif :</strong> Obtenir validation finale dans les 2-3 jours
+    </div>
+
+    <!-- ÉTAPE 7 -->
+    <h2>🔹 ÉTAPE 7 : Solde & Mise en Ligne</h2>
+
+    <div class="step">
+        <h3>💰 Paiement du Solde (50%)</h3>
+        <p><strong>Moment :</strong> AVANT la mise en ligne définitive</p>
+        <p><strong>Montant :</strong> 50% restant</p>
+        <p><strong>Inclus dans le solde :</strong></p>
+        <ul>
+            <li>Mise en ligne sur le domaine définitif</li>
+            <li>Configuration hébergement + domaine</li>
+            <li>Formation à la gestion (30 min)</li>
+            <li>Documentation / tutoriel écrit</li>
+        </ul>
+    </div>
+
+    <h3>Mise en ligne :</h3>
+    <div class="timeline">
+        <strong>Hébergement production :</strong><br>
+        • O2Switch (recommandé France, ~5€/mois)<br>
+        • Hostinger (~3€/mois)<br>
+        • OVH<br>
+        • Vercel/Netlify (si site statique, gratuit ou ~10€/mois)<br><br>
+        <strong>Domaine :</strong><br>
+        • Acheter sur OVH, Gandi, Google Domains<br>
+        • ~12€/an (.fr) ou ~15€/an (.com)<br><br>
+        <strong>⚠️ Important :</strong> Le client doit avoir accès propriétaire au domaine et hébergement
+    </div>
+
+    <h3>Template Email #5 - Site En Ligne :</h3>
+    <div class="email-template">Objet : 🎊 Votre site est en ligne !
+
+Bonjour [Prénom],
+
+Ça y est, votre site est officiellement en ligne ! 🎉
+
+🌐 <strong>Votre site : https://www.[nomdusite].fr</strong>
+
+<strong>✅ TOUT EST OPÉRATIONNEL :</strong>
+• Site accessible en ligne
+• Certificat SSL actif (HTTPS)
+• Formulaire de contact fonctionnel
+• Hébergement configuré
+
+<strong>📚 VOS ACCÈS :</strong>
+Je vous ai envoyé par mail séparé :
+• Accès hébergement
+• Accès domaine
+• Tutoriel de gestion du site
+
+<strong>🎓 FORMATION :</strong>
+Comme convenu, je vous propose une session de 30 min pour vous montrer comment :
+• Modifier les textes
+• Ajouter/changer des images
+• Gérer le formulaire de contact
+
+Êtes-vous disponible cette semaine ? (proposez 2-3 créneaux)
+
+<strong>🛠️ SUPPORT :</strong>
+Je reste disponible pour toute question ou correction de bug.
+
+Félicitations pour votre nouveau site ! 🚀
+
+L'équipe Fluxa
+    </div>
+
+    <!-- RÉCAP TIMELINE -->
+    <h2>🔹 RÉCAPITULATIF : Timeline Complète</h2>
+
+    <div class="timeline">
+        <strong>Jour 0 :</strong> Réception demande → Envoi formulaire brief<br>
+        <strong>Jour 1-2 :</strong> Réception formulaire → Envoi devis<br>
+        <strong>Jour 3-4 :</strong> Validation devis → Réception acompte 50%<br>
+        <strong>Jour 5-9 :</strong> Création maquettes<br>
+        <strong>Jour 10-11 :</strong> Validation maquettes (+ modifs si besoin)<br>
+        <strong>Jour 12-18 :</strong> Développement du site<br>
+        <strong>Jour 19-20 :</strong> Présentation site test → Validation finale<br>
+        <strong>Jour 21 :</strong> Réception solde 50%<br>
+        <strong>Jour 22 :</strong> Mise en ligne + Formation<br><br>
+
+        <strong>⏱️ DURÉE TOTALE : 2-3 semaines</strong> (selon réactivité client)
+    </div>
+
+    <!-- PAIEMENTS -->
+    <h2>🔹 RÉCAPITULATIF : Paiements</h2>
+
+    <div class="step">
+        <h3>💰 Structure de Paiement</h3>
+
+        <p><strong>Exemple pour un site à 600€ :</strong></p>
+
+        <div class="timeline">
+            <strong>Acompte (50%) :</strong> <span class="price">300€</span><br>
+            <em>→ Avant de démarrer les maquettes</em><br><br>
+
+            <strong>Solde (50%) :</strong> <span class="price">300€</span><br>
+            <em>→ Avant mise en ligne définitive</em><br><br>
+
+            <strong>Option : Paiement en 2 fois sans frais</strong><br>
+            • 1er versement : 300€ (début)<br>
+            • 2e versement : 300€ (mise en ligne)<br>
+        </div>
+
+        <p><strong>Moyens de paiement acceptés :</strong></p>
+        <ul>
+            <li>Virement bancaire (préféré)</li>
+            <li>PayPal (+3% de frais)</li>
+            <li>Stripe / CB (+2% de frais)</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ RÈGLE D'OR :</strong><br>
+        • Jamais de maquettes sans acompte<br>
+        • Jamais de mise en ligne sans solde<br>
+        • Toujours un contrat ou devis signé
+    </div>
+
+    <!-- OUTILS -->
+    <h2>🔹 Outils & Ressources</h2>
+
+    <div class="step">
+        <h3>🛠️ Stack Technique</h3>
+
+        <p><strong>Design :</strong></p>
+        <ul>
+            <li>Figma (maquettes)</li>
+            <li>Canva (éléments graphiques)</li>
+            <li>Unsplash / Pexels (photos stock)</li>
+        </ul>
+
+        <p><strong>Développement :</strong></p>
+        <ul>
+            <li>React + Vite + shadcn/ui (votre stack)</li>
+            <li>WordPress (option alternative)</li>
+            <li>Webflow (no-code)</li>
+        </ul>
+
+        <p><strong>Hébergement :</strong></p>
+        <ul>
+            <li>Netlify / Vercel (sites statiques, gratuit)</li>
+            <li>O2Switch (WordPress, ~60€/an)</li>
+            <li>Hostinger (~40€/an)</li>
+        </ul>
+
+        <p><strong>Domaine :</strong></p>
+        <ul>
+            <li>OVH (~12€/an .fr)</li>
+            <li>Gandi (~15€/an)</li>
+            <li>Google Domains</li>
+        </ul>
+
+        <p><strong>Email :</strong></p>
+        <ul>
+            <li>Gmail (fluxa.contact@gmail.com)</li>
+            <li>Template emails (voir ci-dessus)</li>
+        </ul>
+
+        <p><strong>Gestion projet :</strong></p>
+        <ul>
+            <li>Google Forms (brief client)</li>
+            <li>Google Sheets (suivi projets)</li>
+            <li>Trello / Notion (organisation)</li>
+        </ul>
+    </div>
+
+    <!-- CHECKLIST FINALE -->
+    <h2>🔹 Checklist Finale de Livraison</h2>
+
+    <ul class="checklist">
+        <li>Site en ligne sur domaine définitif</li>
+        <li>Certificat SSL actif (HTTPS)</li>
+        <li>Formulaire de contact testé et fonctionnel</li>
+        <li>Toutes les pages présentes et complètes</li>
+        <li>Design responsive testé (mobile, tablette, desktop)</li>
+        <li>SEO de base : balises title, meta description, headings, alt images</li>
+        <li>Google Analytics installé (optionnel)</li>
+        <li>Favicon configuré</li>
+        <li>Accès hébergement transmis au client</li>
+        <li>Accès domaine transmis au client</li>
+        <li>Tutoriel de gestion envoyé</li>
+        <li>Formation réalisée (30 min)</li>
+        <li>Solde encaissé</li>
+        <li>Facture finale envoyée</li>
+    </ul>
+
+    <div class="success">
+        <strong>🎉 PROJET TERMINÉ !</strong><br>
+        Le client est autonome, le site est en ligne, vous êtes payé(e). Bravo !<br><br>
+        <strong>📧 Support post-livraison :</strong> Réponse sous 24-48h pour bugs ou questions simples (inclus gratuitement le 1er mois)
+    </div>
+
+    <!-- NOTES IMPORTANTES -->
+    <h2>🔹 Notes Importantes</h2>
+
+    <div class="warning">
+        <strong>⚠️ Gestion des clients difficiles :</strong>
+        <ul>
+            <li>Toujours tout par écrit (mails, pas de promesses orales)</li>
+            <li>1 round de modifications inclus (préciser dans le devis)</li>
+            <li>Modifications supplémentaires = facturation en plus</li>
+            <li>Ne pas accepter de modifications infinies</li>
+            <li>Fixer des deadlines claires pour les validations</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <strong>✅ Bonnes pratiques :</strong>
+        <ul>
+            <li>Communication régulière (updates tous les 2-3 jours)</li>
+            <li>Screenshots / vidéos de démo pour présenter l'avancement</li>
+            <li>Toujours respecter les délais annoncés</li>
+            <li>Si retard : prévenir le client AVANT la deadline</li>
+            <li>Demander des retours précis ("J'aime pas" → "Pouvez-vous préciser ?")</li>
+        </ul>
+    </div>
+
+    <hr style="margin: 40px 0; border: none; border-top: 2px solid #E2E8F0;">
+
+    <p style="text-align: center; color: #718096; font-size: 14px; margin-top: 40px;">
+        <strong>Document créé le 31/01/2025 - Fluxa</strong><br>
+        Pour toute question : fluxa.contact@gmail.com
+    </p>
+
+</div>
+
+</body>
+</html>

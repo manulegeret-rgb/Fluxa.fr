@@ -20,7 +20,9 @@
       "Bash(del extract_article.py article_content.txt create_social_content.py)",
       "Bash(dir:*)",
       "Bash(rm:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(start presentation-sites-web.html)",
+      "Bash(start PROCESS-TECHNIQUE-FLUXA-SITES-WEB.html)"
     ],
     "deny": [],
     "ask": []
