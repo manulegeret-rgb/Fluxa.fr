@@ -566,66 +566,8 @@ Merci !`
       </section>
 
 {/* ================= TÉMOIGNAGES ================= */}
-<section className="py-16 md:py-20 bg-muted/30">
-  <div className="container mx-auto px-6">
-    <div className="text-center space-y-4 mb-12">
-      <h2 className="text-3xl md:text-4xl font-bold">Ils nous ont fait confiance</h2>
-      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-        Découvrez les retours de nos clients sur leur expérience avec Fluxa
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div className="rounded-2xl border border-border bg-card p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
-            MC
-          </div>
-          <div>
-            <div className="font-semibold">Marie C.</div>
-            <div className="text-xs text-muted-foreground">Paysagiste</div>
-          </div>
-        </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          "Site livré en 10 jours, exactement comme promis. Le design met parfaitement en valeur mes réalisations. Mes clients me disent que ça fait très pro !"
-        </p>
-        <div className="mt-4 text-primary text-sm">⭐⭐⭐⭐⭐</div>
-      </div>
-
-      <div className="rounded-2xl border border-border bg-card p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
-            JL
-          </div>
-          <div>
-            <div className="font-semibold">Julien L.</div>
-            <div className="text-xs text-muted-foreground">Coach sportif</div>
-          </div>
-        </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          "Rapport qualité/prix imbattable. J'ai eu un site responsive avec système de réservation pour moins de 600€. L'équipe est très réactive."
-        </p>
-        <div className="mt-4 text-primary text-sm">⭐⭐⭐⭐⭐</div>
-      </div>
-
-      <div className="rounded-2xl border border-border bg-card p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
-            SD
-          </div>
-          <div>
-            <div className="font-semibold">Sophie D.</div>
-            <div className="text-xs text-muted-foreground">Photographe</div>
-          </div>
-        </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          "Enfin une agence qui comprend les besoins des indépendants ! Prix transparent, pas de surprise, et le résultat est top. Je recommande."
-        </p>
-        <div className="mt-4 text-primary text-sm">⭐⭐⭐⭐⭐</div>
-      </div>
-    </div>
-  </div>
-</section>
+{/* Section supprimée pour conformité légale (loi Hamon - faux avis interdits) */}
+{/* TODO: Ajouter de vrais témoignages clients avec leur consentement écrit */}
 
       {/* ================= GARANTIES ================= */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-background to-muted/20">
