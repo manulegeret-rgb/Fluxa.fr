@@ -4,32 +4,40 @@ import { ChevronDown } from "lucide-react";
 
 const QUESTIONS = [
   {
-    q: "Fluxa, c’est une application toute faite ou du sur-mesure ?",
-    a: "Fluxa conçoit des applications entièrement personnalisées. Chaque client reçoit son propre espace, pensé selon ses besoins réels : modules, design, automatisations, tout est ajusté à la main.",
+    q: "Combien coûte un site vitrine ?",
+    a: "Notre formule de base est à 390€ pour un site de 5 pages (Accueil, Services, À propos, Galerie, Contact) avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser votre site selon vos besoins.",
   },
   {
-    q: "Combien de temps pour créer mon application ?",
-    a: "En moyenne entre 7 et 21 jours selon la complexité du projet. Une maquette est d’abord validée avant le développement, puis la mise en ligne se fait avec accompagnement.",
+    q: "Combien de temps pour créer mon site ?",
+    a: "Entre 1 et 2 semaines en moyenne. Après validation de la maquette, votre site est développé et mis en ligne rapidement. Le délai peut varier selon les options choisies et le contenu à intégrer.",
   },
   {
-    q: "Je ne suis pas à l’aise avec l’informatique, est-ce que je vais m’en sortir ?",
-    a: "Oui. Chaque app est livrée prête à l’emploi avec un mini guide vidéo, et un accompagnement à la prise en main inclus dans les formules Professionnelle et Premium (à partir de 49 €/mois).",
+    q: "Qu'est-ce qui est inclus dans le prix ?",
+    a: "Design responsive (mobile + desktop), jusqu'à 5 pages, formulaire de contact, optimisation SEO de base, hébergement et nom de domaine pour la première année, 1 round de modifications, et support technique.",
   },
   {
-    q: "Est-ce que mes données sont sécurisées ?",
-    a: "Oui. Hébergement en France, chiffrement SSL, sauvegardes automatiques et conformité RGPD. L’accès est strictement limité à toi et à ton équipe si tu le souhaites.",
+    q: "Mon site sera-t-il optimisé pour Google (SEO) ?",
+    a: "Oui, tous nos sites incluent l'optimisation SEO de base : balises meta, structure HTML propre, vitesse de chargement optimisée, et compatibilité mobile. Idéal pour le référencement local.",
   },
   {
-    q: "Et si je veux faire évoluer mon app plus tard ?",
-    a: "C’est prévu : on peut ajouter de nouvelles fonctionnalités, modules ou automatisations à tout moment selon l’évolution de ton activité.",
+    q: "Puis-je modifier mon site moi-même après ?",
+    a: "Les modifications de contenu simples peuvent être faites par nos soins dans le cadre de la maintenance (35€/mois). Pour des changements ponctuels, nous facturons à l'heure selon la complexité.",
   },
   {
-    q: "Fluxa, c’est pour quel type d’activité ?",
-    a: "Beauté et bien-être, immobilier, coaching, artisanat, restauration, formation, services… L’application s’adapte à tous les métiers grâce à son approche 100 % personnalisée.",
+    q: "L'hébergement et le nom de domaine sont-ils inclus ?",
+    a: "Oui, l'hébergement et le nom de domaine sont inclus la première année dans le tarif de base. Après la première année, le renouvellement est à prévoir (environ 50-80€/an selon l'hébergeur).",
   },
   {
-    q: "Comment ça se passe concrètement ?",
-    a: "Diagnostic gratuit (15–20 min) → maquette personnalisée → développement sur mesure → mise en ligne et accompagnement selon la formule choisie.",
+    q: "Que se passe-t-il après la livraison ?",
+    a: "Vous recevez votre site clé en main, prêt à l'emploi. Nous restons disponibles pour le support technique. La maintenance mensuelle (optionnelle, 35€/mois) inclut les mises à jour, sauvegardes et corrections mineures.",
+  },
+  {
+    q: "Puis-je payer en plusieurs fois ?",
+    a: "Oui, nous proposons un paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison. Pour des projets plus importants, d'autres arrangements sont possibles sur demande.",
+  },
+  {
+    q: "Que se passe-t-il si je ne suis pas satisfait ?",
+    a: "Nous incluons 1 round de modifications dans le tarif de base. Nous travaillons avec vous jusqu'à validation complète du site. Notre objectif est votre satisfaction à 100%.",
   },
 ];
 

@@ -24,9 +24,9 @@ export default function SEOHead() {
 
     // === TITLE & DESCRIPTION ===
     const title =
-      "Fluxa — Automatisation et Gestion pour Artisans et PME | Outil d'Automatisation Entreprise";
+      "Fluxa — Création site vitrine professionnel à partir de 390€";
     const description =
-      "Fluxa : outil d'automatisation entreprise pour artisans, PME et indépendants. Automatisez la gestion de votre entreprise : relances clients, facturation, rappels de rendez-vous et tâches répétitives. Automatisation gestion entreprise pour gagner du temps et augmenter votre chiffre d'affaires.";
+      "Agence de création de sites vitrines pour TPE, indépendants et entrepreneurs. Design moderne, responsive, SEO optimisé. Livraison 1-2 semaines. Hébergement inclus.";
 
     document.title = title;
     ensureMeta("description", description);
@@ -50,7 +50,7 @@ export default function SEOHead() {
     ensureOG("og:image", "https://fluxa.fr/og-image.png");
     ensureOG("og:image:width", "1200");
     ensureOG("og:image:height", "630");
-    ensureOG("og:image:alt", "Fluxa - Outil de gestion automatisé pour artisans et indépendants");
+    ensureOG("og:image:alt", "Fluxa - Création de sites vitrines professionnels pour entrepreneurs");
     ensureOG("og:site_name", "Fluxa");
     ensureOG("og:locale", "fr_FR");
 
@@ -59,7 +59,7 @@ export default function SEOHead() {
     ensureMeta("twitter:title", title);
     ensureMeta("twitter:description", description);
     ensureMeta("twitter:image", "https://fluxa.fr/og-image.png");
-    ensureMeta("twitter:image:alt", "Fluxa - Outil de gestion automatisé pour artisans et indépendants");
+    ensureMeta("twitter:image:alt", "Fluxa - Création de sites vitrines professionnels pour entrepreneurs");
 
     // === STRUCTURED DATA JSON-LD ===
     const jsonLd = {
@@ -72,61 +72,60 @@ export default function SEOHead() {
           "logo": "https://fluxa.fr/logo.png",
           "email": "fluxa.contact@gmail.com",
           "sameAs": [
-            "https://www.instagram.com/fluxa",
+            "https://www.instagram.com/fluxa.fr",
             "https://www.facebook.com/fluxa.fr",
             "https://www.linkedin.com/company/fluxa-fr/"
           ],
           "description":
-            "Fluxa est une application de gestion sur mesure conçue pour les artisans, indépendants et TPE. Elle centralise les clients, rendez-vous, factures et statistiques dans une interface simple et moderne.",
+            "Fluxa est une agence spécialisée dans la création de sites vitrines professionnels pour TPE, indépendants et entrepreneurs. Design moderne, responsive et optimisé SEO à partir de 390€.",
         },
         {
-          "@type": "WebApplication",
+          "@type": "ProfessionalService",
           "name": "Fluxa",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
           "url": "https://fluxa.fr/",
+          "priceRange": "390€-1500€",
           "description":
-            "Application de gestion automatisée : rappels de rendez-vous, relances impayés, génération de factures PDF, messagerie unifiée et tableau de bord statistique hebdomadaire.",
-          "softwareVersion": "1.0.0",
-          "creator": { "@type": "Organization", "name": "Fluxa" },
+            "Création de sites vitrines professionnels : design responsive, hébergement inclus, optimisation SEO, livraison rapide en 1-2 semaines.",
+          "areaServed": "FR",
+          "availableLanguage": "fr",
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Fluxa permet-il d’envoyer des rappels de rendez-vous automatiques ?",
+              "name": "Combien coûte un site vitrine chez Fluxa ?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "Oui. Fluxa planifie et envoie automatiquement les rappels de rendez-vous par SMS ou e-mail à J-1, J-2 ou H-24. Les réponses du client mettent à jour l’agenda en temps réel et réduisent les absences."
+                  "Notre formule de base est à 390€ pour un site de 5 pages avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser votre site selon vos besoins."
               }
             },
             {
               "@type": "Question",
-              "name": "Peut-on automatiser les relances de factures impayées avec Fluxa ?",
+              "name": "Combien de temps pour créer mon site vitrine ?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "Tout à fait. Fluxa envoie des relances automatiques à J+7 et J+14, avec lien de paiement sécurisé. Le ton et le message sont personnalisables, et les paiements stoppent automatiquement les relances."
+                  "Entre 1 et 2 semaines en moyenne. Après validation de la maquette, votre site est développé et mis en ligne rapidement."
               }
             },
             {
               "@type": "Question",
-              "name": "Fluxa est-il adapté aux artisans et indépendants sans compétences techniques ?",
+              "name": "Mon site sera-t-il optimisé pour Google (SEO) ?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "Oui, Fluxa a été conçu pour être simple et intuitif. Aucune compétence technique n’est nécessaire : tout se configure en quelques clics depuis votre espace client sur ordinateur ou mobile."
+                  "Oui, tous nos sites incluent l'optimisation SEO de base : balises meta, structure HTML propre, vitesse de chargement optimisée, et compatibilité mobile."
               }
             },
             {
               "@type": "Question",
-              "name": "Puis-je personnaliser mes modèles de facture et messages clients ?",
+              "name": "L'hébergement et le nom de domaine sont-ils inclus ?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "Oui. Les modèles de facture, devis et messages sont 100% personnalisables : logo, couleurs, textes et variables dynamiques (nom client, date, prestation, montant…)."
+                  "Oui, l'hébergement et le nom de domaine sont inclus la première année dans le tarif de base. Après la première année, le renouvellement est à prévoir (environ 50-80€/an)."
               }
             }
           ]

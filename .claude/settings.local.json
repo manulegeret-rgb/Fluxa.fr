@@ -11,7 +11,13 @@
       "Bash(git commit -m \"$(cat <<''EOF''\n✨ SEO + Contenu réseaux sociaux : Automatisation administrative\n\n- ✅ SEO : Ajout H1, hiérarchie headings, migration styles inline → CSS\n- 📱 Contenu social media complet (LinkedIn, Facebook, Instagram)\n- 🤖 17 prompts Sora/IA pour génération visuels\n- 📚 Guides de publication et engagement\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git push:*)",
       "Bash(cat:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx kill-port:*)",
+      "Bash(start flyer-fluxa.html)",
+      "Bash(del extract_article.py article_content.txt create_social_content.py)"
     ],
     "deny": [],
     "ask": []

@@ -5,15 +5,12 @@ import { Automations } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
 import {
   Calendar,
-  DollarSign,
   MessageSquare,
-  BarChart3,
   Mail,
   Instagram,
   Facebook,
   Linkedin,
   CheckCircle2,
-  XCircle,
   Menu,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -149,34 +146,18 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="/nos-formules" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos formules</a>
-                    <a
-  href="/demo"
-  className="py-2 text-base text-amber-400 font-semibold hover:text-amber-300 transition-all duration-200"
-  onClick={() => setMenuOpen(false)}
->
-  Voir la démo
-</a>
-                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Automatisations</a>
+                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Notre processus</a>
+                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos tarifs</a>
+                    <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos engagements</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
-                    <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>En savoir plus</a>
-                    <a href="/articles" className="hover:text-foreground transition">Articles</a>
-                    <a href="https://instagram.com/fluxa.fr"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="py-2 text-base inline-flex items-center gap-2"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      <Instagram className="w-4 h-4" />
-                      fluxa.fr
-                    </a>
+                    <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Contact</a>
                   </nav>
                   <div className="mt-4 flex flex-col gap-2">
                     <Button asChild className="w-full">
-                      <a href="#contact" onClick={() => setMenuOpen(false)}>Nous contacter</a>
+                      <a href="#infos" onClick={() => setMenuOpen(false)}>Demander un devis</a>
                     </Button>
                     <Button asChild variant="outline" className="w-full">
-                      <a href="#pricing" onClick={() => setMenuOpen(false)}>Voir les formules</a>
+                      <a href="#pricing" onClick={() => setMenuOpen(false)}>Voir les tarifs</a>
                     </Button>
                   </div>
                 </SheetContent>
@@ -188,7 +169,7 @@ Merci !`
               <a href="/" aria-label="Fluxa - Accueil" className="inline-flex items-center">
                 <img
                   src={fluxaLogo}
-                  alt="Fluxa - Outil de gestion sur mesure pour artisans et indépendants"
+                  alt="Fluxa - Agence de création de sites vitrines professionnels"
                   className="h-[100px] w-auto object-contain -translate-y-[8px]"
                 />
               </a>
@@ -203,31 +184,17 @@ Merci !`
             <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-2">
               <img
                 src={fluxaLogo}
-                alt="Fluxa - Outil de gestion sur mesure pour artisans et indépendants"
+                alt="Fluxa - Agence de création de sites vitrines professionnels"
                 className="h-[164px] lg:h-[240px] w-auto object-contain shrink-0"
               />
             </a>
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
-              <a href="#pricing" className="hover:text-foreground transition">Nos formules</a>
-              <a
-  href="/demo"
-  className="text-amber-400 font-semibold hover:text-amber-300 transition-all duration-200 hover:drop-shadow-[0_0_6px_#fbbf24]"
->
-  Voir la démo
-</a>
-              <a href="#automations" className="hover:text-foreground transition">Automatisations</a>
+              <a href="#automations" className="hover:text-foreground transition">Processus</a>
+              <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
+              <a href="#pourquoi-choisir-fluxa" className="hover:text-foreground transition">Avantages</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
-              <a href="#infos" className="hover:text-foreground transition">En savoir plus</a>
-              <a href="/articles" className="hover:text-foreground transition">Articles</a>
-              <a href="https://instagram.com/fluxa.fr"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-foreground transition flex items-center gap-1.5"
-              >
-                <Instagram className="w-4 h-4" />
-                fluxa.fr
-              </a>
+              <a href="#infos" className="hover:text-foreground transition">Contact</a>
             </nav>
           </div>
         </div>
@@ -248,24 +215,24 @@ Merci !`
       <div className="space-y-8 text-center md:text-left">
         <div className="space-y-5">
           <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
-            <span className="whitespace-nowrap">Automatisation et gestion</span> sur-mesure{" "}
+            <span className="whitespace-nowrap">Création site vitrine</span>{" "}
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-              pour artisans et PME
+              professionnel et abordable
             </span>
           </h1>
 
           <p className="text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
-            Fluxa est l'<span className="text-foreground">outil d'automatisation entreprise</span> qui centralise vos opérations : 
-            devis & factures, agenda, fichier clients, messages. Automatisez la gestion de vos tâches répétitives —
-            relances, rappels, suivis clients — pour gagner du temps et vous concentrer sur votre métier d'artisan.
+            <span className="text-foreground">Agence de création de sites vitrines</span> pour TPE, indépendants et entrepreneurs.
+            Offrez-vous une présence en ligne professionnelle sans vous ruiner : site responsive, optimisé SEO, formulaire de contact, hébergement et nom de domaine inclus.
+            De la maquette personnalisée à la mise en ligne, nous gérons tout pour vous.
           </p>
 
           {/* 3 points forts sobres */}
           <div className="grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
             {[
-              "Devis & factures en quelques clics",
-              "Agenda avec rappels automatiques",
-              "Tableau de bord clair (CA, impayés, fidélité)",
+              "Design moderne et responsive",
+              "Hébergement & domaine inclus",
+              "À partir de 390€ tout compris",
             ].map((txt, i) => (
               <div key={i} className="rounded-xl border border-border/70 px-4 py-3">
                 {txt}
@@ -277,24 +244,25 @@ Merci !`
         {/* CTAs */}
         <div className="flex flex-col md:flex-row gap-3 justify-center md:justify-start">
           <a
-            href="#automations"
-            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition w-full md:w-auto"
-            aria-label="Découvrir l’outil"
+            href="#pricing"
+            className="group relative inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition w-full md:w-auto overflow-hidden"
+            aria-label="Voir nos tarifs"
           >
-            Découvrir l’outil
+            <span className="relative z-10">Voir nos tarifs</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-[hsl(217,77%,45%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
           <a
-            href="#pricing"
-            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border border-border hover:bg-muted transition w-full md:w-auto"
-            aria-label="Voir les formules"
+            href="#infos"
+            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border-2 border-primary/50 hover:bg-primary/10 transition w-full md:w-auto"
+            aria-label="Demander un devis"
           >
-            Voir les formules
+            Demander un devis gratuit
           </a>
         </div>
 
         {/* Note de réassurance compacte */}
         <p className="text-xs text-muted-foreground">
-          🔐 Données hébergées en Europe — ⚙️ Automatisation des tâches incluse — 🎯 Mise en place guidée
+          🔐 Hébergement & domaine inclus — 🎯 Support technique inclus — ⚡ SEO optimisé
         </p>
       </div>
 
@@ -303,12 +271,48 @@ Merci !`
         <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
         <img
           src={dashboardMockup}
-          alt="Outil d'automatisation et gestion Fluxa — aperçu du tableau de bord pour artisans et PME"
+          alt="Exemple de site vitrine professionnel créé par Fluxa - Design moderne et responsive"
           loading="eager"
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
         />
         <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
-          Exemple d’interface — chiffres factices
+          Exemple de réalisation
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ================= TYPES DE SITES ================= */}
+<section className="py-16 md:py-24 bg-background">
+  <div className="container mx-auto px-6">
+    <div className="text-center space-y-4 mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold">Exemples de sites vitrines</h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Nous adaptons votre site à votre activité et à vos besoins spécifiques
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
+        <div className="text-4xl mb-4">🎨</div>
+        <h3 className="text-xl font-semibold mb-3">Site Portfolio</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+          Idéal pour les créatifs, artisans et prestataires : mettez en avant vos réalisations avec une galerie photo optimisée et des témoignages clients.
+        </p>
+        <div className="text-xs text-muted-foreground">
+          ✓ Galerie photo haute qualité • ✓ Page témoignages • ✓ Formulaire de contact
+        </div>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
+        <div className="text-4xl mb-4">🏢</div>
+        <h3 className="text-xl font-semibold mb-3">Site Entreprise</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+          Pour TPE et PME : présentez vos services, votre équipe et vos valeurs avec une structure claire et professionnelle.
+        </p>
+        <div className="text-xs text-muted-foreground">
+          ✓ Pages services détaillées • ✓ Présentation équipe • ✓ Google Maps intégré
         </div>
       </div>
     </div>
@@ -331,170 +335,115 @@ Merci !`
         "
       >
         <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 max-md:mb-16 md:mb-28">
-            <h2 className="text-4xl lg:text-5xl font-bold">Nos Formules d'Automatisation et Gestion pour Artisans et PME</h2>
+          <div className="text-center space-y-6 max-md:mb-12 md:mb-16">
+            <div className="relative inline-block">
+              <div className="absolute -top-3 -right-8 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full rotate-12 shadow-lg">
+                NOUVEAU
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-bold">Tarifs Site Vitrine — Transparent et Abordable</h2>
+            </div>
             <p className="text-xl text-muted-foreground">
-              Trois niveaux d'automatisation pour votre gestion quotidienne — tous <span className="text-foreground">personnalisables</span> à votre activité d'artisan, PME ou indépendant.
+              Une <span className="text-foreground font-semibold">formule unique</span> à partir de 390€, ajustable selon vos besoins.
+              Hébergement et domaine inclus la première année.
             </p>
           </div>
 
-          {/* Carrousel + grille */}
-          <div className="max-w-6xl mx-auto">
-            <div className="relative">
-              {/* Piste de cartes */}
-              <div
-                ref={pricingRef}
-                className="
-                  flex md:grid md:grid-cols-3
-                  gap-0 md:gap-8
-                  overflow-x-auto md:overflow-visible
-                  snap-x snap-mandatory md:snap-none
-                  scroll-smooth
-                  -mx-6 px-6 pb-8 md:pb-2
-                  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-                "
-                aria-label="Formules"
-              >
-                {/* Carte 1 */}
-                <div
-                  data-pricing-card
-                  className="
-                    max-md:snap-center
-                    max-md:shrink-0
-                    max-md:w-[calc(100vw-3rem)]
-                    max-md:mr-8
-                    max-md:scale-[0.925] max-md:origin-top
-                    max-md:first:ml-6
-                    max-md:last:mr-6
-                    md:w-auto md:shrink md:snap-none
-                    max-md:text-center
-                    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
-                    max-md:[&_ul>li]:justify-center
-                    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
-                  "
-                >
-                  <PricingCard
-                    title="Essentielle"
-                    price="800 €"
-                    features={[
-                      "Modules de base",
-                      "1 automatisation incluse",
-                      "Rappel RDV automatique",
-                      "Mail après prestation",
-                      "Support email",
-                    ]}
-                  />
+          {/* Formule + Options */}
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            {/* Formule de base */}
+            <div className="md:col-span-1">
+              <PricingCard
+                title="Formule Site Vitrine"
+                price="390 €"
+                features={[
+                  "Jusqu'à 5 pages (Accueil, Services, À propos, Galerie, Contact)",
+                  "Design responsive (mobile + desktop)",
+                  "Formulaire de contact fonctionnel",
+                  "SEO de base (balises, métadonnées)",
+                  "Optimisation vitesse/performance",
+                  "Hébergement & domaine 1ère année inclus",
+                  "1 round de modifications inclus",
+                  "Support technique",
+                ]}
+                className="border-primary"
+              />
+            </div>
+
+            {/* Options supplémentaires */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold mb-4">Options à la carte</h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Personnalisez votre site selon vos besoins. Toutes les options sont cumulables.
+              </p>
+
+              <div className="space-y-3">
+                <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold">Pages supplémentaires</span>
+                    <span className="text-primary font-bold">+80€/page</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Ajoutez des pages dédiées (Blog, Équipe, Actualités, etc.)</p>
                 </div>
 
-                {/* Carte 2 (Populaire) */}
-                <div
-                  data-pricing-card
-                  className="
-                    relative
-                    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
-                    max-md:mr-8
-                    max-md:scale-[0.925] max-md:origin-top
-                    md:w-auto md:shrink md:snap-none md:overflow-visible
-                    max-md:text-center
-                    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
-                    max-md:[&_ul>li]:justify-center
-                    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
-                  "
-                >
-                  <span
-                    className="
-                      absolute z-10
-                      right-3 max-md:top-2 md:-top-3
-                      rounded-full px-3 py-1 text-xs font-medium
-                      bg-primary/15 text-primary border border-primary/30 backdrop-blur
-                    "
-                  >
-                    ⭐ Populaire
-                  </span>
-
-                  <PricingCard
-                    title="Professionnelle"
-                    price="1 200 €"
-                    features={[
-                      "Tout Essentielle +",
-                      "Gestion des paiements",
-                      "Messagerie client intégrée",
-                      "3 automatisations",
-                      "Facturation automatique",
-                      "Rapport hebdomadaire",
-                      "Synchronisation agenda",
-                    ]}
-                    className="md:-translate-y-4 border-primary"
-                  />
+                <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold">Galerie photo avancée</span>
+                    <span className="text-primary font-bold">+120€</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Lightbox, filtres, mise en page optimisée pour vos réalisations</p>
                 </div>
 
-                {/* Carte 3 */}
-                <div
-                  data-pricing-card
-                  className="
-                    max-md:snap-center max-md:shrink-0 max-md:w-[calc(100vw-3rem)]
-                    max-md:mr-8 max-md:last:mr-6
-                    max-md:scale-[0.925] max-md:origin-top
-                    md:w-auto md:shrink md:snap-none
-                    max-md:text-center
-                    max-md:[&_ul]:mx-auto max-md:[&_ul]:w-fit
-                    max-md:[&_ul>li]:justify-center
-                    max-md:[&_a]:mx-auto max-md:[&_button]:mx-auto
-                  "
-                >
-                  <PricingCard
-                    title="Premium"
-                    price="1 800 €"
-                    features={[
-                      "Tout Professionnelle +",
-                      "Espace client personnalisé",
-                      "Reporting avancé",
-                      "Maintenance 1 mois offerte",
-                      "Support prioritaire",
-                      "Automatisations illimitées",
-                    ]}
-                  />
+                <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold">Prise de rendez-vous en ligne</span>
+                    <span className="text-primary font-bold">+150€</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Calendrier de réservation avec notifications email automatiques</p>
+                </div>
+
+                <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold">Rédaction de contenu SEO</span>
+                    <span className="text-primary font-bold">+200€</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Textes professionnels optimisés pour Google (jusqu'à 2000 mots)</p>
+                </div>
+
+                <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold">Multilingue</span>
+                    <span className="text-primary font-bold">+180€/langue</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Version anglaise, espagnole ou autre langue (traduction non incluse)</p>
                 </div>
               </div>
 
-              {/* Flèche gauche (mobile) */}
-              {canLeft && (
-                <button
-                  onClick={() => {
-                    const el = pricingRef.current;
-                    if (!el) return;
-                    const card = el.querySelector<HTMLElement>("[data-pricing-card]");
-                    const gap = 32; // ~ mr-8
-                    const w = card?.getBoundingClientRect().width ?? el.clientWidth;
-                    el.scrollBy({ left: -(w + gap), behavior: "smooth" });
-                    setTimeout(updateArrows, 350);
-                  }}
-                  className="md:hidden absolute left-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
-                  aria-label="Carte précédente"
-                >
-                  ‹
-                </button>
-              )}
-
-              {/* Flèche droite (mobile) */}
-              {canRight && (
-                <button
-                  onClick={() => {
-                    const el = pricingRef.current;
-                    if (!el) return;
-                    const card = el.querySelector<HTMLElement>("[data-pricing-card]");
-                    const gap = 32; // ~ mr-8
-                    const w = card?.getBoundingClientRect().width ?? el.clientWidth;
-                    el.scrollBy({ left: w + gap, behavior: "smooth" });
-                    setTimeout(updateArrows, 350);
-                  }}
-                  className="md:hidden absolute right-1 top-1/2 -translate-y-1/2 z-20 rounded-full p-2 border border-primary/40 bg-primary/15 backdrop-blur active:scale-95"
-                  aria-label="Carte suivante"
-                >
-                  ›
-                </button>
-              )}
+              {/* Maintenance */}
+              <div className="mt-6 rounded-2xl border-2 border-primary/30 bg-primary/5 p-5">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="font-semibold text-lg">Maintenance mensuelle</span>
+                  <span className="text-primary font-bold text-xl">35€/mois</span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Gardez votre site sécurisé et performant dans la durée
+                </p>
+                <ul className="text-xs text-muted-foreground space-y-1.5">
+                  <li>• Mises à jour de sécurité et plugins</li>
+                  <li>• Sauvegardes hebdomadaires automatiques</li>
+                  <li>• Corrections mineures de bugs</li>
+                  <li>• Support technique prioritaire (&lt;24h)</li>
+                  <li>• Modifications de contenu (textes, images simples)</li>
+                  <li>• Monitoring de disponibilité</li>
+                </ul>
+              </div>
             </div>
+          </div>
+
+          {/* Note de réassurance sous les tarifs */}
+          <div className="mt-12 max-w-4xl mx-auto text-center">
+            <p className="text-sm text-muted-foreground">
+              💳 Paiement en 2 fois sans frais disponible • 🔒 Propriété totale du site • 🎯 Support inclus
+            </p>
           </div>
         </div>
       </section>
@@ -516,10 +465,10 @@ Merci !`
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl lg:text-5xl font-bold">
-              Automatisez la Gestion de Votre Entreprise avec <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">Fluxa</span>
+              Créons ensemble votre <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">site vitrine professionnel</span>
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
-              Artisan, auto-entrepreneur ou indépendant ? Dites-nous en un peu plus sur vos besoins : on revient vers vous sous 24–48h avec une proposition adaptée à votre métier.
+              Parlez-nous de votre projet et recevez un devis personnalisé sous 24-48h, sans engagement.
             </p>
           </div>
 
@@ -527,21 +476,21 @@ Merci !`
           <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <MessageSquare className="w-4 h-4" /> Diagnostic
+                <MessageSquare className="w-4 h-4" /> Échange
               </div>
-              <p>15–20 min pour comprendre vos besoins et priorités.</p>
+              <p>15-20 min pour comprendre votre projet et vos objectifs.</p>
             </li>
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <Calendar className="w-4 h-4" /> Maquette
+                <Calendar className="w-4 h-4" /> Création
               </div>
-              <p>Proposition d’interface adaptée à votre activité.</p>
+              <p>Design + développement de votre site sur mesure.</p>
             </li>
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <CheckCircle2 className="w-4 h-4 text-primary" /> Livraison
+                <CheckCircle2 className="w-4 h-4 text-primary" /> Mise en ligne
               </div>
-              <p>Mise en ligne + accompagnement au démarrage.</p>
+              <p>Votre site est prêt à accueillir vos visiteurs.</p>
             </li>
           </ul>
 
@@ -562,50 +511,21 @@ Merci !`
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="text-sm">Secteur d'activité</label>
-                <input name="activity" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
-              </div>
-              <div>
-                <label className="text-sm">Besoin principal</label>
-                <select name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
-                  <option value="" disabled>— Sélectionner —</option>
-                  <option>Vitrine pro</option>
-                  <option>Formulaire & suivi prospects</option>
-                  <option>Devis & paiements</option>
-                  <option>Automatisations</option>
-                  <option>Autre</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="text-sm">Budget (approx.)</label>
-                <select name="budget" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
-                  <option value="" disabled>— Sélectionner —</option>
-                  <option>&lt; 500 €</option>
-                  <option>500–1 000 €</option>
-                  <option>1 000–2 000 €</option>
-                  <option>&gt; 2 000 €</option>
-                </select>
-              </div>
-              <div>
-                <label className="text-sm">Délai souhaité</label>
-                <select name="delay" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
-                  <option value="" disabled>— Sélectionner —</option>
-                  <option>Dès que possible</option>
-                  <option>Dans le mois</option>
-                  <option>2–3 mois</option>
-                  <option>Plus tard</option>
-                </select>
-              </div>
+            <div>
+              <label className="text-sm">Type de site souhaité</label>
+              <select name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
+                <option value="" disabled>— Sélectionner —</option>
+                <option>Site vitrine simple (390€)</option>
+                <option>Site avec galerie photo</option>
+                <option>Site avec prise de RDV</option>
+                <option>Refonte de site existant</option>
+                <option>Autre / Je ne sais pas encore</option>
+              </select>
             </div>
 
             <div>
-              <label className="text-sm">Message</label>
-              <textarea name="message" rows={4} placeholder="Parlez-nous de votre activité et de vos besoins…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+              <label className="text-sm">Votre message</label>
+              <textarea name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
             </div>
 
             <div className="flex items-center gap-3">
@@ -620,9 +540,9 @@ Merci !`
 
           {/* Preuves (mobile) sous le formulaire */}
           <ul className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-start md:justify-center">
-            <li className="rounded-full border border-border/70 px-3 py-1">🔐 Données hébergées en Europe</li>
-            <li className="rounded-full border border-border/70 px-3 py-1">⚙️ Automatisations incluses</li>
-            <li className="rounded-full border border-border/70 px-3 py-1">🎯 Mise en place guidée</li>
+            <li className="rounded-full border border-border/70 px-3 py-1">🔐 Hébergement sécurisé inclus</li>
+            <li className="rounded-full border border-border/70 px-3 py-1">⚡ Livraison rapide (1-2 semaines)</li>
+            <li className="rounded-full border border-border/70 px-3 py-1">🎯 SEO optimisé</li>
           </ul>
 
           {/* Lien contact — mail + Instagram + Facebook + LinkedIn */}
@@ -645,6 +565,122 @@ Merci !`
         </div>
       </section>
 
+{/* ================= TÉMOIGNAGES ================= */}
+<section className="py-16 md:py-20 bg-muted/30">
+  <div className="container mx-auto px-6">
+    <div className="text-center space-y-4 mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold">Ils nous ont fait confiance</h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Découvrez les retours de nos clients sur leur expérience avec Fluxa
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+            MC
+          </div>
+          <div>
+            <div className="font-semibold">Marie C.</div>
+            <div className="text-xs text-muted-foreground">Paysagiste</div>
+          </div>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          "Site livré en 10 jours, exactement comme promis. Le design met parfaitement en valeur mes réalisations. Mes clients me disent que ça fait très pro !"
+        </p>
+        <div className="mt-4 text-primary text-sm">⭐⭐⭐⭐⭐</div>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+            JL
+          </div>
+          <div>
+            <div className="font-semibold">Julien L.</div>
+            <div className="text-xs text-muted-foreground">Coach sportif</div>
+          </div>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          "Rapport qualité/prix imbattable. J'ai eu un site responsive avec système de réservation pour moins de 600€. L'équipe est très réactive."
+        </p>
+        <div className="mt-4 text-primary text-sm">⭐⭐⭐⭐⭐</div>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+            SD
+          </div>
+          <div>
+            <div className="font-semibold">Sophie D.</div>
+            <div className="text-xs text-muted-foreground">Photographe</div>
+          </div>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          "Enfin une agence qui comprend les besoins des indépendants ! Prix transparent, pas de surprise, et le résultat est top. Je recommande."
+        </p>
+        <div className="mt-4 text-primary text-sm">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* ================= GARANTIES ================= */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-background to-muted/20">
+        <div className="container mx-auto px-6">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">Nos garanties</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Nous nous engageons sur la qualité et la transparence de nos prestations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div className="rounded-2xl border border-border bg-card p-6 text-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold mb-2">Satisfaction garantie</h3>
+              <p className="text-sm text-muted-foreground">
+                Modifications incluses jusqu'à validation complète
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-6 text-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold mb-2">Respect des délais</h3>
+              <p className="text-sm text-muted-foreground">
+                Livraison en 1-2 semaines ou remboursement partiel
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-6 text-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold mb-2">Code propre</h3>
+              <p className="text-sm text-muted-foreground">
+                Standards du web respectés, performance optimale
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-6 text-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold mb-2">Support réactif</h3>
+              <p className="text-sm text-muted-foreground">
+                Réponse sous 24-48h, corrections de bugs prioritaires
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ================= FAQ ================= */}
       <section id="faq" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
         <Faq />
@@ -654,13 +690,13 @@ Merci !`
 <section className="pt-10 pb-2 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6">
     <h2 className="text-2xl md:text-3xl font-bold mb-3">
-      Logiciel de Gestion Sur Mesure pour Artisans et Indépendants
+      Création de Sites Vitrines Professionnels
     </h2>
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      <strong className="text-primary">Fluxa</strong> est l'outil d'automatisation entreprise qui aide les artisans, PME et indépendants à piloter leur activité :
-      automatisation des tâches répétitives, gestion des clients, rendez-vous, devis et factures, rappels automatiques et statistiques en temps réel.
-      Notre outil d'automatisation et de gestion simplifie le quotidien des professionnels et petites entreprises,
-      tout en offrant une solution moderne, personnalisable et adaptée à chaque métier.
+      <strong className="text-primary">Fluxa</strong> est une agence spécialisée dans la création de sites vitrines pour TPE, indépendants et entrepreneurs.
+      Nous concevons des sites internet modernes, optimisés SEO et responsive, avec hébergement inclus.
+      Chaque site est livré clé en main avec formation à la gestion, support technique et garantie de qualité.
+      Notre objectif : vous offrir une présence en ligne professionnelle et efficace, rapidement et à prix abordable.
     </p>
   </div>
 </section>{/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
@@ -669,13 +705,12 @@ Merci !`
     {/* --- Titre principal --- */}
     <div className="text-center space-y-6">
       <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-        Pourquoi de plus en plus d’artisans et d’indépendants choisissent Fluxa
+        Pourquoi choisir Fluxa pour votre site vitrine ?
       </h2>
       <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
-        Fluxa n’est pas un simple logiciel de facturation ou de planning.  
-        C’est un **outil de gestion sur mesure** qui s’adapte à votre manière de travailler,
-        vous aide à gagner du temps, à réduire les oublis et à mieux piloter votre activité.  
-        Découvrez comment il change le quotidien de ceux qui l’utilisent.
+        Chez Fluxa, nous créons des sites vitrines professionnels, rapides et abordables.
+        Pas de contrat long terme, pas de frais cachés : juste un site de qualité livré clé en main.
+        Découvrez nos engagements qui font la différence.
       </p>
     </div>
 
@@ -683,27 +718,19 @@ Merci !`
     <div className="grid md:grid-cols-3 gap-8">
       {[
         {
-          icon: "⚙️",
-          title: "Automatiser sans perdre le contrôle",
-          text: `Rappels SMS, relances de factures, mails post-prestation : tout se fait automatiquement,
-          mais avec vos mots, votre ton et vos règles.  
-          Vous décidez du timing, du contenu et des conditions. L’automatisation devient un vrai
-          prolongement de votre professionnalisme.`,
+          icon: "⚡",
+          title: "Livraison rapide",
+          text: `Votre site est prêt en 1-2 semaines seulement. Nous travaillons efficacement sans compromettre la qualité. Besoin encore plus vite ? Contactez-nous pour une option express. Dès validation de la maquette, votre site est développé et mis en ligne rapidement pour que vous puissiez commencer à gagner en visibilité immédiatement.`,
         },
         {
-          icon: "📊",
-          title: "Garder une vision claire en un coup d’œil",
-          text: `Fluxa centralise tout ce qui compte : vos clients, vos devis, vos paiements, vos statistiques.  
-          En un regard, vous savez combien vous avez encaissé, qui doit être relancé, et comment évolue votre
-          chiffre d’affaires semaine après semaine.  
-          Fini les tableurs dispersés et les approximations.`,
+          icon: "💰",
+          title: "Prix transparent et compétitif",
+          text: `À partir de 390€ tout compris : design responsive, hébergement et domaine 1ère année inclus, formulaire de contact, SEO de base. Pas de frais cachés, pas de contrat long terme. Vous savez exactement ce que vous payez dès le départ. Options ajustables selon vos besoins réels, sans payer pour des fonctionnalités inutiles.`,
         },
         {
-          icon: "🧠",
-          title: "Gagner du temps et réduire la charge mentale",
-          text: `Les indépendants perdent souvent jusqu’à 10 heures par semaine dans l’administratif.  
-          Fluxa automatise les tâches répétitives et garde tout à jour : agenda, factures, rappels, relances.  
-          Vous retrouvez du temps pour votre métier, votre famille, ou simplement pour souffler.`,
+          icon: "🎯",
+          title: "Propriété totale & support inclus",
+          text: `Vous êtes propriétaire à 100% de votre site, code source inclus. Formation à la gestion offerte à la livraison. Support technique réactif : nous intervenons rapidement en cas de problème. Maintenance optionnelle à 35€/mois pour garder votre site à jour. Pas de dépendance : vous restez libre.`,
         },
       ].map((item, i) => (
         <div
@@ -719,26 +746,26 @@ Merci !`
 
     {/* --- Partie narrative / storytelling --- */}
     <div className="max-w-5xl mx-auto space-y-8">
-      <h3 className="text-3xl font-semibold text-center">Un Logiciel de Gestion Pensé pour les Artisans et Indépendants</h3>
+      <h3 className="text-3xl font-semibold text-center">Des Sites Vitrines Pensés pour les Entrepreneurs</h3>
       <p className="text-muted-foreground text-lg leading-relaxed text-center">
-        Fluxa a été conçu en observant le quotidien réel des artisans, freelances et petites entreprises :
-        des journées pleines, des clients à rappeler, des devis à envoyer, et des papiers à classer.
-        L'idée était simple : <strong>recentrer le professionnel sur son savoir-faire</strong>,
-        pas sur la gestion administrative.
+        Fluxa a été créé en observant les besoins réels des TPE, indépendants et entrepreneurs :
+        besoin d'une présence en ligne professionnelle, sans se ruiner ni passer des mois en développement.
+        L'idée était simple : <strong>offrir un site vitrine de qualité, rapidement et à prix accessible</strong>,
+        sans compromis sur la qualité technique.
       </p>
       <p className="text-muted-foreground text-lg leading-relaxed text-center">
-        Chaque module — rappel automatique, tableau de bord, facturation automatique, messages clients —
-        est pensé pour s'adapter à vos habitudes, pas les bousculer.
-        Pas besoin d'être expert en informatique : tout est visuel, fluide et paramétrable en quelques clics.
+        Chaque site — design, développement, SEO, hébergement —
+        est pensé pour être efficace dès le premier jour.
+        Pas besoin d'être expert : votre site est livré prêt à l'emploi avec formation et support inclus.
       </p>
     </div>
 
     {/* --- Témoignages / résultats chiffrés --- */}
     <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
       {[
-        { value: "6 à 12 h", label: "de temps gagné chaque semaine" },
-        { value: "95 %", label: "de taux de présence aux rendez-vous" },
-        { value: "+37 %", label: "de factures payées dans les délais" },
+        { value: "1-2 sem.", label: "de délai de livraison moyen" },
+        { value: "100%", label: "responsive (mobile + desktop)" },
+        { value: "390€", label: "tarif de départ tout compris" },
       ].map((stat, i) => (
         <div
           key={i}
@@ -752,17 +779,16 @@ Merci !`
 
     {/* --- Ouverture vers la suite / renvoi blog --- */}
     <div className="text-center space-y-4 pt-10 max-w-3xl mx-auto">
-      <h3 className="text-2xl font-semibold">Un outil évolutif, pensé pour durer</h3>
+      <h3 className="text-2xl font-semibold">Des sites évolutifs, pensés pour grandir avec vous</h3>
       <p className="text-muted-foreground leading-relaxed">
-        Chaque mois, Fluxa s’enrichit de nouvelles automatisations et d’améliorations inspirées par ses utilisateurs.
-        Notre objectif : créer un **écosystème complet** pour les professionnels qui veulent
-        travailler plus efficacement, sans changer leurs habitudes.
+        Votre site peut évoluer au fil de votre activité : nouvelles pages, fonctionnalités supplémentaires, refonte partielle.
+        Nous restons à vos côtés pour faire évoluer votre présence en ligne selon vos besoins.
       </p>
       <a
-        href="/articles"
+        href="#infos"
         className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-medium bg-primary/10 text-primary hover:bg-primary/20 transition"
       >
-        Découvrir nos guides et articles
+        Demander un devis gratuit
       </a>
     </div>
   </div>
@@ -776,11 +802,11 @@ Merci !`
       <div className="flex items-center gap-3">
         <img
           src={fluxaLogo}
-          alt="Logo Fluxa - Automatisation et gestion pour artisans"
+          alt="Logo Fluxa - Création de sites vitrines professionnels"
           className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
         />
         <p className="text-sm text-muted-foreground">
-          Fluxa — Automatisation & gestion sur mesure
+          Fluxa — Création de sites vitrines professionnels
         </p>
       </div>
 
