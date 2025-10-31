@@ -17,7 +17,10 @@
       "Bash(taskkill:*)",
       "Bash(npx kill-port:*)",
       "Bash(start flyer-fluxa.html)",
-      "Bash(del extract_article.py article_content.txt create_social_content.py)"
+      "Bash(del extract_article.py article_content.txt create_social_content.py)",
+      "Bash(dir:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

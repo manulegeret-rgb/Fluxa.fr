@@ -21,9 +21,9 @@ export function Automations() {
   {
     icon: MessageSquare,
     title: "1. Premier contact & Brief",
-    detail: "Échange initial (15-20 min)",
+    detail: "Contact mail + formulaire détaillé",
     text:
-      "On commence par un échange court pour comprendre votre activité, vos besoins et vos objectifs. Quelles pages souhaitez-vous ? Quelles informations mettre en avant ? Quel style vous correspond ? Cet échange nous permet de définir ensemble le périmètre exact du projet et les options nécessaires. Pas de jargon technique, juste une discussion claire pour cerner votre vision et vous proposer un devis ajusté.",
+      "Vous nous contactez par mail pour nous présenter votre projet. Nous vous envoyons ensuite un formulaire de brief détaillé pour préciser vos besoins : quelles pages souhaitez-vous ? Quelles informations mettre en avant ? Quel style vous correspond ? Ce formulaire nous permet de bien comprendre votre activité, vos objectifs et vos attentes pour vous proposer un devis ajusté et démarrer sur de bonnes bases.",
     tag: "Gratuit & sans engagement",
   },
   {

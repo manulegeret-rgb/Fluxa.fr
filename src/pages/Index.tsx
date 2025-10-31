@@ -476,21 +476,21 @@ Merci !`
           <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <MessageSquare className="w-4 h-4" /> Échange
+                <Mail className="w-4 h-4" /> Contact & Brief
               </div>
-              <p>15-20 min pour comprendre votre projet et vos objectifs.</p>
+              <p>Vous nous contactez par mail, nous vous envoyons un formulaire détaillé.</p>
             </li>
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <Calendar className="w-4 h-4" /> Création
+                <Calendar className="w-4 h-4" /> Maquettes
               </div>
-              <p>Design + développement de votre site sur mesure.</p>
+              <p>Création collaborative des maquettes jusqu'à validation complète.</p>
             </li>
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
-                <CheckCircle2 className="w-4 h-4 text-primary" /> Mise en ligne
+                <CheckCircle2 className="w-4 h-4 text-primary" /> Développement
               </div>
-              <p>Votre site est prêt à accueillir vos visiteurs.</p>
+              <p>Développement et mise en ligne de votre site professionnel.</p>
             </li>
           </ul>
 

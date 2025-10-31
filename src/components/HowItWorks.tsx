@@ -5,23 +5,23 @@ export default function HowItWorks() {
   const STEPS = [
     {
       icon: Calendar,
-      title: "1. Diagnostic gratuit (15–20 min)",
-      desc: "On cartographie tes besoins, tes outils actuels et tes priorités business.",
+      title: "1. Contact par mail",
+      desc: "Vous nous contactez par mail pour nous expliquer votre projet et vos besoins.",
     },
     {
       icon: Layout,
-      title: "2. Maquette personnalisée",
-      desc: "Aperçu du design et des modules clés. Tu valides avant dev.",
+      title: "2. Formulaire de brief détaillé",
+      desc: "Nous vous envoyons un formulaire pour préciser vos attentes, vos contraintes et vos objectifs.",
     },
     {
       icon: Wrench,
-      title: "3. Développement & automatisations",
-      desc: "Intégration des modules (clients, agenda, paiements, messages, stats) + workflows n8n/Make.",
+      title: "3. Création de maquettes ensemble",
+      desc: "Nous créons les maquettes de votre site en collaboration avec vous jusqu'à validation complète.",
     },
     {
       icon: Rocket,
-      title: "4. Mise en ligne & prise en main",
-      desc: "Déploiement, mini-formation. Support disponible selon la formule Pro/Premium (dès 49 €/mois).",
+      title: "4. Développement & mise en ligne",
+      desc: "Une fois les maquettes validées, développement et déploiement de votre site vitrine professionnel.",
     },
   ];
 
