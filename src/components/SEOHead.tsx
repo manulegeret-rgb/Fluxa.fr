@@ -24,9 +24,9 @@ export default function SEOHead() {
 
     // === TITLE & DESCRIPTION ===
     const title =
-      "Fluxa — Création site vitrine professionnel à partir de 390€";
+      "Création Site Vitrine Pas Cher dès 390€ | Fluxa Agence Web TPE";
     const description =
-      "Agence de création de sites vitrines pour TPE, indépendants et entrepreneurs. Design moderne, responsive, SEO optimisé. Livraison 1-2 semaines. Hébergement inclus.";
+      "Agence web de création de sites vitrines pour TPE, artisans et indépendants. Site internet professionnel responsive mobile-first, optimisé SEO, hébergement inclus. Livraison rapide 1-2 semaines. Devis gratuit.";
 
     document.title = title;
     ensureMeta("description", description);
@@ -77,15 +77,15 @@ export default function SEOHead() {
             "https://www.linkedin.com/company/fluxa-fr/"
           ],
           "description":
-            "Fluxa est une agence spécialisée dans la création de sites vitrines professionnels pour TPE, indépendants et entrepreneurs. Design moderne, responsive et optimisé SEO à partir de 390€.",
+            "Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Développement de sites internet modernes, responsive mobile-first et optimisés pour le référencement naturel (SEO) à partir de 390€. Hébergement web inclus.",
         },
         {
           "@type": "ProfessionalService",
-          "name": "Fluxa",
+          "name": "Fluxa - Agence Web Création Sites Vitrines",
           "url": "https://fluxa.fr/",
           "priceRange": "390€-1500€",
           "description":
-            "Création de sites vitrines professionnels : design responsive, hébergement inclus, optimisation SEO, livraison rapide en 1-2 semaines.",
+            "Agence de création de sites vitrines professionnels pas chers pour TPE, artisans et indépendants. Développement web responsive mobile-first, hébergement sécurisé inclus, optimisation référencement naturel SEO, livraison rapide en 1-2 semaines. Tarifs transparents dès 390€.",
           "areaServed": "FR",
           "availableLanguage": "fr",
         },

@@ -175,7 +175,7 @@ Merci !`
               <a href="/" aria-label="Fluxa - Accueil" className="inline-flex items-center">
                 <img
                   src={fluxaLogo}
-                  alt="Fluxa - Agence de création de sites vitrines professionnels"
+                  alt="Fluxa - Agence web création sites vitrines pas chers pour TPE et artisans"
                   className="h-[100px] w-auto object-contain -translate-y-[8px]"
                 />
               </a>
@@ -190,7 +190,7 @@ Merci !`
             <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-2">
               <img
                 src={fluxaLogo}
-                alt="Fluxa - Agence de création de sites vitrines professionnels"
+                alt="Fluxa - Agence web création sites vitrines pas chers pour TPE et artisans"
                 className="h-[164px] lg:h-[240px] w-auto object-contain shrink-0"
               />
             </a>
@@ -223,14 +223,14 @@ Merci !`
           <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
             <span className="whitespace-nowrap">Création site vitrine</span>{" "}
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-              professionnel et abordable
+              professionnel et pas cher
             </span>
           </h1>
 
           <p className="text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
-            <span className="text-foreground">Agence de création de sites vitrines</span> pour TPE, indépendants et entrepreneurs.
-            Offrez-vous une présence en ligne professionnelle sans vous ruiner : site responsive, optimisé SEO, formulaire de contact, hébergement et nom de domaine inclus.
-            De la maquette personnalisée à la mise en ligne, nous gérons tout pour vous.
+            <span className="text-foreground">Agence de création de sites vitrines pour TPE, artisans et indépendants</span>.
+            Développement web professionnel sans vous ruiner : site internet responsive mobile-first, optimisé SEO, formulaire de contact, hébergement et nom de domaine inclus.
+            De la maquette personnalisée à la mise en ligne, nous gérons votre projet web clé en main.
           </p>
 
           {/* 3 points forts sobres */}
@@ -277,7 +277,7 @@ Merci !`
         <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl group-hover:opacity-80 transition"></div>
         <img
           src={mockupAJour}
-          alt="Exemple de site vitrine professionnel créé par Fluxa - Design moderne et responsive"
+          alt="Exemple site vitrine professionnel responsive créé par Fluxa - Design moderne optimisé SEO pour TPE et artisans"
           loading="eager"
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition"
         />
@@ -669,13 +669,13 @@ Merci !`
 <section className="pt-10 pb-2 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6">
     <h2 className="text-2xl md:text-3xl font-bold mb-3">
-      Création de Sites Vitrines Professionnels
+      Agence de Création de Sites Internet pour PME et Indépendants
     </h2>
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      <strong className="text-primary">Fluxa</strong> est une agence spécialisée dans la création de sites vitrines pour TPE, indépendants et entrepreneurs.
-      Nous concevons des sites internet modernes, optimisés SEO et responsive, avec hébergement inclus.
-      Chaque site est livré clé en main avec formation à la gestion, support technique et garantie de qualité.
-      Notre objectif : vous offrir une présence en ligne professionnelle et efficace, rapidement et à prix abordable.
+      <strong className="text-primary">Fluxa</strong> est une agence web spécialisée dans la création de sites vitrines pour TPE, artisans, consultants et entrepreneurs.
+      Nous développons des sites internet modernes, optimisés pour le référencement naturel (SEO) et entièrement responsive mobile et desktop, avec hébergement web sécurisé inclus.
+      Chaque projet de site vitrine est livré clé en main avec formation à la gestion de contenu, support technique dédié et garantie de qualité.
+      Notre objectif : vous offrir une présence digitale professionnelle et efficace pour votre activité, avec une livraison rapide et des tarifs transparents.
     </p>
   </div>
 </section>
@@ -785,7 +785,7 @@ Merci !`
       <div className="flex items-center gap-3">
         <img
           src={fluxaLogo}
-          alt="Logo Fluxa - Création de sites vitrines professionnels"
+          alt="Logo Fluxa - Agence web création sites internet professionnels pas chers"
           className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
         />
         <p className="text-sm text-muted-foreground">
@@ -869,7 +869,7 @@ Merci !`
           <div className="max-w-7xl w-full" onClick={(e) => e.stopPropagation()}>
             <img
               src={mockupAJour}
-              alt="Exemple de site vitrine professionnel créé par Fluxa - Design moderne et responsive"
+              alt="Exemple site vitrine professionnel responsive créé par Fluxa - Design moderne optimisé SEO pour TPE et artisans"
               className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl"
             />
             <p className="text-center text-sm text-muted-foreground mt-4">
