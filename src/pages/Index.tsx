@@ -152,9 +152,9 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Notre processus</a>
-                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos tarifs</a>
-                    <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Nos engagements</a>
+                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Processus</a>
+                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Tarifs</a>
+                    <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Avantages</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
                     <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Contact</a>
                   </nav>
