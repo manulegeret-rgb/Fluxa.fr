@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Faq } from "@/components/Faq";
 import { Automations } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
+import SectionDivider from "@/components/SectionDivider";
 import {
   Calendar,
   MessageSquare,
@@ -283,6 +284,8 @@ Merci !`
   </div>
 </section>
 
+<SectionDivider />
+
 {/* ================= TYPES DE SITES ================= */}
 <section className="py-16 md:py-24 bg-background">
   <div className="container mx-auto px-6">
@@ -330,19 +333,22 @@ Merci !`
   </div>
 </section>
 
+<SectionDivider />
+
 <section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
   <Automations />
 </section>
+
+<SectionDivider />
 
       {/* ================= PRICING ================= */}
       <section
         id="pricing"
         className="
-          mt-0 pt-2 md:pt-0
+          pt-16 md:pt-20
           pb-14 md:pb-20
           bg-background
           scroll-mt-[4px] md:scroll-mt-[40px]
-          -mt-px md:mt-0
         "
       >
         <div className="container mx-auto px-6">
@@ -461,6 +467,8 @@ Merci !`
         </div>
       </section>
 
+<SectionDivider />
+
       {/* ================= CTA / INFOS (formulaire) ================= */}
       <section
         id="infos"
@@ -578,6 +586,8 @@ Merci !`
         </div>
       </section>
 
+<SectionDivider />
+
 {/* ================= TÉMOIGNAGES ================= */}
 {/* Section supprimée pour conformité légale (loi Hamon - faux avis interdits) */}
 {/* TODO: Ajouter de vrais témoignages clients avec leur consentement écrit */}
@@ -636,11 +646,15 @@ Merci !`
         </div>
       </section>
 
+<SectionDivider />
+
       {/* ================= FAQ ================= */}
       <section id="faq" className="scroll-mt-[-60px] md:scroll-mt-[-60px]">
         <Faq />
       </section>
-      
+
+<SectionDivider />
+
      {/* ================= À PROPOS ================= */}
 <section className="pt-10 pb-2 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6">
@@ -654,7 +668,11 @@ Merci !`
       Notre objectif : vous offrir une présence en ligne professionnelle et efficace, rapidement et à prix abordable.
     </p>
   </div>
-</section>{/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
+</section>
+
+<SectionDivider />
+
+{/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
 <section id="pourquoi-choisir-fluxa" className="py-24 border-t border-border/60 bg-gradient-to-b from-background via-card/30 to-background">
   <div className="max-w-6xl mx-auto px-6 space-y-16">
     {/* --- Titre principal --- */}
