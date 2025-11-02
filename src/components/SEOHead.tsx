@@ -24,7 +24,7 @@ export default function SEOHead() {
 
     // === TITLE & DESCRIPTION ===
     const title =
-      "Site Vitrine Pas Cher 390€ | Agence Web TPE Fluxa";
+      "Site vitrine pas cher 390€ | Agence web TPE Fluxa";
     const description =
       "Agence web création sites vitrines TPE/artisans. Site responsive, SEO optimisé, hébergement inclus. Dès 390€. Livraison 1-2 semaines.";
 
