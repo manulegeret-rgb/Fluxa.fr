@@ -13,6 +13,8 @@ import {
   Linkedin,
   CheckCircle2,
   Menu,
+  X,
+  ZoomIn,
 } from "lucide-react";
 import mockupAJour from "@/assets/mockup-a-jour.webp"
 import { Button } from "@/components/ui/button";
@@ -79,6 +81,9 @@ useEffect(() => {
 
   // ========= Contrôle du menu mobile (Sheet)
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // ========= Lightbox pour le mockup
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   // ========= Mailto pour le formulaire "En savoir plus"
   const subject = useMemo(() => encodeURIComponent("Demande d'infos Fluxa"), []);
@@ -268,16 +273,21 @@ Merci !`
       </div>
 
       {/* Visuel (mockup) */}
-      <div className="relative">
-        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl"></div>
+      <div className="relative group cursor-pointer" onClick={() => setLightboxOpen(true)}>
+        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl group-hover:opacity-80 transition"></div>
         <img
           src={mockupAJour}
           alt="Exemple de site vitrine professionnel créé par Fluxa - Design moderne et responsive"
           loading="eager"
-          className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)]"
+          className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition"
         />
         <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
           Exemple de réalisation
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+          <div className="bg-background/80 backdrop-blur-sm rounded-full p-3 border border-primary/40">
+            <ZoomIn className="w-6 h-6 text-primary" />
+          </div>
         </div>
       </div>
     </div>
@@ -842,6 +852,32 @@ Merci !`
     </div>
   </div>
 </footer>
+
+      {/* ================= LIGHTBOX MOCKUP ================= */}
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setLightboxOpen(false)}
+        >
+          <button
+            onClick={() => setLightboxOpen(false)}
+            className="absolute top-4 right-4 p-2 rounded-full bg-background/80 hover:bg-background border border-border hover:border-primary/40 transition"
+            aria-label="Fermer"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div className="max-w-7xl w-full" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={mockupAJour}
+              alt="Exemple de site vitrine professionnel créé par Fluxa - Design moderne et responsive"
+              className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl"
+            />
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              Cliquez en dehors de l'image pour fermer
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
