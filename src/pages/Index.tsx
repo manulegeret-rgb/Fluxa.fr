@@ -676,7 +676,7 @@ Merci !`
 <section className="py-16 md:py-20 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6 space-y-5">
     <h2 className="text-2xl md:text-3xl font-bold">
-      Agence de Création de Sites Internet pour PME et Indépendants
+      Agence de création de sites internet pour PME et indépendants
     </h2>
 
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
