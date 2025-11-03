@@ -227,11 +227,23 @@ Merci !`
             </span>
           </h1>
 
-          <p className="text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
-            <span className="text-foreground">Agence de création de sites vitrines pour TPE, artisans et indépendants</span>.
-            Développement web professionnel sans vous ruiner : site internet responsive mobile-first, optimisé SEO, formulaire de contact, hébergement et nom de domaine inclus.
-            De la maquette personnalisée à la mise en ligne, nous gérons votre projet web clé en main.
-          </p>
+          <div className="space-y-4 text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
+            <p>
+              <span className="text-foreground font-semibold">Vous cherchez une création de site vitrine professionnel et pas cher ?</span> Fluxa est votre agence web spécialisée dans la création de sites internet pour TPE, artisans, consultants et indépendants.
+            </p>
+
+            <p>
+              Notre création de site vitrine professionnel inclut tout ce dont vous avez besoin : design moderne responsive adapté mobile et desktop, optimisation SEO pour être visible sur Google, formulaire de contact fonctionnel, hébergement web sécurisé et nom de domaine pour la première année.
+            </p>
+
+            <p>
+              Pas cher ne signifie pas bas de gamme : nous développons des sites vitrines de qualité professionnelle avec un excellent rapport qualité-prix. De la maquette personnalisée à la mise en ligne, nous gérons votre projet web clé en main, avec formation et support technique inclus.
+            </p>
+
+            <p>
+              Que vous soyez plombier, électricien, coach, thérapeute, consultant ou artisan, votre site vitrine professionnel sera livré en 1-2 semaines, prêt à attirer vos premiers clients en ligne.
+            </p>
+          </div>
 
           {/* 3 points forts sobres */}
           <div className="grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
@@ -667,15 +679,21 @@ Merci !`
 
      {/* ================= À PROPOS ================= */}
 <section className="py-16 md:py-20 bg-background border-t border-border/50 flex items-center justify-center text-center">
-  <div className="max-w-3xl px-6">
-    <h2 className="text-2xl md:text-3xl font-bold mb-3">
+  <div className="max-w-3xl px-6 space-y-5">
+    <h2 className="text-2xl md:text-3xl font-bold">
       Agence de Création de Sites Internet pour PME et Indépendants
     </h2>
+
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      <strong className="text-primary">Fluxa</strong> est une agence web spécialisée dans la création de sites vitrines pour TPE, artisans, consultants et entrepreneurs.
-      Nous développons des sites internet modernes, optimisés pour le référencement naturel (SEO) et entièrement responsive mobile et desktop, avec hébergement web sécurisé inclus.
-      Chaque projet de site vitrine est livré clé en main avec formation à la gestion de contenu, support technique dédié et garantie de qualité.
-      Notre objectif : vous offrir une présence digitale professionnelle et efficace pour votre activité, avec une livraison rapide et des tarifs transparents.
+      <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Nous développons des sites internet modernes, optimisés pour le référencement naturel (SEO) et entièrement responsive mobile et desktop, avec hébergement web sécurisé inclus.
+    </p>
+
+    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
+      Chaque projet de création de site vitrine est livré clé en main avec formation à la gestion de contenu, support technique dédié et garantie de qualité. Notre processus de développement web suit les standards modernes du web : performances optimales, accessibilité, compatibilité navigateurs et optimisation SEO pour un bon positionnement sur Google.
+    </p>
+
+    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
+      Notre objectif : vous offrir une présence digitale professionnelle et efficace pour votre activité, avec une livraison rapide (1-2 semaines) et des tarifs transparents. Que vous ayez besoin d'un site portfolio, d'un site d'entreprise ou d'un site de présentation de services, nous adaptons chaque création à votre secteur d'activité et à vos objectifs commerciaux.
     </p>
   </div>
 </section>
