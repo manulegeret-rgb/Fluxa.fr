@@ -804,28 +804,28 @@ Merci !`
         <div className="space-y-4">
           <h4 className="text-xl font-semibold text-primary">Performance et rapidité</h4>
           <p className="text-muted-foreground leading-relaxed">
-            Chaque site vitrine que nous développons est optimisé pour la vitesse de chargement. Images compressées au format WebP, code minifié, lazy loading des ressources : nous appliquons les meilleures pratiques pour garantir un temps de chargement inférieur à 3 secondes. Un site rapide améliore l'expérience utilisateur et favorise votre positionnement sur Google. Les Core Web Vitals sont respectés pour maximiser votre score de performance.
+            Chaque <a href="#pricing" className="text-primary hover:underline">site vitrine</a> que nous développons est optimisé pour la vitesse de chargement. Images compressées au format WebP, code minifié, lazy loading des ressources : nous appliquons les <a href="https://web.dev/vitals/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">meilleures pratiques web.dev</a> pour garantir un temps de chargement inférieur à 3 secondes. Un site rapide améliore l'expérience utilisateur et favorise votre positionnement sur Google. Les <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Core Web Vitals</a> sont respectés pour maximiser votre score de performance.
           </p>
         </div>
 
         <div className="space-y-4">
           <h4 className="text-xl font-semibold text-primary">Référencement naturel (SEO)</h4>
           <p className="text-muted-foreground leading-relaxed">
-            Le SEO est au cœur de notre démarche de création de sites vitrines. Structure HTML sémantique, balises meta optimisées, sitemap XML, robots.txt, données structurées Schema.org : tout est mis en place pour que votre site soit facilement indexé par les moteurs de recherche. Nous vous accompagnons également sur la stratégie de mots-clés et la rédaction de contenu optimisé pour le référencement local et national.
+            Le SEO est au cœur de notre démarche de <a href="#pourquoi-choisir-fluxa" className="text-primary hover:underline">création de sites vitrines</a>. Structure HTML sémantique, balises meta optimisées, sitemap XML, robots.txt, données structurées <a href="https://schema.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Schema.org</a> : tout est mis en place pour que votre site soit facilement indexé par les moteurs de recherche. Nous vous accompagnons également sur la stratégie de mots-clés et la rédaction de contenu optimisé pour le référencement local et national selon les <a href="https://developers.google.com/search/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">directives Google</a>.
           </p>
         </div>
 
         <div className="space-y-4">
           <h4 className="text-xl font-semibold text-primary">Responsive design mobile-first</h4>
           <p className="text-muted-foreground leading-relaxed">
-            Plus de 60% des visites web se font depuis un smartphone. Tous nos sites sont développés en mobile-first : nous concevons d'abord pour mobile, puis adaptons pour tablette et desktop. Navigation tactile optimisée, boutons accessibles au pouce, images adaptatives : votre site vitrine offre une expérience utilisateur parfaite sur tous les écrans. Test sur devices réels avant livraison.
+            Plus de 60% des visites web se font depuis un smartphone. Tous nos <a href="#infos" className="text-primary hover:underline">sites</a> sont développés en mobile-first selon les recommandations <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MDN Web Docs</a> : nous concevons d'abord pour mobile, puis adaptons pour tablette et desktop. Navigation tactile optimisée, boutons accessibles au pouce, images adaptatives : votre site vitrine offre une expérience utilisateur parfaite sur tous les écrans. Test sur devices réels avant livraison.
           </p>
         </div>
 
         <div className="space-y-4">
           <h4 className="text-xl font-semibold text-primary">Sécurité et conformité RGPD</h4>
           <p className="text-muted-foreground leading-relaxed">
-            Certificat SSL inclus pour sécuriser les échanges, formulaires de contact conformes RGPD avec consentement explicite, politique de confidentialité claire : votre site vitrine respecte la réglementation française et européenne. Hébergement en France sur serveurs sécurisés avec sauvegardes quotidiennes. Protection anti-spam sur les formulaires et mise à jour régulière des dépendances de sécurité.
+            Certificat SSL inclus pour sécuriser les échanges, formulaires de contact conformes <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">RGPD</a> avec consentement explicite, <a href="/politique-confidentialite" className="text-primary hover:underline">politique de confidentialité</a> claire : votre site vitrine respecte la réglementation française et européenne. Hébergement en France sur serveurs sécurisés avec sauvegardes quotidiennes. Protection anti-spam sur les formulaires et mise à jour régulière des dépendances de sécurité.
           </p>
         </div>
       </div>

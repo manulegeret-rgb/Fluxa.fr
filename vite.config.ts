@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
     headers: {
       // En-têtes de cache pour les images en développement
       'Cache-Control': 'public, max-age=31536000',
+      'Expires': new Date(Date.now() + 31536000000).toUTCString(),
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
