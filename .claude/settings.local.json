@@ -1,28 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run dev:*)",
-      "Bash(python extract_articles.py:*)",
-      "Bash(npm install:*)",
-      "Bash(npm run build:*)",
-      "Bash(python:*)",
-      "Bash(del extract_docx.py article_content.txt)",
-      "Bash(git add:*)",
-      "Bash(git commit -m \"$(cat <<''EOF''\n✨ SEO + Contenu réseaux sociaux : Automatisation administrative\n\n- ✅ SEO : Ajout H1, hiérarchie headings, migration styles inline → CSS\n- 📱 Contenu social media complet (LinkedIn, Facebook, Instagram)\n- 🤖 17 prompts Sora/IA pour génération visuels\n- 📚 Guides de publication et engagement\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git push:*)",
-      "Bash(cat:*)",
+      "Bash(git push)",
+      "Bash(git commit -m \"$(cat <<''EOF''\n🎨 Refonte Hero : H1 centré + layout 2 colonnes équilibré\n\n- H1 centré en haut pour impact visuel maximal\n- Layout 2 colonnes : texte (2 paragraphes) + image mockup\n- Réduction de 4 à 2 paragraphes dans Hero (moins compact)\n- Déplacement des 2 autres paragraphes dans section À propos\n- Amélioration espacements et responsive (lg:text-left)\n- Maintien SEO : 270+ mots répartis sur la page\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git commit:*)",
-      "Bash(netstat:*)",
-      "Bash(findstr:*)",
-      "Bash(taskkill:*)",
-      "Bash(npx kill-port:*)",
-      "Bash(start flyer-fluxa.html)",
-      "Bash(del extract_article.py article_content.txt create_social_content.py)",
-      "Bash(dir:*)",
-      "Bash(rm:*)",
-      "Bash(find:*)",
-      "Bash(start presentation-sites-web.html)",
-      "Bash(start PROCESS-TECHNIQUE-FLUXA-SITES-WEB.html)"
+      "Bash(npm run dev:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []

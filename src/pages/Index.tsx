@@ -218,7 +218,7 @@ Merci !`
   <div className="container mx-auto px-6 relative z-10 pt-36 md:pt-32">
     {/* H1 centré en haut */}
     <div className="text-center mb-12 md:mb-16">
-      <h1 className="text-[clamp(32px,7vw,64px)] font-bold leading-tight">
+      <h1 className="text-[clamp(37px,7vw,69px)] font-bold leading-tight">
         <span className="whitespace-nowrap">Création site vitrine</span>{" "}
         <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
           professionnel et pas cher
@@ -794,6 +794,41 @@ Merci !`
       >
         Demander un devis gratuit
       </a>
+    </div>
+
+    {/* --- Section technologies et bonnes pratiques --- */}
+    <div className="max-w-5xl mx-auto space-y-8 pt-16">
+      <h3 className="text-3xl font-semibold text-center">Technologies modernes et bonnes pratiques web</h3>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold text-primary">Performance et rapidité</h4>
+          <p className="text-muted-foreground leading-relaxed">
+            Chaque site vitrine que nous développons est optimisé pour la vitesse de chargement. Images compressées au format WebP, code minifié, lazy loading des ressources : nous appliquons les meilleures pratiques pour garantir un temps de chargement inférieur à 3 secondes. Un site rapide améliore l'expérience utilisateur et favorise votre positionnement sur Google. Les Core Web Vitals sont respectés pour maximiser votre score de performance.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold text-primary">Référencement naturel (SEO)</h4>
+          <p className="text-muted-foreground leading-relaxed">
+            Le SEO est au cœur de notre démarche de création de sites vitrines. Structure HTML sémantique, balises meta optimisées, sitemap XML, robots.txt, données structurées Schema.org : tout est mis en place pour que votre site soit facilement indexé par les moteurs de recherche. Nous vous accompagnons également sur la stratégie de mots-clés et la rédaction de contenu optimisé pour le référencement local et national.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold text-primary">Responsive design mobile-first</h4>
+          <p className="text-muted-foreground leading-relaxed">
+            Plus de 60% des visites web se font depuis un smartphone. Tous nos sites sont développés en mobile-first : nous concevons d'abord pour mobile, puis adaptons pour tablette et desktop. Navigation tactile optimisée, boutons accessibles au pouce, images adaptatives : votre site vitrine offre une expérience utilisateur parfaite sur tous les écrans. Test sur devices réels avant livraison.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold text-primary">Sécurité et conformité RGPD</h4>
+          <p className="text-muted-foreground leading-relaxed">
+            Certificat SSL inclus pour sécuriser les échanges, formulaires de contact conformes RGPD avec consentement explicite, politique de confidentialité claire : votre site vitrine respecte la réglementation française et européenne. Hébergement en France sur serveurs sécurisés avec sauvegardes quotidiennes. Protection anti-spam sur les formulaires et mise à jour régulière des dépendances de sécurité.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

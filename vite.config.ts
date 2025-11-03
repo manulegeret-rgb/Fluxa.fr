@@ -7,7 +7,8 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8084,
+    port: 8086,
+    strictPort: true, // Quitte avec erreur si le port est occupé
     headers: {
       // En-têtes de cache pour les images en développement
       'Cache-Control': 'public, max-age=31536000',

@@ -38,18 +38,26 @@
   <link rel="apple-touch-icon" href="/logo.png" />
   <link rel="preload" as="image" href="/logo.png" imagesizes="24px" />
 
-  <!-- Fonts -->
+  <!-- Fonts (avec media print pour différer le chargement) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BRE2ZDN6P4"></script>
+  <!-- Google Analytics (GA4) - chargement différé -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BRE2ZDN6P4');
+    // Charge GA4 après que la page soit interactive
+    window.addEventListener('load', function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BRE2ZDN6P4';
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BRE2ZDN6P4');
+    });
   </script>
 
   <!-- Schema.org (Organization + ProfessionalService) -->
