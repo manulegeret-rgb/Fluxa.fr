@@ -215,52 +215,47 @@ Merci !`
   </div>
 
   {/* top padding ajusté pour le header fixe */}
-  <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-24">
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
-      {/* Texte (version pro et allégée) */}
-      <div className="space-y-8 text-center md:text-left">
-        <div className="space-y-5">
-          <h1 className="text-[clamp(28px,6vw,56px)] font-bold leading-tight">
-            <span className="whitespace-nowrap">Création site vitrine</span>{" "}
-            <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-              professionnel et pas cher
-            </span>
-          </h1>
+  <div className="container mx-auto px-6 relative z-10 pt-36 md:pt-32">
+    {/* H1 centré en haut */}
+    <div className="text-center mb-12 md:mb-16">
+      <h1 className="text-[clamp(32px,7vw,64px)] font-bold leading-tight">
+        <span className="whitespace-nowrap">Création site vitrine</span>{" "}
+        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
+          professionnel et pas cher
+        </span>
+      </h1>
+    </div>
 
-          <div className="space-y-4 text-[15px] md:text-lg text-muted-foreground/90 max-w-[62ch]">
-            <p>
-              <span className="text-foreground font-semibold">Vous cherchez une création de site vitrine professionnel et pas cher ?</span> Fluxa est votre agence web spécialisée dans la création de sites internet pour TPE, artisans, consultants et indépendants.
-            </p>
+    {/* Grille 2 colonnes : Texte + Image */}
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Colonne gauche : Texte (2 paragraphes) + CTAs */}
+      <div className="space-y-8 text-center lg:text-left">
+        {/* Paragraphes */}
+        <div className="space-y-5 text-[15px] md:text-lg text-muted-foreground/90">
+          <p>
+            <span className="text-foreground font-semibold">Vous cherchez une création de site vitrine professionnel et pas cher ?</span> Fluxa est votre agence web spécialisée dans la création de sites internet pour TPE, artisans, consultants et indépendants.
+          </p>
 
-            <p>
-              Notre création de site vitrine professionnel inclut tout ce dont vous avez besoin : design moderne responsive adapté mobile et desktop, optimisation SEO pour être visible sur Google, formulaire de contact fonctionnel, hébergement web sécurisé et nom de domaine pour la première année.
-            </p>
+          <p>
+            Notre création de site vitrine professionnel inclut tout ce dont vous avez besoin : design moderne responsive adapté mobile et desktop, optimisation SEO pour être visible sur Google, formulaire de contact fonctionnel, hébergement web sécurisé et nom de domaine pour la première année.
+          </p>
+        </div>
 
-            <p>
-              Pas cher ne signifie pas bas de gamme : nous développons des sites vitrines de qualité professionnelle avec un excellent rapport qualité-prix. De la maquette personnalisée à la mise en ligne, nous gérons votre projet web clé en main, avec formation et support technique inclus.
-            </p>
-
-            <p>
-              Que vous soyez plombier, électricien, coach, thérapeute, consultant ou artisan, votre site vitrine professionnel sera livré en 1-2 semaines, prêt à attirer vos premiers clients en ligne.
-            </p>
-          </div>
-
-          {/* 3 points forts sobres */}
-          <div className="grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
-            {[
-              "Design moderne et responsive",
-              "Hébergement & domaine inclus",
-              "À partir de 390€ tout compris",
-            ].map((txt, i) => (
-              <div key={i} className="rounded-xl border border-border/70 px-4 py-3">
-                {txt}
-              </div>
-            ))}
-          </div>
+        {/* 3 points forts sobres */}
+        <div className="grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
+          {[
+            "Design moderne et responsive",
+            "Hébergement & domaine inclus",
+            "À partir de 390€ tout compris",
+          ].map((txt, i) => (
+            <div key={i} className="rounded-xl border border-border/70 px-4 py-3">
+              {txt}
+            </div>
+          ))}
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col md:flex-row gap-3 justify-center md:justify-start">
+        <div className="flex flex-col md:flex-row gap-3 justify-center lg:justify-start">
           <a
             href="#pricing"
             className="group relative inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition w-full md:w-auto overflow-hidden"
@@ -686,6 +681,14 @@ Merci !`
 
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
       <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Nous développons des sites internet modernes, optimisés pour le référencement naturel (SEO) et entièrement responsive mobile et desktop, avec hébergement web sécurisé inclus.
+    </p>
+
+    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
+      Pas cher ne signifie pas bas de gamme : nous développons des sites vitrines de qualité professionnelle avec un excellent rapport qualité-prix. De la maquette personnalisée à la mise en ligne, nous gérons votre projet web clé en main, avec formation et support technique inclus.
+    </p>
+
+    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
+      Que vous soyez plombier, électricien, coach, thérapeute, consultant ou artisan, votre site vitrine professionnel sera livré en 1-2 semaines, prêt à attirer vos premiers clients en ligne.
     </p>
 
     <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
