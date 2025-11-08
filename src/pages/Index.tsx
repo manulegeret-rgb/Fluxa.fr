@@ -542,18 +542,18 @@ Merci !`
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm">Nom</label>
-                <input name="name" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+                <label htmlFor="contact-name" className="text-sm">Nom</label>
+                <input id="contact-name" name="name" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
               </div>
               <div>
-                <label className="text-sm">Email</label>
-                <input name="email" type="email" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+                <label htmlFor="contact-email" className="text-sm">Email</label>
+                <input id="contact-email" name="email" type="email" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
               </div>
             </div>
 
             <div>
-              <label className="text-sm">Type de site souhaité</label>
-              <select name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
+              <label htmlFor="contact-need" className="text-sm">Type de site souhaité</label>
+              <select id="contact-need" name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
                 <option value="" disabled>— Sélectionner —</option>
                 <option>Site vitrine simple (390€)</option>
                 <option>Site avec galerie photo</option>
@@ -564,8 +564,8 @@ Merci !`
             </div>
 
             <div>
-              <label className="text-sm">Votre message</label>
-              <textarea name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+              <label htmlFor="contact-message" className="text-sm">Votre message</label>
+              <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
             </div>
 
             <div className="flex items-center gap-3">
