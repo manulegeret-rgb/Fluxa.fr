@@ -47,7 +47,7 @@ export function Faq() {
   return (
     <section id="faq" className="py-24 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto px-6 max-w-3xl">
-        <h2 className="text-center text-4xl lg:text-5xl font-bold mb-10">
+        <h2 className="text-center text-4xl lg:text-5xl font-bold mb-10" id="faq-heading">
           Questions fréquentes
         </h2>
 

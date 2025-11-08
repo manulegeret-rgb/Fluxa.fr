@@ -66,7 +66,7 @@ export function Automations() {
       <div className="container mx-auto px-6">
         {/* Titre + sous-titre : espaces réduits en mobile */}
         <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-14">
-          <h2 className="text-4xl lg:text-5xl font-bold">
+          <h2 className="text-4xl lg:text-5xl font-bold" id="processus-creation">
             Notre Processus de Création
           </h2>
           <p className="text-base leading-7 text-muted-foreground mt-1">
