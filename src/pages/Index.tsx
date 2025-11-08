@@ -207,7 +207,7 @@ Merci !`
       </header>
 
       {/* ================= HERO (épuré) ================= */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+<section className="relative min-h-[calc(100vh-80px)] md:min-h-screen flex items-center justify-center overflow-hidden">
   {/* fond halo */}
   <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background">
     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -215,7 +215,7 @@ Merci !`
   </div>
 
   {/* top padding ajusté pour le header fixe */}
-  <div className="container mx-auto px-6 relative z-10 pt-36 md:pt-32">
+  <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-32">
     {/* H1 centré en haut */}
     <div className="text-center mb-12 md:mb-16">
       <h1 className="text-[clamp(37px,7vw,69px)] font-bold leading-tight">
@@ -286,6 +286,8 @@ Merci !`
           src={mockupAJour}
           alt="Exemple site vitrine professionnel responsive créé par Fluxa - Design moderne optimisé SEO pour TPE et artisans"
           loading="eager"
+          width="1920"
+          height="1080"
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition"
         />
         <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
@@ -304,7 +306,7 @@ Merci !`
 <SectionDivider />
 
 {/* ================= TYPES DE SITES ================= */}
-<section className="py-16 md:py-24 bg-background">
+<section className="py-12 md:py-20 bg-background">
   <div className="container mx-auto px-6">
     <div className="text-center space-y-4 mb-12">
       <h2 className="text-3xl md:text-4xl font-bold">Exemples de sites vitrines</h2>
@@ -610,7 +612,7 @@ Merci !`
 {/* TODO: Ajouter de vrais témoignages clients avec leur consentement écrit */}
 
       {/* ================= GARANTIES ================= */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-6">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">Nos garanties</h2>
@@ -673,7 +675,7 @@ Merci !`
 <SectionDivider />
 
      {/* ================= À PROPOS ================= */}
-<section className="py-16 md:py-20 bg-background border-t border-border/50 flex items-center justify-center text-center">
+<section className="py-12 md:py-16 bg-background border-t border-border/50 flex items-center justify-center text-center">
   <div className="max-w-3xl px-6 space-y-5">
     <h2 className="text-2xl md:text-3xl font-bold">
       Agence de création de sites internet pour PME et indépendants
@@ -704,7 +706,7 @@ Merci !`
 <SectionDivider />
 
 {/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
-<section id="pourquoi-choisir-fluxa" className="py-24 border-t border-border/60 bg-gradient-to-b from-background via-card/30 to-background">
+<section id="pourquoi-choisir-fluxa" className="py-12 md:py-20 border-t border-border/60 bg-gradient-to-b from-background via-card/30 to-background">
   <div className="max-w-6xl mx-auto px-6 space-y-16">
     {/* --- Titre principal --- */}
     <div className="text-center space-y-6">
@@ -926,6 +928,8 @@ Merci !`
             <img
               src={mockupAJour}
               alt="Exemple site vitrine professionnel responsive créé par Fluxa - Design moderne optimisé SEO pour TPE et artisans"
+              width="1920"
+              height="1080"
               className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl"
             />
             <p className="text-center text-sm text-muted-foreground mt-4">
