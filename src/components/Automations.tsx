@@ -74,13 +74,13 @@ export function Automations() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="flex flex-wrap gap-6 max-w-6xl mx-auto justify-center">
           {items.map((it, i) => {
             const Icon = it.icon;
             return (
               <div
                 key={i}
-                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition"
+                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition w-full md:w-[calc(33.333%-1rem)] md:max-w-[calc(33.333%-1rem)]"
               >
                 <div className="flex items-start gap-3 mb-4">
   <div className="shrink-0 w-10 h-10 rounded-xl bg-primary text-primary-foreground grid place-items-center">
