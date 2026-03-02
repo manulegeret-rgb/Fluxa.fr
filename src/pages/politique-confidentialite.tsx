@@ -210,7 +210,7 @@ const PrivacyPolicy: React.FC = () => {
       {/* SEO optimisé */}
       <PageSEO
         title="Politique de confidentialité — Fluxa"
-        description="Politique de confidentialité et protection des données personnelles de Fluxa. Informations sur le traitement RGPD et vos droits."
+        description="Politique de confidentialité de Fluxa, agence web création sites vitrines. Protection des données personnelles, traitement RGPD et vos droits (accès, rectification, suppression)."
         canonicalPath="/politique-confidentialite"
         noindex={false}
       />

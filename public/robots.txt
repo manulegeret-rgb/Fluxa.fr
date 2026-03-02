@@ -1,16 +1,58 @@
-# Robots.txt pour Fluxa - Outil de gestion pour artisans & indépendants
-# Site: https://fluxa.fr
+# Robots.txt — Fluxa (https://fluxa.fr)
+# Agence web création sites vitrines professionnels pour TPE et artisans
 
-# Tous les robots
+# Règles générales
 User-agent: *
 Allow: /
 
-# Bloquer l'indexation de la démo (interface de démonstration uniquement)
+# Bloquer la démo interactive (pas de valeur SEO)
 Disallow: /demo/
+Disallow: /demo
 
-# Bloquer les fichiers de build et ressources inutiles
+# Bloquer les assets de build (non pertinents pour l'indexation)
 Disallow: /src/
 Disallow: /_import_demo/
+Disallow: /*.map$
 
-# Sitemap principal
+# Règles pour Googlebot (accès complet aux ressources CSS/JS pour rendu)
+User-agent: Googlebot
+Allow: /
+Disallow: /demo/
+Disallow: /demo
+
+# Règles pour Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /og-image-v2.png
+Allow: /logo.png
+Allow: /favicon.png
+
+# Règles pour GPTBot (OpenAI) — autoriser pour visibilité LLM
+User-agent: GPTBot
+Allow: /
+Disallow: /demo/
+
+# Règles pour Claude-Web (Anthropic) — autoriser pour visibilité LLM
+User-agent: ClaudeBot
+Allow: /
+Disallow: /demo/
+
+# Règles pour PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+Disallow: /demo/
+
+# Bloquer les scrapers malveillants connus
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap
 Sitemap: https://fluxa.fr/sitemap.xml

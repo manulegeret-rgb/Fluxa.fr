@@ -4,54 +4,243 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Page d'accueil - Priorité maximale -->
+  <!-- Page d'accueil — Priorité maximale -->
   <url>
     <loc>https://fluxa.fr/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Page Articles - Contenu riche SEO -->
+  <!-- Hub Articles — Contenu riche SEO -->
   <url>
     <loc>https://fluxa.fr/articles</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Article Viral ROI - Ressource Premium pour Backlinks -->
+  <!-- Guide ROI — Ressource Premium (forte valeur SEO) -->
   <url>
     <loc>https://fluxa.fr/guide-complet-roi-automatisation-artisans</loc>
-    <lastmod>2025-10-27</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- Page Ressources - Blog -->
+  <!-- Page Ressources — Blog -->
   <url>
     <loc>https://fluxa.fr/ressources</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Pages légales - Indexées mais priorité basse -->
+  <!-- ===== ARTICLES INDIVIDUELS ===== -->
+
+  <!-- Automatisation générale -->
+  <url>
+    <loc>https://fluxa.fr/articles/automatisation-administrative-d-entreprise-comment-gagner-en-efficacite-en-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatisation-pour-independants-les-outils-incontournables-en-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-les-taches-repetitives-au-travail-methodes-et-outils-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-son-entreprise-en-2025-les-cles-pour-gagner-du-temps-et-augmenter-sa-rentabilite</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/gain-de-temps-et-automatisation-pour-les-tpe-les-meilleures-strategies-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/le-meilleur-outil-d-automatisation-pour-artisans-en-2025-comparatif-et-guide-pratique</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/reduire-ses-couts-operationnels-grace-a-l-automatisation-strategies-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Facturation & CRM -->
+  <url>
+    <loc>https://fluxa.fr/articles/comment-automatiser-sa-facturation-guide-complet-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatisation-de-la-gestion-clients-en-2025-les-nouvelles-methodes-pour-gagner-du-temps</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/crm-automatise-pour-tpe-le-guide-2025-pour-gagner-du-temps-et-fideliser-ses-clients</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Communication & Marketing -->
+  <url>
+    <loc>https://fluxa.fr/articles/automatisation-de-la-communication-client-les-bonnes-pratiques-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatisation-seo-et-contenu-ia-comment-generer-du-trafic-qualifie-en-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-la-generation-de-leads-en-entreprise-strategies-et-outils-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IA & Innovation -->
+  <url>
+    <loc>https://fluxa.fr/articles/comment-creer-des-automatisations-avec-l-intelligence-artificielle-ia-en-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/creer-un-agent-ia-avec-n8n-l-automatisation-intelligente-pour-pme-et-independants</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- N8N & Outils -->
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-la-facturation-et-les-relances-avec-n8n-simplifiez-votre-comptabilite</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-la-gestion-client-avec-n8n-gagnez-du-temps-et-fidelisez-vos-clients</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-le-service-client-avec-n8n-offrir-une-experience-fluide-et-reactive</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-les-rappels-de-rendez-vous-avec-n8n-reduisez-les-oublis-clients</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-les-reseaux-sociaux-avec-n8n-gagnez-du-temps-et-publiez-comme-un-pro</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/automatiser-son-entreprise-avec-n8n-gagnez-du-temps-et-boostez-votre-productivite</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/comment-utiliser-n8n-pour-debuter-guide-complet-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Workflow & Processus -->
+  <url>
+    <loc>https://fluxa.fr/articles/creer-un-workflow-n8n-pour-pme-automatiser-vos-processus-metier-de-a-a-z</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/comment-creer-un-workflow-automatise-guide-complet-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/le-meilleur-outil-de-workflow-automation-en-2025-comparatif-complet-et-guide-decisionnel</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/workflow-marketing-automation-gratuit-comment-lancer-sa-strategie-sans-budget-guide-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pages légales — Indexées mais priorité basse -->
   <url>
     <loc>https://fluxa.fr/mentions-legales</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-10-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/politique-confidentialite</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-10-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Note: Les pages /demo/* ne sont pas incluses car ce sont des démonstrations interactives,
-       pas du contenu à indexer pour le SEO -->
+  <!-- Note: Les pages /demo/* ne sont pas incluses (démo interactive, pas de contenu SEO) -->
 
 </urlset>

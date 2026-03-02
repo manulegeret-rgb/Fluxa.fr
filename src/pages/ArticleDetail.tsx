@@ -60,6 +60,14 @@ export default function ArticleDetail() {
         description={article.metaDescription}
         canonicalPath={`/articles/${article.slug}`}
         keywords={article.keywords}
+        ogType="article"
+        articleMeta={{
+          publishedTime: article.publishDate,
+          modifiedTime: article.publishDate,
+          author: article.author || "Fluxa",
+          section: article.categoryName,
+          tags: article.keywords?.slice(0, 6),
+        }}
         breadcrumb={[
           { name: "Accueil", url: "/" },
           { name: "Articles", url: "/articles" },

@@ -7,7 +7,7 @@ export default function MentionsLegales() {
       {/* SEO optimisé */}
       <PageSEO
         title="Mentions légales — Fluxa"
-        description="Mentions légales du site Fluxa — Application de gestion sur mesure pour artisans et indépendants."
+        description="Mentions légales du site Fluxa — Agence web création de sites vitrines professionnels pour TPE, artisans et indépendants. Éditeur : Emmanuel Légeret, Cognin (73160)."
         canonicalPath="/mentions-legales"
         noindex={false}
       />
