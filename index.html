@@ -6,36 +6,35 @@
 
   <!-- SEO de base -->
   <title>Fluxa | Création de site vitrine professionnel dès 390€</title>
-  <meta name="description" content="Agence web création sites vitrines TPE/artisans. Site responsive, SEO optimisé, hébergement inclus. Dès 390€. Livraison 1-2 semaines." />
+  <meta name="description" content="Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 390€. Livraison 1-2 semaines." />
   <meta name="author" content="Fluxa" />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="keywords" content="création site vitrine, site vitrine professionnel, agence web TPE, site internet artisan, site pas cher, hébergement inclus, SEO optimisé, site vitrine artisan, création site internet, devis site vitrine" />
   <link rel="canonical" href="https://fluxa.fr/" />
 
   <!-- Couleur d'UI mobile -->
   <meta name="theme-color" content="#0b0b0b" />
 
-  <!-- Force rebuild cache: 2025-11-05 -->
-
   <!-- Open Graph / réseaux -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fluxa" />
   <meta property="og:title" content="Fluxa | Création de site vitrine professionnel dès 390€" />
-  <meta property="og:description" content="Agence web pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 1-2 semaines." />
+  <meta property="og:description" content="Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 1-2 semaines." />
   <meta property="og:url" content="https://fluxa.fr/" />
   <meta property="og:image" content="https://fluxa.fr/og-image-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Fluxa - Création de site vitrine professionnel dès 390€" />
+  <meta property="og:image:alt" content="Fluxa - Agence web création site vitrine professionnel dès 390€ pour artisans et TPE" />
   <meta property="og:locale" content="fr_FR" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fluxa | Création de site vitrine professionnel dès 390€" />
-  <meta name="twitter:description" content="Agence web pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 1-2 semaines." />
+  <meta name="twitter:description" content="Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 1-2 semaines." />
   <meta name="twitter:image" content="https://fluxa.fr/og-image-v2.png" />
-  <meta name="twitter:image:alt" content="Fluxa - Création de site vitrine professionnel dès 390€" />
+  <meta name="twitter:image:alt" content="Fluxa - Agence web création site vitrine professionnel dès 390€ pour artisans et TPE" />
 
-  <!-- Favicon + préchargement logo header pour netteté -->
+  <!-- Favicon + préchargement logo header -->
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/logo.png" />
   <link rel="preload" as="image" href="/logo.png" imagesizes="24px" />
@@ -49,9 +48,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Google Analytics (GA4) - chargement différé -->
+  <!-- Google Analytics (GA4) - chargement différé après interactivité -->
   <script>
-    // Charge GA4 après que la page soit interactive
     window.addEventListener('load', function() {
       var script = document.createElement('script');
       script.async = true;
@@ -61,18 +59,36 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-BRE2ZDN6P4');
+      gtag('config', 'G-BRE2ZDN6P4', { 'anonymize_ip': true });
     });
   </script>
 
-  <!-- Schema.org (Organization + ProfessionalService) -->
+  <!-- Schema.org JSON-LD — données structurées statiques (pré-rendu) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": "WebSite",
+        "@id": "https://fluxa.fr/#website",
         "name": "Fluxa",
+        "url": "https://fluxa.fr/",
+        "description": "Agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans et indépendants.",
+        "inLanguage": "fr-FR",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://fluxa.fr/articles?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://fluxa.fr/#organization",
+        "name": "Fluxa",
+        "alternateName": "Fluxa Agence Web",
         "url": "https://fluxa.fr/",
         "logo": {
           "@type": "ImageObject",
@@ -80,22 +96,52 @@
           "width": 240,
           "height": 240
         },
-        "email": "fluxa.contact@gmail.com",
         "sameAs": [
           "https://www.instagram.com/fluxa.fr",
           "https://www.facebook.com/fluxa.fr",
           "https://www.linkedin.com/company/fluxa-fr/"
         ],
-        "description": "Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Développement de sites internet modernes, responsive mobile-first et optimisés pour le référencement naturel (SEO) à partir de 390€. Hébergement web inclus."
+        "description": "Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Développement de sites internet modernes, responsive mobile-first et optimisés pour le référencement naturel (SEO) à partir de 390€. Hébergement web inclus.",
+        "foundingLocation": {
+          "@type": "Place",
+          "addressLocality": "Cognin",
+          "addressRegion": "Savoie",
+          "addressCountry": "FR"
+        }
       },
       {
-        "@type": "ProfessionalService",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://fluxa.fr/#localbusiness",
         "name": "Fluxa - Agence Web Création Sites Vitrines",
         "url": "https://fluxa.fr/",
-        "priceRange": "390€-1500€",
-        "description": "Agence de création de sites vitrines professionnels pas chers pour TPE, artisans et indépendants. Développement web responsive mobile-first, hébergement sécurisé inclus, optimisation référencement naturel SEO, livraison rapide en 1-2 semaines. Tarifs transparents dès 390€.",
-        "areaServed": "FR",
-        "availableLanguage": "fr"
+        "image": "https://fluxa.fr/og-image-v2.png",
+        "priceRange": "390€–1500€",
+        "description": "Agence de création de sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 1-2 semaines.",
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "availableLanguage": {
+          "@type": "Language",
+          "name": "French",
+          "alternateName": "fr"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services de création de sites vitrines",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Création site vitrine professionnel",
+                "description": "Site vitrine 5 pages responsive, SEO optimisé, hébergement et domaine inclus 1ère année. Livraison en 1-2 semaines."
+              },
+              "price": "390",
+              "priceCurrency": "EUR"
+            }
+          ]
+        }
       }
     ]
   }
@@ -111,10 +157,10 @@
 
   <body>
     <div id="root">
-      <!-- Contenu SEO visible avant chargement React (sera remplacé automatiquement) -->
-      <div class="seo-fallback" style="display:none;">
+      <!-- Contenu SEO statique visible avant chargement React (remplacé automatiquement) -->
+      <div class="seo-fallback" style="display:none;" aria-hidden="true">
         <header>
-          <strong>Fluxa - Agence web</strong>
+          <strong>Fluxa - Agence web création sites vitrines</strong>
           <nav>
             <a href="#services">Nos Services</a>
             <a href="#tarifs">Tarifs</a>
@@ -124,31 +170,44 @@
 
         <main>
           <section>
-            <h2>Création de sites vitrines professionnels</h2>
-            <p>Agence web de création de sites vitrines pour TPE, artisans et indépendants. Site internet professionnel responsive, optimisé SEO, hébergement inclus. À partir de 390€.</p>
+            <h1>Création de site vitrine professionnel dès 390€</h1>
+            <p>Agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans et indépendants. Site internet responsive, SEO optimisé, hébergement inclus. À partir de 390€.</p>
           </section>
 
           <section id="services">
-            <h2>Nos Services</h2>
+            <h2>Nos Services de Création de Sites Vitrines</h2>
             <h3>Design Responsive Mobile-First</h3>
             <p>Site parfaitement adapté à tous les écrans (smartphone, tablette, desktop).</p>
 
-            <h3>Hébergement et Domaine Inclus</h3>
+            <h3>Hébergement et Nom de Domaine Inclus</h3>
             <p>Hébergement web sécurisé et nom de domaine inclus la première année.</p>
 
-            <h3>Optimisation SEO</h3>
-            <p>Référencement naturel optimisé pour être visible sur Google.</p>
+            <h3>Optimisation SEO Complète</h3>
+            <p>Référencement naturel optimisé pour être visible sur Google : balises meta, structure HTML propre, vitesse de chargement.</p>
+
+            <h3>Support Technique</h3>
+            <p>Accompagnement et support technique inclus. Un round de modifications après livraison.</p>
+          </section>
+
+          <section id="types-sites">
+            <h2>Types de Sites Vitrines</h2>
+            <h3>Site Portfolio</h3>
+            <p>Idéal pour artisans et créatifs. Galerie photo, témoignages clients.</p>
+            <h3>Site Entreprise</h3>
+            <p>Pour TPE et PME. Présentation services, équipe, Google Maps intégré.</p>
+            <h3>Site Profession Libérale</h3>
+            <p>Pour consultants, coachs et experts indépendants.</p>
           </section>
 
           <section id="tarifs">
-            <h2>Tarifs Transparents</h2>
-            <p>Formule de base à partir de 390€ tout compris. Options personnalisables selon vos besoins.</p>
+            <h2>Tarifs Transparents — Site Vitrine dès 390€</h2>
+            <p>Formule site vitrine à partir de 390€ tout compris : design responsive, SEO, hébergement et domaine inclus.</p>
             <a href="#contact">Demander un devis gratuit</a>
           </section>
 
           <section id="contact">
             <h2>Contact</h2>
-            <p>Email : <a href="mailto:fluxa.contact@gmail.com">fluxa.contact@gmail.com</a></p>
+            <p>Contactez-nous via le formulaire ci-dessous pour obtenir un devis gratuit.</p>
             <p>Suivez-nous :</p>
             <a href="https://www.instagram.com/fluxa.fr" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener">Facebook</a>
@@ -166,7 +225,7 @@
       <!-- Fallback pour navigateurs sans JavaScript -->
       <noscript>
         <header>
-          <strong>Fluxa - Agence web</strong>
+          <strong>Fluxa - Agence web création sites vitrines</strong>
           <nav>
             <a href="#services">Nos Services</a>
             <a href="#tarifs">Tarifs</a>
@@ -176,31 +235,29 @@
 
         <main>
           <section>
-            <h2>Création de sites vitrines professionnels</h2>
-            <p>Agence web de création de sites vitrines pour TPE, artisans et indépendants. Site internet professionnel responsive, optimisé SEO, hébergement inclus. À partir de 390€.</p>
+            <h1>Création de site vitrine professionnel dès 390€</h1>
+            <p>Agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans et indépendants. Site internet responsive, SEO optimisé, hébergement inclus. À partir de 390€.</p>
           </section>
 
           <section id="services">
-            <h2>Nos Services</h2>
+            <h2>Nos Services de Création de Sites Vitrines</h2>
             <h3>Design Responsive Mobile-First</h3>
             <p>Site parfaitement adapté à tous les écrans (smartphone, tablette, desktop).</p>
-
-            <h3>Hébergement et Domaine Inclus</h3>
+            <h3>Hébergement et Nom de Domaine Inclus</h3>
             <p>Hébergement web sécurisé et nom de domaine inclus la première année.</p>
-
-            <h3>Optimisation SEO</h3>
+            <h3>Optimisation SEO Complète</h3>
             <p>Référencement naturel optimisé pour être visible sur Google.</p>
           </section>
 
           <section id="tarifs">
-            <h2>Tarifs Transparents</h2>
-            <p>Formule de base à partir de 390€ tout compris. Options personnalisables selon vos besoins.</p>
+            <h2>Tarifs Transparents — Site Vitrine dès 390€</h2>
+            <p>Formule à partir de 390€ tout compris. Options personnalisables selon vos besoins.</p>
             <a href="#contact">Demander un devis gratuit</a>
           </section>
 
           <section id="contact">
             <h2>Contact</h2>
-            <p>Email : <a href="mailto:fluxa.contact@gmail.com">fluxa.contact@gmail.com</a></p>
+            <p>Contactez-nous via notre formulaire pour un devis gratuit.</p>
             <p>Suivez-nous :</p>
             <a href="https://www.instagram.com/fluxa.fr" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener">Facebook</a>
