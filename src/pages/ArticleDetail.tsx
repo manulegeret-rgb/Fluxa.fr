@@ -169,12 +169,12 @@ export default function ArticleDetail() {
 
         {/* CTA Fluxa */}
         <div className={`${T.card} p-3 mt-6 bg-gradient-to-br from-primary/10 to-primary/5`}>
-          <h3 className="text-base md:text-lg font-semibold mb-1">🚀 Prêt à automatiser votre entreprise ?</h3>
+          <h3 className="text-base md:text-lg font-semibold mb-1">🚀 Votre site vitrine professionnel dès 390€</h3>
           <p className="text-xs text-muted-foreground mb-2">
-            Découvrez comment Fluxa peut vous aider à gagner du temps et augmenter votre rentabilité.
+            Design responsive, SEO optimisé, hébergement inclus. Livré clé en main en 1-2 semaines.
           </p>
           <Button asChild size="sm" className="h-8 text-xs">
-            <Link to="/#automations">Découvrir Fluxa</Link>
+            <Link to="/#pricing">Voir les formules</Link>
           </Button>
         </div>
 

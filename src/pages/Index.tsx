@@ -1,7 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Faq } from "@/components/Faq";
-import { Automations } from "@/components/Automations";
+import { CommentCaMarche } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
 import SectionDivider from "@/components/SectionDivider";
 import {
@@ -152,7 +152,7 @@ Merci !`
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#automations" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Processus</a>
+                    <a href="#comment-ca-marche" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Comment ça marche</a>
                     <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Tarifs</a>
                     <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Avantages</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
@@ -196,7 +196,7 @@ Merci !`
             </a>
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
-              <a href="#automations" className="hover:text-foreground transition">Processus</a>
+              <a href="#comment-ca-marche" className="hover:text-foreground transition">Comment ça marche</a>
               <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
               <a href="#pourquoi-choisir-fluxa" className="hover:text-foreground transition">Avantages</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
@@ -354,8 +354,8 @@ Merci !`
 
 <SectionDivider />
 
-<section id="automations" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
-  <Automations />
+<section id="comment-ca-marche" className="scroll-mt-[-30px] md:scroll-mt-[-54px]">
+  <CommentCaMarche />
 </section>
 
 <SectionDivider />

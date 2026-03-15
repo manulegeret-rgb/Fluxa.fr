@@ -49,16 +49,16 @@ export default function ArticlesHub() {
   return (
     <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
       <PageSEO
-        title="Blog Automatisation pour Artisans et TPE : Guides & Tutoriels | Fluxa"
-        description="Découvrez nos guides complets sur l'automatisation pour artisans et TPE. N8N, workflow, gestion client, facturation automatique et plus encore."
+        title="Blog Création de Site Vitrine pour Artisans et TPE : Guides & Conseils | Fluxa"
+        description="Découvrez nos guides complets sur la création de site vitrine pour artisans et TPE. SEO, design responsive, référencement local et conseils pour développer votre présence en ligne."
         canonicalPath="/articles"
         keywords={[
-          "blog automatisation",
-          "guides artisans",
-          "tutoriels n8n",
-          "workflow automatisation",
-          "gestion tpe",
-          "automatisation artisan",
+          "blog création site vitrine",
+          "guides artisans web",
+          "site internet TPE",
+          "référencement local artisan",
+          "présence en ligne",
+          "site professionnel pas cher",
           "guides fluxa",
         ]}
         breadcrumb={[
@@ -79,11 +79,11 @@ export default function ArticlesHub() {
         {/* Header */}
         <header className="text-center space-y-6 mb-16">
           <h1 className={T.h1}>
-            Guides & Ressources sur l'Automatisation
+            Guides & Conseils Création de Site Vitrine
           </h1>
           <p className={`${T.p} max-w-3xl mx-auto`}>
-            Découvrez nos guides complets pour automatiser votre entreprise, gagner du temps et augmenter votre rentabilité.
-            26 articles rédigés par des experts pour artisans, TPE et indépendants.
+            Découvrez nos guides concrets pour développer votre présence en ligne, améliorer votre visibilité sur Google et attirer plus de clients.
+            Articles rédigés par des experts pour artisans, TPE et indépendants.
           </p>
         </header>
 
@@ -206,12 +206,11 @@ export default function ArticlesHub() {
             📊 Calculez Vos Pertes Actuelles
           </h2>
           <p className={T.p}>
-            Découvrez combien vous perdez vraiment en temps et en argent avec la gestion manuelle.
-            Calculateur ROI interactif + 150 automatisations détaillées.
+            Découvrez comment un site vitrine professionnel peut transformer votre activité et attirer plus de clients.
           </p>
           <Button asChild size="lg" className="mt-6">
-            <Link to="/guide-complet-roi-automatisation-artisans">
-              Voir l'Étude Complète ROI
+            <Link to="/#pricing">
+              Voir nos formules
             </Link>
           </Button>
         </div>

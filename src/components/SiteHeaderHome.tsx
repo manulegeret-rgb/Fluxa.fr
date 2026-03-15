@@ -17,7 +17,7 @@ export default function SiteHeaderHome() {
         <ul className="hidden md:flex items-center gap-x-8">
           {[
             { label: "Nos formules", href: "/#pricing" },
-            { label: "Automatisations", href: "/#automations" },
+            { label: "Comment ça marche", href: "/#comment-ca-marche" },
             { label: "Ressources", href: "/ressources" },
             { label: "FAQ", href: "/#faq" },
             { label: "En savoir plus", href: "/#infos" },

@@ -7,19 +7,12 @@ import { useEffect } from "react";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import MentionsLegales from "./pages/Mentions-Legales"; // ✅
-import PolitiqueConfidentialite from "./pages/politique-confidentialite"; // ✅ NOUVELLE PAGE
-import Ressources from "./pages/Ressources/Ressources"; // ✅ NOUVELLE PAGE (blog)
-import ArticlesHub from "./pages/ArticlesHub"; // ✅ Hub des 26 articles optimisés SEO
-import ArticleDetail from "./pages/ArticleDetail"; // ✅ Page dynamique article individuel
-import ArticleViral from "./pages/ArticleViral"; // ✅ Article viral ROI (spécial)
-import DemoLayout from "@/_import_demo/components/demo/DemoLayout";
-import Dashboard from "@/_import_demo/pages/demo/Dashboard";
-import Clients from "@/_import_demo/pages/demo/Clients";
-import Messages from "@/_import_demo/pages/demo/Messages";
-import Factures from "@/_import_demo/pages/demo/Factures";
-import Automations from "@/_import_demo/pages/demo/Automations";
-import { Navigate } from "react-router-dom";
+import MentionsLegales from "./pages/Mentions-Legales";
+import PolitiqueConfidentialite from "./pages/politique-confidentialite";
+import Ressources from "./pages/Ressources/Ressources";
+import ArticlesHub from "./pages/ArticlesHub";
+import ArticleDetail from "./pages/ArticleDetail";
+import ArticleViral from "./pages/ArticleViral";
 
 const queryClient = new QueryClient();
 
@@ -56,7 +49,7 @@ const Header = () => {
         <ul className="hidden md:flex items-center gap-x-8">
   {[
     { label: "Formules", href: "/#pricing" },
-    { label: "Automatisations", href: "/#automations" },
+    { label: "Comment ça marche", href: "/#comment-ca-marche" },
     { label: "FAQ", href: "/#faq" },
     { label: "En savoir plus", href: "/#more" },
     { label: "fluxa.fr", href: "https://fluxa.fr", external: true },
@@ -89,10 +82,9 @@ const Header = () => {
 const AppInner = () => {
   const location = useLocation();
 
-  // Cache le header sur la home et TOUTES les routes /demo/*
+  // Cache le header sur la home et les pages sans header
   const hideHeader =
     location.pathname === "/" ||
-    location.pathname.startsWith("/demo") ||
     location.pathname === "/mentions-legales" ||
     location.pathname === "/politique-confidentialite" ||
     location.pathname === "/ressources" ||
@@ -107,22 +99,14 @@ const AppInner = () => {
       <Routes>
         {/* Routes principales */}
         <Route path="/" element={<Index />} />
-        <Route path="/ressources" element={<Ressources />} /> {/* ✅ nouvelle route */}
-        <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* ✅ */}
+        <Route path="/ressources" element={<Ressources />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
 
         {/* Routes articles */}
         <Route path="/articles" element={<ArticlesHub />} /> {/* ✅ Hub des 26 articles */}
-        <Route path="/articles/:slug" element={<ArticleDetail />} /> {/* ✅ Article dynamique */}
-        <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} /> {/* ✅ Article viral ROI */}
-        <Route path="/demo" element={<DemoLayout />}>
-  <Route index element={<Navigate to="dashboard" replace />} />
-  <Route path="dashboard" element={<Dashboard />} />
-  <Route path="clients" element={<Clients />} />
-  <Route path="messages" element={<Messages />} />
-  <Route path="factures" element={<Factures />} />
-  <Route path="automations" element={<Automations />} />
-</Route>
+        <Route path="/articles/:slug" element={<ArticleDetail />} />
+        <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} />
         {/* Catch-all 404 route */}
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -16,7 +16,7 @@ type Item = {
   tag: string;
 };
 
-export function Automations() {
+export function CommentCaMarche() {
   const items: Item[] = [
   {
     icon: MessageSquare,
@@ -66,11 +66,11 @@ export function Automations() {
       <div className="container mx-auto px-6">
         {/* Titre + sous-titre : espaces réduits en mobile */}
         <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-14">
-          <h2 className="text-4xl lg:text-5xl font-bold" id="processus-creation">
-            Notre Processus de Création
+          <h2 className="text-4xl lg:text-5xl font-bold" id="comment-ca-marche">
+            Comment ça marche ?
           </h2>
           <p className="text-base leading-7 text-muted-foreground mt-1">
-            De la première discussion à la mise en ligne, découvrez comment nous créons votre site vitrine professionnel en 5 étapes claires et sans surprise.
+            De la première discussion à la mise en ligne, votre site vitrine professionnel en 5 étapes claires et sans surprise.
           </p>
         </div>
 

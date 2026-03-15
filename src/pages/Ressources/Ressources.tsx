@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function Ressources() {
   // === SEO par route ===
   useEffect(() => {
-    document.title = "Ressources — Astuces & Automatisations | Fluxa";
+    document.title = "Ressources — Conseils & Astuces Web | Fluxa";
 
     const ensureMeta = (name: string, content: string) => {
       let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
@@ -17,7 +17,7 @@ export default function Ressources() {
 
     ensureMeta(
       "description",
-      "Guides et idées d’automatisations pour artisans & indépendants : gagnez 1h/j sans complexité. Teasers, démo et devis."
+      "Conseils et astuces pour artisans & indépendants : créez une présence en ligne professionnelle et attirez plus de clients grâce à un site vitrine optimisé."
     );
 
     // canonical
@@ -37,56 +37,47 @@ export default function Ressources() {
         <header className="max-w-3xl mx-auto text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold">Ressources</h1>
           <p className="text-muted-foreground mt-3">
-            Des conseils concrets pour gagner du temps — sans rentrer dans la technique.
+            Conseils et astuces pour développer votre présence en ligne — sans jargon technique.
           </p>
         </header>
 
-        {/* Teasers — bénéfices (pas de pas-à-pas) */}
+        {/* Teasers — bénéfices */}
         <div className="grid gap-6 md:grid-cols-3">
           {/* Carte 1 */}
           <div className="border rounded-2xl p-6">
-            <h3 className="text-lg font-semibold">Rappels de RDV automatiques</h3>
+            <h3 className="text-lg font-semibold">Un site visible sur Google</h3>
             <p className="text-sm text-muted-foreground mt-2">
-              Moins d’oublis, planning rempli. Vos clients reçoivent un rappel au bon moment, par SMS ou email.
+              Chaque site Fluxa est optimisé SEO dès le départ : balises, structure, vitesse. Vos clients vous trouvent plus facilement.
             </p>
-            <div className="mt-4 flex items-center gap-4">
-              <a href="/#automations" className="text-primary underline underline-offset-4">
-                Voir en démo
-              </a>
-              <a href="/#pricing" className="text-primary/80 hover:text-primary underline underline-offset-4">
-                Obtenir un devis
+            <div className="mt-4">
+              <a href="/#pricing" className="text-primary underline underline-offset-4">
+                Voir les formules
               </a>
             </div>
           </div>
 
           {/* Carte 2 */}
           <div className="border rounded-2xl p-6">
-            <h3 className="text-lg font-semibold">Relances de devis qui convertissent</h3>
+            <h3 className="text-lg font-semibold">Design professionnel & responsive</h3>
             <p className="text-sm text-muted-foreground mt-2">
-              Messages polis, personnalisés et espacés intelligemment. Vous restez pro sans courir après les réponses.
+              Votre site s’affiche parfaitement sur mobile, tablette et ordinateur. Un design soigné qui inspire confiance dès le premier regard.
             </p>
-            <div className="mt-4 flex items-center gap-4">
-              <a href="/#automations" className="text-primary underline underline-offset-4">
-                Exemple d’envoi
-              </a>
-              <a href="/#pricing" className="text-primary/80 hover:text-primary underline underline-offset-4">
-                Tarifs & mise en place
+            <div className="mt-4">
+              <a href="/#comment-ca-marche" className="text-primary underline underline-offset-4">
+                Comment ça marche
               </a>
             </div>
           </div>
 
           {/* Carte 3 */}
           <div className="border rounded-2xl p-6">
-            <h3 className="text-lg font-semibold">Suivi factures & retards en 1 clic</h3>
+            <h3 className="text-lg font-semibold">Livré clé en main en 1-2 semaines</h3>
             <p className="text-sm text-muted-foreground mt-2">
-              Qui a payé ? Qui relancer ? Fluxa vous le dit et pré-remplit le message. Finis les oublis.
+              Maquette, développement, mise en ligne : on s’occupe de tout. Vous validez à chaque étape, sans stress technique.
             </p>
-            <div className="mt-4 flex items-center gap-4">
-              <a href="/#automations" className="text-primary underline underline-offset-4">
-                Voir le suivi
-              </a>
-              <a href="/#pricing" className="text-primary/80 hover:text-primary underline underline-offset-4">
-                Mettre en place
+            <div className="mt-4">
+              <a href="/#pricing" className="text-primary underline underline-offset-4">
+                Obtenir un devis
               </a>
             </div>
           </div>
@@ -95,10 +86,10 @@ export default function Ressources() {
         {/* CTA central */}
         <div className="mt-10 text-center">
           <a href="/#pricing" className="inline-block rounded-xl border px-5 py-3 hover:shadow">
-            Démarrer sans complexité — Devis sous 24–48h
+            Demander un devis gratuit — Réponse sous 24–48h
           </a>
           <p className="text-xs text-muted-foreground mt-2">
-            Installation et réglages faits pour vous. Vous gardez la main, sans y passer des heures.
+            Votre site livré clé en main. Vous restez propriétaire à 100%.
           </p>
         </div>
 
@@ -107,26 +98,26 @@ export default function Ressources() {
           <div className="border rounded-2xl p-6">
             <h4 className="font-medium">Faut-il des compétences techniques&nbsp;?</h4>
             <p className="text-sm text-muted-foreground mt-2">
-              Non. On s’occupe de la configuration et des réglages. Vous validez, et c’est tout.
+              Non. On s’occupe de tout : maquette, développement, mise en ligne. Vous validez, c’est tout.
             </p>
           </div>
           <div className="border rounded-2xl p-6">
-            <h4 className="font-medium">Puis-je arrêter facilement&nbsp;?</h4>
+            <h4 className="font-medium">Je reste propriétaire de mon site&nbsp;?</h4>
             <p className="text-sm text-muted-foreground mt-2">
-              Oui. Aucune contrainte : vous pouvez suspendre, ajuster ou arrêter à tout moment.
+              Oui, à 100%. Le code, le domaine, l’hébergement : tout vous appartient dès la livraison.
             </p>
           </div>
           <div className="border rounded-2xl p-6">
-            <h4 className="font-medium">Quand suis-je opérationnel&nbsp;?</h4>
+            <h4 className="font-medium">Quand mon site est-il en ligne&nbsp;?</h4>
             <p className="text-sm text-muted-foreground mt-2">
-              En général sous 48h après validation, selon les modules choisis.
+              En général 1 à 2 semaines après validation de la maquette, selon les options choisies.
             </p>
           </div>
         </div>
 
         {/* Maillage interne light */}
         <div className="mt-10 flex flex-col items-center gap-3">
-          <a href="/#automations" className="underline underline-offset-4">Voir les automatisations</a>
+          <a href="/#comment-ca-marche" className="underline underline-offset-4">Comment ça marche</a>
           <a href="/#pricing" className="underline underline-offset-4">Découvrir les formules</a>
           <a href="/#faq" className="underline underline-offset-4">Questions fréquentes</a>
         </div>
