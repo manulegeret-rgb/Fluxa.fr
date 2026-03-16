@@ -16,7 +16,7 @@ import {
   X,
   ZoomIn,
 } from "lucide-react";
-import mockupAJour from "@/assets/realisation-client.webp"
+import mockupAJour from "@/assets/realisation-client.png"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import fluxaLogo from "@/assets/logo-transparent.webp";
