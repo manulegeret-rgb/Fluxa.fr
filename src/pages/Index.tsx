@@ -244,9 +244,9 @@ Merci !`
         {/* 3 points forts */}
         <div className="grid sm:grid-cols-3 gap-3 text-sm">
           {[
+            { txt: "À partir de 390 € tout compris", highlight: true },
             { txt: "Design moderne et responsive", highlight: false },
             { txt: "Hébergement & domaine inclus", highlight: false },
-            { txt: "À partir de 390 € tout compris", highlight: true },
           ].map(({ txt, highlight }, i) => (
             <div
               key={i}
