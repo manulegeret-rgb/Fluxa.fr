@@ -16,7 +16,7 @@ import {
   X,
   ZoomIn,
 } from "lucide-react";
-import mockupAJour from "@/assets/mockup-a-jour.webp"
+import mockupAJour from "@/assets/realisation-client.webp"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import fluxaLogo from "@/assets/logo-transparent.webp";
@@ -241,14 +241,21 @@ Merci !`
           </p>
         </div>
 
-        {/* 3 points forts sobres */}
-        <div className="grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
+        {/* 3 points forts */}
+        <div className="grid sm:grid-cols-3 gap-3 text-sm">
           {[
-            "Design moderne et responsive",
-            "Hébergement & domaine inclus",
-            "À partir de 390€ tout compris",
-          ].map((txt, i) => (
-            <div key={i} className="rounded-xl border border-border/70 px-4 py-3">
+            { txt: "Design moderne et responsive", highlight: false },
+            { txt: "Hébergement & domaine inclus", highlight: false },
+            { txt: "À partir de 390 € tout compris", highlight: true },
+          ].map(({ txt, highlight }, i) => (
+            <div
+              key={i}
+              className={
+                highlight
+                  ? "rounded-xl border-2 border-primary px-4 py-3 font-semibold text-foreground bg-primary/10"
+                  : "rounded-xl border border-border/70 px-4 py-3 text-muted-foreground"
+              }
+            >
               {txt}
             </div>
           ))}
@@ -291,7 +298,7 @@ Merci !`
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition"
         />
         <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
-          Exemple de réalisation
+          Dernière réalisation client
         </div>
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
           <div className="bg-background/80 backdrop-blur-sm rounded-full p-3 border border-primary/40">
