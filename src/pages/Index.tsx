@@ -234,7 +234,7 @@ Merci !`
         <div className="space-y-3 text-[15px] md:text-lg text-muted-foreground/90">
           <p>
             <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
-            Fluxa crée votre site vitrine professionnel en moins de 7 jours — clé en main, livré prêt à recevoir vos clients.
+            Fluxa crée votre site vitrine professionnel en 1 à 2 semaines — clé en main, livré prêt à recevoir vos clients.
           </p>
           <p>
             Design soigné, référencement Google, hébergement inclus : tout ce qu'il faut pour être visible en ligne et décrocher de nouveaux clients, sans vous occuper de la technique.
