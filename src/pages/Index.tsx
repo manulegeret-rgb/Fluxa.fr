@@ -154,7 +154,7 @@ Merci !`
                   <nav className="flex flex-col gap-2">
                     <a href="#comment-ca-marche" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Comment ça marche</a>
                     <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Tarifs</a>
-                    <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Avantages</a>
+                    <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Pourquoi nous ?</a>
                     <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
                     <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Contact</a>
                   </nav>
@@ -195,10 +195,10 @@ Merci !`
               />
             </a>
 
-            <nav className="flex items-center gap-6 text-base md:text-lg text-muted-foreground font-medium">
+            <nav className="flex items-center gap-6 text-base md:text-lg text-foreground/70 font-medium">
               <a href="#comment-ca-marche" className="hover:text-foreground transition">Comment ça marche</a>
               <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
-              <a href="#pourquoi-choisir-fluxa" className="hover:text-foreground transition">Avantages</a>
+              <a href="#pourquoi-choisir-fluxa" className="hover:text-foreground transition">Pourquoi nous ?</a>
               <a href="#faq" className="hover:text-foreground transition">FAQ</a>
               <a href="#infos" className="hover:text-foreground transition">Contact</a>
             </nav>
