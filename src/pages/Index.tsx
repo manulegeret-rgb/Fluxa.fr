@@ -228,62 +228,52 @@ Merci !`
 
     {/* Grille 2 colonnes : Texte + Image */}
     <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-10 items-center">
-      {/* Colonne gauche : Texte (2 paragraphes) + CTAs */}
-      <div className="space-y-8 text-center lg:text-left">
-        {/* Paragraphes */}
-        <div className="space-y-5 text-[15px] md:text-lg text-muted-foreground/90">
-          <p>
-            <span className="text-foreground font-semibold">Vous cherchez une création de site vitrine professionnel et pas cher ?</span> Fluxa est votre agence web spécialisée dans la création de sites internet pour TPE, artisans, consultants et indépendants.
-          </p>
+      {/* Colonne gauche : Accroche + bénéfices + CTAs */}
+      <div className="space-y-7 text-center lg:text-left">
+        {/* Accroche courte */}
+        <p className="text-[15px] md:text-lg text-muted-foreground/90">
+          <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
+          Fluxa crée votre site vitrine professionnel en moins de 7 jours — clé en main, sans prise de tête.
+        </p>
 
-          <p>
-            Notre création de site vitrine professionnel inclut tout ce dont vous avez besoin : design moderne responsive adapté mobile et desktop, optimisation SEO pour être visible sur Google, formulaire de contact fonctionnel, hébergement web sécurisé et nom de domaine pour la première année.
-          </p>
-        </div>
-
-        {/* 3 points forts */}
-        <div className="grid sm:grid-cols-3 gap-3 text-sm">
+        {/* Bénéfices clés */}
+        <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
           {[
-            { txt: "À partir de 390 € tout compris", highlight: true },
-            { txt: "Design moderne et responsive", highlight: false },
-            { txt: "Hébergement & domaine inclus", highlight: false },
-          ].map(({ txt, highlight }, i) => (
-            <div
-              key={i}
-              className={
-                highlight
-                  ? "rounded-xl border-2 border-primary px-4 py-3 font-semibold text-foreground bg-primary/10"
-                  : "rounded-xl border border-border/70 px-4 py-3 text-muted-foreground"
-              }
-            >
-              {txt}
-            </div>
+            { icon: "✅", txt: "Design moderne adapté mobile & desktop" },
+            { icon: "🔍", txt: "Optimisé SEO pour être visible sur Google" },
+            { icon: "🌐", txt: "Hébergement + nom de domaine inclus 1 an" },
+            { icon: "📞", txt: "Support technique inclus après livraison" },
+          ].map(({ icon, txt }) => (
+            <li key={txt} className="flex items-start gap-2">
+              <span className="mt-0.5 shrink-0">{icon}</span>
+              <span>{txt}</span>
+            </li>
           ))}
+        </ul>
+
+        {/* Badge prix */}
+        <div className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 font-semibold text-foreground bg-primary/10 text-sm mx-auto lg:mx-0">
+          💰 À partir de <span className="text-primary">390 € tout compris</span>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col md:flex-row gap-3 justify-center lg:justify-start">
+        {/* CTAs — Devis en principal */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
           <a
-            href="#pricing"
-            className="group relative inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition w-full md:w-auto overflow-hidden"
-            aria-label="Voir nos tarifs"
+            href="#infos"
+            className="group relative inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition w-full sm:w-auto overflow-hidden"
+            aria-label="Demander un devis gratuit"
           >
-            <span className="relative z-10">Voir nos tarifs</span>
+            <span className="relative z-10">Demander un devis gratuit</span>
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-[hsl(217,77%,45%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
           <a
-            href="#infos"
-            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border-2 border-primary/50 hover:bg-primary/10 transition w-full md:w-auto"
-            aria-label="Demander un devis"
+            href="#pricing"
+            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border-2 border-primary/50 hover:bg-primary/10 transition w-full sm:w-auto"
+            aria-label="Voir nos tarifs"
           >
-            Demander un devis gratuit
+            Voir nos tarifs
           </a>
         </div>
-
-        {/* Note de réassurance compacte */}
-        <p className="text-xs text-muted-foreground">
-          🔐 Hébergement & domaine inclus — 🎯 Support technique inclus — ⚡ SEO optimisé
-        </p>
       </div>
 
       {/* Visuel (mockup) */}
