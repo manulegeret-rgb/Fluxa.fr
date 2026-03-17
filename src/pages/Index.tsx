@@ -15,6 +15,10 @@ import {
   Menu,
   X,
   ZoomIn,
+  Zap,
+  ShieldCheck,
+  Code2,
+  Headphones,
 } from "lucide-react";
 import mockupAJour from "@/assets/realisation-client.png"
 import { Button } from "@/components/ui/button";
@@ -318,37 +322,64 @@ Merci !`
     </div>
 
     <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
-        <div className="text-4xl mb-4">🎨</div>
+      {/* Carte 1 */}
+      <div className="group rounded-2xl border border-border bg-card p-6 hover:border-violet-500/60 hover:shadow-[0_0_30px_-8px_rgba(139,92,246,0.25)] transition-all flex flex-col">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center text-2xl shrink-0">🎨</div>
+          <span className="text-xs font-semibold uppercase tracking-wider text-violet-400 bg-violet-500/10 px-2.5 py-1 rounded-full">Artisan / Créatif</span>
+        </div>
         <h3 className="text-xl font-semibold mb-3">Site Portfolio</h3>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-          Idéal pour les créatifs, artisans et prestataires : mettez en avant vos réalisations avec une galerie photo optimisée et des témoignages clients.
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+          Mettez en avant vos réalisations avec une galerie photo soignée. Idéal pour les artisans, photographes, designers et prestataires de service.
         </p>
-        <div className="text-xs text-muted-foreground">
-          ✓ Galerie photo haute qualité • ✓ Page témoignages • ✓ Formulaire de contact
-        </div>
+        <ul className="space-y-1.5 text-xs text-muted-foreground mb-5">
+          <li className="flex items-center gap-2"><span className="text-violet-400">✓</span> Galerie photo haute qualité</li>
+          <li className="flex items-center gap-2"><span className="text-violet-400">✓</span> Page réalisations / avant-après</li>
+          <li className="flex items-center gap-2"><span className="text-violet-400">✓</span> Formulaire de contact rapide</li>
+        </ul>
+        <a href="#infos" className="text-sm font-medium text-violet-400 hover:text-violet-300 transition flex items-center gap-1 mt-auto">
+          Demander un devis <span>→</span>
+        </a>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
-        <div className="text-4xl mb-4">🏢</div>
+      {/* Carte 2 */}
+      <div className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/60 hover:shadow-[0_0_30px_-8px_rgba(59,130,246,0.25)] transition-all flex flex-col">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-2xl shrink-0">🏢</div>
+          <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">TPE / PME</span>
+        </div>
         <h3 className="text-xl font-semibold mb-3">Site Entreprise</h3>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-          Pour TPE et PME : présentez vos services, votre équipe et vos valeurs avec une structure claire et professionnelle.
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+          Présentez vos services, votre équipe et vos valeurs avec une structure claire et professionnelle pour asseoir votre crédibilité.
         </p>
-        <div className="text-xs text-muted-foreground">
-          ✓ Pages services détaillées • ✓ Présentation équipe • ✓ Google Maps intégré
-        </div>
+        <ul className="space-y-1.5 text-xs text-muted-foreground mb-5">
+          <li className="flex items-center gap-2"><span className="text-primary">✓</span> Pages services détaillées</li>
+          <li className="flex items-center gap-2"><span className="text-primary">✓</span> Présentation équipe & valeurs</li>
+          <li className="flex items-center gap-2"><span className="text-primary">✓</span> Google Maps intégré</li>
+        </ul>
+        <a href="#infos" className="text-sm font-medium text-primary hover:text-primary/80 transition flex items-center gap-1 mt-auto">
+          Demander un devis <span>→</span>
+        </a>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition">
-        <div className="text-4xl mb-4">💼</div>
-        <h3 className="text-xl font-semibold mb-3">Site Profession Libérale</h3>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-          Parfait pour les consultants, coachs, thérapeutes ou experts indépendants : valorisez votre expertise, vos prestations et facilitez la prise de contact.
-        </p>
-        <div className="text-xs text-muted-foreground">
-          ✓ Présentation claire des services • ✓ Biographie & parcours • ✓ Formulaire de contact rapide
+      {/* Carte 3 */}
+      <div className="group rounded-2xl border border-border bg-card p-6 hover:border-emerald-500/60 hover:shadow-[0_0_30px_-8px_rgba(16,185,129,0.25)] transition-all flex flex-col">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center text-2xl shrink-0">💼</div>
+          <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">Indépendant</span>
         </div>
+        <h3 className="text-xl font-semibold mb-3">Site Profession Libérale</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+          Valorisez votre expertise et facilitez la prise de contact. Parfait pour les consultants, coachs, thérapeutes et experts indépendants.
+        </p>
+        <ul className="space-y-1.5 text-xs text-muted-foreground mb-5">
+          <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Présentation claire des services</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Biographie & parcours pro</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Formulaire de contact rapide</li>
+        </ul>
+        <a href="#infos" className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1 mt-auto">
+          Demander un devis <span>→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -624,19 +655,19 @@ Merci !`
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            <div className="rounded-2xl border border-border bg-card p-6 text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 className="w-6 h-6 text-primary" />
+            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-emerald-500/50 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.2)] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
+                <ShieldCheck className="w-6 h-6 text-emerald-400" />
               </div>
               <h3 className="font-semibold mb-2">Satisfaction garantie</h3>
               <p className="text-sm text-muted-foreground">
-                Modifications incluses jusqu'à validation complète
+                Modifications incluses jusqu'à validation complète — sans surcoût
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 className="w-6 h-6 text-primary" />
+            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-amber-500/50 hover:shadow-[0_0_24px_-8px_rgba(245,158,11,0.2)] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-6 h-6 text-amber-400" />
               </div>
               <h3 className="font-semibold mb-2">Respect des délais</h3>
               <p className="text-sm text-muted-foreground">
@@ -644,9 +675,9 @@ Merci !`
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 className="w-6 h-6 text-primary" />
+            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-violet-500/50 hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.2)] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center mx-auto mb-4">
+                <Code2 className="w-6 h-6 text-violet-400" />
               </div>
               <h3 className="font-semibold mb-2">Code propre</h3>
               <p className="text-sm text-muted-foreground">
@@ -654,9 +685,9 @@ Merci !`
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 className="w-6 h-6 text-primary" />
+            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-primary/50 hover:shadow-[0_0_24px_-8px_rgba(59,130,246,0.2)] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4">
+                <Headphones className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold mb-2">Support réactif</h3>
               <p className="text-sm text-muted-foreground">
@@ -677,31 +708,58 @@ Merci !`
 <SectionDivider />
 
      {/* ================= À PROPOS ================= */}
-<section className="py-12 md:py-16 bg-background border-t border-border/50 flex items-center justify-center text-center">
-  <div className="max-w-3xl px-6 space-y-5">
-    <h2 className="text-2xl md:text-3xl font-bold">
-      Agence de création de sites internet pour PME et indépendants
-    </h2>
+<section className="py-12 md:py-16 bg-background border-t border-border/50">
+  <div className="max-w-5xl mx-auto px-6">
+    <div className="text-center mb-10">
+      <h2 className="text-2xl md:text-3xl font-bold">
+        Agence de création de sites internet pour PME et indépendants
+      </h2>
+      <p className="mt-3 text-muted-foreground text-[15px] md:text-base max-w-2xl mx-auto">
+        <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs — responsive, optimisés SEO et hébergement inclus.
+      </p>
+    </div>
 
-    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Nous développons des sites internet modernes, optimisés pour le référencement naturel (SEO) et entièrement responsive mobile et desktop, avec hébergement web sécurisé inclus.
-    </p>
+    <div className="grid sm:grid-cols-2 gap-5">
+      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
+        <div className="text-2xl shrink-0">🏆</div>
+        <div>
+          <p className="font-semibold text-sm mb-1">Qualité professionnelle, prix accessible</p>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Pas cher ne signifie pas bas de gamme. De la maquette à la mise en ligne, nous gérons votre projet clé en main avec formation et support inclus.
+          </p>
+        </div>
+      </div>
 
-    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      Pas cher ne signifie pas bas de gamme : nous développons des sites vitrines de qualité professionnelle avec un excellent rapport qualité-prix. De la maquette personnalisée à la mise en ligne, nous gérons votre projet web clé en main, avec formation et support technique inclus.
-    </p>
+      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
+        <div className="text-2xl shrink-0">🔧</div>
+        <div>
+          <p className="font-semibold text-sm mb-1">Pour tous les corps de métier</p>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Plombier, électricien, coach, thérapeute, consultant ou artisan : votre site sera livré en 1-2 semaines, prêt à attirer vos premiers clients.
+          </p>
+        </div>
+      </div>
 
-    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      Que vous soyez plombier, électricien, coach, thérapeute, consultant ou artisan, votre site vitrine professionnel sera livré en 1-2 semaines, prêt à attirer vos premiers clients en ligne.
-    </p>
+      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
+        <div className="text-2xl shrink-0">📈</div>
+        <div>
+          <p className="font-semibold text-sm mb-1">Standards modernes & SEO intégré</p>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Performances optimales, accessibilité, compatibilité tous navigateurs et optimisation SEO pour un bon positionnement sur Google.
+          </p>
+        </div>
+      </div>
 
-    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      Chaque projet de création de site vitrine est livré clé en main avec formation à la gestion de contenu, support technique dédié et garantie de qualité. Notre processus de développement web suit les standards modernes du web : performances optimales, accessibilité, compatibilité navigateurs et optimisation SEO pour un bon positionnement sur Google.
-    </p>
-
-    <p className="text-muted-foreground leading-relaxed text-[15px] md:text-base">
-      Notre objectif : vous offrir une présence digitale professionnelle et efficace pour votre activité, avec une livraison rapide (1-2 semaines) et des tarifs transparents. Que vous ayez besoin d'un site portfolio, d'un site d'entreprise ou d'un site de présentation de services, nous adaptons chaque création à votre secteur d'activité et à vos objectifs commerciaux.
-    </p>
+      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
+        <div className="text-2xl shrink-0">🎯</div>
+        <div>
+          <p className="font-semibold text-sm mb-1">Adapté à votre secteur</p>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Site portfolio, entreprise ou profession libérale : nous adaptons chaque création à vos objectifs commerciaux, avec des tarifs transparents dès le départ.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
