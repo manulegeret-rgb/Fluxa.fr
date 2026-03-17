@@ -227,7 +227,7 @@ Merci !`
     </div>
 
     {/* Grille 2 colonnes : Texte + Image */}
-    <div className="grid lg:grid-cols-[48%_52%] gap-12 lg:gap-10 items-center">
+    <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-10 items-center">
       {/* Colonne gauche : Texte (2 paragraphes) + CTAs */}
       <div className="space-y-8 text-center lg:text-left">
         {/* Paragraphes */}
