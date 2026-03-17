@@ -195,7 +195,7 @@ Merci !`
               />
             </a>
 
-            <nav className="flex items-center gap-6 text-base md:text-lg text-foreground/70 font-medium">
+            <nav className="flex items-center gap-6 text-base md:text-lg text-foreground/90 font-medium">
               <a href="#comment-ca-marche" className="hover:text-foreground transition">Comment ça marche</a>
               <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
               <a href="#pourquoi-choisir-fluxa" className="hover:text-foreground transition">Pourquoi nous ?</a>
