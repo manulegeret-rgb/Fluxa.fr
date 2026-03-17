@@ -230,19 +230,24 @@ Merci !`
     <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-10 items-center">
       {/* Colonne gauche : Accroche + bénéfices + CTAs */}
       <div className="space-y-7 text-center lg:text-left">
-        {/* Accroche courte */}
-        <p className="text-[15px] md:text-lg text-muted-foreground/90">
-          <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
-          Fluxa crée votre site vitrine professionnel en moins de 7 jours — clé en main, sans prise de tête.
-        </p>
+        {/* Accroche */}
+        <div className="space-y-3 text-[15px] md:text-lg text-muted-foreground/90">
+          <p>
+            <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
+            Fluxa crée votre site vitrine professionnel en moins de 7 jours — clé en main, livré prêt à recevoir vos clients.
+          </p>
+          <p>
+            Design soigné, référencement Google, hébergement inclus : tout ce qu'il faut pour être visible en ligne et décrocher de nouveaux clients, sans vous occuper de la technique.
+          </p>
+        </div>
 
         {/* Bénéfices clés */}
         <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
           {[
-            { icon: "✅", txt: "Design moderne adapté mobile & desktop" },
-            { icon: "🔍", txt: "Optimisé SEO pour être visible sur Google" },
-            { icon: "🌐", txt: "Hébergement + nom de domaine inclus 1 an" },
-            { icon: "📞", txt: "Support technique inclus après livraison" },
+            { icon: "✅", txt: "Site vitrine responsive — parfait sur mobile, tablette et desktop" },
+            { icon: "🔍", txt: "Optimisation SEO incluse pour apparaître sur Google" },
+            { icon: "🌐", txt: "Hébergement web + nom de domaine offerts la 1ère année" },
+            { icon: "📞", txt: "Support technique inclus — on reste disponibles après livraison" },
           ].map(({ icon, txt }) => (
             <li key={txt} className="flex items-start gap-2">
               <span className="mt-0.5 shrink-0">{icon}</span>
