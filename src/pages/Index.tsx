@@ -295,7 +295,7 @@ Merci !`
           loading="eager"
           width="1920"
           height="1080"
-          className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition"
+          className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition w-full aspect-[16/10] object-cover object-center"
         />
         <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
           Dernière réalisation client
