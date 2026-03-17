@@ -3,11 +3,9 @@ import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 import PageSEO from "@/components/PageSEO";
 
 /**
- * Politique de confidentialité — Fluxa (projet individuel)
- * Responsable de traitement : Emmanuel Légeret (Particulier)
- * RGPD / CNIL — Version prête à publier
- *
- * ☐ Tu peux ajuster les valeurs ci-dessous si besoin.
+ * Politique de confidentialité — Fluxa
+ * Responsable de traitement : Emmanuel Légeret (Entrepreneur individuel)
+ * RGPD / CNIL
  */
 type Processor = {
   name: string;
@@ -30,103 +28,74 @@ type Cookie = {
 const CONFIG = {
   // Identité & contact
   companyName: "Emmanuel Légeret",
-  legalForm: "Particulier (responsable de traitement à titre individuel)",
+  legalForm: "Entrepreneur individuel",
   tradeName: "Fluxa",
-  companyAddress: "Cognin, France",
+  companyAddress: "36 rue des Criquets, 73160 Cognin",
   country: "France",
   companyId: {
-    siret: "",
+    siret: "83014496000044",
+    siren: "830144960",
     rcs: "",
-    vat: "",
+    vat: "Non assujetti — franchise en base art. 293B CGI",
   },
-  websiteUrl: "https://fluxa.fr",
+  websiteUrl: "https://www.fluxa.fr",
   contactEmail: "fluxa.contact@gmail.com",
   dpoEmail: "",
   dataControllerName: "Emmanuel Légeret",
 
-  // Hébergement (à confirmer selon ton déploiement)
+  // Hébergement
   hosting: {
-    provider: "Vercel",
-    location: "UE (selon région de déploiement : Allemagne / Irlande)",
-    address: "",
+    provider: "IONOS SARL",
+    location: "France (7, place de la Gare, BP 70109, 57201 Sarreguemines Cedex)",
+    address: "7, place de la Gare, BP 70109, 57201 Sarreguemines Cedex",
   },
 
   // Finalités & bases légales
   purposes: [
-    { title: "Fourniture du service (site / app)", legalBasis: "Exécution du contrat (art. 6.1.b RGPD)" },
-    { title: "Gestion de compte et support", legalBasis: "Intérêt légitime / Exécution du contrat" },
-    { title: "Facturation & obligations légales (si applicable)", legalBasis: "Obligation légale (art. 6.1.c RGPD)" },
+    { title: "Présentation des services et réponse aux demandes de contact", legalBasis: "Intérêt légitime (art. 6.1.f RGPD)" },
+    { title: "Fourniture du service commandé (création de site vitrine)", legalBasis: "Exécution du contrat (art. 6.1.b RGPD)" },
+    { title: "Facturation & obligations comptables", legalBasis: "Obligation légale (art. 6.1.c RGPD)" },
     { title: "Statistiques d'audience (si activées)", legalBasis: "Consentement (art. 6.1.a RGPD)" },
-    { title: "Prospection/communications (newsletter, emails)", legalBasis: "Consentement (ou intérêt légitime en B2B)" },
   ],
 
   // Catégories de données traitées
   dataCategories: [
-    "Identité (nom, prénom, société le cas échéant)",
+    "Identité (nom, prénom, nom de l'entreprise le cas échéant)",
     "Coordonnées (email, téléphone, adresse si fournie)",
-    "Données de compte (identifiants, journaux d'activité si compte/app)",
-    "Données de facturation (si applicable : paiements, TVA, historique)",
-    "Contenus saisis dans l'app (clients, RDV, devis/factures, messages) si tu utilises l'app",
-    "Données techniques (adresse IP, device, pages vues, cookies)",
+    "Données relatives à la prestation (projet, échanges, documents partagés)",
+    "Données de facturation (montants, coordonnées de facturation)",
+    "Données techniques (adresse IP, device, pages consultées)",
   ],
 
-  // Durées de conservation (à adapter au besoin)
+  // Durées de conservation
   retention: [
-    { item: "Compte & données liées au service", duration: "pendant la relation contractuelle + 3 ans" },
-    { item: "Factures & pièces comptables (si facturation)", duration: "10 ans (obligation légale française)" },
-    { item: "Prospection (leads)", duration: "3 ans à compter du dernier contact" },
-    { item: "Cookies analytiques (si activés)", duration: "13 mois (et 25 mois pour données associées)" },
+    { item: "Données de contact (formulaire, échanges email)", duration: "3 ans à compter du dernier contact" },
+    { item: "Documents contractuels (devis, contrats)", duration: "5 ans à compter de la fin du contrat" },
+    { item: "Factures & pièces comptables", duration: "10 ans (obligation légale française)" },
+    { item: "Données techniques (logs)", duration: "12 mois" },
   ],
 
-  // Sous-traitants (exemples — complète si tu ajoutes d'autres outils)
+  // Sous-traitants
   processors: [
     {
-      name: "Vercel",
-      service: "Hébergement / CI",
-      purpose: "Hébergement de l'application et du site",
+      name: "IONOS SARL",
+      service: "Hébergement web",
+      purpose: "Hébergement du site www.fluxa.fr",
       dataTypes: ["Logs techniques", "IP", "URLs"],
-      location: "UE/EEE (selon datacenter choisi)",
-      dpaUrl: "https://vercel.com/legal/dpa",
+      location: "UE (France / Allemagne)",
+      dpaUrl: "https://www.ionos.fr/terms-gtc/politique-de-confidentialite/",
     },
-    // Dé-commente et adapte si tu actives des analytics :
-    // {
-    //   name: "Plausible (ou Matomo / Google Analytics)",
-    //   service: "Mesure d'audience",
-    //   purpose: "Statistiques d'utilisation",
-    //   dataTypes: ["Cookies/ID (selon outil)", "IP (souvent anonymisée)", "Pages vues"],
-    //   location: "UE (Plausible/Matomo auto-hébergé) / Hors UE (GA selon config)",
-    //   dpaUrl: "https://plausible.io/data-policy (ou doc de l'outil)",
-    //   safeguards: "Consentement + mesures adaptées si transfert",
-    // },
-    // Paiement si tu ajoutes Stripe :
-    // {
-    //   name: "Stripe",
-    //   service: "Paiement",
-    //   purpose: "Traitement des paiements",
-    //   dataTypes: ["Coordonnées paiement", "Email", "Montants"],
-    //   location: "UE / Hors UE (USA)",
-    //   dpaUrl: "https://stripe.com/dpa",
-    //   safeguards: "CCT + mesures complémentaires",
-    // },
   ] as Processor[],
 
-  // Cookies (ne liste ici que ceux réellement utilisés)
+  // Cookies (site vitrine sans tracking — aucun cookie non essentiel)
   cookies: [
     {
-      name: "__host_session",
+      name: "Aucun cookie de traçage",
       provider: "Fluxa",
-      purpose: "Session essentielle pour rester connecté",
+      purpose: "Le site ne dépose aucun cookie publicitaire ou analytique",
       type: "essential",
-      duration: "Session",
+      duration: "—",
     },
-    // Analytics si activés :
-    // {
-    //   name: "_pk_id / _pk_ses (Matomo) OU _ga (GA4) OU plausible_local_storage",
-    //   provider: "Outil d'analytics choisi",
-    //   purpose: "Mesure d'audience (avec consentement)",
-    //   type: "analytics",
-    //   duration: "13 mois",
-    // },
   ] as Cookie[],
 
   // Mineurs / Âge minimum
@@ -143,12 +112,12 @@ const CONFIG = {
 
   // Droits RGPD & réclamations (CNIL)
   dataSubjectRightsContact:
-    "Pour exercer vos droits (accès, rectification, effacement, limitation, opposition, portabilité), contactez : contact@fluxa.fr.",
+    "Pour exercer vos droits (accès, rectification, effacement, limitation, opposition, portabilité), contactez : fluxa.contact@gmail.com.",
   complaintAuthority: "CNIL — https://www.cnil.fr/fr/plaintes",
 
   // Date d'effet et mises à jour
-  effectiveDate: "17/10/2025",
-  lastUpdateDate: "17/10/2025",
+  effectiveDate: "17/03/2026",
+  lastUpdateDate: "17/03/2026",
 };
 
 const Section: React.FC<{ title: string; id: string; children: React.ReactNode }> = ({
@@ -260,8 +229,8 @@ const PrivacyPolicy: React.FC = () => {
           <ListItem label="Site" value={c.websiteUrl} />
           <ListItem label="Email de contact" value={c.contactEmail} />
           {c.dpoEmail && <ListItem label="DPO" value={c.dpoEmail} />}
+          {c.companyId.siren && <ListItem label="SIREN" value={c.companyId.siren} />}
           {c.companyId.siret && <ListItem label="SIRET" value={c.companyId.siret} />}
-          {c.companyId.rcs && <ListItem label="RCS" value={c.companyId.rcs} />}
           {c.companyId.vat && <ListItem label="TVA" value={c.companyId.vat} />}
           <ListItem label="Hébergeur" value={`${c.hosting.provider} — ${c.hosting.location}`} />
         </ul>
@@ -317,15 +286,10 @@ const PrivacyPolicy: React.FC = () => {
 
       <Section id="cookies" title="8. Cookies">
         <p className="mb-4">
-          Nous utilisons des cookies nécessaires au fonctionnement du site et, avec votre consentement, des
-          cookies de mesure d'audience si ceux-ci sont activés.
-        </p>
-        <Table
-          headers={["Nom", "Fournisseur", "Finalité", "Type", "Durée"]}
-          rows={c.cookies.map((ck) => [ck.name, ck.provider, ck.purpose, ck.type, ck.duration])}
-        />
-        <p className="mt-4 text-sm opacity-80">
-          Vous pouvez gérer vos préférences via notre bandeau de consentement à tout moment.
+          Le site <strong>www.fluxa.fr</strong> ne dépose aucun cookie de suivi, publicitaire ou
+          analytique. Aucun outil de mesure d'audience n'est actif. En cas d'activation future de
+          tels outils, la présente politique sera mise à jour et un bandeau de consentement sera
+          affiché conformément aux recommandations de la CNIL.
         </p>
       </Section>
 

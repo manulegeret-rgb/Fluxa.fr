@@ -45,13 +45,15 @@ export default function MentionsLegales() {
             </p>
             <p className="mt-4">
               <strong>Propriétaire et éditeur du site :</strong><br />
-              Emmanuel Légeret — Particulier<br />
-              Ville : Cognin (73160), France<br />
+              Emmanuel Légeret — Entrepreneur individuel<br />
+              SIREN : 830144960<br />
+              SIRET : 83014496000044<br />
+              Adresse : 36 rue des Criquets, 73160 Cognin, France<br />
+              TVA : Non assujetti à la TVA — franchise en base selon l&apos;art. 293B du CGI<br />
               Adresse e-mail :{" "}
               <a className="text-[#93C5FD]" href="mailto:fluxa.contact@gmail.com">
                 fluxa.contact@gmail.com
-              </a><br />
-              Site édité à titre personnel, sans activité commerciale déclarée.
+              </a>
             </p>
             <p className="mt-4">
               <strong>Responsable de la publication :</strong><br />
@@ -69,10 +71,10 @@ export default function MentionsLegales() {
             </p>
             <p className="mt-4">
               <strong>Hébergeur :</strong><br />
-              Vercel Inc.<br />
-              340 S Lemon Ave #4133, Walnut, CA 91789, USA<br />
-              <a className="text-[#93C5FD]" href="https://vercel.com">
-                https://vercel.com
+              IONOS SARL<br />
+              7, place de la Gare, BP 70109, 57201 Sarreguemines Cedex<br />
+              <a className="text-[#93C5FD]" href="https://www.ionos.fr">
+                https://www.ionos.fr
               </a>
             </p>
             <p className="mt-4">
@@ -102,7 +104,7 @@ export default function MentionsLegales() {
               </a>{" "}
               présente le projet Fluxa, une application web en développement, et permet aux visiteurs
               d'entrer en contact avec son créateur pour obtenir des informations ou une démonstration.
-              Le site est géré à titre personnel et ne propose aucun service commercial payant à ce jour.
+              Le site est édité par Emmanuel Légeret, entrepreneur individuel, dans le cadre de son activité de création de sites vitrines professionnels pour artisans, TPE et indépendants.
             </p>
           </div>
 
