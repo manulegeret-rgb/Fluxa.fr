@@ -238,7 +238,7 @@ Merci !`
         <div className="space-y-3 text-[15px] md:text-lg text-muted-foreground/90">
           <p>
             <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
-            Fluxa crée votre site vitrine professionnel en 1 à 2 semaines — clé en main, livré prêt à recevoir vos clients.
+            Fluxa crée votre site vitrine professionnel en 2 à 3 semaines — clé en main, livré prêt à recevoir vos clients.
           </p>
           <p>
             Design soigné, référencement Google, hébergement inclus : tout ce qu'il faut pour être visible en ligne et décrocher de nouveaux clients, sans vous occuper de la technique.
@@ -502,7 +502,7 @@ Merci !`
                   <li>• Mises à jour de sécurité et plugins</li>
                   <li>• Sauvegardes hebdomadaires automatiques</li>
                   <li>• Corrections mineures de bugs</li>
-                  <li>• Support technique prioritaire (&lt;24h)</li>
+                  <li>• Support technique prioritaire (&lt;48h)</li>
                   <li>• Modifications de contenu (textes, images simples)</li>
                   <li>• Monitoring de disponibilité</li>
                 </ul>
@@ -541,7 +541,7 @@ Merci !`
               Créons ensemble votre <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">site vitrine professionnel</span>
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
-              Parlez-nous de votre projet et recevez un devis personnalisé sous 24-48h, sans engagement.
+              Parlez-nous de votre projet et recevez un devis personnalisé sous 48h, sans engagement.
             </p>
           </div>
 
@@ -614,7 +614,7 @@ Merci !`
           {/* Preuves (mobile) sous le formulaire */}
           <ul className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-start md:justify-center">
             <li className="rounded-full border border-border/70 px-3 py-1">🔐 Hébergement sécurisé inclus</li>
-            <li className="rounded-full border border-border/70 px-3 py-1">⚡ Livraison rapide (1-2 semaines)</li>
+            <li className="rounded-full border border-border/70 px-3 py-1">⚡ Livraison rapide (2-3 semaines)</li>
             <li className="rounded-full border border-border/70 px-3 py-1">🎯 SEO optimisé</li>
           </ul>
 
@@ -671,7 +671,7 @@ Merci !`
               </div>
               <h3 className="font-semibold mb-2">Respect des délais</h3>
               <p className="text-sm text-muted-foreground">
-                Livraison en 1-2 semaines ou remboursement partiel
+                Livraison en 2-3 semaines ou remboursement partiel
               </p>
             </div>
 
@@ -735,7 +735,7 @@ Merci !`
         <div>
           <p className="font-semibold text-sm mb-1">Pour tous les corps de métier</p>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Plombier, électricien, coach, thérapeute, consultant ou artisan : votre site sera livré en 1-2 semaines, prêt à attirer vos premiers clients.
+            Plombier, électricien, coach, thérapeute, consultant ou artisan : votre site sera livré en 2-3 semaines, prêt à attirer vos premiers clients.
           </p>
         </div>
       </div>
@@ -786,7 +786,7 @@ Merci !`
         {
           icon: "⚡",
           title: "Livraison rapide",
-          text: `Votre site est prêt en 1-2 semaines seulement. Nous travaillons efficacement sans compromettre la qualité. Besoin encore plus vite ? Contactez-nous pour une option express. Dès validation de la maquette, votre site est développé et mis en ligne rapidement pour que vous puissiez commencer à gagner en visibilité immédiatement.`,
+          text: `Votre site est prêt en 2-3 semaines seulement. Nous travaillons efficacement sans compromettre la qualité. Besoin encore plus vite ? Contactez-nous pour une option express. Dès validation de la maquette, votre site est développé et mis en ligne rapidement pour que vous puissiez commencer à gagner en visibilité immédiatement.`,
         },
         {
           icon: "💰",

@@ -25,7 +25,7 @@ export default function SEOHead() {
     // === TITLE & DESCRIPTION ===
     const title = "Fluxa | Création de site vitrine professionnel dès 390€";
     const description =
-      "Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 390€. Livraison 1-2 semaines.";
+      "Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 390€. Livraison 2-3 semaines.";
 
     document.title = title;
     ensureMeta("description", description);
@@ -135,7 +135,7 @@ export default function SEOHead() {
           "image": "https://fluxa.fr/og-image-v2.png",
           "priceRange": "390€–1500€",
           "description":
-            "Agence de création de sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 1-2 semaines.",
+            "Agence de création de sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 2-3 semaines.",
           "areaServed": {
             "@type": "Country",
             "name": "France",
@@ -155,7 +155,7 @@ export default function SEOHead() {
                   "@type": "Service",
                   "name": "Création site vitrine professionnel",
                   "description":
-                    "Site vitrine 5 pages responsive, SEO optimisé, hébergement et domaine inclus 1ère année. Livraison en 1-2 semaines.",
+                    "Site vitrine 5 pages responsive, SEO optimisé, hébergement et domaine inclus 1ère année. Livraison en 2-3 semaines.",
                 },
                 "price": "390",
                 "priceCurrency": "EUR",

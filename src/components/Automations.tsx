@@ -40,7 +40,7 @@ export function CommentCaMarche() {
     detail: "Code propre et optimisé",
     text:
       "Nous développons votre site avec des technologies modernes et performantes : design responsive (mobile + desktop), formulaires fonctionnels, optimisation SEO, vitesse de chargement rapide. Le code est propre, sécurisé et respecte les standards du web. Tout est testé sur différents navigateurs et appareils pour garantir une expérience utilisateur parfaite.",
-    tag: "1-2 semaines",
+    tag: "2-3 semaines",
   },
   {
     icon: Rocket,

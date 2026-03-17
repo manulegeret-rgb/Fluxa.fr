@@ -71,7 +71,7 @@ export default function Ressources() {
 
           {/* Carte 3 */}
           <div className="border rounded-2xl p-6">
-            <h3 className="text-lg font-semibold">Livré clé en main en 1-2 semaines</h3>
+            <h3 className="text-lg font-semibold">Livré clé en main en 2-3 semaines</h3>
             <p className="text-sm text-muted-foreground mt-2">
               Maquette, développement, mise en ligne : on s’occupe de tout. Vous validez à chaque étape, sans stress technique.
             </p>
@@ -86,7 +86,7 @@ export default function Ressources() {
         {/* CTA central */}
         <div className="mt-10 text-center">
           <a href="/#pricing" className="inline-block rounded-xl border px-5 py-3 hover:shadow">
-            Demander un devis gratuit — Réponse sous 24–48h
+            Demander un devis gratuit — Réponse sous 48h
           </a>
           <p className="text-xs text-muted-foreground mt-2">
             Votre site livré clé en main. Vous restez propriétaire à 100%.
@@ -110,7 +110,7 @@ export default function Ressources() {
           <div className="border rounded-2xl p-6">
             <h4 className="font-medium">Quand mon site est-il en ligne&nbsp;?</h4>
             <p className="text-sm text-muted-foreground mt-2">
-              En général 1 à 2 semaines après validation de la maquette, selon les options choisies.
+              En général 2 à 3 semaines après validation de la maquette, selon les options choisies.
             </p>
           </div>
         </div>
