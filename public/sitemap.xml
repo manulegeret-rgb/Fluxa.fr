@@ -7,7 +7,7 @@
   <!-- Page d'accueil — Priorité maximale -->
   <url>
     <loc>https://fluxa.fr/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -229,14 +229,21 @@
   <!-- Pages légales — Indexées mais priorité basse -->
   <url>
     <loc>https://fluxa.fr/mentions-legales</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/politique-confidentialite</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/cgv</loc>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
