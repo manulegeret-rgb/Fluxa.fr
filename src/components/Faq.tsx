@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 const QUESTIONS = [
   {
     q: "Combien coûte un site vitrine ?",
-    a: "Notre formule de base est à 390€ pour un site de 5 pages (Accueil, Services, À propos, Galerie, Contact) avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser votre site selon vos besoins.",
+    a: "Notre formule de base est à 590€ pour un site de 5 pages (Accueil, Services, À propos, Galerie, Contact) avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser votre site selon vos besoins.",
   },
   {
     q: "Combien de temps pour créer mon site ?",
@@ -21,7 +21,7 @@ const QUESTIONS = [
   },
   {
     q: "Puis-je modifier mon site moi-même après ?",
-    a: "Les modifications de contenu simples peuvent être faites par nos soins dans le cadre de la maintenance (35€/mois). Pour des changements ponctuels, nous facturons à l'heure selon la complexité.",
+    a: "Les modifications de contenu simples peuvent être faites par nos soins dans le cadre de la maintenance (49€/mois). Pour des changements ponctuels, nous facturons à l'heure selon la complexité.",
   },
   {
     q: "L'hébergement et le nom de domaine sont-ils inclus ?",
@@ -29,7 +29,7 @@ const QUESTIONS = [
   },
   {
     q: "Que se passe-t-il après la livraison ?",
-    a: "Vous recevez votre site clé en main, prêt à l'emploi. Nous restons disponibles pour le support technique. La maintenance mensuelle (optionnelle, 35€/mois) inclut les mises à jour, sauvegardes et corrections mineures.",
+    a: "Vous recevez votre site clé en main, prêt à l'emploi. Nous restons disponibles pour le support technique. La maintenance mensuelle (optionnelle, 49€/mois) inclut les mises à jour, sauvegardes et corrections mineures.",
   },
   {
     q: "Puis-je payer en plusieurs fois ?",

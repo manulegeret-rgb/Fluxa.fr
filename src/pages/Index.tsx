@@ -262,7 +262,7 @@ Merci !`
 
         {/* Badge prix */}
         <div className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 font-semibold text-foreground bg-primary/10 text-sm mx-auto lg:mx-0">
-          💰 À partir de <span className="text-primary">390 € tout compris</span>
+          💰 À partir de <span className="text-primary">590 € tout compris</span>
         </div>
 
         {/* CTAs — Devis en principal */}
@@ -414,7 +414,7 @@ Merci !`
     </h2>
   </div>
   <p className="text-xl text-muted-foreground">
-    Une <span className="text-foreground font-semibold">formule unique</span> à partir de 390€, ajustable selon vos besoins.
+    Une <span className="text-foreground font-semibold">formule unique</span> à partir de 590€, ajustable selon vos besoins.
     Hébergement et domaine inclus la première année.
   </p>
 </div>
@@ -425,7 +425,7 @@ Merci !`
             <div className="md:col-span-1">
               <PricingCard
                 title="Formule Site Vitrine"
-                price="390 €"
+                price="590 €"
                 features={[
                   "Jusqu'à 5 pages (Accueil, Services, À propos, Galerie, Contact)",
                   "Design responsive (mobile + desktop)",
@@ -451,7 +451,7 @@ Merci !`
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">Pages supplémentaires</span>
-                    <span className="text-primary font-bold">+80€/page</span>
+                    <span className="text-primary font-bold">+100€/page</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Ajoutez des pages dédiées (Blog, Équipe, Actualités, etc.)</p>
                 </div>
@@ -459,7 +459,7 @@ Merci !`
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">Galerie photo avancée</span>
-                    <span className="text-primary font-bold">+120€</span>
+                    <span className="text-primary font-bold">+150€</span>
                   </div>
                   <p className="text-[0.95rem] md:text-base text-muted-foreground">Lightbox, filtres, mise en page optimisée pour vos réalisations</p>
                 </div>
@@ -467,7 +467,7 @@ Merci !`
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">Prise de rendez-vous en ligne</span>
-                    <span className="text-primary font-bold">+150€</span>
+                    <span className="text-primary font-bold">+200€</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Calendrier de réservation avec notifications email automatiques</p>
                 </div>
@@ -475,7 +475,7 @@ Merci !`
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">Rédaction de contenu SEO</span>
-                    <span className="text-primary font-bold">+200€</span>
+                    <span className="text-primary font-bold">+250€</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Textes professionnels optimisés pour Google (jusqu'à 2000 mots)</p>
                 </div>
@@ -483,7 +483,7 @@ Merci !`
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">Multilingue</span>
-                    <span className="text-primary font-bold">+180€/langue</span>
+                    <span className="text-primary font-bold">+250€/langue</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Version anglaise, espagnole ou autre langue (traduction non incluse)</p>
                 </div>
@@ -493,7 +493,7 @@ Merci !`
               <div className="mt-6 rounded-2xl border-2 border-primary/30 bg-primary/5 p-5">
                 <div className="flex justify-between items-center mb-3">
                   <span className="font-semibold text-lg">Maintenance mensuelle</span>
-                  <span className="text-primary font-bold text-xl">35€/mois</span>
+                  <span className="text-primary font-bold text-xl">49€/mois</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-3">
                   Gardez votre site sécurisé et performant dans la durée

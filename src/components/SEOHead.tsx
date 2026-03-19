@@ -23,9 +23,9 @@ export default function SEOHead() {
     };
 
     // === TITLE & DESCRIPTION ===
-    const title = "Fluxa | Création de site vitrine professionnel dès 390€";
+    const title = "Fluxa | Création de site vitrine professionnel dès 590€";
     const description =
-      "Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 390€. Livraison 2-3 semaines.";
+      "Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 590€. Livraison 2-3 semaines.";
 
     document.title = title;
     ensureMeta("description", description);
@@ -58,7 +58,7 @@ export default function SEOHead() {
     ensureOG("og:image:height", "630");
     ensureOG(
       "og:image:alt",
-      "Fluxa - Agence web création site vitrine professionnel dès 390€ pour artisans et TPE"
+      "Fluxa - Agence web création site vitrine professionnel dès 590€ pour artisans et TPE"
     );
     ensureOG("og:site_name", "Fluxa");
     ensureOG("og:locale", "fr_FR");
@@ -70,7 +70,7 @@ export default function SEOHead() {
     ensureMeta("twitter:image", "https://fluxa.fr/og-image-v2.png");
     ensureMeta(
       "twitter:image:alt",
-      "Fluxa - Agence web création site vitrine professionnel dès 390€ pour artisans et TPE"
+      "Fluxa - Agence web création site vitrine professionnel dès 590€ pour artisans et TPE"
     );
 
     // === STRUCTURED DATA JSON-LD ===
@@ -118,7 +118,7 @@ export default function SEOHead() {
             "https://www.linkedin.com/company/fluxa-fr/",
           ],
           "description":
-            "Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs indépendants. Développement de sites internet modernes, responsive mobile-first, optimisés SEO à partir de 390€. Hébergement web et nom de domaine inclus.",
+            "Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs indépendants. Développement de sites internet modernes, responsive mobile-first, optimisés SEO à partir de 590€. Hébergement web et nom de domaine inclus.",
           "foundingLocation": {
             "@type": "Place",
             "addressLocality": "Cognin",
@@ -133,7 +133,7 @@ export default function SEOHead() {
           "name": "Fluxa - Agence Web Création Sites Vitrines",
           "url": "https://fluxa.fr/",
           "image": "https://fluxa.fr/og-image-v2.png",
-          "priceRange": "390€–1500€",
+          "priceRange": "590€–2000€",
           "description":
             "Agence de création de sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 2-3 semaines.",
           "areaServed": {
@@ -157,11 +157,11 @@ export default function SEOHead() {
                   "description":
                     "Site vitrine 5 pages responsive, SEO optimisé, hébergement et domaine inclus 1ère année. Livraison en 2-3 semaines.",
                 },
-                "price": "390",
+                "price": "590",
                 "priceCurrency": "EUR",
                 "priceSpecification": {
                   "@type": "PriceSpecification",
-                  "price": "390",
+                  "price": "590",
                   "priceCurrency": "EUR",
                   "description": "Formule de base tout compris",
                 },
@@ -201,7 +201,7 @@ export default function SEOHead() {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "La formule de base est à 390€ tout compris pour un site vitrine de 5 pages avec hébergement et nom de domaine inclus la première année. Des options personnalisables sont disponibles selon vos besoins.",
+                  "La formule de base est à 590€ tout compris pour un site vitrine de 5 pages avec hébergement et nom de domaine inclus la première année. Des options personnalisables sont disponibles selon vos besoins.",
               },
             },
             {
@@ -228,7 +228,7 @@ export default function SEOHead() {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "Oui, l'hébergement web sécurisé et le nom de domaine sont inclus la première année dans le tarif de base de 390€. Après la première année, le renouvellement est d'environ 50-80€/an.",
+                  "Oui, l'hébergement web sécurisé et le nom de domaine sont inclus la première année dans le tarif de base de 590€. Après la première année, le renouvellement est d'environ 50-80€/an.",
               },
             },
             {
@@ -246,7 +246,7 @@ export default function SEOHead() {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text":
-                  "Oui, un round de modifications est inclus dans la formule de base. Nous proposons aussi une maintenance mensuelle à 35€/mois pour garder votre site sécurisé et performant dans la durée.",
+                  "Oui, un round de modifications est inclus dans la formule de base. Nous proposons aussi une maintenance mensuelle à 49€/mois pour garder votre site sécurisé et performant dans la durée.",
               },
             },
           ],
