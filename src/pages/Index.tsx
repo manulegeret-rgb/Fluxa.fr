@@ -963,9 +963,9 @@ Merci !`
         {/* Si tu as mis les fichiers dans /public, garde .html pour éviter les 404 */}
         <a href="/mentions-legales" className="hover:text-primary transition">Mentions légales</a>
         <span className="text-border">•</span>
-        <a href="/politique-confidentialite" className="hover:text-primary transition">
-  Politique de confidentialité
-</a>
+        <a href="/politique-confidentialite" className="hover:text-primary transition">Politique de confidentialité</a>
+        <span className="text-border">•</span>
+        <a href="/cgv" className="hover:text-primary transition">CGV</a>
       </div>
     </div>
   </div>

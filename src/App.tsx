@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import MentionsLegales from "./pages/Mentions-Legales";
 import PolitiqueConfidentialite from "./pages/politique-confidentialite";
+import CGV from "./pages/CGV";
 import Ressources from "./pages/Ressources/Ressources";
 import ArticlesHub from "./pages/ArticlesHub";
 import ArticleDetail from "./pages/ArticleDetail";
@@ -87,6 +88,7 @@ const AppInner = () => {
     location.pathname === "/" ||
     location.pathname === "/mentions-legales" ||
     location.pathname === "/politique-confidentialite" ||
+    location.pathname === "/cgv" ||
     location.pathname === "/ressources" ||
     location.pathname === "/articles" ||
     location.pathname.startsWith("/articles/") || // Cache aussi sur les pages articles individuels
@@ -101,7 +103,8 @@ const AppInner = () => {
         <Route path="/" element={<Index />} />
         <Route path="/ressources" element={<Ressources />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
-        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} /> {/* ✅ */}
+        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/cgv" element={<CGV />} />
 
         {/* Routes articles */}
         <Route path="/articles" element={<ArticlesHub />} /> {/* ✅ Hub des 26 articles */}
