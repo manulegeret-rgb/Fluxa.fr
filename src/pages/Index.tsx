@@ -607,7 +607,7 @@ Merci !`
               </button>
             </div>
             <p className="mt-2 text-xs text-muted-foreground">
-              Réponse sous 24–48h — sans engagement.
+              Réponse sous 48h — sans engagement.
             </p>
           </form>
 
@@ -691,7 +691,7 @@ Merci !`
               </div>
               <h3 className="font-semibold mb-2">Support réactif</h3>
               <p className="text-sm text-muted-foreground">
-                Réponse sous 24-48h, corrections de bugs prioritaires
+                Réponse sous 48h, corrections de bugs prioritaires
               </p>
             </div>
           </div>
@@ -829,9 +829,9 @@ Merci !`
     {/* --- Témoignages / résultats chiffrés --- */}
     <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
       {[
-        { value: "1-2 sem.", label: "de délai de livraison moyen" },
+        { value: "590€", label: "tarif de départ tout compris" },
         { value: "100%", label: "responsive (mobile + desktop)" },
-        { value: "390€", label: "tarif de départ tout compris" },
+        { value: "48h", label: "pour recevoir votre devis gratuit" },
       ].map((stat, i) => (
         <div
           key={i}

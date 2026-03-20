@@ -9,7 +9,7 @@ const QUESTIONS = [
   },
   {
     q: "Combien de temps pour créer mon site ?",
-    a: "Entre 1 et 2 semaines en moyenne. Après validation de la maquette, votre site est développé et mis en ligne rapidement. Le délai peut varier selon les options choisies et le contenu à intégrer.",
+    a: "Le délai est précisé dans votre devis selon les options choisies et le contenu à intégrer. Après validation de la maquette, votre site est développé et mis en ligne dès que possible.",
   },
   {
     q: "Qu'est-ce qui est inclus dans le prix ?",
