@@ -179,7 +179,7 @@ Merci !`
               <a href="/" aria-label="Fluxa - Accueil" className="inline-flex items-center">
                 <img
                   src={fluxaLogo}
-                  alt="Fluxa - Agence web création sites vitrines pas chers pour TPE et artisans"
+                  alt="Fluxa - Agence web création sites vitrines professionnels pour TPE et artisans"
                   className="h-[100px] w-auto object-contain -translate-y-[8px]"
                 />
               </a>
@@ -194,7 +194,7 @@ Merci !`
             <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-2">
               <img
                 src={fluxaLogo}
-                alt="Fluxa - Agence web création sites vitrines pas chers pour TPE et artisans"
+                alt="Fluxa - Agence web création sites vitrines professionnels pour TPE et artisans"
                 className="h-[164px] lg:h-[240px] w-auto object-contain shrink-0"
               />
             </a>
@@ -225,7 +225,7 @@ Merci !`
       <h1 className="text-[clamp(37px,7vw,69px)] font-bold leading-tight">
         <span className="whitespace-nowrap">Création site vitrine</span>{" "}
         <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-          professionnel et pas cher
+          professionnel et clé en main
         </span>
       </h1>
     </div>
@@ -410,7 +410,7 @@ Merci !`
       NOUVEAU
     </div>
     <h2 className="text-4xl lg:text-5xl font-bold">
-      Tarifs site vitrine — Transparent et abordable
+      Tarifs site vitrine — Transparents et tout compris
     </h2>
   </div>
   <p className="text-xl text-muted-foreground">
@@ -725,7 +725,7 @@ Merci !`
         <div>
           <p className="font-semibold text-sm mb-1">Qualité professionnelle, prix accessible</p>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Pas cher ne signifie pas bas de gamme. De la maquette à la mise en ligne, nous gérons votre projet clé en main avec formation et support inclus.
+            Un tarif transparent, sans surprise. De la maquette à la mise en ligne, nous gérons votre projet clé en main avec formation et support inclus.
           </p>
         </div>
       </div>
@@ -774,7 +774,7 @@ Merci !`
         Pourquoi choisir Fluxa pour votre site vitrine ?
       </h2>
       <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
-        Chez Fluxa, nous créons des sites vitrines professionnels, rapides et abordables.
+        Chez Fluxa, nous créons des sites vitrines professionnels, rapides et efficaces.
         Pas de contrat long terme, pas de frais cachés : juste un site de qualité livré clé en main.
         Découvrez nos engagements qui font la différence.
       </p>
@@ -903,7 +903,7 @@ Merci !`
       <div className="flex items-center gap-3">
         <img
           src={fluxaLogo}
-          alt="Logo Fluxa - Agence web création sites internet professionnels pas chers"
+          alt="Logo Fluxa - Agence web création sites internet professionnels"
           className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
         />
         <p className="text-sm text-muted-foreground">

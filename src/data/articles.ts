@@ -41,7 +41,7 @@ export const ARTICLES: Article[] = [
     "excerpt": "Le prix d'un site vitrine varie énormément selon les prestataires. Entre 500€ et plusieurs milliers d'euros, comment s'y retrouver ? Ce guide vous explique ce qui justifie les différences de tarifs, ce qui doit être inclus dans une offre sérieuse, et comment éviter les mauvaises surprises...",
     "category": "site-vitrine",
     "categoryName": "Site Vitrine",
-    "keywords": ["prix site vitrine", "coût site internet", "tarif création site web", "site vitrine pas cher"],
+    "keywords": ["prix site vitrine", "coût site internet", "tarif création site web", "site vitrine clé en main"],
     "readingTime": 5,
     "publishDate": "2025-01-20",
     "author": "Équipe Fluxa",

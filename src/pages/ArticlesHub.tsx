@@ -58,7 +58,7 @@ export default function ArticlesHub() {
           "site internet TPE",
           "référencement local artisan",
           "présence en ligne",
-          "site professionnel pas cher",
+          "site professionnel clé en main",
           "guides fluxa",
         ]}
         breadcrumb={[

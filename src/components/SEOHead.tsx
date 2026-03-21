@@ -36,7 +36,7 @@ export default function SEOHead() {
     ensureMeta("theme-color", "#0f172a");
     ensureMeta(
       "keywords",
-      "création site vitrine, site vitrine professionnel, agence web TPE, site internet artisan, site pas cher, hébergement inclus, SEO optimisé, site vitrine artisan, création site internet, devis site vitrine"
+      "création site vitrine, site vitrine professionnel, agence web TPE, site internet artisan, site vitrine clé en main,hébergement inclus, SEO optimisé, site vitrine artisan, création site internet, devis site vitrine"
     );
 
     // === CANONICAL ===
