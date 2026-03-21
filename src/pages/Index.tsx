@@ -222,10 +222,10 @@ Merci !`
   <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-32">
     {/* H1 centré en haut */}
     <div className="text-center mb-12 md:mb-16">
-      <h1 className="text-[clamp(37px,7vw,69px)] font-bold leading-tight">
-        <span className="whitespace-nowrap">Création site vitrine</span>{" "}
-        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
-          professionnel et clé en main
+      <h1 className="text-[clamp(32px,5.5vw,62px)] font-bold leading-tight">
+        <span className="whitespace-nowrap">Votre site vitrine professionnel,</span>{" "}
+        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent whitespace-nowrap">
+          livré clé en main
         </span>
       </h1>
     </div>
