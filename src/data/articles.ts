@@ -38,7 +38,7 @@ export const ARTICLES: Article[] = [
     "slug": "combien-coute-un-site-vitrine-professionnel-en-2025",
     "title": "Combien Coûte un Site Vitrine Professionnel en 2025 ?",
     "metaDescription": "Prix d'un site vitrine professionnel en 2025 : découvrez les tarifs réels, ce qui est inclus et comment choisir la meilleure offre pour votre budget.",
-    "excerpt": "Le prix d'un site vitrine varie énormément selon les prestataires. Entre 390€ et plusieurs milliers d'euros, comment s'y retrouver ? Ce guide vous explique ce qui justifie les différences de tarifs, ce qui doit être inclus dans une offre sérieuse, et comment éviter les mauvaises surprises...",
+    "excerpt": "Le prix d'un site vitrine varie énormément selon les prestataires. Entre 500€ et plusieurs milliers d'euros, comment s'y retrouver ? Ce guide vous explique ce qui justifie les différences de tarifs, ce qui doit être inclus dans une offre sérieuse, et comment éviter les mauvaises surprises...",
     "category": "site-vitrine",
     "categoryName": "Site Vitrine",
     "keywords": ["prix site vitrine", "coût site internet", "tarif création site web", "site vitrine pas cher"],

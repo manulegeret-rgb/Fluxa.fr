@@ -262,7 +262,7 @@ Merci !`
 
         {/* Badge prix */}
         <div className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 font-semibold text-foreground bg-primary/10 text-sm mx-auto lg:mx-0">
-          💰 À partir de <span className="text-primary">590 € tout compris</span>
+          💰 À partir de <span className="text-primary">890 € tout compris</span>
         </div>
 
         {/* CTAs — Devis en principal */}
@@ -414,7 +414,7 @@ Merci !`
     </h2>
   </div>
   <p className="text-xl text-muted-foreground">
-    Une <span className="text-foreground font-semibold">formule unique</span> à partir de 590€, ajustable selon vos besoins.
+    Une <span className="text-foreground font-semibold">formule unique</span> à partir de 890€, ajustable selon vos besoins.
     Hébergement et domaine inclus la première année.
   </p>
 </div>
@@ -425,7 +425,7 @@ Merci !`
             <div className="md:col-span-1">
               <PricingCard
                 title="Formule Site Vitrine"
-                price="590 €"
+                price="890 €"
                 features={[
                   "Jusqu'à 5 pages (Accueil, Services, À propos, Galerie, Contact)",
                   "Design responsive (mobile + desktop)",
@@ -467,7 +467,7 @@ Merci !`
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">Prise de rendez-vous en ligne</span>
-                    <span className="text-primary font-bold">+200€</span>
+                    <span className="text-primary font-bold">+180€</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Calendrier de réservation avec notifications email automatiques</p>
                 </div>
@@ -493,7 +493,7 @@ Merci !`
               <div className="mt-6 rounded-2xl border-2 border-primary/30 bg-primary/5 p-5">
                 <div className="flex justify-between items-center mb-3">
                   <span className="font-semibold text-lg">Maintenance mensuelle</span>
-                  <span className="text-primary font-bold text-xl">49€/mois</span>
+                  <span className="text-primary font-bold text-xl">59€/mois</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-3">
                   Gardez votre site sécurisé et performant dans la durée
@@ -588,7 +588,7 @@ Merci !`
               <label htmlFor="contact-need" className="text-sm">Type de site souhaité</label>
               <select id="contact-need" name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
                 <option value="" disabled>— Sélectionner —</option>
-                <option>Site vitrine simple (390€)</option>
+                <option>Site vitrine simple (890€)</option>
                 <option>Site avec galerie photo</option>
                 <option>Site avec prise de RDV</option>
                 <option>Refonte de site existant</option>
@@ -791,12 +791,12 @@ Merci !`
         {
           icon: "💰",
           title: "Prix transparent et compétitif",
-          text: `À partir de 390€ tout compris : design responsive, hébergement et domaine 1ère année inclus, formulaire de contact, SEO de base. Pas de frais cachés, pas de contrat long terme. Vous savez exactement ce que vous payez dès le départ. Options ajustables selon vos besoins réels, sans payer pour des fonctionnalités inutiles.`,
+          text: `À partir de 890€ tout compris : design responsive, hébergement et domaine 1ère année inclus, formulaire de contact, SEO de base. Pas de frais cachés, pas de contrat long terme. Vous savez exactement ce que vous payez dès le départ. Options ajustables selon vos besoins réels, sans payer pour des fonctionnalités inutiles.`,
         },
         {
           icon: "🎯",
           title: "Propriété totale & support inclus",
-          text: `Vous êtes propriétaire à 100% de votre site, code source inclus. Formation à la gestion offerte à la livraison. Support technique réactif : nous intervenons rapidement en cas de problème. Maintenance optionnelle à 35€/mois pour garder votre site à jour. Pas de dépendance : vous restez libre.`,
+          text: `Vous êtes propriétaire à 100% de votre site, code source inclus. Formation à la gestion offerte à la livraison. Support technique réactif : nous intervenons rapidement en cas de problème. Maintenance optionnelle à 59€/mois pour garder votre site à jour. Pas de dépendance : vous restez libre.`,
         },
       ].map((item, i) => (
         <div
@@ -829,7 +829,7 @@ Merci !`
     {/* --- Témoignages / résultats chiffrés --- */}
     <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
       {[
-        { value: "590€", label: "tarif de départ tout compris" },
+        { value: "890€", label: "tarif de départ tout compris" },
         { value: "100%", label: "responsive (mobile + desktop)" },
         { value: "48h", label: "pour recevoir votre devis gratuit" },
       ].map((stat, i) => (

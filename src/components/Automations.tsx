@@ -55,7 +55,7 @@ export function CommentCaMarche() {
     title: "5. Support & Suivi",
     detail: "Accompagnement après livraison",
     text:
-      "Après la mise en ligne, vous n'êtes pas seul. Nous restons disponibles pour toute question technique, correction mineure ou conseil. Si vous souhaitez faire évoluer votre site (nouvelles pages, fonctionnalités), nous sommes là. La maintenance mensuelle optionnelle (49€/mois) inclut les mises à jour de sécurité, sauvegardes régulières, et corrections mineures pour garder votre site performant dans la durée.",
+      "Après la mise en ligne, vous n'êtes pas seul. Nous restons disponibles pour toute question technique, correction mineure ou conseil. Si vous souhaitez faire évoluer votre site (nouvelles pages, fonctionnalités), nous sommes là. La maintenance mensuelle optionnelle (59€/mois) inclut les mises à jour de sécurité, sauvegardes régulières, et corrections mineures pour garder votre site performant dans la durée.",
     tag: "Toujours disponible",
   },
 ];
