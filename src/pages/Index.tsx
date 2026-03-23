@@ -1,5 +1,6 @@
 import SEOHead from "@/components/SEOHead";
-import { useEffect, useMemo, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useEffect, useRef, useState } from "react";
 import { Faq } from "@/components/Faq";
 import { CommentCaMarche } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
@@ -89,47 +90,37 @@ useEffect(() => {
   // ========= Lightbox pour le mockup
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  // ========= Mailto pour le formulaire "En savoir plus"
-  const subject = useMemo(() => encodeURIComponent("Demande d'infos Fluxa"), []);
+  // ========= EmailJS pour le formulaire de contact
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
-  const onSubmitInfo = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitInfo = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
     const f = new FormData(e.currentTarget);
-    const name = encodeURIComponent((f.get("name") as string) || "");
-    const email = encodeURIComponent((f.get("email") as string) || "");
-    const activity = encodeURIComponent((f.get("activity") as string) || "");
-    const need = encodeURIComponent((f.get("need") as string) || "");
-    const budget = encodeURIComponent((f.get("budget") as string) || "");
-    const delay = encodeURIComponent((f.get("delay") as string) || "");
-    const message = encodeURIComponent((f.get("message") as string) || "");
-
-    const body = encodeURIComponent(
-`Bonjour Fluxa,
-
-Je souhaite en savoir plus.
-
-Nom : ${decodeURIComponent(name)}
-Email : ${decodeURIComponent(email)}
-Activité : ${decodeURIComponent(activity)}
-Besoin principal : ${decodeURIComponent(need)}
-Budget : ${decodeURIComponent(budget)}
-Délai : ${decodeURIComponent(delay)}
-
-Message :
-${decodeURIComponent(message)}
-
-Merci !`
-    );
-
+    const templateParams = {
+      from_name: (f.get("name") as string) || "",
+      from_email: (f.get("email") as string) || "",
+      subject: `Demande de site — ${(f.get("need") as string) || ""}`,
+      message: (f.get("message") as string) || "(aucun message)",
+    };
     setSending(true);
-    window.open(
-      `mailto:fluxa.contact@gmail.com?subject=${subject}&body=${body}`,
-      "_blank"
-    );
-    setTimeout(() => setSending(false), 800);
-    (e.currentTarget as HTMLFormElement).reset();
+    setSendError(false);
+    try {
+      await emailjs.send(
+        "service_mxfwifu",
+        "template_co6wxnr",
+        templateParams,
+        "Fr5bTGX_sdi1ekCv8"
+      );
+      setSent(true);
+      (e.currentTarget as HTMLFormElement).reset();
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -601,14 +592,25 @@ Merci !`
               <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
             </div>
 
-            <div className="flex items-center gap-3">
-              <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
-                {sending ? "Ouverture de l’email…" : "Envoyer ma demande"}
-              </button>
-            </div>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Réponse sous 48h — sans engagement.
-            </p>
+            {sent ? (
+              <div className="rounded-2xl bg-green-500/10 border border-green-500/30 px-6 py-4 text-green-400 text-sm font-medium">
+                ✅ Message envoyé ! On vous répond sous 48h.
+              </div>
+            ) : (
+              <>
+                <div className="flex items-center gap-3">
+                  <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
+                    {sending ? "Envoi en cours…" : "Envoyer ma demande"}
+                  </button>
+                </div>
+                {sendError && (
+                  <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>
+                )}
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Réponse sous 48h — sans engagement.
+                </p>
+              </>
+            )}
           </form>
 
           {/* Preuves (mobile) sous le formulaire */}
