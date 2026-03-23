@@ -14,6 +14,7 @@ import Ressources from "./pages/Ressources/Ressources";
 import ArticlesHub from "./pages/ArticlesHub";
 import ArticleDetail from "./pages/ArticleDetail";
 import ArticleViral from "./pages/ArticleViral";
+import Merci from "./pages/Merci";
 
 const queryClient = new QueryClient();
 
@@ -92,7 +93,8 @@ const AppInner = () => {
     location.pathname === "/ressources" ||
     location.pathname === "/articles" ||
     location.pathname.startsWith("/articles/") || // Cache aussi sur les pages articles individuels
-    location.pathname === "/guide-complet-roi-automatisation-artisans";
+    location.pathname === "/guide-complet-roi-automatisation-artisans" ||
+    location.pathname === "/merci";
 
   return (
     <>
@@ -110,6 +112,7 @@ const AppInner = () => {
         <Route path="/articles" element={<ArticlesHub />} /> {/* ✅ Hub des 26 articles */}
         <Route path="/articles/:slug" element={<ArticleDetail />} />
         <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} />
+        <Route path="/merci" element={<Merci />} />
         {/* Catch-all 404 route */}
         <Route path="*" element={<NotFound />} />
       </Routes>

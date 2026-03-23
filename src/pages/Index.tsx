@@ -1,6 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Faq } from "@/components/Faq";
 import { CommentCaMarche } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
@@ -91,8 +92,8 @@ useEffect(() => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   // ========= EmailJS pour le formulaire de contact
+  const navigate = useNavigate();
   const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState(false);
 
   const onSubmitInfo = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -114,11 +115,9 @@ useEffect(() => {
         templateParams,
         "Fr5bTGX_sdi1ekCv8"
       );
-      setSent(true);
-      (e.currentTarget as HTMLFormElement).reset();
+      navigate("/merci");
     } catch {
       setSendError(true);
-    } finally {
       setSending(false);
     }
   };
@@ -592,25 +591,17 @@ useEffect(() => {
               <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
             </div>
 
-            {sent ? (
-              <div className="rounded-2xl bg-green-500/10 border border-green-500/30 px-6 py-4 text-green-400 text-sm font-medium">
-                ✅ Message envoyé ! On vous répond sous 48h.
-              </div>
-            ) : (
-              <>
-                <div className="flex items-center gap-3">
-                  <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
-                    {sending ? "Envoi en cours…" : "Envoyer ma demande"}
-                  </button>
-                </div>
-                {sendError && (
-                  <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>
-                )}
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Réponse sous 48h — sans engagement.
-                </p>
-              </>
+            <div className="flex items-center gap-3">
+              <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
+                {sending ? "Envoi en cours…" : "Envoyer ma demande"}
+              </button>
+            </div>
+            {sendError && (
+              <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>
             )}
+            <p className="mt-2 text-xs text-muted-foreground">
+              Réponse sous 48h — sans engagement.
+            </p>
           </form>
 
           {/* Preuves (mobile) sous le formulaire */}
