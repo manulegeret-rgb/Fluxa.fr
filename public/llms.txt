@@ -1,0 +1,37 @@
+# Fluxa — Agence Web Création Sites Vitrines Professionnels
+
+> Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et indépendants. Basée à Cognin (Savoie, 73160), elle intervient dans toute la France. Sites responsives, SEO optimisé, hébergement inclus. À partir de 890€. Fondateur : Emmanuel Légeret.
+
+## Site principal
+
+- [Accueil](https://fluxa.fr/): Présentation des services, tarifs et formulaire de contact
+- [Blog & Articles](https://fluxa.fr/articles): Guides complets sur la création de sites vitrines, le SEO, l'automatisation pour artisans et TPE
+- [Ressources](https://fluxa.fr/ressources): Outils et ressources pour les entrepreneurs
+
+## Services proposés
+
+- Création site vitrine professionnel : à partir de 890€ (5 pages, responsive, SEO, hébergement inclus 1ère année)
+- Site Portfolio : idéal pour artisans et créatifs, avec galerie photo
+- Site Entreprise TPE/PME : présentation services, équipe, Google Maps
+- Site Profession Libérale : pour consultants, coachs, experts indépendants
+- Maintenance mensuelle : 59€/mois (mises à jour, sauvegardes, support)
+
+## Informations de contact
+
+- Adresse : 36 rue des Criquets, 73160 Cognin, Savoie, France
+- Email : fluxa.contact@gmail.com
+- Zone d'intervention : Cognin, Chambéry, Savoie, toute la France
+
+## Articles recommandés (contenu citable)
+
+- [Pourquoi un site vitrine est indispensable pour un artisan en 2025](https://fluxa.fr/articles/pourquoi-un-site-vitrine-est-indispensable-pour-un-artisan-en-2025)
+- [Combien coûte un site vitrine professionnel en 2025 ?](https://fluxa.fr/articles/combien-coute-un-site-vitrine-professionnel-en-2025)
+- [Guide complet ROI automatisation artisans](https://fluxa.fr/guide-complet-roi-automatisation-artisans)
+- [Comment automatiser sa facturation — guide complet 2025](https://fluxa.fr/articles/comment-automatiser-sa-facturation-guide-complet-2025)
+- [CRM automatisé pour TPE — guide 2025](https://fluxa.fr/articles/crm-automatise-pour-tpe-le-guide-2025-pour-gagner-du-temps-et-fideliser-ses-clients)
+
+## Pages légales
+
+- [Mentions légales](https://fluxa.fr/mentions-legales)
+- [Politique de confidentialité](https://fluxa.fr/politique-confidentialite)
+- [CGV](https://fluxa.fr/cgv)

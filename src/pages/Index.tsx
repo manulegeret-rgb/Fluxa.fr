@@ -891,21 +891,36 @@ useEffect(() => {
       {/* ================= FOOTER ================= */}
 <footer className="mt-16 py-10 border-t border-border/80">
   <div className="container mx-auto px-6">
-    {/* Ligne 1 : logo + baseline */}
-    <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
-      <div className="flex items-center gap-3">
-        <img
-          src={fluxaLogo}
-          alt="Logo Fluxa - Agence web création sites internet professionnels"
-          className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
-        />
-        <p className="text-sm text-muted-foreground">
-          Fluxa — Création de sites vitrines professionnels
-        </p>
+    {/* Ligne 1 : logo + baseline + NAP */}
+    <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-start">
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-3">
+          <img
+            src={fluxaLogo}
+            alt="Logo Fluxa - Agence web création sites internet professionnels"
+            className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
+          />
+          <p className="text-sm text-muted-foreground">
+            Fluxa — Création de sites vitrines professionnels
+          </p>
+        </div>
+        {/* NAP — Name Address Phone (signal SEO local critique) */}
+        <address className="not-italic text-xs text-muted-foreground leading-relaxed">
+          36 rue des Criquets, 73160 Cognin, Savoie<br />
+          <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors">
+            fluxa.contact@gmail.com
+          </a>
+        </address>
       </div>
 
-      {/* Réseaux */}
-      <nav className="flex items-center gap-5 text-sm">
+      {/* Réseaux + lien articles */}
+      <nav className="flex flex-wrap items-center gap-5 text-sm" aria-label="Liens utiles">
+        <a
+          href="/articles"
+          className="hover:text-primary transition-colors text-muted-foreground"
+        >
+          Blog &amp; Guides
+        </a>
         <a
           href="mailto:fluxa.contact@gmail.com"
           className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
@@ -916,7 +931,7 @@ useEffect(() => {
         <a
           href="https://instagram.com/fluxa.fr"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
           <Instagram className="w-4 h-4" />
@@ -925,7 +940,7 @@ useEffect(() => {
         <a
           href="https://www.facebook.com/fluxa.fr"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
           <Facebook className="w-4 h-4" />
@@ -934,7 +949,7 @@ useEffect(() => {
         <a
           href="https://www.linkedin.com/company/fluxa-fr/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
           <Linkedin className="w-4 h-4" />
@@ -949,11 +964,10 @@ useEffect(() => {
     {/* Ligne 2 : liens légaux + © */}
     <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
       <p className="text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Fluxa — Tous droits réservés.
+        © {new Date().getFullYear()} Fluxa — Emmanuel Légeret, Entrepreneur Individuel — SIRET 83014496000044
       </p>
 
       <div className="flex items-center gap-4 text-sm">
-        {/* Si tu as mis les fichiers dans /public, garde .html pour éviter les 404 */}
         <a href="/mentions-legales" className="hover:text-primary transition">Mentions légales</a>
         <span className="text-border">•</span>
         <a href="/politique-confidentialite" className="hover:text-primary transition">Politique de confidentialité</a>

@@ -41,13 +41,12 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /demo/
 
+# Règles pour OAI-SearchBot (OpenAI Search)
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /demo/
+
 # Bloquer les scrapers malveillants connus
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
 User-agent: DotBot
 Disallow: /
 

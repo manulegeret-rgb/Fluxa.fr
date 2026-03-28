@@ -1,14 +1,24 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+interface ArticleMeta {
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+}
+
 interface PageSEOProps {
   title: string;
   description: string;
   canonicalPath?: string; // chemin relatif, ex: "/articles"
   keywords?: string[];
   ogImage?: string;
+  ogType?: "website" | "article";
   noindex?: boolean; // pour les pages légales si souhaité
   breadcrumb?: Array<{ name: string; url: string }>; // pour le fil d'Ariane
+  articleMeta?: ArticleMeta;
 }
 
 /**
@@ -20,9 +30,11 @@ export default function PageSEO({
   description,
   canonicalPath,
   keywords = [],
-  ogImage = "https://fluxa.fr/og-image.png",
+  ogImage = "https://fluxa.fr/og-image-v2.png",
+  ogType = "website",
   noindex = false,
   breadcrumb,
+  articleMeta,
 }: PageSEOProps) {
   const location = useLocation();
 
@@ -85,7 +97,7 @@ export default function PageSEO({
     // === OPEN GRAPH ===
     ensureOG("og:title", title);
     ensureOG("og:description", description);
-    ensureOG("og:type", "website");
+    ensureOG("og:type", ogType);
     ensureOG("og:url", canonicalUrl);
     ensureOG("og:image", ogImage);
     ensureOG("og:image:width", "1200");
@@ -93,6 +105,22 @@ export default function PageSEO({
     ensureOG("og:image:alt", "Fluxa - Création de sites vitrines professionnels pour artisans et indépendants");
     ensureOG("og:site_name", "Fluxa");
     ensureOG("og:locale", "fr_FR");
+
+    // === ARTICLE META (pour og:type="article") ===
+    if (ogType === "article" && articleMeta) {
+      if (articleMeta.publishedTime) ensureOG("article:published_time", articleMeta.publishedTime);
+      if (articleMeta.modifiedTime) ensureOG("article:modified_time", articleMeta.modifiedTime);
+      if (articleMeta.author) ensureOG("article:author", articleMeta.author);
+      if (articleMeta.section) ensureOG("article:section", articleMeta.section);
+      if (articleMeta.tags) {
+        articleMeta.tags.forEach(tag => {
+          const el = document.createElement("meta");
+          el.setAttribute("property", "article:tag");
+          el.content = tag;
+          document.head.appendChild(el);
+        });
+      }
+    }
 
     // === TWITTER CARD ===
     ensureMeta("twitter:card", "summary_large_image");

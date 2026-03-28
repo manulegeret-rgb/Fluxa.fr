@@ -6,7 +6,7 @@
 
   <!-- SEO de base -->
   <title>Fluxa | Création de site vitrine professionnel dès 890€</title>
-  <meta name="description" content="Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 890€. Livraison 2-3 semaines." />
+  <meta name="description" content="Agence web Fluxa (Savoie) — site vitrine professionnel dès 890€ pour artisans, TPE et indépendants. Design responsive, SEO inclus, hébergement offert 1 an. Devis gratuit sous 24h." />
   <meta name="author" content="Fluxa" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="keywords" content="création site vitrine, site vitrine professionnel, agence web TPE, site internet artisan, site pas cher, hébergement inclus, SEO optimisé, site vitrine artisan, création site internet, devis site vitrine" />
@@ -42,7 +42,10 @@
   <!-- Préconnexion origines tierces critiques -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
 
   <!-- Fonts (avec media print pour différer le chargement) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -74,15 +77,7 @@
         "name": "Fluxa",
         "url": "https://fluxa.fr/",
         "description": "Agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans et indépendants.",
-        "inLanguage": "fr-FR",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://fluxa.fr/articles?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "fr-FR"
       },
       {
         "@type": "Organization",
@@ -96,17 +91,28 @@
           "width": 240,
           "height": 240
         },
+        "email": "fluxa.contact@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "36 rue des Criquets",
+          "postalCode": "73160",
+          "addressLocality": "Cognin",
+          "addressRegion": "Auvergne-Rhône-Alpes",
+          "addressCountry": "FR"
+        },
         "sameAs": [
           "https://www.instagram.com/fluxa.fr",
           "https://www.facebook.com/fluxa.fr",
           "https://www.linkedin.com/company/fluxa-fr/"
         ],
         "description": "Fluxa est une agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs. Développement de sites internet modernes, responsive mobile-first et optimisés pour le référencement naturel (SEO) à partir de 890€. Hébergement web inclus.",
-        "foundingLocation": {
-          "@type": "Place",
-          "addressLocality": "Cognin",
-          "addressRegion": "Savoie",
-          "addressCountry": "FR"
+        "founder": {
+          "@type": "Person",
+          "@id": "https://fluxa.fr/#founder",
+          "name": "Emmanuel Légeret",
+          "jobTitle": "Fondateur & Développeur Web",
+          "worksFor": {"@id": "https://fluxa.fr/#organization"},
+          "knowsAbout": ["Création de sites web", "SEO", "Webdesign", "Développement web"]
         }
       },
       {
@@ -115,12 +121,38 @@
         "name": "Fluxa - Agence Web Création Sites Vitrines",
         "url": "https://fluxa.fr/",
         "image": "https://fluxa.fr/og-image-v2.png",
-        "priceRange": "890€–1500€",
-        "description": "Agence de création de sites vitrines professionnels pour TPE, artisans et indépendants. Design responsive, hébergement inclus, SEO optimisé. Livraison 2-3 semaines.",
-        "areaServed": {
-          "@type": "Country",
-          "name": "France"
+        "email": "fluxa.contact@gmail.com",
+        "priceRange": "890€–2000€",
+        "description": "Agence de création de sites vitrines professionnels pour TPE, artisans et indépendants à Cognin, Savoie. Design responsive, hébergement inclus, SEO optimisé. Livraison 2-3 semaines.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "36 rue des Criquets",
+          "postalCode": "73160",
+          "addressLocality": "Cognin",
+          "addressRegion": "Auvergne-Rhône-Alpes",
+          "addressCountry": "FR"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 45.5492,
+          "longitude": 5.8866
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "areaServed": [
+          {"@type": "City", "name": "Cognin"},
+          {"@type": "City", "name": "Chambéry"},
+          {"@type": "State", "name": "Savoie"},
+          {"@type": "Country", "name": "France"}
+        ],
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Virement bancaire, Carte bancaire",
         "availableLanguage": {
           "@type": "Language",
           "name": "French",
@@ -132,13 +164,65 @@
           "itemListElement": [
             {
               "@type": "Offer",
+              "@id": "https://fluxa.fr/#offer-vitrine-base",
+              "name": "Formule Site Vitrine",
+              "price": "890",
+              "priceCurrency": "EUR",
+              "priceValidUntil": "2026-12-31",
+              "availability": "https://schema.org/InStock",
               "itemOffered": {
                 "@type": "Service",
                 "name": "Création site vitrine professionnel",
-                "description": "Site vitrine 5 pages responsive, SEO optimisé, hébergement et domaine inclus 1ère année. Livraison en 1-2 semaines."
-              },
+                "serviceType": "Web Design",
+                "description": "Site vitrine 5 pages responsive, SEO optimisé, hébergement et domaine inclus 1ère année. Livraison en 2-3 semaines.",
+                "provider": {"@id": "https://fluxa.fr/#localbusiness"},
+                "areaServed": {"@type": "Country", "name": "France"}
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://fluxa.fr/#offer-portfolio",
+              "name": "Site Portfolio Artisan",
               "price": "890",
-              "priceCurrency": "EUR"
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Création site portfolio pour artisans",
+                "serviceType": "Web Design",
+                "description": "Site vitrine avec galerie photo, témoignages clients, idéal pour artisans et créatifs.",
+                "provider": {"@id": "https://fluxa.fr/#localbusiness"}
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://fluxa.fr/#offer-entreprise",
+              "name": "Site Entreprise TPE",
+              "price": "1200",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Création site entreprise pour TPE et PME",
+                "serviceType": "Web Design",
+                "description": "Présentation services, équipe, Google Maps intégré pour TPE et PME.",
+                "provider": {"@id": "https://fluxa.fr/#localbusiness"}
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://fluxa.fr/#offer-profession-liberale",
+              "name": "Site Profession Libérale",
+              "price": "1500",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Création site pour profession libérale",
+                "serviceType": "Web Design",
+                "description": "Pour consultants, coachs et experts indépendants. Prise de RDV, présentation expertise.",
+                "provider": {"@id": "https://fluxa.fr/#localbusiness"}
+              }
             }
           ]
         }
