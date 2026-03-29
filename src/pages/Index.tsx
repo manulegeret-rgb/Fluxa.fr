@@ -536,7 +536,7 @@ useEffect(() => {
           </div>
 
           {/* Mini-process en 3 étapes */}
-          <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
+          <ul className="mt-8 hidden md:grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
             <li className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-center gap-2 font-medium text-foreground mb-1">
                 <Mail className="w-4 h-4" /> Contact & Brief
