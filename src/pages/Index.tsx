@@ -518,7 +518,7 @@ useEffect(() => {
           pt-0 pb-10 md:pb-16
           bg-gradient-to-b from-background via-[hsl(217_40%_8%)] to-background
           relative overflow-hidden
-          scroll-mt-[-120px] md:scroll-mt-[-30px]
+          scroll-mt-[-220px] md:scroll-mt-[-30px]
         `}
       >
         <div className="absolute inset-0">
