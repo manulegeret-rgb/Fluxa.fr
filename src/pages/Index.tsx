@@ -213,8 +213,8 @@ useEffect(() => {
     {/* H1 centré en haut */}
     <div className="text-center mb-12 md:mb-16">
       <h1 className="text-[clamp(32px,5.5vw,62px)] font-bold leading-tight">
-        <span className="whitespace-nowrap">Votre site vitrine professionnel,</span>{" "}
-        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent whitespace-nowrap">
+        <span className="md:whitespace-nowrap">Votre site vitrine professionnel,</span>{" "}
+        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent md:whitespace-nowrap">
           livré clé en main
         </span>
       </h1>
@@ -236,14 +236,14 @@ useEffect(() => {
         </div>
 
         {/* Bénéfices clés */}
-        <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
+        <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-center md:text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
           {[
             { icon: "✅", txt: "Site vitrine responsive — parfait sur mobile, tablette et desktop" },
             { icon: "🔍", txt: "Optimisation SEO incluse pour apparaître sur Google" },
             { icon: "🌐", txt: "Hébergement web + nom de domaine offerts la 1ère année" },
             { icon: "📞", txt: "Support technique inclus — on reste disponibles après livraison" },
           ].map(({ icon, txt }) => (
-            <li key={txt} className="flex items-start gap-2">
+            <li key={txt} className="flex items-start md:items-start justify-center md:justify-start gap-2">
               <span className="mt-0.5 shrink-0">{icon}</span>
               <span>{txt}</span>
             </li>
