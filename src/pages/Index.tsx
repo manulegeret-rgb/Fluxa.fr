@@ -140,17 +140,17 @@ useEffect(() => {
             <div className="flex">
               <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                 <SheetTrigger asChild>
-                  <button aria-label="Ouvrir le menu" className="p-2 -ml-2">
+                  <button aria-label="Ouvrir le menu" className="p-3">
                     <Menu size={22} />
                   </button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#comment-ca-marche" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Comment ça marche</a>
-                    <a href="#pricing" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Tarifs</a>
-                    <a href="#pourquoi-choisir-fluxa" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Pourquoi nous ?</a>
-                    <a href="#faq" className="py-2 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
-                    <a href="#infos" className="py-2 text-base" onClick={() => setMenuOpen(false)}>Contact</a>
+                    <a href="#comment-ca-marche" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Comment ça marche</a>
+                    <a href="#pricing" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Tarifs</a>
+                    <a href="#pourquoi-choisir-fluxa" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Pourquoi nous ?</a>
+                    <a href="#faq" className="py-3 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
+                    <a href="#infos" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Contact</a>
                   </nav>
                   <div className="mt-4 flex flex-col gap-2">
                     <Button asChild className="w-full">
@@ -327,7 +327,7 @@ useEffect(() => {
           <li className="flex items-center gap-2"><span className="text-violet-400">✓</span> Page réalisations / avant-après</li>
           <li className="flex items-center gap-2"><span className="text-violet-400">✓</span> Formulaire de contact rapide</li>
         </ul>
-        <a href="#infos" className="text-sm font-medium text-violet-400 hover:text-violet-300 transition flex items-center gap-1 mt-auto">
+        <a href="#infos" className="text-sm font-medium text-violet-400 hover:text-violet-300 transition flex items-center gap-1 mt-auto py-2">
           Demander un devis <span>→</span>
         </a>
       </div>
@@ -347,7 +347,7 @@ useEffect(() => {
           <li className="flex items-center gap-2"><span className="text-primary">✓</span> Présentation équipe & valeurs</li>
           <li className="flex items-center gap-2"><span className="text-primary">✓</span> Google Maps intégré</li>
         </ul>
-        <a href="#infos" className="text-sm font-medium text-primary hover:text-primary/80 transition flex items-center gap-1 mt-auto">
+        <a href="#infos" className="text-sm font-medium text-primary hover:text-primary/80 transition flex items-center gap-1 mt-auto py-2">
           Demander un devis <span>→</span>
         </a>
       </div>
@@ -367,7 +367,7 @@ useEffect(() => {
           <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Biographie & parcours pro</li>
           <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Formulaire de contact rapide</li>
         </ul>
-        <a href="#infos" className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1 mt-auto">
+        <a href="#infos" className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1 mt-auto py-2">
           Demander un devis <span>→</span>
         </a>
       </div>
@@ -566,17 +566,17 @@ useEffect(() => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="contact-name" className="text-sm">Nom</label>
-                <input id="contact-name" name="name" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+                <input id="contact-name" name="name" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3.5 outline-none focus:ring-2 focus:ring-ring" />
               </div>
               <div>
                 <label htmlFor="contact-email" className="text-sm">Email</label>
-                <input id="contact-email" name="email" type="email" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+                <input id="contact-email" name="email" type="email" required className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3.5 outline-none focus:ring-2 focus:ring-ring" />
               </div>
             </div>
 
             <div>
               <label htmlFor="contact-need" className="text-sm">Type de site souhaité</label>
-              <select id="contact-need" name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring">
+              <select id="contact-need" name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3.5 outline-none focus:ring-2 focus:ring-ring">
                 <option value="" disabled>— Sélectionner —</option>
                 <option>Site vitrine simple (890€)</option>
                 <option>Site avec galerie photo</option>
@@ -588,11 +588,11 @@ useEffect(() => {
 
             <div>
               <label htmlFor="contact-message" className="text-sm">Votre message</label>
-              <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3 outline-none focus:ring-2 focus:ring-ring" />
+              <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet en quelques mots : votre activité, vos besoins, vos attentes…" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3.5 outline-none focus:ring-2 focus:ring-ring" />
             </div>
 
             <div className="flex items-center gap-3">
-              <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
+              <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3.5 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
                 {sending ? "Envoi en cours…" : "Envoyer ma demande"}
               </button>
             </div>
@@ -614,16 +614,16 @@ useEffect(() => {
           {/* Lien contact — mail + Instagram + Facebook + LinkedIn */}
           <div className="mt-10 text-muted-foreground">
             <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2">
+              <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
                 <Mail className="w-4 h-4" /> fluxa.contact@gmail.com
               </a>
-              <a href="https://instagram.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+              <a href="https://instagram.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
                 <Instagram className="w-4 h-4" /> fluxa.fr
               </a>
-              <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+              <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
                 <Facebook className="w-4 h-4" /> fluxa.fr
               </a>
-              <a href="https://www.linkedin.com/company/fluxa-fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+              <a href="https://www.linkedin.com/company/fluxa-fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
                 <Linkedin className="w-4 h-4" /> Fluxa
               </a>
             </div>
