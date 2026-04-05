@@ -1,6 +1,22 @@
 import { useEffect, useMemo, useState } from "react";
 import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 import PageSEO from "@/components/PageSEO";
+import {
+  Flame,
+  BarChart2,
+  CheckCircle2,
+  PenLine,
+  Search,
+  RefreshCw,
+  Mail,
+  HandHeart,
+  Puzzle,
+  CalendarDays,
+  MessageCircle,
+  TrendingUp,
+  Target,
+  Package,
+} from "lucide-react";
 
 /** =========================
  *  TYPO & UX PRESETS
@@ -166,10 +182,10 @@ export default function Articles() {
         {/* === ENCART ARTICLE RECOMMANDÉ === */}
         <section className={`${T.card} p-4 bg-gradient-to-br from-primary/10 to-primary/5 border-primary`}>
           <div className="flex items-start gap-3">
-            <span className="text-2xl">🔥</span>
+            <Flame className="w-6 h-6 text-primary shrink-0 mt-0.5" />
             <div className="flex-1">
               <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
-                📊 Ressource Recommandée
+                <BarChart2 className="inline w-4 h-4 mr-1 align-text-bottom" /> Ressource Recommandée
               </p>
               <h3 className="text-lg md:text-xl font-semibold leading-snug mb-1">
                 Combien Perdez-Vous Vraiment Avec la Gestion Manuelle ?
@@ -360,7 +376,7 @@ export default function Articles() {
   </p>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">✅ Cadence recommandée</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Cadence recommandée</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li><strong>J0 (immédiat)</strong> : confirmation (SMS/email) avec récap du rendez-vous + bouton "Ajouter au calendrier".</li>
       <li><strong>J-1 à 18h</strong> : rappel avec lien <em>Confirmer / Déplacer / Annuler</em>.</li>
@@ -369,7 +385,7 @@ export default function Articles() {
   </div>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">✍️ Exemples de messages (SMS)</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><PenLine className="w-4 h-4 text-primary shrink-0" /> Exemples de messages (SMS)</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li><em>Confirmation :</em> "{`{prenom}`}, rdv confirmé le {`{date}`}, {`{heure}`}, {`{adresse}`}. Ajoutez au calendrier : {`{lien_ics}`}. À bientôt — Fluxa."</li>
       <li><em>Veille 18h :</em> "{`{prenom}`}, rappel rdv demain {`{heure}`}. Confirmer/Déplacer/Annuler : {`{lien_action}`}. Merci ! — Fluxa"</li>
@@ -378,7 +394,7 @@ export default function Articles() {
   </div>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">🔎 Bonnes pratiques</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><Search className="w-4 h-4 text-primary shrink-0" /> Bonnes pratiques</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li>Un seul lien d'action centralisé (évite les malentendus).</li>
       <li>Toujours arrêter les rappels dès que le client confirme/déplace.</li>
@@ -401,7 +417,7 @@ export default function Articles() {
   </p>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">🔁 Échelle d'escalade (modèle)</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><RefreshCw className="w-4 h-4 text-primary shrink-0" /> Échelle d'escalade (modèle)</p>
     <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground">
       <li><strong>J+7</strong> : rappel cordial (ton "oubli probable"), facture & lien de paiement.</li>
       <li><strong>J+14</strong> : second rappel + proposition d'échéancier (lien d'acceptation en 1 clic).</li>
@@ -410,7 +426,7 @@ export default function Articles() {
   </div>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">✉️ Gabarits d'emails/SMS</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><Mail className="w-4 h-4 text-primary shrink-0" /> Gabarits d'emails/SMS</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li><em>J+7 (cordial)</em> : "Bonjour {`{prenom}`}, un rappel pour la facture {`{num}`}, montant {`{montant}`}. Règlement ici : {`{lien}`}. Merci beaucoup 🙏"</li>
       <li><em>J+14 (solution)</em> : "Bonjour {`{prenom}`}, souhaitez-vous un échéancier en 2/3 fois ? Proposez-le ici : {`{lien_echeancier}`}. Sinon paiement : {`{lien}`}."</li>
@@ -419,7 +435,7 @@ export default function Articles() {
   </div>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">🧩 Détails utiles</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><Puzzle className="w-4 h-4 text-primary shrink-0" /> Détails utiles</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li>Arrêt automatique des relances dès encaissement (évite les doublons).</li>
       <li>Synchroniser le statut "payé" avec compta/livre de recettes.</li>
@@ -440,7 +456,7 @@ export default function Articles() {
   </p>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">🗓️ Mini séquence (exemple)</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><CalendarDays className="w-4 h-4 text-primary shrink-0" /> Mini séquence (exemple)</p>
     <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground">
       <li><strong>H+2</strong> : remerciement + conseils d'usage / check-list courte.</li>
       <li><strong>J+2</strong> : "tout va bien ?" + lien SAV si besoin.</li>
@@ -449,7 +465,7 @@ export default function Articles() {
   </div>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">💬 Gabarits rapides</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><MessageCircle className="w-4 h-4 text-primary shrink-0" /> Gabarits rapides</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li><em>H+2</em> : "Merci {`{prenom}`}, heureux d'avoir travaillé avec vous. Voici nos conseils : {`{lien_pdf}`}. Bonne journée !"</li>
       <li><em>J+2</em> : "Tout se passe bien {`{prenom}`} ? Un souci ? On est là : {`{lien_sav}`}."</li>
@@ -471,7 +487,7 @@ export default function Articles() {
   </p>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">📈 KPIs essentiels (définitions)</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><TrendingUp className="w-4 h-4 text-primary shrink-0" /> KPIs essentiels (définitions)</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li><strong>CA du mois</strong> : total encaissé sur période (pas émis).</li>
       <li><strong>Taux de conversion devis</strong> = devis acceptés / devis envoyés.</li>
@@ -483,7 +499,7 @@ export default function Articles() {
   </div>
 
   <div className={`${T.card} p-3 space-y-2`}>
-    <p className="font-medium text-sm">🎯 Seuils d'alerte (guidelines)</p>
+    <p className="font-medium text-sm flex items-center gap-1.5"><Target className="w-4 h-4 text-primary shrink-0" /> Seuils d'alerte (guidelines)</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li>No-shows &gt; 10&nbsp;% → renforcer rappels & confirmation.</li>
       <li>Délai moyen &gt; 21 jours → proposer CB/SEPA + échéancier.</li>
@@ -504,7 +520,7 @@ export default function Articles() {
 
   <div className="grid md:grid-cols-2 gap-4">
     <div className={`${T.card} p-4 space-y-2`}>
-      <p className="font-medium text-sm">🗓️ Feuille de route (standard)</p>
+      <p className="font-medium text-sm flex items-center gap-1.5"><CalendarDays className="w-4 h-4 text-primary shrink-0" /> Feuille de route (standard)</p>
       <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground">
         <li><strong>Jour 1</strong> : diagnostic + paramétrage (branding, mentions légales, numérotation).</li>
         <li><strong>Jour 2</strong> : scénarios clés (rappels RDV, relances J+7/J+14, post-prestation).</li>
@@ -512,7 +528,7 @@ export default function Articles() {
       </ol>
     </div>
     <div className={`${T.card} p-4 space-y-2`}>
-      <p className="font-medium text-sm">📦 Livrables</p>
+      <p className="font-medium text-sm flex items-center gap-1.5"><Package className="w-4 h-4 text-primary shrink-0" /> Livrables</p>
       <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
         <li>Interface brandée et prête à l'emploi.</li>
         <li>Modèles (devis, factures, emails/SMS) personnalisés.</li>

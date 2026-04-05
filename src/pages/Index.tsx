@@ -21,6 +21,19 @@ import {
   ShieldCheck,
   Code2,
   Headphones,
+  Search,
+  Globe,
+  Phone,
+  CreditCard,
+  Lock,
+  Target,
+  Palette,
+  Building2,
+  Briefcase,
+  Trophy,
+  Wrench,
+  TrendingUp,
+  Banknote,
 } from "lucide-react";
 import mockupAJour from "@/assets/realisation-client.png"
 import { Button } from "@/components/ui/button";
@@ -238,10 +251,10 @@ useEffect(() => {
         {/* Bénéfices clés */}
         <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-center md:text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
           {[
-            { icon: "✅", txt: "Site vitrine responsive — parfait sur mobile, tablette et desktop" },
-            { icon: "🔍", txt: "Optimisation SEO incluse pour apparaître sur Google" },
-            { icon: "🌐", txt: "Hébergement web + nom de domaine offerts la 1ère année" },
-            { icon: "📞", txt: "Support technique inclus — on reste disponibles après livraison" },
+            { icon: <CheckCircle2 className="w-4 h-4 text-primary" />, txt: "Site vitrine responsive — parfait sur mobile, tablette et desktop" },
+            { icon: <Search className="w-4 h-4 text-primary" />, txt: "Optimisation SEO incluse pour apparaître sur Google" },
+            { icon: <Globe className="w-4 h-4 text-primary" />, txt: "Hébergement web + nom de domaine offerts la 1ère année" },
+            { icon: <Phone className="w-4 h-4 text-primary" />, txt: "Support technique inclus — on reste disponibles après livraison" },
           ].map(({ icon, txt }) => (
             <li key={txt} className="flex items-start md:items-start justify-center md:justify-start gap-2">
               <span className="mt-0.5 shrink-0">{icon}</span>
@@ -252,7 +265,7 @@ useEffect(() => {
 
         {/* Badge prix */}
         <div className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 font-semibold text-foreground bg-primary/10 text-sm mx-auto lg:mx-0">
-          💰 À partir de <span className="text-primary">890 € tout compris</span>
+          <Banknote className="w-4 h-4" /> À partir de <span className="text-primary">890 € tout compris</span>
         </div>
 
         {/* CTAs — Devis en principal */}
@@ -315,7 +328,7 @@ useEffect(() => {
       {/* Carte 1 */}
       <div className="group rounded-2xl border border-border bg-card p-6 hover:border-violet-500/60 hover:shadow-[0_0_30px_-8px_rgba(139,92,246,0.25)] transition-all flex flex-col">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center text-2xl shrink-0">🎨</div>
+          <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center shrink-0"><Palette className="w-6 h-6 text-violet-400" /></div>
           <span className="text-xs font-semibold uppercase tracking-wider text-violet-400 bg-violet-500/10 px-2.5 py-1 rounded-full">Artisan / Créatif</span>
         </div>
         <h3 className="text-xl font-semibold mb-3">Site Portfolio</h3>
@@ -335,7 +348,7 @@ useEffect(() => {
       {/* Carte 2 */}
       <div className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/60 hover:shadow-[0_0_30px_-8px_rgba(59,130,246,0.25)] transition-all flex flex-col">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-2xl shrink-0">🏢</div>
+          <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center shrink-0"><Building2 className="w-6 h-6 text-primary" /></div>
           <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">TPE / PME</span>
         </div>
         <h3 className="text-xl font-semibold mb-3">Site Entreprise</h3>
@@ -355,7 +368,7 @@ useEffect(() => {
       {/* Carte 3 */}
       <div className="group rounded-2xl border border-border bg-card p-6 hover:border-emerald-500/60 hover:shadow-[0_0_30px_-8px_rgba(16,185,129,0.25)] transition-all flex flex-col">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center text-2xl shrink-0">💼</div>
+          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0"><Briefcase className="w-6 h-6 text-emerald-400" /></div>
           <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">Indépendant</span>
         </div>
         <h3 className="text-xl font-semibold mb-3">Site Profession Libérale</h3>
@@ -503,7 +516,7 @@ useEffect(() => {
           {/* Note de réassurance sous les tarifs */}
           <div className="mt-12 max-w-4xl mx-auto text-center">
             <p className="text-sm text-muted-foreground">
-              💳 Paiement en 2 fois sans frais disponible • 🔒 Propriété totale du site • 🎯 Support inclus
+              Paiement en 2 fois sans frais disponible • Propriété totale du site • Support inclus
             </p>
           </div>
         </div>
@@ -714,7 +727,7 @@ useEffect(() => {
 
     <div className="grid sm:grid-cols-2 gap-5">
       <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="text-2xl shrink-0">🏆</div>
+        <div className="shrink-0 mt-0.5"><Trophy className="w-5 h-5 text-primary" /></div>
         <div>
           <p className="font-semibold text-sm mb-1">Qualité professionnelle, prix accessible</p>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -724,7 +737,7 @@ useEffect(() => {
       </div>
 
       <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="text-2xl shrink-0">🔧</div>
+        <div className="shrink-0 mt-0.5"><Wrench className="w-5 h-5 text-primary" /></div>
         <div>
           <p className="font-semibold text-sm mb-1">Pour tous les corps de métier</p>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -734,7 +747,7 @@ useEffect(() => {
       </div>
 
       <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="text-2xl shrink-0">📈</div>
+        <div className="shrink-0 mt-0.5"><TrendingUp className="w-5 h-5 text-primary" /></div>
         <div>
           <p className="font-semibold text-sm mb-1">Standards modernes & SEO intégré</p>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -744,7 +757,7 @@ useEffect(() => {
       </div>
 
       <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="text-2xl shrink-0">🎯</div>
+        <div className="shrink-0 mt-0.5"><Target className="w-5 h-5 text-primary" /></div>
         <div>
           <p className="font-semibold text-sm mb-1">Adapté à votre secteur</p>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -777,17 +790,17 @@ useEffect(() => {
     <div className="grid md:grid-cols-3 gap-8">
       {[
         {
-          icon: "⚡",
+          icon: <Zap className="w-8 h-8 text-primary" />,
           title: "Livraison rapide",
           text: `Votre site est prêt en 2-3 semaines seulement. Nous travaillons efficacement sans compromettre la qualité. Besoin encore plus vite ? Contactez-nous pour une option express. Dès validation de la maquette, votre site est développé et mis en ligne rapidement pour que vous puissiez commencer à gagner en visibilité immédiatement.`,
         },
         {
-          icon: "💰",
+          icon: <Banknote className="w-8 h-8 text-primary" />,
           title: "Prix transparent et compétitif",
           text: `À partir de 890€ tout compris : design responsive, hébergement et domaine 1ère année inclus, formulaire de contact, SEO de base. Pas de frais cachés, pas de contrat long terme. Vous savez exactement ce que vous payez dès le départ. Options ajustables selon vos besoins réels, sans payer pour des fonctionnalités inutiles.`,
         },
         {
-          icon: "🎯",
+          icon: <Target className="w-8 h-8 text-primary" />,
           title: "Propriété totale & support inclus",
           text: `Vous êtes propriétaire à 100% de votre site, code source inclus. Formation à la gestion offerte à la livraison. Support technique réactif : nous intervenons rapidement en cas de problème. Maintenance optionnelle à 59€/mois pour garder votre site à jour. Pas de dépendance : vous restez libre.`,
         },
@@ -796,7 +809,7 @@ useEffect(() => {
           key={i}
           className="rounded-2xl border border-border/60 bg-card/40 p-8 space-y-4 hover:bg-card/60 transition"
         >
-          <div className="text-4xl">{item.icon}</div>
+          <div>{item.icon}</div>
           <h3 className="text-2xl font-semibold">{item.title}</h3>
           <p className="text-muted-foreground leading-relaxed">{item.text}</p>
         </div>
