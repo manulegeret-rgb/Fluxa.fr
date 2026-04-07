@@ -134,7 +134,7 @@ export default function Articles() {
   <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
     {/* SEO optimisé pour cette page */}
     <PageSEO
-      title="Outil d'Automatisation Entreprise — Guide Complet pour Artisans et PME | Fluxa"
+      title="Outil d'Automatisation Entreprise : Guide Complet pour Artisans et PME | Fluxa"
       description="Guide complet sur l'automatisation des tâches et la gestion d'entreprise pour artisans et PME. Découvrez notre outil d'automatisation entreprise pour automatiser rappels, relances, facturation et gagner du temps au quotidien."
       canonicalPath="/articles"
       keywords={[
@@ -316,7 +316,7 @@ export default function Articles() {
             Automatiser, c’est déléguer à un système ce qui peut être fait de manière répétitive,
             pour vous permettre de rester concentré sur votre métier.  
             Un SMS de rappel envoyé automatiquement la veille d’un rendez-vous, une facture générée
-            dès le paiement reçu, ou encore un mail de remerciement programmé après une prestation —
+            dès le paiement reçu, ou encore un mail de remerciement programmé après une prestation :
             autant de gestes simples qui, cumulés, transforment l’expérience de vos clients.
           </p>
           <h3 className={T.h3}>Ce que l’automatisation n’est pas</h3>
@@ -387,9 +387,9 @@ export default function Articles() {
   <div className={`${T.card} p-3 space-y-2`}>
     <p className="font-medium text-sm flex items-center gap-1.5"><PenLine className="w-4 h-4 text-primary shrink-0" /> Exemples de messages (SMS)</p>
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-      <li><em>Confirmation :</em> "{`{prenom}`}, rdv confirmé le {`{date}`}, {`{heure}`}, {`{adresse}`}. Ajoutez au calendrier : {`{lien_ics}`}. À bientôt — Fluxa."</li>
-      <li><em>Veille 18h :</em> "{`{prenom}`}, rappel rdv demain {`{heure}`}. Confirmer/Déplacer/Annuler : {`{lien_action}`}. Merci ! — Fluxa"</li>
-      <li><em>H-1 :</em> "{`{prenom}`}, rdv dans 1h ({`{heure}`}). Besoin d'ajuster ? {`{lien_action}`}. — Fluxa"</li>
+      <li><em>Confirmation :</em> "{`{prenom}`}, rdv confirmé le {`{date}`}, {`{heure}`}, {`{adresse}`}. Ajoutez au calendrier : {`{lien_ics}`}. À bientôt, Fluxa."</li>
+      <li><em>Veille 18h :</em> "{`{prenom}`}, rappel rdv demain {`{heure}`}. Confirmer/Déplacer/Annuler : {`{lien_action}`}. Merci, Fluxa"</li>
+      <li><em>H-1 :</em> "{`{prenom}`}, rdv dans 1h ({`{heure}`}). Besoin d'ajuster ? {`{lien_action}`}. Fluxa"</li>
     </ul>
   </div>
 
@@ -439,7 +439,7 @@ export default function Articles() {
     <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
       <li>Arrêt automatique des relances dès encaissement (évite les doublons).</li>
       <li>Synchroniser le statut "payé" avec compta/livre de recettes.</li>
-      <li>Conserver une trace (journal des relances) — utile en cas de litige.</li>
+      <li>Conserver une trace (journal des relances), utile en cas de litige.</li>
       <li>Proposer un paiement en un clic (CB/SEPA) pour lever le dernier frein.</li>
     </ul>
   </div>
@@ -633,7 +633,7 @@ export default function Articles() {
   <h3 className={T.h3}>8.6 Impact direct sur le chiffre (ROI)</h3>
   <p className={T.p}>
     Exemple prudent : <strong>8 h/sem.</strong> économisées × <strong>30 €</strong>/h = <strong>240 €</strong>/sem.  
-    Soit ~<strong>960 €</strong>/mois de valeur, bien au-delà d’un abonnement pro — sans compter les impayés évités.
+    Soit ~<strong>960 €</strong>/mois de valeur, bien au-delà d’un abonnement pro, sans compter les impayés évités.
   </p>
 </div>
 

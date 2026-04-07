@@ -36,7 +36,7 @@ const CONFIG = {
     siret: "83014496000044",
     siren: "830144960",
     rcs: "",
-    vat: "Non assujetti — franchise en base art. 293B CGI",
+    vat: "Non assujetti (franchise en base art. 293B CGI)",
   },
   websiteUrl: "https://www.fluxa.fr",
   contactEmail: "fluxa.contact@gmail.com",
@@ -94,7 +94,7 @@ const CONFIG = {
       provider: "Fluxa",
       purpose: "Le site ne dépose aucun cookie publicitaire ou analytique",
       type: "essential",
-      duration: "—",
+      duration: "N/A",
     },
   ] as Cookie[],
 
@@ -113,7 +113,7 @@ const CONFIG = {
   // Droits RGPD & réclamations (CNIL)
   dataSubjectRightsContact:
     "Pour exercer vos droits (accès, rectification, effacement, limitation, opposition, portabilité), contactez : fluxa.contact@gmail.com.",
-  complaintAuthority: "CNIL — https://www.cnil.fr/fr/plaintes",
+  complaintAuthority: "CNIL : https://www.cnil.fr/fr/plaintes",
 
   // Date d'effet et mises à jour
   effectiveDate: "17/03/2026",
@@ -178,7 +178,7 @@ const PrivacyPolicy: React.FC = () => {
     <main className="px-6 md:px-8 py-12 text-gray-100">
       {/* SEO optimisé */}
       <PageSEO
-        title="Politique de confidentialité — Fluxa"
+        title="Politique de confidentialité · Fluxa"
         description="Politique de confidentialité de Fluxa, agence web création sites vitrines. Protection des données personnelles, traitement RGPD et vos droits (accès, rectification, suppression)."
         canonicalPath="/politique-confidentialite"
         noindex={false}
@@ -199,7 +199,7 @@ const PrivacyPolicy: React.FC = () => {
         </p>
         <p className="mt-4">
           La présente politique explique comment <strong>{c.dataControllerName}</strong> (
-          {c.legalForm}) — opérant sous le nom commercial <strong>{c.tradeName}</strong> — traite vos
+          {c.legalForm}), opérant sous le nom commercial <strong>{c.tradeName}</strong>, traite vos
           données à caractère personnel conformément au Règlement (UE) 2016/679 (RGPD) et à la loi
           Informatique & Libertés.
         </p>
@@ -225,14 +225,14 @@ const PrivacyPolicy: React.FC = () => {
         <ul className="list-disc ml-5">
           <ListItem label="Responsable de traitement" value={`${c.dataControllerName} (${c.legalForm})`} />
           <ListItem label="Nom commercial" value={c.tradeName} />
-          <ListItem label="Adresse" value={`${c.companyAddress} — ${c.country}`} />
+          <ListItem label="Adresse" value={`${c.companyAddress}, ${c.country}`} />
           <ListItem label="Site" value={c.websiteUrl} />
           <ListItem label="Email de contact" value={c.contactEmail} />
           {c.dpoEmail && <ListItem label="DPO" value={c.dpoEmail} />}
           {c.companyId.siren && <ListItem label="SIREN" value={c.companyId.siren} />}
           {c.companyId.siret && <ListItem label="SIRET" value={c.companyId.siret} />}
           {c.companyId.vat && <ListItem label="TVA" value={c.companyId.vat} />}
-          <ListItem label="Hébergeur" value={`${c.hosting.provider} — ${c.hosting.location}`} />
+          <ListItem label="Hébergeur" value={`${c.hosting.provider}, ${c.hosting.location}`} />
         </ul>
       </Section>
 
@@ -266,8 +266,8 @@ const PrivacyPolicy: React.FC = () => {
             p.service,
             p.purpose,
             p.dataTypes.join(", "),
-            `${p.location}${p.safeguards ? ` — ${p.safeguards}` : ""}`,
-            p.dpaUrl ? p.dpaUrl : "—",
+            `${p.location}${p.safeguards ? `, ${p.safeguards}` : ""}`,
+            p.dpaUrl ? p.dpaUrl : "N/A",
           ])}
         />
       </Section>
@@ -309,7 +309,7 @@ const PrivacyPolicy: React.FC = () => {
         <ul className="list-disc ml-5">
           <ListItem label="Support / RGPD" value={c.contactEmail} />
           {c.dpoEmail && <ListItem label="DPO" value={c.dpoEmail} />}
-          <ListItem label="Adresse postale" value={`${c.companyAddress} — ${c.country}`} />
+          <ListItem label="Adresse postale" value={`${c.companyAddress}, ${c.country}`} />
         </ul>
       </Section>
 

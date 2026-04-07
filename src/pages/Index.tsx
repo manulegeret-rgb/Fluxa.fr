@@ -116,7 +116,7 @@ useEffect(() => {
     const templateParams = {
       from_name: (f.get("name") as string) || "",
       from_email: (f.get("email") as string) || "",
-      subject: `Demande de site — ${(f.get("need") as string) || ""}`,
+      subject: `Demande de site : ${(f.get("need") as string) || ""}`,
       message: (f.get("message") as string) || "(aucun message)",
     };
     setSending(true);
@@ -241,7 +241,7 @@ useEffect(() => {
         <div className="space-y-3 text-[15px] md:text-lg text-muted-foreground/90">
           <p>
             <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
-            Fluxa crée votre site vitrine professionnel en 2 à 3 semaines — clé en main, livré prêt à recevoir vos clients.
+            Fluxa crée votre site vitrine professionnel en 2 à 3 semaines, clé en main, livré prêt à recevoir vos clients.
           </p>
           <p>
             Design soigné, référencement Google, hébergement inclus : tout ce qu'il faut pour être visible en ligne et décrocher de nouveaux clients, sans vous occuper de la technique.
@@ -251,10 +251,10 @@ useEffect(() => {
         {/* Bénéfices clés */}
         <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-center md:text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
           {[
-            { icon: <CheckCircle2 className="w-4 h-4 text-primary" />, txt: "Site vitrine responsive — parfait sur mobile, tablette et desktop" },
+            { icon: <CheckCircle2 className="w-4 h-4 text-primary" />, txt: "Site vitrine responsive, parfait sur mobile, tablette et desktop" },
             { icon: <Search className="w-4 h-4 text-primary" />, txt: "Optimisation SEO incluse pour apparaître sur Google" },
             { icon: <Globe className="w-4 h-4 text-primary" />, txt: "Hébergement web + nom de domaine offerts la 1ère année" },
-            { icon: <Phone className="w-4 h-4 text-primary" />, txt: "Support technique inclus — on reste disponibles après livraison" },
+            { icon: <Phone className="w-4 h-4 text-primary" />, txt: "Support technique inclus, on reste disponibles après livraison" },
           ].map(({ icon, txt }) => (
             <li key={txt} className="flex items-start md:items-start justify-center md:justify-start gap-2">
               <span className="mt-0.5 shrink-0">{icon}</span>
@@ -413,7 +413,7 @@ useEffect(() => {
       NOUVEAU
     </div>
     <h2 className="text-4xl lg:text-5xl font-bold">
-      Tarifs site vitrine — Transparents et tout compris
+      Tarifs site vitrine : transparents et tout compris
     </h2>
   </div>
   <p className="text-xl text-muted-foreground">
@@ -590,7 +590,7 @@ useEffect(() => {
             <div>
               <label htmlFor="contact-need" className="text-sm">Type de site souhaité</label>
               <select id="contact-need" name="need" required defaultValue="" className="mt-1 w-full rounded-2xl border border-border bg-card px-4 py-3.5 outline-none focus:ring-2 focus:ring-ring">
-                <option value="" disabled>— Sélectionner —</option>
+                <option value="" disabled>Sélectionner</option>
                 <option>Site vitrine simple (890€)</option>
                 <option>Site avec galerie photo</option>
                 <option>Site avec prise de RDV</option>
@@ -613,7 +613,7 @@ useEffect(() => {
               <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>
             )}
             <p className="mt-2 text-xs text-muted-foreground">
-              Réponse sous 48h — sans engagement.
+              Réponse sous 48h, sans engagement.
             </p>
           </form>
 
@@ -667,7 +667,7 @@ useEffect(() => {
               </div>
               <h3 className="font-semibold mb-2">Satisfaction garantie</h3>
               <p className="text-sm text-muted-foreground">
-                Modifications incluses jusqu'à validation complète — sans surcoût
+                Modifications incluses jusqu'à validation complète, sans surcoût
               </p>
             </div>
 
@@ -721,7 +721,7 @@ useEffect(() => {
         Agence de création de sites internet pour PME et indépendants
       </h2>
       <p className="mt-3 text-muted-foreground text-[15px] md:text-base max-w-2xl mx-auto">
-        <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs — responsive, optimisés SEO et hébergement inclus.
+        <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs : responsive, optimisés SEO et hébergement inclus.
       </p>
     </div>
 
@@ -826,7 +826,7 @@ useEffect(() => {
         sans compromis sur la qualité technique.
       </p>
       <p className="text-muted-foreground text-lg leading-relaxed text-center">
-        Chaque site — design, développement, SEO, hébergement —
+        Chaque site (design, développement, SEO, hébergement)
         est pensé pour être efficace dès le premier jour.
         Pas besoin d'être expert : votre site est livré prêt à l'emploi avec formation et support inclus.
       </p>
@@ -914,7 +914,7 @@ useEffect(() => {
             className="h-8 w-auto rounded-lg bg-white/5 p-1 ring-1 ring-white/10"
           />
           <p className="text-sm text-muted-foreground">
-            Fluxa — Création de sites vitrines professionnels
+            Fluxa · Création de sites vitrines professionnels
           </p>
         </div>
         {/* NAP — Name Address Phone (signal SEO local critique) */}
@@ -977,7 +977,7 @@ useEffect(() => {
     {/* Ligne 2 : liens légaux + © */}
     <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
       <p className="text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Fluxa — Emmanuel Légeret, Entrepreneur Individuel — SIRET 83014496000044
+        © {new Date().getFullYear()} Fluxa · Emmanuel Légeret, Entrepreneur Individuel · SIRET 83014496000044
       </p>
 
       <div className="flex items-center gap-4 text-sm">

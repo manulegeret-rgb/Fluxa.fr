@@ -6,8 +6,8 @@ export default function MentionsLegales() {
     <main className="relative min-h-screen bg-[#0B1120] text-[#E5E7EB]">
       {/* SEO optimisé */}
       <PageSEO
-        title="Mentions légales — Fluxa"
-        description="Mentions légales du site Fluxa — Agence web création de sites vitrines professionnels pour TPE, artisans et indépendants. Éditeur : Emmanuel Légeret, Cognin (73160)."
+        title="Mentions légales · Fluxa"
+        description="Mentions légales du site Fluxa, agence web spécialisée dans la création de sites vitrines professionnels pour TPE, artisans et indépendants. Éditeur : Emmanuel Légeret, Cognin (73160)."
         canonicalPath="/mentions-legales"
         noindex={false}
       />
@@ -45,11 +45,11 @@ export default function MentionsLegales() {
             </p>
             <p className="mt-4">
               <strong>Propriétaire et éditeur du site :</strong><br />
-              Emmanuel Légeret — Entrepreneur individuel<br />
+              Emmanuel Légeret, Entrepreneur individuel<br />
               SIREN : 830144960<br />
               SIRET : 83014496000044<br />
               Adresse : 36 rue des Criquets, 73160 Cognin, France<br />
-              TVA : Non assujetti à la TVA — franchise en base selon l&apos;art. 293B du CGI<br />
+              TVA : Non assujetti à la TVA (franchise en base selon l&apos;art. 293B du CGI)<br />
               Adresse e-mail :{" "}
               <a className="text-[#93C5FD]" href="mailto:fluxa.contact@gmail.com">
                 fluxa.contact@gmail.com
@@ -57,14 +57,14 @@ export default function MentionsLegales() {
             </p>
             <p className="mt-4">
               <strong>Responsable de la publication :</strong><br />
-              Emmanuel Légeret —{" "}
+              Emmanuel Légeret,{" "}
               <a className="text-[#93C5FD]" href="mailto:fluxa.contact@gmail.com">
                 fluxa.contact@gmail.com
               </a>
             </p>
             <p className="mt-4">
               <strong>Webmaster :</strong><br />
-              Emmanuel Légeret —{" "}
+              Emmanuel Légeret,{" "}
               <a className="text-[#93C5FD]" href="mailto:fluxa.contact@gmail.com">
                 fluxa.contact@gmail.com
               </a>
@@ -147,7 +147,7 @@ export default function MentionsLegales() {
 
         {/* Petit footer local minimal */}
         <p className="mt-10 pt-6 border-t border-white/10 text-sm text-gray-400 text-center">
-          © {new Date().getFullYear()} Fluxa — Emmanuel Légeret. Tous droits réservés.
+          © {new Date().getFullYear()} Fluxa · Emmanuel Légeret. Tous droits réservés.
         </p>
       </div>
     </main>

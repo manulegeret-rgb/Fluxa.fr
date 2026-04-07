@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 const Merci = () => (
   <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center px-6 text-center">
     <SEOHead
-      title="Merci pour votre message — Fluxa"
+      title="Merci pour votre message · Fluxa"
       description="Votre demande a bien été reçue. On vous répond sous 48h."
     />
     <div className="max-w-md space-y-6">

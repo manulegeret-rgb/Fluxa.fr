@@ -13,7 +13,7 @@ type Props = {
 export default function HomeLogoOverlay({
   href = "/",
   logoSrc,
-  alt = "Fluxa — retour à l'accueil",
+  alt = "Fluxa, retour à l'accueil",
   size = 72,
   mobileSize,                    // si non défini, on utilise automatiquement size * 0.65
   hideOnDesktop = false,

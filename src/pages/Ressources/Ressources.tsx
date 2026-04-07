@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function Ressources() {
   // === SEO par route ===
   useEffect(() => {
-    document.title = "Ressources — Conseils & Astuces Web | Fluxa";
+    document.title = "Ressources : Conseils & Astuces Web | Fluxa";
 
     const ensureMeta = (name: string, content: string) => {
       let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
@@ -37,7 +37,7 @@ export default function Ressources() {
         <header className="max-w-3xl mx-auto text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold">Ressources</h1>
           <p className="text-muted-foreground mt-3">
-            Conseils et astuces pour développer votre présence en ligne — sans jargon technique.
+            Conseils et astuces pour développer votre présence en ligne, sans jargon technique.
           </p>
         </header>
 
@@ -86,7 +86,7 @@ export default function Ressources() {
         {/* CTA central */}
         <div className="mt-10 text-center">
           <a href="/#pricing" className="inline-block rounded-xl border px-5 py-3 hover:shadow">
-            Demander un devis gratuit — Réponse sous 48h
+            Demander un devis gratuit · Réponse sous 48h
           </a>
           <p className="text-xs text-muted-foreground mt-2">
             Votre site livré clé en main. Vous restez propriétaire à 100%.

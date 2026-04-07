@@ -5,8 +5,8 @@ export default function CGV() {
   return (
     <main className="relative min-h-screen bg-[#0B1120] text-[#E5E7EB]">
       <PageSEO
-        title="Conditions Générales de Vente — Fluxa"
-        description="Conditions générales de vente de Fluxa — Création de sites web professionnels. Emmanuel Légeret, Entrepreneur Individuel, Cognin (73160)."
+        title="Conditions Générales de Vente · Fluxa"
+        description="Conditions générales de vente de Fluxa, création de sites web professionnels. Emmanuel Légeret, Entrepreneur Individuel, Cognin (73160)."
         canonicalPath="/cgv"
         noindex={false}
       />
@@ -31,7 +31,7 @@ export default function CGV() {
 
         {/* Article 1 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 1 — Objet</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 1 : Objet</h2>
           <p className="text-gray-300 leading-relaxed">
             Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre
             Emmanuel Légeret, exerçant sous l'enseigne <strong className="text-white">Fluxa</strong>,
@@ -47,7 +47,7 @@ export default function CGV() {
 
         {/* Article 2 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 2 — Services proposés</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 2 : Services proposés</h2>
           <p className="text-gray-300 leading-relaxed">
             Fluxa propose des prestations de création de sites web professionnels (sites vitrines, sites
             de présentation), incluant la conception, le développement, l'intégration de contenu fourni
@@ -61,9 +61,9 @@ export default function CGV() {
 
         {/* Article 3 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 3 — Tarifs</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 3 : Tarifs</h2>
           <p className="text-gray-300 leading-relaxed">
-            Les prix sont exprimés en euros TTC. TVA non applicable — Article 293 B du Code Général des Impôts.
+            Les prix sont exprimés en euros TTC. TVA non applicable (Article 293 B du Code Général des Impôts).
           </p>
           <p className="text-gray-300 leading-relaxed mt-3">
             Les tarifs en vigueur sont indiqués sur le site <strong className="text-white">fluxa.fr</strong>.
@@ -74,7 +74,7 @@ export default function CGV() {
 
         {/* Article 4 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 4 — Modalités de paiement</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 4 : Modalités de paiement</h2>
           <ul className="text-gray-300 leading-relaxed space-y-2 list-none">
             <li>▸ <strong className="text-white">Acompte de 50 %</strong> du montant total TTC, exigible à la signature du devis et avant tout démarrage de la prestation.</li>
             <li>▸ <strong className="text-white">Solde de 50 %</strong> exigible à la livraison du site, avant mise en ligne.</li>
@@ -89,7 +89,7 @@ export default function CGV() {
 
         {/* Article 5 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 5 — Délais de réalisation</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 5 : Délais de réalisation</h2>
           <p className="text-gray-300 leading-relaxed">
             Le délai de réalisation est précisé dans le devis. Il prend effet à compter de la réception
             de l'acompte <strong className="text-white">et</strong> de la transmission par le Client de
@@ -103,7 +103,7 @@ export default function CGV() {
 
         {/* Article 6 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 6 — Révisions et modifications</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 6 : Révisions et modifications</h2>
           <p className="text-gray-300 leading-relaxed">
             Chaque prestation inclut <strong className="text-white">jusqu'à 3 sessions de révisions</strong>.
             Au-delà, toute modification fera l'objet d'un avenant tarifaire soumis à l'accord du Client.
@@ -117,7 +117,7 @@ export default function CGV() {
 
         {/* Article 7 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 7 — Hébergement et nom de domaine</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 7 : Hébergement et nom de domaine</h2>
           <p className="text-gray-300 leading-relaxed">
             L'hébergement et le nom de domaine sont inclus dans la prestation pour la
             <strong className="text-white"> première année</strong>. À partir de la deuxième année,
@@ -131,7 +131,7 @@ export default function CGV() {
 
         {/* Article 8 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 8 — Propriété intellectuelle</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 8 : Propriété intellectuelle</h2>
           <p className="text-gray-300 leading-relaxed">
             Les droits d'utilisation du site livré sont intégralement transférés au Client après
             <strong className="text-white"> paiement complet</strong> de la prestation.
@@ -149,7 +149,7 @@ export default function CGV() {
 
         {/* Article 9 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 9 — Obligations du Client</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 9 : Obligations du Client</h2>
           <p className="text-gray-300 leading-relaxed">
             Le Client s'engage à :
           </p>
@@ -163,7 +163,7 @@ export default function CGV() {
 
         {/* Article 10 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 10 — Responsabilité</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 10 : Responsabilité</h2>
           <p className="text-gray-300 leading-relaxed">
             Le Prestataire s'engage à apporter tout le soin nécessaire à la réalisation de la prestation.
             Sa responsabilité ne saurait être engagée en cas de :
@@ -177,7 +177,7 @@ export default function CGV() {
 
         {/* Article 11 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 11 — Droit de rétractation</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 11 : Droit de rétractation</h2>
           <p className="text-gray-300 leading-relaxed">
             Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne
             peut être exercé pour les prestations de services pleinement exécutées avant la fin du délai
@@ -191,7 +191,7 @@ export default function CGV() {
 
         {/* Article 12 */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 12 — Loi applicable et litiges</h2>
+          <h2 className="text-lg font-semibold text-blue-400 mb-3">Article 12 : Loi applicable et litiges</h2>
           <p className="text-gray-300 leading-relaxed">
             Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable
             sera recherchée en priorité. À défaut, les tribunaux compétents du ressort du siège du
@@ -207,7 +207,7 @@ export default function CGV() {
         <section className="mb-8 border-t border-white/10 pt-8">
           <h2 className="text-lg font-semibold text-blue-400 mb-3">Contact</h2>
           <p className="text-gray-300 leading-relaxed">
-            Emmanuel Légeret — Fluxa<br />
+            Emmanuel Légeret · Fluxa<br />
             36 rue des Criquets, 73160 Cognin<br />
             SIRET : 83014496000044<br />
             Email : <a href="mailto:fluxa.contact@gmail.com" className="text-blue-400 hover:underline">fluxa.contact@gmail.com</a><br />

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function ExempleInteractif() {
   useEffect(() => {
-    document.title = "Exemple interactif — Fluxa";
+    document.title = "Exemple interactif · Fluxa";
     const meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (meta) meta.content = "Découvrez un exemple interactif de l'application Fluxa en action.";
   }, []);
