@@ -359,18 +359,20 @@ useEffect(() => {
         <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
           <a
             href="#infos"
-            className="group relative inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition w-full sm:w-auto overflow-hidden"
+            className="group relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition w-full sm:w-auto overflow-hidden"
             aria-label="Demander un devis gratuit"
           >
             <span className="relative z-10">Demander un devis gratuit</span>
+            <span className="relative z-10 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-[hsl(217,77%,45%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
           <a
             href="#pricing"
-            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium border-2 border-primary/50 hover:bg-primary/10 transition w-full sm:w-auto"
+            className="group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-medium border-2 border-primary/50 hover:bg-primary/10 transition w-full sm:w-auto"
             aria-label="Voir nos tarifs"
           >
             Voir nos tarifs
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>
@@ -710,8 +712,10 @@ useEffect(() => {
             </div>
 
             <div className="flex items-center gap-3">
-              <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-6 py-3.5 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition" disabled={sending}>
+              <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition disabled:opacity-70" disabled={sending}>
+                {sending && <span className="btn-spinner" />}
                 {sending ? "Envoi en cours…" : "Envoyer ma demande"}
+                {!sending && <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>}
               </button>
             </div>
             {sendError && (
@@ -735,13 +739,13 @@ useEffect(() => {
               <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
                 <Mail className="w-4 h-4" /> fluxa.contact@gmail.com
               </a>
-              <a href="https://instagram.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
+              <a href="https://instagram.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="social-instagram transition-colors flex items-center gap-2 py-2 text-muted-foreground">
                 <Instagram className="w-4 h-4" /> fluxa.fr
               </a>
-              <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
+              <a href="https://www.facebook.com/fluxa.fr" target="_blank" rel="noopener noreferrer" className="social-facebook transition-colors flex items-center gap-2 py-2 text-muted-foreground">
                 <Facebook className="w-4 h-4" /> fluxa.fr
               </a>
-              <a href="https://www.linkedin.com/company/fluxa-fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 py-2">
+              <a href="https://www.linkedin.com/company/fluxa-fr/" target="_blank" rel="noopener noreferrer" className="social-linkedin transition-colors flex items-center gap-2 py-2 text-muted-foreground">
                 <Linkedin className="w-4 h-4" /> Fluxa
               </a>
             </div>
@@ -1078,7 +1082,7 @@ useEffect(() => {
           href="https://instagram.com/fluxa.fr"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
+          className="social-instagram transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
           <Instagram className="w-4 h-4" />
           Instagram
@@ -1087,7 +1091,7 @@ useEffect(() => {
           href="https://www.facebook.com/fluxa.fr"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
+          className="social-facebook transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
           <Facebook className="w-4 h-4" />
           Facebook
@@ -1096,7 +1100,7 @@ useEffect(() => {
           href="https://www.linkedin.com/company/fluxa-fr/"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
+          className="social-linkedin transition-colors inline-flex items-center gap-2 text-muted-foreground"
         >
           <Linkedin className="w-4 h-4" />
           LinkedIn

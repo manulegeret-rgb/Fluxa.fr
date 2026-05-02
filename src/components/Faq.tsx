@@ -1,6 +1,7 @@
 // src/components/Faq.tsx
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const QUESTIONS = [
   {
@@ -41,38 +42,110 @@ const QUESTIONS = [
   },
 ];
 
+function FaqItem({ item, index, isOpen, onToggle }: {
+  item: typeof QUESTIONS[0];
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+    }
+  }, [isOpen]);
+
+  return (
+    <div className={`rounded-2xl border bg-card overflow-hidden transition-colors duration-300 ${isOpen ? "border-primary/40" : "border-border"}`}>
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-medium hover:bg-primary/5 transition-colors duration-200"
+      >
+        <span>{item.q}</span>
+        <ChevronDown
+          className={`w-5 h-5 shrink-0 text-primary transition-transform duration-300 ease-in-out ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+      {/* Slide-down animé */}
+      <div
+        style={{
+          height: `${height}px`,
+          overflow: "hidden",
+          transition: "height 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+      >
+        <div
+          ref={contentRef}
+          className="px-5 pb-5 text-muted-foreground text-base leading-relaxed"
+          style={{
+            opacity: isOpen ? 1 : 0,
+            transform: isOpen ? "translateY(0)" : "translateY(-6px)",
+            transition: "opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s",
+          }}
+        >
+          {item.a}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
+  const scrollFaq = useScrollAnimation(0.08);
 
   return (
     <section id="faq" className="py-24 bg-gradient-to-b from-muted/20 to-background">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <h2 className="text-center text-4xl lg:text-5xl font-bold mb-10" id="faq-heading">
+      <div ref={scrollFaq.ref} className="container mx-auto px-6 max-w-3xl">
+        <h2
+          className="text-center text-4xl lg:text-5xl font-bold mb-10 transition-all duration-700"
+          style={{
+            opacity: scrollFaq.visible ? 1 : 0,
+            transform: scrollFaq.visible ? "translateY(0)" : "translateY(28px)",
+          }}
+          id="faq-heading"
+        >
           Questions fréquentes
         </h2>
 
         <div className="space-y-3">
-          {QUESTIONS.map((item, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={i} className="rounded-2xl border border-border bg-card overflow-hidden">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-medium"
-                >
-                  <span>{item.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 text-muted-foreground text-base leading-relaxed">
-  {item.a}
-</div>
-                )}
-              </div>
-            );
-          })}
+          {QUESTIONS.map((item, i) => (
+            <div
+              key={i}
+              style={{
+                opacity: scrollFaq.visible ? 1 : 0,
+                transform: scrollFaq.visible ? "translateY(0)" : "translateY(20px)",
+                transition: `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`,
+              }}
+            >
+              <FaqItem
+                item={item}
+                index={i}
+                isOpen={open === i}
+                onToggle={() => setOpen(open === i ? null : i)}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* CTA bas de FAQ */}
+        <div
+          className="mt-10 text-center"
+          style={{
+            opacity: scrollFaq.visible ? 1 : 0,
+            transition: "opacity 0.6s ease 0.5s",
+          }}
+        >
+          <p className="text-muted-foreground text-sm mb-3">Vous n'avez pas trouvé votre réponse ?</p>
+          <a
+            href="#infos"
+            className="group inline-flex items-center gap-2 text-primary font-medium hover:underline transition-all"
+          >
+            Contactez-nous directement
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </a>
         </div>
       </div>
     </section>

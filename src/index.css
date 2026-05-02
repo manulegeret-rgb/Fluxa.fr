@@ -113,3 +113,31 @@ body {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+
+/* ── Icône bounce au scroll ── */
+@keyframes iconBounce {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  80%  { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── Spinner bouton formulaire ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── Hover socials colorés ── */
+.social-instagram:hover { color: #E1306C !important; }
+.social-facebook:hover  { color: #1877F2 !important; }
+.social-linkedin:hover  { color: #0A66C2 !important; }

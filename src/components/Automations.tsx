@@ -4,9 +4,9 @@ import {
   Code,
   Rocket,
   HeadphonesIcon,
-  CheckCircle2,
   type LucideIcon,
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type Item = {
   icon: LucideIcon;
@@ -17,55 +17,57 @@ type Item = {
 };
 
 export function CommentCaMarche() {
-  const items: Item[] = [
-  {
-    icon: MessageSquare,
-    title: "1. Premier contact & Brief",
-    detail: "Contact mail + formulaire détaillé",
-    text:
-      "Vous nous contactez par mail pour nous présenter votre projet. Nous vous envoyons ensuite un formulaire de brief détaillé pour préciser vos besoins : quelles pages souhaitez-vous ? Quelles informations mettre en avant ? Quel style vous correspond ? Ce formulaire nous permet de bien comprendre votre activité, vos objectifs et vos attentes pour vous proposer un devis ajusté et démarrer sur de bonnes bases.",
-    tag: "Gratuit & sans engagement",
-  },
-  {
-    icon: Palette,
-    title: "2. Maquette & Validation",
-    detail: "Design personnalisé",
-    text:
-      "À partir de votre brief, nous créons une maquette visuelle de votre futur site : structure des pages, couleurs, typographie, disposition des éléments. Vous voyez exactement à quoi ressemblera votre site avant le développement. Une fois la maquette validée ensemble (avec ajustements si besoin), nous passons au développement. Cette étape garantit que le résultat final correspond parfaitement à vos attentes.",
-    tag: "Validation avant dev",
-  },
-  {
-    icon: Code,
-    title: "3. Développement",
-    detail: "Code propre et optimisé",
-    text:
-      "Nous développons votre site avec des technologies modernes et performantes : design responsive (mobile + desktop), formulaires fonctionnels, optimisation SEO, vitesse de chargement rapide. Le code est propre, sécurisé et respecte les standards du web. Tout est testé sur différents navigateurs et appareils pour garantir une expérience utilisateur parfaite.",
-    tag: "2-3 semaines",
-  },
-  {
-    icon: Rocket,
-    title: "4. Mise en ligne",
-    detail: "Hébergement & domaine",
-    text:
-      "Une fois le site prêt, nous nous occupons de tout : achat et configuration du nom de domaine, hébergement sécurisé, mise en ligne et configuration finale. Votre site est accessible immédiatement et prêt à recevoir vos visiteurs. Hébergement et domaine inclus la première année, puis renouvellement annuel simple (environ 50-80€/an selon l'hébergeur).",
-    tag: "Clé en main",
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "5. Support & Suivi",
-    detail: "Accompagnement après livraison",
-    text:
-      "Après la mise en ligne, vous n'êtes pas seul. Nous restons disponibles pour toute question technique, correction mineure ou conseil. Si vous souhaitez faire évoluer votre site (nouvelles pages, fonctionnalités), nous sommes là. La maintenance mensuelle optionnelle (59€/mois) inclut les mises à jour de sécurité, sauvegardes régulières, et corrections mineures pour garder votre site performant dans la durée.",
-    tag: "Toujours disponible",
-  },
-];
+  const scrollSection = useScrollAnimation(0.08);
 
+  const items: Item[] = [
+    {
+      icon: MessageSquare,
+      title: "1. Premier contact & Brief",
+      detail: "Contact mail + formulaire détaillé",
+      text: "Vous nous contactez par mail pour nous présenter votre projet. Nous vous envoyons ensuite un formulaire de brief détaillé pour préciser vos besoins : quelles pages souhaitez-vous ? Quelles informations mettre en avant ? Quel style vous correspond ? Ce formulaire nous permet de bien comprendre votre activité, vos objectifs et vos attentes pour vous proposer un devis ajusté et démarrer sur de bonnes bases.",
+      tag: "Gratuit & sans engagement",
+    },
+    {
+      icon: Palette,
+      title: "2. Maquette & Validation",
+      detail: "Design personnalisé",
+      text: "À partir de votre brief, nous créons une maquette visuelle de votre futur site : structure des pages, couleurs, typographie, disposition des éléments. Vous voyez exactement à quoi ressemblera votre site avant le développement. Une fois la maquette validée ensemble (avec ajustements si besoin), nous passons au développement. Cette étape garantit que le résultat final correspond parfaitement à vos attentes.",
+      tag: "Validation avant dev",
+    },
+    {
+      icon: Code,
+      title: "3. Développement",
+      detail: "Code propre et optimisé",
+      text: "Nous développons votre site avec des technologies modernes et performantes : design responsive (mobile + desktop), formulaires fonctionnels, optimisation SEO, vitesse de chargement rapide. Le code est propre, sécurisé et respecte les standards du web. Tout est testé sur différents navigateurs et appareils pour garantir une expérience utilisateur parfaite.",
+      tag: "2-3 semaines",
+    },
+    {
+      icon: Rocket,
+      title: "4. Mise en ligne",
+      detail: "Hébergement & domaine",
+      text: "Une fois le site prêt, nous nous occupons de tout : achat et configuration du nom de domaine, hébergement sécurisé, mise en ligne et configuration finale. Votre site est accessible immédiatement et prêt à recevoir vos visiteurs. Hébergement et domaine inclus la première année, puis renouvellement annuel simple (environ 50-80€/an selon l'hébergeur).",
+      tag: "Clé en main",
+    },
+    {
+      icon: HeadphonesIcon,
+      title: "5. Support & Suivi",
+      detail: "Accompagnement après livraison",
+      text: "Après la mise en ligne, vous n'êtes pas seul. Nous restons disponibles pour toute question technique, correction mineure ou conseil. Si vous souhaitez faire évoluer votre site (nouvelles pages, fonctionnalités), nous sommes là. La maintenance mensuelle optionnelle (59€/mois) inclut les mises à jour de sécurité, sauvegardes régulières, et corrections mineures pour garder votre site performant dans la durée.",
+      tag: "Toujours disponible",
+    },
+  ];
 
   return (
     <section className="pt-8 pb-6 md:pt-8 md:pb-2 bg-gradient-to-b from-muted/20 to-background">
-      <div className="container mx-auto px-6">
-        {/* Titre + sous-titre : espaces réduits en mobile */}
-        <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-14">
+      <div ref={scrollSection.ref} className="container mx-auto px-6">
+        {/* Titre */}
+        <div
+          className="text-center space-y-4 md:space-y-6 mb-8 md:mb-14 transition-all duration-700"
+          style={{
+            opacity: scrollSection.visible ? 1 : 0,
+            transform: scrollSection.visible ? "translateY(0)" : "translateY(28px)",
+          }}
+        >
           <h2 className="text-4xl lg:text-5xl font-bold" id="comment-ca-marche">
             Comment ça marche ?
           </h2>
@@ -80,21 +82,32 @@ export function CommentCaMarche() {
             return (
               <div
                 key={i}
-                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition w-full md:w-[calc(33.333%-1rem)] md:max-w-[calc(33.333%-1rem)]"
+                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition-colors w-full md:w-[calc(33.333%-1rem)] md:max-w-[calc(33.333%-1rem)]"
+                style={{
+                  opacity: scrollSection.visible ? 1 : 0,
+                  transform: scrollSection.visible ? "translateY(0)" : "translateY(36px)",
+                  transition: `opacity 0.55s ease ${i * 0.1}s, transform 0.55s ease ${i * 0.1}s, border-color 0.3s`,
+                }}
               >
                 <div className="flex items-start gap-3 mb-4">
-  <div className="shrink-0 w-10 h-10 rounded-xl bg-primary text-primary-foreground grid place-items-center">
-    <Icon className="w-5 h-5" />
-  </div>
-  <div className="flex flex-col justify-center leading-tight">
-    <h3 className="font-semibold">{it.title}</h3>
-    <p className="text-xs text-muted-foreground mt-0.5">{it.detail}</p>
-  </div>
-</div>
-                <p className="text-[15px] leading-relaxed text-muted-foreground mt-2">
-  {it.text}
-</p>
-                <div className="mt-4 text-xs inline-flex items-center rounded-full border border-border px-2.5 py-1">
+                  {/* Icône avec pulse au load */}
+                  <div
+                    className="shrink-0 w-10 h-10 rounded-xl bg-primary text-primary-foreground grid place-items-center"
+                    style={{
+                      animation: scrollSection.visible
+                        ? `iconBounce 0.5s ease ${i * 0.1 + 0.3}s both`
+                        : "none",
+                    }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="flex flex-col justify-center leading-tight">
+                    <h3 className="font-semibold">{it.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">{it.detail}</p>
+                  </div>
+                </div>
+                <p className="text-[15px] leading-relaxed text-muted-foreground mt-2">{it.text}</p>
+                <div className="mt-4 text-xs inline-flex items-center rounded-full border border-primary/30 bg-primary/5 text-primary px-2.5 py-1 font-medium">
                   {it.tag}
                 </div>
               </div>
@@ -102,28 +115,22 @@ export function CommentCaMarche() {
           })}
         </div>
 
-        {/* CTA bas de section */}
-        <div className="text-center mt-8 md:mt-20 pb-16 md:pb-32">
-          {/* Mobile → direct vers le formulaire */}
+        {/* CTA */}
+        <div
+          className="text-center mt-8 md:mt-20 pb-16 md:pb-32"
+          style={{
+            opacity: scrollSection.visible ? 1 : 0,
+            transform: scrollSection.visible ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s",
+          }}
+        >
           <a
             href="#infos"
-            className="md:hidden inline-flex items-center justify-center w-full
-                       rounded-2xl px-6 py-3 text-base font-medium
-                       bg-primary text-primary-foreground hover:opacity-90 transition"
+            className="group inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition gap-2"
             aria-label="Demander un devis"
           >
             Demander un devis gratuit
-          </a>
-
-          {/* Desktop → "infos" */}
-          <a
-            href="#infos"
-            className="hidden md:inline-flex items-center justify-center
-                       rounded-2xl px-6 py-3 text-base font-medium
-                       bg-primary text-primary-foreground hover:opacity-90 transition"
-            aria-label="Demander un devis"
-          >
-            Demander un devis gratuit
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>
