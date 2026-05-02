@@ -211,13 +211,35 @@ useEffect(() => {
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[85vw] max-w-sm">
                   <nav className="flex flex-col gap-2">
-                    <a href="#comment-ca-marche" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Comment ça marche</a>
-                    <a href="#pricing" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Tarifs</a>
-                    <a href="#pourquoi-choisir-fluxa" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Pourquoi nous ?</a>
-                    <a href="#faq" className="py-3 text-base" onClick={() => setMenuOpen(false)}>FAQ</a>
-                    <a href="#infos" className="py-3 text-base" onClick={() => setMenuOpen(false)}>Contact</a>
+                    {[
+                      { href: "#comment-ca-marche", label: "Comment ça marche" },
+                      { href: "#pricing", label: "Tarifs" },
+                      { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
+                      { href: "#faq", label: "FAQ" },
+                      { href: "#infos", label: "Contact" },
+                    ].map((item, i) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="py-3 text-base border-b border-border/40 last:border-0 hover:text-primary hover:pl-2 transition-all duration-200"
+                        style={{
+                          opacity: menuOpen ? 1 : 0,
+                          transform: menuOpen ? "translateX(0)" : "translateX(-16px)",
+                          transition: `opacity 0.3s ease ${i * 0.06 + 0.1}s, transform 0.3s ease ${i * 0.06 + 0.1}s, color 0.2s, padding-left 0.2s`,
+                        }}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
                   </nav>
-                  <div className="mt-4 flex flex-col gap-2">
+                  <div className="mt-4 flex flex-col gap-2"
+                    style={{
+                      opacity: menuOpen ? 1 : 0,
+                      transform: menuOpen ? "translateY(0)" : "translateY(10px)",
+                      transition: "opacity 0.3s ease 0.45s, transform 0.3s ease 0.45s",
+                    }}
+                  >
                     <Button asChild className="w-full">
                       <a href="#infos" onClick={() => setMenuOpen(false)}>Demander un devis</a>
                     </Button>
@@ -246,7 +268,7 @@ useEffect(() => {
 
           {/* Barre desktop */}
           <div className="hidden md:flex items-center justify-between h-[120px]">
-            <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-2">
+            <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-2 animate-[fade-in_0.6s_ease_0.1s_both]">
               <img
                 src={fluxaLogo}
                 alt="Fluxa - Agence web création sites vitrines professionnels pour TPE et artisans"
@@ -255,11 +277,23 @@ useEffect(() => {
             </a>
 
             <nav className="flex items-center gap-6 text-base md:text-lg text-foreground/90 font-medium">
-              <a href="#comment-ca-marche" className="hover:text-foreground transition">Comment ça marche</a>
-              <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
-              <a href="#pourquoi-choisir-fluxa" className="hover:text-foreground transition">Pourquoi nous ?</a>
-              <a href="#faq" className="hover:text-foreground transition">FAQ</a>
-              <a href="#infos" className="hover:text-foreground transition">Contact</a>
+              {[
+                { href: "#comment-ca-marche", label: "Comment ça marche" },
+                { href: "#pricing", label: "Tarifs" },
+                { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
+                { href: "#faq", label: "FAQ" },
+                { href: "#infos", label: "Contact" },
+              ].map((item, i) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="relative group hover:text-foreground transition-colors duration-200"
+                  style={{ animation: `fade-in 0.5s ease ${i * 0.07 + 0.2}s both` }}
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-primary rounded-full group-hover:w-full transition-all duration-300" />
+                </a>
+              ))}
             </nav>
           </div>
         </div>
