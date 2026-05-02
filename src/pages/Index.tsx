@@ -1,7 +1,8 @@
 import SEOHead from "@/components/SEOHead";
 import emailjs from "@emailjs/browser";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
 import { Faq } from "@/components/Faq";
 import { CommentCaMarche } from "@/components/Automations";
 import { PricingCard } from "@/components/PricingCard";
@@ -96,6 +97,57 @@ useEffect(() => {
       el.removeEventListener("scroll", onScroll);
       ro.disconnect();
     };
+  }, []);
+
+  // ========= Typing effect sur le hero
+  const typingPhrases = ["livré clé en main", "en 2 à 3 semaines", "prêt à vous trouver des clients"];
+  const [typingIndex, setTypingIndex] = useState(0);
+  const [typingText, setTypingText] = useState("");
+  const [typingDeleting, setTypingDeleting] = useState(false);
+  useEffect(() => {
+    const phrase = typingPhrases[typingIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+    if (!typingDeleting && typingText.length < phrase.length) {
+      timeout = setTimeout(() => setTypingText(phrase.slice(0, typingText.length + 1)), 55);
+    } else if (!typingDeleting && typingText.length === phrase.length) {
+      timeout = setTimeout(() => setTypingDeleting(true), 2200);
+    } else if (typingDeleting && typingText.length > 0) {
+      timeout = setTimeout(() => setTypingText(typingText.slice(0, -1)), 30);
+    } else if (typingDeleting && typingText.length === 0) {
+      setTypingDeleting(false);
+      setTypingIndex((i) => (i + 1) % typingPhrases.length);
+    }
+    return () => clearTimeout(timeout);
+  }, [typingText, typingDeleting, typingIndex]);
+
+  // ========= Scroll animations
+  const scrollTypes = useScrollAnimation(0.12);
+  const scrollHowItWorks = useScrollAnimation(0.1);
+  const scrollPricing = useScrollAnimation(0.1);
+  const scrollGuarantees = useScrollAnimation(0.12);
+  const scrollStats = useScrollAnimation(0.2);
+  const scrollAbout = useScrollAnimation(0.1);
+  const scrollWhy = useScrollAnimation(0.1);
+
+  // ========= Compteurs animés (stats)
+  const stat890 = useCountUp(890, 1200, scrollStats.visible);
+  const stat100 = useCountUp(100, 1000, scrollStats.visible);
+  const stat48 = useCountUp(48, 900, scrollStats.visible);
+
+  // ========= Tilt 3D sur les cartes
+  const handleTilt = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rotateX = ((y - cy) / cy) * -7;
+    const rotateY = ((x - cx) / cx) * 7;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  }, []);
+  const handleTiltReset = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.style.transform = "";
   }, []);
 
   // ========= Contrôle du menu mobile (Sheet)
@@ -228,7 +280,8 @@ useEffect(() => {
       <h1 className="text-[clamp(32px,5.5vw,62px)] font-bold leading-tight">
         <span className="md:whitespace-nowrap">Votre site vitrine professionnel,</span>{" "}
         <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent md:whitespace-nowrap">
-          livré clé en main
+          {typingText}
+          <span className="inline-block w-[3px] h-[1em] bg-primary align-middle ml-0.5 animate-pulse" />
         </span>
       </h1>
     </div>
@@ -316,8 +369,11 @@ useEffect(() => {
 
 {/* ================= TYPES DE SITES ================= */}
 <section className="py-12 md:py-20 bg-background">
-  <div className="container mx-auto px-6">
-    <div className="text-center space-y-4 mb-12">
+  <div ref={scrollTypes.ref} className="container mx-auto px-6">
+    <div
+      className="text-center space-y-4 mb-12 transition-all duration-700"
+      style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(32px)" }}
+    >
       <h2 className="text-3xl md:text-4xl font-bold">Exemples de sites vitrines</h2>
       <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
         Nous adaptons votre site à votre activité et à vos besoins spécifiques
@@ -326,7 +382,11 @@ useEffect(() => {
 
     <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       {/* Carte 1 */}
-      <div className="group rounded-2xl border border-border bg-card p-6 hover:border-violet-500/60 hover:shadow-[0_0_30px_-8px_rgba(139,92,246,0.25)] transition-all flex flex-col">
+      <div
+        className="group rounded-2xl border border-border bg-card p-6 hover:border-violet-500/60 hover:shadow-[0_0_30px_-8px_rgba(139,92,246,0.25)] transition-all flex flex-col"
+        style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s, border-color 0.3s, box-shadow 0.3s" }}
+        onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+      >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center shrink-0"><Palette className="w-6 h-6 text-violet-400" /></div>
           <span className="text-xs font-semibold uppercase tracking-wider text-violet-400 bg-violet-500/10 px-2.5 py-1 rounded-full">Artisan / Créatif</span>
@@ -346,7 +406,11 @@ useEffect(() => {
       </div>
 
       {/* Carte 2 */}
-      <div className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/60 hover:shadow-[0_0_30px_-8px_rgba(59,130,246,0.25)] transition-all flex flex-col">
+      <div
+        className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/60 hover:shadow-[0_0_30px_-8px_rgba(59,130,246,0.25)] transition-all flex flex-col"
+        style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s, border-color 0.3s, box-shadow 0.3s" }}
+        onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+      >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center shrink-0"><Building2 className="w-6 h-6 text-primary" /></div>
           <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">TPE / PME</span>
@@ -366,7 +430,11 @@ useEffect(() => {
       </div>
 
       {/* Carte 3 */}
-      <div className="group rounded-2xl border border-border bg-card p-6 hover:border-emerald-500/60 hover:shadow-[0_0_30px_-8px_rgba(16,185,129,0.25)] transition-all flex flex-col">
+      <div
+        className="group rounded-2xl border border-border bg-card p-6 hover:border-emerald-500/60 hover:shadow-[0_0_30px_-8px_rgba(16,185,129,0.25)] transition-all flex flex-col"
+        style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s, border-color 0.3s, box-shadow 0.3s" }}
+        onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+      >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0"><Briefcase className="w-6 h-6 text-emerald-400" /></div>
           <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">Indépendant</span>
@@ -406,8 +474,11 @@ useEffect(() => {
           scroll-mt-[4px] md:scroll-mt-[40px]
         "
       >
-        <div className="container mx-auto px-6">
-          <div className="text-center space-y-6 max-md:mb-12 md:mb-16">
+        <div ref={scrollPricing.ref} className="container mx-auto px-6">
+          <div
+            className="text-center space-y-6 max-md:mb-12 md:mb-16 transition-all duration-700"
+            style={{ opacity: scrollPricing.visible ? 1 : 0, transform: scrollPricing.visible ? "translateY(0)" : "translateY(32px)" }}
+          >
   <div className="relative inline-block">
     <div className="absolute -top-3 -right-8 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full rotate-12 shadow-lg">
       NOUVEAU
@@ -652,8 +723,11 @@ useEffect(() => {
 
       {/* ================= GARANTIES ================= */}
       <section className="py-12 md:py-16 bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center space-y-4 mb-12">
+        <div ref={scrollGuarantees.ref} className="container mx-auto px-6">
+          <div
+            className="text-center space-y-4 mb-12 transition-all duration-700"
+            style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(32px)" }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold">Nos garanties</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Nous nous engageons sur la qualité et la transparence de nos prestations
@@ -661,7 +735,11 @@ useEffect(() => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-emerald-500/50 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.2)] transition-all">
+            <div
+              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-emerald-500/50 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.2)] transition-colors"
+              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s, border-color 0.3s, box-shadow 0.3s" }}
+              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+            >
               <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck className="w-6 h-6 text-emerald-400" />
               </div>
@@ -671,7 +749,11 @@ useEffect(() => {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-amber-500/50 hover:shadow-[0_0_24px_-8px_rgba(245,158,11,0.2)] transition-all">
+            <div
+              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-amber-500/50 hover:shadow-[0_0_24px_-8px_rgba(245,158,11,0.2)] transition-colors"
+              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.22s, transform 0.6s ease 0.22s, border-color 0.3s, box-shadow 0.3s" }}
+              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+            >
               <div className="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-6 h-6 text-amber-400" />
               </div>
@@ -681,7 +763,11 @@ useEffect(() => {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-violet-500/50 hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.2)] transition-all">
+            <div
+              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-violet-500/50 hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.2)] transition-colors"
+              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.34s, transform 0.6s ease 0.34s, border-color 0.3s, box-shadow 0.3s" }}
+              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+            >
               <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center mx-auto mb-4">
                 <Code2 className="w-6 h-6 text-violet-400" />
               </div>
@@ -691,7 +777,11 @@ useEffect(() => {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 text-center hover:border-primary/50 hover:shadow-[0_0_24px_-8px_rgba(59,130,246,0.2)] transition-all">
+            <div
+              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-primary/50 hover:shadow-[0_0_24px_-8px_rgba(59,130,246,0.2)] transition-colors"
+              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.46s, transform 0.6s ease 0.46s, border-color 0.3s, box-shadow 0.3s" }}
+              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+            >
               <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4">
                 <Headphones className="w-6 h-6 text-primary" />
               </div>
@@ -773,9 +863,12 @@ useEffect(() => {
 
 {/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
 <section id="pourquoi-choisir-fluxa" className="py-12 md:py-20 border-t border-border/60 bg-gradient-to-b from-background via-card/30 to-background">
-  <div className="max-w-6xl mx-auto px-6 space-y-16">
+  <div ref={scrollWhy.ref} className="max-w-6xl mx-auto px-6 space-y-16">
     {/* --- Titre principal --- */}
-    <div className="text-center space-y-6">
+    <div
+      className="text-center space-y-6 transition-all duration-700"
+      style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(32px)" }}
+    >
       <h2 className="text-4xl md:text-5xl font-bold leading-tight">
         Pourquoi choisir Fluxa pour votre site vitrine ?
       </h2>
@@ -807,7 +900,9 @@ useEffect(() => {
       ].map((item, i) => (
         <div
           key={i}
-          className="rounded-2xl border border-border/60 bg-card/40 p-8 space-y-4 hover:bg-card/60 transition"
+          className="rounded-2xl border border-border/60 bg-card/40 p-8 space-y-4 hover:bg-card/60 transition-colors"
+          style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(40px)", transition: `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s` }}
+          onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
         >
           <div>{item.icon}</div>
           <h3 className="text-2xl font-semibold">{item.title}</h3>
@@ -833,17 +928,21 @@ useEffect(() => {
     </div>
 
     {/* --- Témoignages / résultats chiffrés --- */}
-    <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
+    <div ref={scrollStats.ref} className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
       {[
-        { value: "890€", label: "tarif de départ tout compris" },
-        { value: "100%", label: "responsive (mobile + desktop)" },
-        { value: "48h", label: "pour recevoir votre devis gratuit" },
+        { count: stat890, suffix: "€", label: "tarif de départ tout compris", delay: "0s" },
+        { count: stat100, suffix: "%", label: "responsive (mobile + desktop)", delay: "0.15s" },
+        { count: stat48, suffix: "h", label: "pour recevoir votre devis gratuit", delay: "0.3s" },
       ].map((stat, i) => (
         <div
           key={i}
-          className="rounded-2xl border border-border/60 bg-background/40 py-10 px-6 text-center hover:bg-background/60 transition"
+          className="rounded-2xl border border-border/60 bg-background/40 py-10 px-6 text-center hover:bg-background/60 transition-colors"
+          style={{ opacity: scrollStats.visible ? 1 : 0, transform: scrollStats.visible ? "translateY(0)" : "translateY(32px)", transition: `opacity 0.6s ease ${stat.delay}, transform 0.6s ease ${stat.delay}` }}
+          onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
         >
-          <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
+          <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+            {stat.count}{stat.suffix}
+          </div>
           <p className="text-muted-foreground font-medium">{stat.label}</p>
         </div>
       ))}
