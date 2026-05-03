@@ -343,9 +343,9 @@ useEffect(() => {
   <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-32">
     {/* H1 centré en haut */}
     <div className="text-center mb-12 md:mb-16 animate-[fade-in-up_0.7s_ease_0.1s_both]">
-      <h1 className="text-[clamp(32px,5.5vw,62px)] font-bold leading-tight">
-        <span className="md:whitespace-nowrap">Votre site vitrine professionnel,</span>{" "}
-        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent md:whitespace-nowrap">
+      <h1 className="text-[clamp(26px,5.5vw,62px)] font-bold leading-tight">
+        <span>Votre site vitrine professionnel,</span>{" "}
+        <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">
           {typingText}
           <span className="inline-block w-[3px] h-[1em] bg-primary align-middle ml-0.5 animate-pulse" />
         </span>
@@ -368,14 +368,14 @@ useEffect(() => {
         </div>
 
         {/* Bénéfices clés */}
-        <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 text-center md:text-left mx-auto lg:mx-0 max-w-sm lg:max-w-none">
+        <ul className="space-y-2 text-[15px] md:text-base text-muted-foreground/90 mx-auto lg:mx-0 max-w-sm lg:max-w-none">
           {[
             { icon: <CheckCircle2 className="w-4 h-4 text-primary" />, txt: "Site vitrine responsive, parfait sur mobile, tablette et desktop" },
             { icon: <Search className="w-4 h-4 text-primary" />, txt: "Optimisation SEO incluse pour apparaître sur Google" },
             { icon: <Globe className="w-4 h-4 text-primary" />, txt: "Hébergement web + nom de domaine offerts la 1ère année" },
             { icon: <Phone className="w-4 h-4 text-primary" />, txt: "Support technique inclus, on reste disponibles après livraison" },
           ].map(({ icon, txt }) => (
-            <li key={txt} className="flex items-start md:items-start justify-center md:justify-start gap-2">
+            <li key={txt} className="flex items-start gap-2">
               <span className="mt-0.5 shrink-0">{icon}</span>
               <span>{txt}</span>
             </li>
@@ -556,15 +556,15 @@ useEffect(() => {
             className="text-center space-y-6 max-md:mb-12 md:mb-16 transition-all duration-700"
             style={{ opacity: scrollPricing.visible ? 1 : 0, transform: scrollPricing.visible ? "translateY(0)" : "translateY(32px)" }}
           >
-  <div className="relative inline-block">
-    <span className="absolute -top-3 -right-2 md:-right-8 bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-full rotate-12 shadow-lg whitespace-nowrap">
+  <div className="relative inline-block px-10">
+    <span className="absolute -top-3 right-0 bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-full rotate-12 shadow-lg whitespace-nowrap">
       NOUVEAU
     </span>
-    <h2 className="text-4xl lg:text-5xl font-bold">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
       Tarifs site vitrine : transparents et tout compris
     </h2>
   </div>
-  <p className="text-xl text-muted-foreground">
+  <p className="text-base md:text-xl text-muted-foreground">
     Une <span className="text-foreground font-semibold">formule unique</span> à partir de 890€, ajustable selon vos besoins.
     Hébergement et domaine inclus la première année.
   </p>
@@ -573,23 +573,23 @@ useEffect(() => {
           {/* Comparatif de prix */}
           <div className="max-w-5xl mx-auto mb-10">
             <div className="rounded-2xl border border-border bg-card/50 overflow-hidden">
-              <div className="grid grid-cols-3 text-center text-xs md:text-sm font-semibold border-b border-border">
-                <div className="py-3 px-2 text-muted-foreground">Agence classique</div>
-                <div className="py-3 px-2 bg-primary/10 text-primary border-x border-primary/30">Fluxa</div>
-                <div className="py-3 px-2 text-muted-foreground">Freelance</div>
+              <div className="grid grid-cols-3 text-center text-[11px] md:text-sm font-semibold border-b border-border">
+                <div className="py-3 px-1 md:px-2 text-muted-foreground">Agence classique</div>
+                <div className="py-3 px-1 md:px-2 bg-primary/10 text-primary border-x border-primary/30">Fluxa</div>
+                <div className="py-3 px-1 md:px-2 text-muted-foreground">Freelance</div>
               </div>
               <div className="grid grid-cols-3 text-center">
-                <div className="py-4 px-2 border-r border-border/50">
-                  <p className="text-lg md:text-2xl font-bold text-muted-foreground/70">3 000 – 8 000€</p>
-                  <p className="text-xs text-muted-foreground mt-1">Délai 2-3 mois</p>
+                <div className="py-4 px-1 md:px-2 border-r border-border/50">
+                  <p className="text-sm md:text-2xl font-bold text-muted-foreground/70 leading-tight">3 000<span className="hidden sm:inline"> –</span><br className="sm:hidden" /><span className="sm:inline"> 8 000€</span></p>
+                  <p className="text-[10px] md:text-xs text-muted-foreground mt-1">Délai 2-3 mois</p>
                 </div>
-                <div className="py-4 px-2 bg-primary/5 border-x border-primary/30">
-                  <p className="text-lg md:text-2xl font-bold text-primary">dès 890€</p>
-                  <p className="text-xs text-primary/80 mt-1 font-medium">Livré en 2-3 semaines</p>
+                <div className="py-4 px-1 md:px-2 bg-primary/5 border-x border-primary/30">
+                  <p className="text-sm md:text-2xl font-bold text-primary">dès 890€</p>
+                  <p className="text-[10px] md:text-xs text-primary/80 mt-1 font-medium">Livré en 2-3 semaines</p>
                 </div>
-                <div className="py-4 px-2 border-l border-border/50">
-                  <p className="text-lg md:text-2xl font-bold text-muted-foreground/70">1 500 – 3 000€</p>
-                  <p className="text-xs text-muted-foreground mt-1">Qualité variable</p>
+                <div className="py-4 px-1 md:px-2 border-l border-border/50">
+                  <p className="text-sm md:text-2xl font-bold text-muted-foreground/70 leading-tight">1 500<span className="hidden sm:inline"> –</span><br className="sm:hidden" /><span className="sm:inline"> 3 000€</span></p>
+                  <p className="text-[10px] md:text-xs text-muted-foreground mt-1">Qualité variable</p>
                 </div>
               </div>
             </div>
@@ -625,41 +625,41 @@ useEffect(() => {
 
               <div className="space-y-3">
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex flex-wrap justify-between items-center gap-1 mb-2">
                     <span className="font-semibold">Pages supplémentaires</span>
-                    <span className="text-primary font-bold">+100€/page</span>
+                    <span className="text-primary font-bold shrink-0">+100€/page</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Ajoutez des pages dédiées (Blog, Équipe, Actualités, etc.)</p>
                 </div>
 
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex flex-wrap justify-between items-center gap-1 mb-2">
                     <span className="font-semibold">Galerie photo avancée</span>
-                    <span className="text-primary font-bold">+150€</span>
+                    <span className="text-primary font-bold shrink-0">+150€</span>
                   </div>
                   <p className="text-[0.95rem] md:text-base text-muted-foreground">Lightbox, filtres, mise en page optimisée pour vos réalisations</p>
                 </div>
 
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex flex-wrap justify-between items-center gap-1 mb-2">
                     <span className="font-semibold">Prise de rendez-vous en ligne</span>
-                    <span className="text-primary font-bold">+180€</span>
+                    <span className="text-primary font-bold shrink-0">+180€</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Calendrier de réservation avec notifications email automatiques</p>
                 </div>
 
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex flex-wrap justify-between items-center gap-1 mb-2">
                     <span className="font-semibold">Rédaction de contenu SEO</span>
-                    <span className="text-primary font-bold">+250€</span>
+                    <span className="text-primary font-bold shrink-0">+250€</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Textes professionnels optimisés pour Google (jusqu'à 2000 mots)</p>
                 </div>
 
                 <div className="rounded-2xl border border-border bg-card/40 p-4 hover:bg-card/60 transition">
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex flex-wrap justify-between items-center gap-1 mb-2">
                     <span className="font-semibold">Multilingue</span>
-                    <span className="text-primary font-bold">+250€/langue</span>
+                    <span className="text-primary font-bold shrink-0">+250€/langue</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Version anglaise, espagnole ou autre langue (traduction non incluse)</p>
                 </div>
@@ -667,9 +667,9 @@ useEffect(() => {
 
               {/* Maintenance */}
               <div className="mt-6 rounded-2xl border-2 border-primary/30 bg-primary/5 p-5">
-                <div className="flex justify-between items-center mb-3">
+                <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
                   <span className="font-semibold text-lg">Maintenance mensuelle</span>
-                  <span className="text-primary font-bold text-xl">59€/mois</span>
+                  <span className="text-primary font-bold text-xl shrink-0">59€/mois</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-3">
                   Gardez votre site sécurisé et performant dans la durée
@@ -713,10 +713,10 @@ useEffect(() => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
               Créons ensemble votre <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent">site vitrine professionnel</span>
             </h2>
-            <p className="mt-3 text-lg text-muted-foreground">
+            <p className="mt-3 text-base md:text-lg text-muted-foreground">
               Parlez-nous de votre projet et recevez un devis personnalisé sous 48h, sans engagement.
             </p>
           </div>
@@ -794,7 +794,7 @@ useEffect(() => {
           </form>
 
           {/* Preuves (mobile) sous le formulaire */}
-          <ul className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-start md:justify-center">
+          <ul className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center">
             <li className="rounded-full border border-border/70 px-3 py-1">🔐 Hébergement sécurisé inclus</li>
             <li className="rounded-full border border-border/70 px-3 py-1">⚡ Livraison rapide (2-3 semaines)</li>
             <li className="rounded-full border border-border/70 px-3 py-1">🎯 SEO optimisé</li>
@@ -934,7 +934,7 @@ useEffect(() => {
           style={{ opacity: scrollStats.visible ? 1 : 0, transform: scrollStats.visible ? "translateY(0)" : "translateY(28px)", transition: `opacity 0.6s ease ${stat.delay}, transform 0.6s ease ${stat.delay}` }}
           onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
         >
-          <div className="text-4xl md:text-5xl font-bold text-primary mb-1">{stat.count}{stat.suffix}</div>
+          <div className="text-3xl md:text-5xl font-bold text-primary mb-1">{stat.count}{stat.suffix}</div>
           <p className="text-muted-foreground text-sm font-medium">{stat.label}</p>
         </div>
       ))}
@@ -1041,7 +1041,7 @@ useEffect(() => {
       </div>
 
       {/* Réseaux */}
-      <nav className="flex flex-wrap items-center gap-5 text-sm" aria-label="Liens utiles">
+      <nav className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm" aria-label="Liens utiles">
         <a
           href="mailto:fluxa.contact@gmail.com"
           className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
@@ -1083,16 +1083,16 @@ useEffect(() => {
     <div className="my-6 border-t border-border/60" />
 
     {/* Ligne 2 : liens légaux + © */}
-    <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
+    <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between text-center md:text-left">
       <p className="text-xs text-muted-foreground">
         © {new Date().getFullYear()} Fluxa · SIRET 83014496000044
       </p>
 
-      <div className="flex items-center gap-4 text-sm">
-        <a href="/mentions-legales" className="hover:text-primary transition">Mentions légales</a>
-        <span className="text-border">•</span>
-        <a href="/politique-confidentialite" className="hover:text-primary transition">Politique de confidentialité</a>
-        <span className="text-border">•</span>
+      <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 text-sm">
+        <a href="/mentions-legales" className="hover:text-primary transition whitespace-nowrap">Mentions légales</a>
+        <span className="text-border hidden sm:inline">•</span>
+        <a href="/politique-confidentialite" className="hover:text-primary transition whitespace-nowrap">Politique de confidentialité</a>
+        <span className="text-border hidden sm:inline">•</span>
         <a href="/cgv" className="hover:text-primary transition">CGV</a>
       </div>
     </div>
