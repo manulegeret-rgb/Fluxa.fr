@@ -841,199 +841,207 @@ useEffect(() => {
 
 <SectionDivider />
 
-     {/* ================= À PROPOS ================= */}
-<section className="py-12 md:py-16 bg-background border-t border-border/50">
-  <div className="max-w-5xl mx-auto px-6">
-    <div className="text-center mb-10">
-      <h2 className="text-2xl md:text-3xl font-bold">
-        Agence de création de sites internet pour PME et indépendants
+{/* ===== SECTION : Pourquoi choisir Fluxa (condensée) ===== */}
+<section id="pourquoi-choisir-fluxa" className="py-12 md:py-20 bg-gradient-to-b from-background via-card/30 to-background">
+  <div ref={scrollWhy.ref} className="max-w-6xl mx-auto px-6">
+
+    {/* Titre */}
+    <div
+      className="text-center space-y-4 mb-12 transition-all duration-700"
+      style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(28px)" }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+        Pourquoi choisir Fluxa pour votre site vitrine ?
       </h2>
-      <p className="mt-3 text-muted-foreground text-[15px] md:text-base max-w-2xl mx-auto">
-        <strong className="text-primary">Fluxa</strong> est une agence web française spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs : responsive, optimisés SEO et hébergement inclus.
+      <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+        Agence web locale à Chambéry (Savoie) — sites vitrines professionnels livrés clé en main, sans contrat long terme, sans frais cachés.
       </p>
     </div>
 
-    <div className="grid sm:grid-cols-2 gap-5">
-      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="shrink-0 mt-0.5"><Trophy className="w-5 h-5 text-primary" /></div>
-        <div>
-          <p className="font-semibold text-sm mb-1">Qualité professionnelle, prix accessible</p>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Un tarif transparent, sans surprise. De la maquette à la mise en ligne, nous gérons votre projet clé en main avec formation et support inclus.
-          </p>
+    {/* 3 piliers */}
+    <div className="grid md:grid-cols-3 gap-6 mb-12">
+      {[
+        {
+          icon: <Zap className="w-7 h-7 text-primary" />,
+          title: "Livraison en 2-3 semaines",
+          text: "Votre site prêt rapidement, dès validation de la maquette. Option express disponible sur demande.",
+        },
+        {
+          icon: <Banknote className="w-7 h-7 text-primary" />,
+          title: "Prix transparent dès 890€",
+          text: "Design responsive, hébergement et domaine 1ère année inclus. Vous savez exactement ce que vous payez.",
+        },
+        {
+          icon: <Target className="w-7 h-7 text-primary" />,
+          title: "Propriété totale, 0 dépendance",
+          text: "Vous êtes propriétaire à 100% du code source. Formation incluse à la livraison. Vous restez libre.",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="rounded-2xl border border-border/60 bg-card/40 p-6 space-y-3 hover:bg-card/60 hover:border-primary/30 transition-colors"
+          style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(36px)", transition: `opacity 0.55s ease ${i * 0.12}s, transform 0.55s ease ${i * 0.12}s` }}
+          onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+        >
+          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">{item.icon}</div>
+          <h3 className="text-lg font-semibold">{item.title}</h3>
+          <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
         </div>
-      </div>
+      ))}
+    </div>
 
-      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="shrink-0 mt-0.5"><Wrench className="w-5 h-5 text-primary" /></div>
-        <div>
-          <p className="font-semibold text-sm mb-1">Pour tous les corps de métier</p>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Plombier, électricien, coach, thérapeute, consultant ou artisan : votre site sera livré en 2-3 semaines, prêt à attirer vos premiers clients.
-          </p>
+    {/* Stats animées */}
+    <div ref={scrollStats.ref} className="grid md:grid-cols-3 gap-4 mb-12">
+      {[
+        { count: stat890, suffix: "€", label: "tarif de départ tout compris", delay: "0s" },
+        { count: stat100, suffix: "%", label: "responsive mobile + desktop", delay: "0.15s" },
+        { count: stat48, suffix: "h", label: "pour recevoir votre devis", delay: "0.3s" },
+      ].map((stat, i) => (
+        <div
+          key={i}
+          className="rounded-2xl border border-border/60 bg-background/40 py-8 px-6 text-center hover:border-primary/30 transition-colors"
+          style={{ opacity: scrollStats.visible ? 1 : 0, transform: scrollStats.visible ? "translateY(0)" : "translateY(28px)", transition: `opacity 0.6s ease ${stat.delay}, transform 0.6s ease ${stat.delay}` }}
+          onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+        >
+          <div className="text-4xl md:text-5xl font-bold text-primary mb-1">{stat.count}{stat.suffix}</div>
+          <p className="text-muted-foreground text-sm font-medium">{stat.label}</p>
         </div>
-      </div>
+      ))}
+    </div>
 
-      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="shrink-0 mt-0.5"><TrendingUp className="w-5 h-5 text-primary" /></div>
-        <div>
-          <p className="font-semibold text-sm mb-1">Standards modernes & SEO intégré</p>
+    {/* SEO local Savoie */}
+    <div
+      className="rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8 transition-all duration-700"
+      style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s" }}
+    >
+      <div className="flex flex-col md:flex-row md:items-center gap-6">
+        <div className="flex-1">
+          <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+            <Globe className="w-5 h-5 text-primary shrink-0" />
+            Agence web locale — Chambéry &amp; Savoie
+          </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Performances optimales, accessibilité, compatibilité tous navigateurs et optimisation SEO pour un bon positionnement sur Google.
+            Basée à Cognin, à deux pas de Chambéry, Fluxa accompagne les artisans, TPE et indépendants de toute la Savoie : Chambéry, Aix-les-Bains, Albertville, Annecy et alentours. Un interlocuteur local, réactif, qui connaît votre territoire et vos clients.
           </p>
         </div>
+        <div className="flex flex-wrap gap-2 shrink-0">
+          {["Chambéry", "Aix-les-Bains", "Albertville", "Annecy", "Savoie"].map(ville => (
+            <span key={ville} className="text-xs font-medium px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary">{ville}</span>
+          ))}
+        </div>
       </div>
+    </div>
 
-      <div className="flex gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
-        <div className="shrink-0 mt-0.5"><Target className="w-5 h-5 text-primary" /></div>
-        <div>
-          <p className="font-semibold text-sm mb-1">Adapté à votre secteur</p>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Site portfolio, entreprise ou profession libérale : nous adaptons chaque création à vos objectifs commerciaux, avec des tarifs transparents dès le départ.
-          </p>
-        </div>
-      </div>
+    {/* CTA final */}
+    <div
+      className="text-center mt-10"
+      style={{ opacity: scrollWhy.visible ? 1 : 0, transition: "opacity 0.6s ease 0.55s" }}
+    >
+      <a href="#infos" className="group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition">
+        Demander un devis gratuit
+        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
     </div>
   </div>
 </section>
 
 <SectionDivider />
 
-{/* ===== SECTION : Pourquoi choisir Fluxa ===== */}
-<section id="pourquoi-choisir-fluxa" className="py-12 md:py-20 border-t border-border/60 bg-gradient-to-b from-background via-card/30 to-background">
-  <div ref={scrollWhy.ref} className="max-w-6xl mx-auto px-6 space-y-16">
-    {/* --- Titre principal --- */}
+{/* ===== SECTION : À propos + Technologies (condensée) ===== */}
+<section className="py-12 md:py-16 bg-background border-t border-border/50">
+  <div ref={scrollAbout.ref} className="max-w-5xl mx-auto px-6">
     <div
-      className="text-center space-y-6 transition-all duration-700"
-      style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(32px)" }}
+      className="text-center mb-8 transition-all duration-700"
+      style={{ opacity: scrollAbout.visible ? 1 : 0, transform: scrollAbout.visible ? "translateY(0)" : "translateY(24px)" }}
     >
-      <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-        Pourquoi choisir Fluxa pour votre site vitrine ?
+      <h2 className="text-2xl md:text-3xl font-bold">
+        Agence de création de sites internet pour artisans et indépendants — Chambéry, Savoie
       </h2>
-      <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
-        Chez Fluxa, nous créons des sites vitrines professionnels, rapides et efficaces.
-        Pas de contrat long terme, pas de frais cachés : juste un site de qualité livré clé en main.
-        Découvrez nos engagements qui font la différence.
+      <p className="mt-3 text-muted-foreground text-sm max-w-2xl mx-auto">
+        <strong className="text-primary">Fluxa</strong> est une agence web locale spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs en Savoie et partout en France : responsive, optimisés SEO, hébergement inclus.
       </p>
     </div>
 
-    {/* --- 3 grands piliers de valeur --- */}
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {[
-        {
-          icon: <Zap className="w-8 h-8 text-primary" />,
-          title: "Livraison rapide",
-          text: `Votre site est prêt en 2-3 semaines seulement. Nous travaillons efficacement sans compromettre la qualité. Besoin encore plus vite ? Contactez-nous pour une option express. Dès validation de la maquette, votre site est développé et mis en ligne rapidement pour que vous puissiez commencer à gagner en visibilité immédiatement.`,
-        },
-        {
-          icon: <Banknote className="w-8 h-8 text-primary" />,
-          title: "Prix transparent et compétitif",
-          text: `À partir de 890€ tout compris : design responsive, hébergement et domaine 1ère année inclus, formulaire de contact, SEO de base. Pas de frais cachés, pas de contrat long terme. Vous savez exactement ce que vous payez dès le départ. Options ajustables selon vos besoins réels, sans payer pour des fonctionnalités inutiles.`,
-        },
-        {
-          icon: <Target className="w-8 h-8 text-primary" />,
-          title: "Propriété totale & support inclus",
-          text: `Vous êtes propriétaire à 100% de votre site, code source inclus. Formation à la gestion offerte à la livraison. Support technique réactif : nous intervenons rapidement en cas de problème. Maintenance optionnelle à 59€/mois pour garder votre site à jour. Pas de dépendance : vous restez libre.`,
-        },
+        { icon: <Trophy className="w-4 h-4 text-primary" />, title: "Qualité & prix accessible", text: "Tarif transparent, de la maquette à la mise en ligne." },
+        { icon: <Wrench className="w-4 h-4 text-primary" />, title: "Tous corps de métier", text: "Plombier, électricien, coach, consultant, artisan..." },
+        { icon: <TrendingUp className="w-4 h-4 text-primary" />, title: "SEO & performance", text: "Core Web Vitals respectés, référencement Google optimisé." },
+        { icon: <Lock className="w-4 h-4 text-primary" />, title: "Sécurité & RGPD", text: "SSL inclus, conformité RGPD, hébergement en France." },
       ].map((item, i) => (
         <div
           key={i}
-          className="rounded-2xl border border-border/60 bg-card/40 p-8 space-y-4 hover:bg-card/60 transition-colors"
-          style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(40px)", transition: `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s` }}
-          onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+          className="flex flex-col gap-2 rounded-2xl border border-border/60 bg-card/40 p-4 hover:border-primary/30 transition-colors"
+          style={{ opacity: scrollAbout.visible ? 1 : 0, transform: scrollAbout.visible ? "translateY(0)" : "translateY(24px)", transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s` }}
         >
-          <div>{item.icon}</div>
-          <h3 className="text-2xl font-semibold">{item.title}</h3>
-          <p className="text-muted-foreground leading-relaxed">{item.text}</p>
+          <div className="flex items-center gap-2">{item.icon}<p className="font-semibold text-sm">{item.title}</p></div>
+          <p className="text-muted-foreground text-xs leading-relaxed">{item.text}</p>
         </div>
       ))}
     </div>
+  </div>
+</section>
 
-    {/* --- Partie narrative / storytelling --- */}
-    <div className="max-w-5xl mx-auto space-y-8">
-      <h3 className="text-3xl font-semibold text-center">Des Sites Vitrines Pensés pour les Entrepreneurs</h3>
-      <p className="text-muted-foreground text-lg leading-relaxed text-center">
-        Fluxa a été créé en observant les besoins réels des TPE, indépendants et entrepreneurs :
-        besoin d'une présence en ligne professionnelle, sans se ruiner ni passer des mois en développement.
-        L'idée était simple : <strong>offrir un site vitrine de qualité, rapidement et à prix accessible</strong>,
-        sans compromis sur la qualité technique.
-      </p>
-      <p className="text-muted-foreground text-lg leading-relaxed text-center">
-        Chaque site (design, développement, SEO, hébergement)
-        est pensé pour être efficace dès le premier jour.
-        Pas besoin d'être expert : votre site est livré prêt à l'emploi avec formation et support inclus.
-      </p>
-    </div>
+<SectionDivider />
 
-    {/* --- Témoignages / résultats chiffrés --- */}
-    <div ref={scrollStats.ref} className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 pt-10">
-      {[
-        { count: stat890, suffix: "€", label: "tarif de départ tout compris", delay: "0s" },
-        { count: stat100, suffix: "%", label: "responsive (mobile + desktop)", delay: "0.15s" },
-        { count: stat48, suffix: "h", label: "pour recevoir votre devis gratuit", delay: "0.3s" },
-      ].map((stat, i) => (
-        <div
-          key={i}
-          className="rounded-2xl border border-border/60 bg-background/40 py-10 px-6 text-center hover:bg-background/60 transition-colors"
-          style={{ opacity: scrollStats.visible ? 1 : 0, transform: scrollStats.visible ? "translateY(0)" : "translateY(32px)", transition: `opacity 0.6s ease ${stat.delay}, transform 0.6s ease ${stat.delay}` }}
-          onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
-        >
-          <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-            {stat.count}{stat.suffix}
-          </div>
-          <p className="text-muted-foreground font-medium">{stat.label}</p>
-        </div>
-      ))}
-    </div>
-
-    {/* --- Ouverture vers la suite / renvoi blog --- */}
-    <div className="text-center space-y-4 pt-10 max-w-3xl mx-auto">
-      <h3 className="text-2xl font-semibold">Des sites évolutifs, pensés pour grandir avec vous</h3>
-      <p className="text-muted-foreground leading-relaxed">
-        Votre site peut évoluer au fil de votre activité : nouvelles pages, fonctionnalités supplémentaires, refonte partielle.
-        Nous restons à vos côtés pour faire évoluer votre présence en ligne selon vos besoins.
-      </p>
-      <a
-        href="#infos"
-        className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-medium bg-primary/10 text-primary hover:bg-primary/20 transition"
-      >
-        Demander un devis gratuit
+{/* ===== SECTION : Articles en vedette ===== */}
+<section className="py-12 md:py-16 bg-background">
+  <div className="max-w-5xl mx-auto px-6">
+    <div className="flex items-center justify-between mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold">Guides &amp; conseils pour votre site web</h2>
+      <a href="/articles" className="group hidden md:inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+        Tous les articles
+        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
       </a>
     </div>
-
-    {/* --- Section technologies et bonnes pratiques --- */}
-    <div className="max-w-5xl mx-auto space-y-8 pt-16">
-      <h3 className="text-3xl font-semibold text-center">Technologies modernes et bonnes pratiques web</h3>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="space-y-4">
-          <h4 className="text-xl font-semibold text-primary">Performance et rapidité</h4>
-          <p className="text-muted-foreground leading-relaxed">
-            Chaque <a href="#pricing" className="text-primary hover:underline">site vitrine</a> que nous développons est optimisé pour la vitesse de chargement. Images compressées au format WebP, code minifié, lazy loading des ressources : nous appliquons les <a href="https://web.dev/vitals/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">meilleures pratiques web.dev</a> pour garantir un temps de chargement inférieur à 3 secondes. Un site rapide améliore l'expérience utilisateur et favorise votre positionnement sur Google. Les <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Core Web Vitals</a> sont respectés pour maximiser votre score de performance.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h4 className="text-xl font-semibold text-primary">Référencement naturel (SEO)</h4>
-          <p className="text-muted-foreground leading-relaxed">
-            Le SEO est au cœur de notre démarche de <a href="#pourquoi-choisir-fluxa" className="text-primary hover:underline">création de sites vitrines</a>. Structure HTML sémantique, balises meta optimisées, sitemap XML, robots.txt, données structurées <a href="https://schema.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Schema.org</a> : tout est mis en place pour que votre site soit facilement indexé par les moteurs de recherche. Nous vous accompagnons également sur la stratégie de mots-clés et la rédaction de contenu optimisé pour le référencement local et national selon les <a href="https://developers.google.com/search/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">directives Google</a>.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h4 className="text-xl font-semibold text-primary">Responsive design mobile-first</h4>
-          <p className="text-muted-foreground leading-relaxed">
-            Plus de 60% des visites web se font depuis un smartphone. Tous nos <a href="#infos" className="text-primary hover:underline">sites</a> sont développés en mobile-first selon les recommandations <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MDN Web Docs</a> : nous concevons d'abord pour mobile, puis adaptons pour tablette et desktop. Navigation tactile optimisée, boutons accessibles au pouce, images adaptatives : votre site vitrine offre une expérience utilisateur parfaite sur tous les écrans. Test sur devices réels avant livraison.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h4 className="text-xl font-semibold text-primary">Sécurité et conformité RGPD</h4>
-          <p className="text-muted-foreground leading-relaxed">
-            Certificat SSL inclus pour sécuriser les échanges, formulaires de contact conformes <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">RGPD</a> avec consentement explicite, <a href="/politique-confidentialite" className="text-primary hover:underline">politique de confidentialité</a> claire : votre site vitrine respecte la réglementation française et européenne. Hébergement en France sur serveurs sécurisés avec sauvegardes quotidiennes. Protection anti-spam sur les formulaires et mise à jour régulière des dépendances de sécurité.
-          </p>
-        </div>
-      </div>
+    <div className="grid md:grid-cols-3 gap-5">
+      {[
+        {
+          tag: "SEO",
+          color: "emerald",
+          title: "Comment bien référencer son site vitrine sur Google ?",
+          desc: "Les bases du SEO local pour un artisan ou une TPE : balises, mots-clés, Google Business.",
+          href: "/articles/seo-site-vitrine-artisan",
+        },
+        {
+          tag: "Création web",
+          color: "primary",
+          title: "Combien coûte vraiment un site vitrine en 2025 ?",
+          desc: "Comparatif agences, freelances et constructeurs de sites — ce qui est vraiment inclus.",
+          href: "/articles/cout-site-vitrine-2025",
+        },
+        {
+          tag: "Conseils",
+          color: "violet",
+          title: "5 erreurs à éviter lors de la création de votre site vitrine",
+          desc: "Les pièges les plus courants que font les artisans et TPE lors de leur premier site web.",
+          href: "/articles/erreurs-site-vitrine",
+        },
+      ].map((article, i) => (
+        <a
+          key={i}
+          href={article.href}
+          className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-[0_0_24px_-8px_hsl(217,91%,60%,0.15)] transition-all flex flex-col gap-3"
+        >
+          <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full w-fit ${
+            article.color === "emerald" ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20" :
+            article.color === "violet"  ? "text-violet-400 bg-violet-500/10 border border-violet-500/20" :
+                                          "text-primary bg-primary/10 border border-primary/20"
+          }`}>{article.tag}</span>
+          <h3 className="font-semibold text-sm leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed flex-1">{article.desc}</p>
+          <span className="text-xs font-medium text-primary flex items-center gap-1 mt-auto">
+            Lire l'article
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+    <div className="mt-6 text-center md:hidden">
+      <a href="/articles" className="group inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+        Tous les articles
+        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
     </div>
   </div>
 </section>
