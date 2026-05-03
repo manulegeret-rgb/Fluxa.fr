@@ -310,7 +310,7 @@ useEffect(() => {
   {/* top padding ajusté pour le header fixe */}
   <div className="container mx-auto px-6 relative z-10 pt-28 md:pt-32">
     {/* H1 centré en haut */}
-    <div className="text-center mb-12 md:mb-16">
+    <div className="text-center mb-12 md:mb-16 animate-[fade-in-up_0.7s_ease_0.1s_both]">
       <h1 className="text-[clamp(32px,5.5vw,62px)] font-bold leading-tight">
         <span className="md:whitespace-nowrap">Votre site vitrine professionnel,</span>{" "}
         <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent md:whitespace-nowrap">
@@ -323,7 +323,7 @@ useEffect(() => {
     {/* Grille 2 colonnes : Texte + Image */}
     <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-10 items-center">
       {/* Colonne gauche : Accroche + bénéfices + CTAs */}
-      <div className="space-y-7 text-center lg:text-left">
+      <div className="space-y-7 text-center lg:text-left animate-[fade-in-up_0.7s_ease_0.3s_both]">
         {/* Accroche */}
         <div className="space-y-3 text-[15px] md:text-lg text-muted-foreground/90">
           <p>
@@ -351,8 +351,8 @@ useEffect(() => {
         </ul>
 
         {/* Badge prix */}
-        <div className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 font-semibold text-foreground bg-primary/10 text-sm mx-auto lg:mx-0">
-          <Banknote className="w-4 h-4" /> À partir de <span className="text-primary">890 € tout compris</span>
+        <div className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 font-semibold text-foreground bg-primary/10 text-sm mx-auto lg:mx-0 animate-[pulse-slow_2.5s_ease-in-out_infinite]">
+          <Banknote className="w-4 h-4 text-primary shrink-0" /> À partir de <span className="text-primary">890 € tout compris</span>
         </div>
 
         {/* CTAs — Devis en principal */}
@@ -364,7 +364,8 @@ useEffect(() => {
           >
             <span className="relative z-10">Demander un devis gratuit</span>
             <span className="relative z-10 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-[hsl(217,77%,45%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-[hsl(217,77%,45%)] opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="btn-shimmer absolute inset-0 z-20 pointer-events-none" />
           </a>
           <a
             href="#pricing"
@@ -378,7 +379,7 @@ useEffect(() => {
       </div>
 
       {/* Visuel (mockup) */}
-      <div className="relative group cursor-pointer" onClick={() => setLightboxOpen(true)}>
+      <div className="relative group cursor-pointer animate-[fade-in-up_0.7s_ease_0.5s_both]" onClick={() => setLightboxOpen(true)}>
         <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-[hsl(217,77%,39%)]/20 rounded-2xl blur-2xl group-hover:opacity-80 transition"></div>
         <img
           src={mockupAJour}
@@ -397,6 +398,13 @@ useEffect(() => {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  {/* Scroll indicator */}
+  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-[fade-in_1s_ease_1.2s_both]">
+    <span className="text-xs text-muted-foreground/60 tracking-widest uppercase">Découvrir</span>
+    <div className="w-5 h-8 rounded-full border border-muted-foreground/30 flex items-start justify-center p-1">
+      <div className="w-1 h-2 bg-primary rounded-full animate-[scrollDot_1.6s_ease-in-out_infinite]" />
     </div>
   </div>
 </section>
@@ -516,9 +524,9 @@ useEffect(() => {
             style={{ opacity: scrollPricing.visible ? 1 : 0, transform: scrollPricing.visible ? "translateY(0)" : "translateY(32px)" }}
           >
   <div className="relative inline-block">
-    <div className="absolute -top-3 -right-8 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full rotate-12 shadow-lg">
+    <span className="absolute -top-3 -right-2 md:-right-8 bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-full rotate-12 shadow-lg whitespace-nowrap">
       NOUVEAU
-    </div>
+    </span>
     <h2 className="text-4xl lg:text-5xl font-bold">
       Tarifs site vitrine : transparents et tout compris
     </h2>
@@ -721,8 +729,9 @@ useEffect(() => {
             {sendError && (
               <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>
             )}
-            <p className="mt-2 text-xs text-muted-foreground">
-              Réponse sous 48h, sans engagement.
+            <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              Réponse sous 48h garantie, sans engagement.
             </p>
           </form>
 
@@ -773,61 +782,25 @@ useEffect(() => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            <div
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-emerald-500/50 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.2)] transition-colors"
-              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s, border-color 0.3s, box-shadow 0.3s" }}
-              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
-            >
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
-                <ShieldCheck className="w-6 h-6 text-emerald-400" />
+            {[
+              { icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />, bg: "bg-emerald-500/15", border: "hover:border-emerald-500/50", glow: "hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.25)]", title: "Satisfaction garantie", text: "Modifications incluses jusqu'à validation complète, sans surcoût", delay: "0.1s" },
+              { icon: <Zap className="w-6 h-6 text-amber-400" />, bg: "bg-amber-500/15", border: "hover:border-amber-500/50", glow: "hover:shadow-[0_0_24px_-8px_rgba(245,158,11,0.25)]", title: "Respect des délais", text: "Livraison en 2-3 semaines ou remboursement partiel", delay: "0.22s" },
+              { icon: <Code2 className="w-6 h-6 text-violet-400" />, bg: "bg-violet-500/15", border: "hover:border-violet-500/50", glow: "hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.25)]", title: "Code propre", text: "Standards du web respectés, performance optimale", delay: "0.34s" },
+              { icon: <Headphones className="w-6 h-6 text-primary" />, bg: "bg-primary/15", border: "hover:border-primary/50", glow: "hover:shadow-[0_0_24px_-8px_rgba(59,130,246,0.25)]", title: "Support réactif", text: "Réponse sous 48h, corrections de bugs prioritaires", delay: "0.46s" },
+            ].map((g, i) => (
+              <div
+                key={i}
+                className={`group rounded-2xl border border-border bg-card p-6 text-center ${g.border} ${g.glow} transition-all duration-300`}
+                style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: `opacity 0.6s ease ${g.delay}, transform 0.6s ease ${g.delay}, border-color 0.3s, box-shadow 0.3s` }}
+                onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
+              >
+                <div className={`w-12 h-12 rounded-xl ${g.bg} flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110`}>
+                  {g.icon}
+                </div>
+                <h3 className="font-semibold mb-2">{g.title}</h3>
+                <p className="text-sm text-muted-foreground">{g.text}</p>
               </div>
-              <h3 className="font-semibold mb-2">Satisfaction garantie</h3>
-              <p className="text-sm text-muted-foreground">
-                Modifications incluses jusqu'à validation complète, sans surcoût
-              </p>
-            </div>
-
-            <div
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-amber-500/50 hover:shadow-[0_0_24px_-8px_rgba(245,158,11,0.2)] transition-colors"
-              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.22s, transform 0.6s ease 0.22s, border-color 0.3s, box-shadow 0.3s" }}
-              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
-            >
-              <div className="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="font-semibold mb-2">Respect des délais</h3>
-              <p className="text-sm text-muted-foreground">
-                Livraison en 2-3 semaines ou remboursement partiel
-              </p>
-            </div>
-
-            <div
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-violet-500/50 hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.2)] transition-colors"
-              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.34s, transform 0.6s ease 0.34s, border-color 0.3s, box-shadow 0.3s" }}
-              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
-            >
-              <div className="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center mx-auto mb-4">
-                <Code2 className="w-6 h-6 text-violet-400" />
-              </div>
-              <h3 className="font-semibold mb-2">Code propre</h3>
-              <p className="text-sm text-muted-foreground">
-                Standards du web respectés, performance optimale
-              </p>
-            </div>
-
-            <div
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-primary/50 hover:shadow-[0_0_24px_-8px_rgba(59,130,246,0.2)] transition-colors"
-              style={{ opacity: scrollGuarantees.visible ? 1 : 0, transform: scrollGuarantees.visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.6s ease 0.46s, transform 0.6s ease 0.46s, border-color 0.3s, box-shadow 0.3s" }}
-              onMouseMove={handleTilt} onMouseLeave={handleTiltReset}
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4">
-                <Headphones className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">Support réactif</h3>
-              <p className="text-sm text-muted-foreground">
-                Réponse sous 48h, corrections de bugs prioritaires
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -955,10 +928,10 @@ useEffect(() => {
       style={{ opacity: scrollAbout.visible ? 1 : 0, transform: scrollAbout.visible ? "translateY(0)" : "translateY(24px)" }}
     >
       <h2 className="text-2xl md:text-3xl font-bold">
-        Agence de création de sites internet pour artisans et indépendants · Chambéry, Savoie
+        Qui sommes-nous ?
       </h2>
       <p className="mt-3 text-muted-foreground text-sm max-w-2xl mx-auto">
-        <strong className="text-primary">Fluxa</strong> est une agence web locale spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs en Savoie et partout en France : responsive, optimisés SEO, hébergement inclus.
+        <strong className="text-primary">Fluxa</strong> est une agence web locale basée à Chambéry, spécialisée dans la création de sites vitrines professionnels pour artisans, TPE et indépendants. Sites responsive, optimisés SEO, hébergement inclus, livrés clé en main.
       </p>
     </div>
 
@@ -971,10 +944,13 @@ useEffect(() => {
       ].map((item, i) => (
         <div
           key={i}
-          className="flex flex-col gap-2 rounded-2xl border border-border/60 bg-card/40 p-4 hover:border-primary/30 transition-colors"
+          className="group flex flex-col gap-2 rounded-2xl border border-border/60 bg-card/40 p-4 hover:border-primary/30 hover:bg-card/70 transition-all duration-300"
           style={{ opacity: scrollAbout.visible ? 1 : 0, transform: scrollAbout.visible ? "translateY(0)" : "translateY(24px)", transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s` }}
         >
-          <div className="flex items-center gap-2">{item.icon}<p className="font-semibold text-sm">{item.title}</p></div>
+          <div className="flex items-center gap-2">
+            <span className="transition-transform duration-300 group-hover:scale-125">{item.icon}</span>
+            <p className="font-semibold text-sm">{item.title}</p>
+          </div>
           <p className="text-muted-foreground text-xs leading-relaxed">{item.text}</p>
         </div>
       ))}
