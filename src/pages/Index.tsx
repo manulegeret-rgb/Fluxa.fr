@@ -328,10 +328,10 @@ useEffect(() => {
         <div className="space-y-3 text-[15px] md:text-lg text-muted-foreground/90">
           <p>
             <span className="text-foreground font-semibold">Artisan, TPE ou indépendant ?</span>{" "}
-            Fluxa crée votre site vitrine professionnel en 2 à 3 semaines, clé en main, livré prêt à recevoir vos clients.
+            Vos futurs clients cherchent vos services sur Google — sont-ils capables de vous trouver ?
           </p>
           <p>
-            Design soigné, référencement Google, hébergement inclus : tout ce qu'il faut pour être visible en ligne et décrocher de nouveaux clients, sans vous occuper de la technique.
+            Fluxa crée votre site vitrine en 2 à 3 semaines, clé en main : design soigné, référencement Google, hébergement inclus. Vous vous concentrez sur votre métier, on s'occupe du reste.
           </p>
         </div>
 
@@ -389,8 +389,9 @@ useEffect(() => {
           height="1080"
           className="relative rounded-2xl border border-primary/20 shadow-[0_30px_80px_-30px_hsl(217,91%,60%/.25)] group-hover:border-primary/40 transition w-full aspect-[16/10] object-cover object-center"
         />
-        <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60">
-          Dernière réalisation client
+        <div className="absolute left-3 bottom-3 text-[10px] text-muted-foreground/85 bg-background/70 backdrop-blur px-2 py-1 rounded-lg border border-border/60 flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          Site créé pour un artisan local · Chambéry, Savoie
         </div>
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
           <div className="bg-background/80 backdrop-blur-sm rounded-full p-3 border border-primary/40">
@@ -536,6 +537,31 @@ useEffect(() => {
     Hébergement et domaine inclus la première année.
   </p>
 </div>
+
+          {/* Comparatif de prix */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <div className="rounded-2xl border border-border bg-card/50 overflow-hidden">
+              <div className="grid grid-cols-3 text-center text-xs md:text-sm font-semibold border-b border-border">
+                <div className="py-3 px-2 text-muted-foreground">Agence classique</div>
+                <div className="py-3 px-2 bg-primary/10 text-primary border-x border-primary/30">Fluxa</div>
+                <div className="py-3 px-2 text-muted-foreground">Freelance</div>
+              </div>
+              <div className="grid grid-cols-3 text-center">
+                <div className="py-4 px-2 border-r border-border/50">
+                  <p className="text-lg md:text-2xl font-bold text-muted-foreground/70">3 000 – 8 000€</p>
+                  <p className="text-xs text-muted-foreground mt-1">Délai 2-3 mois</p>
+                </div>
+                <div className="py-4 px-2 bg-primary/5 border-x border-primary/30">
+                  <p className="text-lg md:text-2xl font-bold text-primary">dès 890€</p>
+                  <p className="text-xs text-primary/80 mt-1 font-medium">Livré en 2-3 semaines</p>
+                </div>
+                <div className="py-4 px-2 border-l border-border/50">
+                  <p className="text-lg md:text-2xl font-bold text-muted-foreground/70">1 500 – 3 000€</p>
+                  <p className="text-xs text-muted-foreground mt-1">Qualité variable</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Formule + Options */}
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
@@ -911,7 +937,7 @@ useEffect(() => {
       style={{ opacity: scrollWhy.visible ? 1 : 0, transition: "opacity 0.6s ease 0.55s" }}
     >
       <a href="#infos" className="group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition">
-        Demander un devis gratuit
+        Je veux mon site vitrine
         <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
       </a>
     </div>
@@ -982,14 +1008,8 @@ useEffect(() => {
         </address>
       </div>
 
-      {/* Réseaux + lien articles */}
+      {/* Réseaux */}
       <nav className="flex flex-wrap items-center gap-5 text-sm" aria-label="Liens utiles">
-        <a
-          href="/articles"
-          className="hover:text-primary transition-colors text-muted-foreground"
-        >
-          Blog &amp; Guides
-        </a>
         <a
           href="mailto:fluxa.contact@gmail.com"
           className="hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"

@@ -125,11 +125,11 @@ export function CommentCaMarche() {
           }}
         >
           <a
-            href="#infos"
+            href="#pricing"
             className="group inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition gap-2"
-            aria-label="Demander un devis"
+            aria-label="Voir les tarifs"
           >
-            Demander un devis gratuit
+            Voir les tarifs et démarrer
             <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </a>
         </div>
