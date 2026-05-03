@@ -982,69 +982,6 @@ useEffect(() => {
   </div>
 </section>
 
-<SectionDivider />
-
-{/* ===== SECTION : Articles en vedette ===== */}
-<section className="py-12 md:py-16 bg-background">
-  <div className="max-w-5xl mx-auto px-6">
-    <div className="flex items-center justify-between mb-8">
-      <h2 className="text-2xl md:text-3xl font-bold">Guides &amp; conseils pour votre site web</h2>
-      <a href="/articles" className="group hidden md:inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
-        Tous les articles
-        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-      </a>
-    </div>
-    <div className="grid md:grid-cols-3 gap-5">
-      {[
-        {
-          tag: "SEO",
-          color: "emerald",
-          title: "Comment bien référencer son site vitrine sur Google ?",
-          desc: "Les bases du SEO local pour un artisan ou une TPE : balises, mots-clés, Google Business.",
-          href: "/articles/seo-site-vitrine-artisan",
-        },
-        {
-          tag: "Création web",
-          color: "primary",
-          title: "Combien coûte vraiment un site vitrine en 2025 ?",
-          desc: "Comparatif agences, freelances et constructeurs de sites — ce qui est vraiment inclus.",
-          href: "/articles/cout-site-vitrine-2025",
-        },
-        {
-          tag: "Conseils",
-          color: "violet",
-          title: "5 erreurs à éviter lors de la création de votre site vitrine",
-          desc: "Les pièges les plus courants que font les artisans et TPE lors de leur premier site web.",
-          href: "/articles/erreurs-site-vitrine",
-        },
-      ].map((article, i) => (
-        <a
-          key={i}
-          href={article.href}
-          className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-[0_0_24px_-8px_hsl(217,91%,60%,0.15)] transition-all flex flex-col gap-3"
-        >
-          <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full w-fit ${
-            article.color === "emerald" ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20" :
-            article.color === "violet"  ? "text-violet-400 bg-violet-500/10 border border-violet-500/20" :
-                                          "text-primary bg-primary/10 border border-primary/20"
-          }`}>{article.tag}</span>
-          <h3 className="font-semibold text-sm leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
-          <p className="text-xs text-muted-foreground leading-relaxed flex-1">{article.desc}</p>
-          <span className="text-xs font-medium text-primary flex items-center gap-1 mt-auto">
-            Lire l'article
-            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-          </span>
-        </a>
-      ))}
-    </div>
-    <div className="mt-6 text-center md:hidden">
-      <a href="/articles" className="group inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
-        Tous les articles
-        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-      </a>
-    </div>
-  </div>
-</section>
 
       {/* ================= FOOTER ================= */}
 <footer className="mt-16 py-10 border-t border-border/80">
