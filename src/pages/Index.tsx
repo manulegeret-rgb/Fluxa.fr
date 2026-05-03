@@ -999,9 +999,7 @@ useEffect(() => {
             Fluxa · Création de sites vitrines professionnels
           </p>
         </div>
-        {/* NAP — Name Address Phone (signal SEO local critique) */}
         <address className="not-italic text-xs text-muted-foreground leading-relaxed">
-          36 rue des Criquets, 73160 Cognin, Savoie<br />
           <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors">
             fluxa.contact@gmail.com
           </a>
@@ -1059,7 +1057,7 @@ useEffect(() => {
     {/* Ligne 2 : liens légaux + © */}
     <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
       <p className="text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Fluxa · Emmanuel Légeret, Entrepreneur Individuel · SIRET 83014496000044
+        © {new Date().getFullYear()} Fluxa · SIRET 83014496000044
       </p>
 
       <div className="flex items-center gap-4 text-sm">
