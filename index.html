@@ -236,6 +236,56 @@
   }
   </script>
 
+  <!-- Schema.org FAQPage — fait apparaître les Q/R dans Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien coûte un site vitrine professionnel ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Notre formule de base est à 890€ pour un site de 5 pages (Accueil, Services, À propos, Galerie, Contact) avec hébergement et domaine inclus la première année. Des options sont disponibles selon vos besoins."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps faut-il pour créer un site vitrine ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Votre site vitrine est livré en 2 à 3 semaines après validation de la maquette. Nous nous occupons de tout : design, développement, hébergement et mise en ligne."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "L'hébergement et le nom de domaine sont-ils inclus ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, l'hébergement web sécurisé et le nom de domaine sont inclus la première année dans le tarif de base. Le renouvellement annuel est ensuite d'environ 50 à 80€ selon l'hébergeur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mon site sera-t-il bien référencé sur Google ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tous nos sites incluent une optimisation SEO de base : balises meta, structure HTML propre, vitesse de chargement optimisée et compatibilité mobile. Idéal pour le référencement local sur Google."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je payer en plusieurs fois ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, nous proposons un paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison."
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Comportement de scroll -->
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 104px; }
@@ -246,8 +296,8 @@
 
   <body>
     <div id="root">
-      <!-- Contenu SEO statique visible avant chargement React (remplacé automatiquement) -->
-      <div class="seo-fallback" style="display:none;" aria-hidden="true">
+      <!-- Contenu SEO statique lisible par Google avant chargement React -->
+      <div class="seo-fallback" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
         <header>
           <strong>Fluxa - Agence web création sites vitrines</strong>
           <nav>
@@ -305,7 +355,7 @@
         </main>
 
         <footer>
-          <p>&copy; 2025 Fluxa - Agence de création de sites vitrines professionnels</p>
+          <p>&copy; 2026 Fluxa - Agence de création de sites vitrines professionnels</p>
           <a href="/mentions-legales">Mentions légales</a>
           <a href="/politique-confidentialite">Politique de confidentialité</a>
         </footer>
@@ -355,7 +405,7 @@
         </main>
 
         <footer>
-          <p>&copy; 2025 Fluxa - Agence de création de sites vitrines professionnels</p>
+          <p>&copy; 2026 Fluxa - Agence de création de sites vitrines professionnels</p>
           <a href="/mentions-legales">Mentions légales</a>
           <a href="/politique-confidentialite">Politique de confidentialité</a>
         </footer>
