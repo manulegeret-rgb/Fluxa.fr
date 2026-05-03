@@ -15,6 +15,11 @@ import ArticlesHub from "./pages/ArticlesHub";
 import ArticleDetail from "./pages/ArticleDetail";
 import ArticleViral from "./pages/ArticleViral";
 import Merci from "./pages/Merci";
+import SiteVitrineArtisanChambery from "./pages/seo/SiteVitrineArtisanChambery";
+import SiteVitrineArtisanPlombier from "./pages/seo/SiteVitrineArtisanPlombier";
+import SiteVitrineElectricien from "./pages/seo/SiteVitrineElectricien";
+import SiteVitrinePaysagiste from "./pages/seo/SiteVitrinePaysagiste";
+import PrixSiteVitrine from "./pages/seo/PrixSiteVitrine";
 
 const queryClient = new QueryClient();
 
@@ -94,7 +99,12 @@ const AppInner = () => {
     location.pathname === "/articles" ||
     location.pathname.startsWith("/articles/") || // Cache aussi sur les pages articles individuels
     location.pathname === "/guide-complet-roi-automatisation-artisans" ||
-    location.pathname === "/merci";
+    location.pathname === "/merci" ||
+    location.pathname === "/creation-site-vitrine-artisan-chambery" ||
+    location.pathname === "/creation-site-vitrine-plombier" ||
+    location.pathname === "/creation-site-vitrine-electricien" ||
+    location.pathname === "/creation-site-vitrine-paysagiste" ||
+    location.pathname === "/prix-site-vitrine-2026";
 
   return (
     <>
@@ -113,6 +123,14 @@ const AppInner = () => {
         <Route path="/articles/:slug" element={<ArticleDetail />} />
         <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} />
         <Route path="/merci" element={<Merci />} />
+
+        {/* Pages SEO locales — non visibles dans le menu */}
+        <Route path="/creation-site-vitrine-artisan-chambery" element={<SiteVitrineArtisanChambery />} />
+        <Route path="/creation-site-vitrine-plombier" element={<SiteVitrineArtisanPlombier />} />
+        <Route path="/creation-site-vitrine-electricien" element={<SiteVitrineElectricien />} />
+        <Route path="/creation-site-vitrine-paysagiste" element={<SiteVitrinePaysagiste />} />
+        <Route path="/prix-site-vitrine-2026" element={<PrixSiteVitrine />} />
+
         {/* Catch-all 404 route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
