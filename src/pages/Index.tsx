@@ -854,7 +854,7 @@ useEffect(() => {
         Pourquoi choisir Fluxa pour votre site vitrine ?
       </h2>
       <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-        Agence web locale à Chambéry (Savoie) — sites vitrines professionnels livrés clé en main, sans contrat long terme, sans frais cachés.
+        Agence web locale à Chambéry (Savoie). Sites vitrines professionnels livrés clé en main, sans contrat long terme, sans frais cachés.
       </p>
     </div>
 
@@ -918,7 +918,7 @@ useEffect(() => {
         <div className="flex-1">
           <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
             <Globe className="w-5 h-5 text-primary shrink-0" />
-            Agence web locale — Chambéry &amp; Savoie
+            Agence web locale · Chambéry &amp; Savoie
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
             Basée à Cognin, à deux pas de Chambéry, Fluxa accompagne les artisans, TPE et indépendants de toute la Savoie : Chambéry, Aix-les-Bains, Albertville, Annecy et alentours. Un interlocuteur local, réactif, qui connaît votre territoire et vos clients.
@@ -955,7 +955,7 @@ useEffect(() => {
       style={{ opacity: scrollAbout.visible ? 1 : 0, transform: scrollAbout.visible ? "translateY(0)" : "translateY(24px)" }}
     >
       <h2 className="text-2xl md:text-3xl font-bold">
-        Agence de création de sites internet pour artisans et indépendants — Chambéry, Savoie
+        Agence de création de sites internet pour artisans et indépendants · Chambéry, Savoie
       </h2>
       <p className="mt-3 text-muted-foreground text-sm max-w-2xl mx-auto">
         <strong className="text-primary">Fluxa</strong> est une agence web locale spécialisée dans la création de sites vitrines professionnels pour TPE, artisans, consultants et entrepreneurs en Savoie et partout en France : responsive, optimisés SEO, hébergement inclus.
