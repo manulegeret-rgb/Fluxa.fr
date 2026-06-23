@@ -98,26 +98,58 @@ useEffect(() => {
     };
   }, []);
 
-  // ========= Typing effect sur le hero
+  // ========= Typing effect sur le hero (rAF pour fluidité maximale)
   const typingPhrases = ["livré clé en main", "en 2 à 3 semaines", "prêt à vous trouver des clients"];
-  const [typingIndex, setTypingIndex] = useState(0);
   const [typingText, setTypingText] = useState("");
-  const [typingDeleting, setTypingDeleting] = useState(false);
   useEffect(() => {
-    const phrase = typingPhrases[typingIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-    if (!typingDeleting && typingText.length < phrase.length) {
-      timeout = setTimeout(() => setTypingText(phrase.slice(0, typingText.length + 1)), 55);
-    } else if (!typingDeleting && typingText.length === phrase.length) {
-      timeout = setTimeout(() => setTypingDeleting(true), 2200);
-    } else if (typingDeleting && typingText.length > 0) {
-      timeout = setTimeout(() => setTypingText(typingText.slice(0, -1)), 30);
-    } else if (typingDeleting && typingText.length === 0) {
-      setTypingDeleting(false);
-      setTypingIndex((i) => (i + 1) % typingPhrases.length);
+    let rafId: number;
+    let lastTime = 0;
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    let pauseUntil = 0;
+
+    const CHAR_INTERVAL = 40;   // ms entre chaque lettre (écriture)
+    const DEL_INTERVAL = 18;    // ms entre chaque suppression
+    const PAUSE_FULL = 2200;    // pause quand phrase complète
+    const PAUSE_EMPTY = 120;    // pause avant phrase suivante
+
+    function tick(now: number) {
+      const phrase = typingPhrases[phraseIdx];
+
+      if (now < pauseUntil) {
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+
+      const interval = deleting ? DEL_INTERVAL : CHAR_INTERVAL;
+      if (now - lastTime >= interval) {
+        lastTime = now;
+
+        if (!deleting) {
+          charIdx = Math.min(charIdx + 1, phrase.length);
+          setTypingText(phrase.slice(0, charIdx));
+          if (charIdx === phrase.length) {
+            pauseUntil = now + PAUSE_FULL;
+            deleting = true;
+          }
+        } else {
+          charIdx = Math.max(charIdx - 1, 0);
+          setTypingText(phrase.slice(0, charIdx));
+          if (charIdx === 0) {
+            deleting = false;
+            phraseIdx = (phraseIdx + 1) % typingPhrases.length;
+            pauseUntil = now + PAUSE_EMPTY;
+          }
+        }
+      }
+
+      rafId = requestAnimationFrame(tick);
     }
-    return () => clearTimeout(timeout);
-  }, [typingText, typingDeleting, typingIndex]);
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
   // ========= Scroll animations
   const scrollTypes = useScrollAnimation(0.12);

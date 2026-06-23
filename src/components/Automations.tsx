@@ -68,21 +68,21 @@ export function CommentCaMarche() {
             transform: scrollSection.visible ? "translateY(0)" : "translateY(28px)",
           }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold" id="comment-ca-marche">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold" id="comment-ca-marche">
             Comment ça marche ?
           </h2>
-          <p className="text-base leading-7 text-muted-foreground mt-1">
+          <p className="text-sm md:text-base leading-7 text-muted-foreground mt-1">
             De la première discussion à la mise en ligne, votre site vitrine professionnel en 5 étapes claires et sans surprise.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-6 max-w-6xl mx-auto justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {items.map((it, i) => {
             const Icon = it.icon;
             return (
               <div
                 key={i}
-                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition-colors w-full md:w-[calc(33.333%-1rem)] md:max-w-[calc(33.333%-1rem)]"
+                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition-colors"
                 style={{
                   opacity: scrollSection.visible ? 1 : 0,
                   transform: scrollSection.visible ? "translateY(0)" : "translateY(36px)",
