@@ -13,6 +13,7 @@ import {
   Instagram,
   Facebook,
   Linkedin,
+  Check,
   CheckCircle2,
   Menu,
   X,
@@ -508,106 +509,129 @@ const Index = () => {
       <section id="services" className="py-[110px] bg-background">
         <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
 
-          {/* En-tête */}
+          {/* En-tête avec tirets */}
           <div
-            className="text-center mb-14 transition-all duration-700"
+            className="text-center mb-[60px] transition-all duration-700"
             style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(28px)" }}
           >
-            <p className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-3" style={{ color: "hsl(217,91%,60%)" }}>Ce que nous créons</p>
+            <div className="inline-flex items-center gap-[10px] mb-[18px]">
+              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
+              <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Nos réalisations</span>
+              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
+            </div>
             <h2
               className="mb-4"
-              style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
+              style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Un site taillé pour votre activité
+              Un site pensé pour{" "}
+              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                votre métier
+              </span>
             </h2>
-            <p className="text-lg max-w-xl mx-auto" style={{ color: "hsl(215,20%,65%)" }}>
-              Artisan, TPE ou indépendant, chaque site est conçu pour votre métier.
+            <p className="text-[17px] max-w-[680px] mx-auto" style={{ color: "hsl(215,20%,72%)" }}>
+              Chaque activité a ses besoins. Nous adaptons la structure, le design et le contenu au vôtre.
             </p>
           </div>
 
-          {/* 3 cards avec barre top colorée */}
+          {/* 3 cards */}
           <div className="grid md:grid-cols-3 gap-[22px]">
             {[
               {
                 accent: "hsl(263,90%,74%)",
-                accentBg: "hsl(263,90%,74%,0.12)",
-                glow: "hsl(263,90%,74%,0.25)",
-                icon: <Palette className="w-5 h-5" style={{ color: "hsl(263,90%,74%)" }} />,
-                tag: "ARTISAN · CRÉATIF",
+                accentBg: "hsl(263,90%,74%,0.13)",
+                accentBorder: "hsl(263,90%,74%,0.25)",
+                accentText: "hsl(263,90%,80%)",
+                glowColor: "hsl(263,90%,64%,0.4)",
+                borderHover: "hsl(263,90%,64%,0.5)",
+                icon: <Palette className="w-6 h-6" style={{ color: "hsl(263,90%,76%)" }} />,
+                tag: "Artisan / Créatif",
                 title: "Site Portfolio",
-                text: "Galerie photo soignée, page réalisations avant/après, formulaire de contact. Idéal pour mettre vos travaux en valeur.",
-                items: ["Galerie haute qualité", "Page avant/après", "Formulaire rapide"],
+                text: "Mettez en avant vos réalisations avec une galerie soignée. Idéal pour artisans, photographes et prestataires.",
+                items: ["Galerie photo haute qualité", "Page réalisations / avant-après", "Contact rapide intégré"],
                 delay: "0s",
               },
               {
                 accent: "hsl(217,91%,60%)",
                 accentBg: "hsl(217,91%,60%,0.12)",
-                glow: "hsl(217,91%,60%,0.28)",
-                icon: <Building2 className="w-5 h-5" style={{ color: "hsl(217,91%,60%)" }} />,
-                tag: "TPE · PME",
+                accentBorder: "hsl(217,91%,60%,0.25)",
+                accentText: "hsl(217,91%,72%)",
+                glowColor: "hsl(217,91%,60%,0.4)",
+                borderHover: "hsl(217,91%,60%,0.5)",
+                icon: <Building2 className="w-6 h-6" style={{ color: "hsl(217,91%,66%)" }} />,
+                tag: "TPE / PME",
                 title: "Site Entreprise",
-                text: "Structure claire, pages services détaillées, présentation équipe et Google Maps. Crédibilité immédiate.",
-                items: ["Services détaillés", "Équipe & valeurs", "Google Maps intégré"],
-                delay: "0.08s",
+                text: "Présentez vos services, votre équipe et vos valeurs avec une structure claire qui asseoit votre crédibilité.",
+                items: ["Pages services détaillées", "Présentation équipe & valeurs", "Google Maps intégré"],
+                delay: "0.1s",
               },
               {
                 accent: "hsl(160,84%,39%)",
                 accentBg: "hsl(160,84%,39%,0.12)",
-                glow: "hsl(160,84%,39%,0.25)",
-                icon: <Briefcase className="w-5 h-5" style={{ color: "hsl(160,84%,50%)" }} />,
-                tag: "INDÉPENDANT",
-                title: "Profession Libérale",
-                text: "Mettez en avant votre expertise et facilitez la prise de contact. Pensé pour les consultants, coachs et thérapeutes.",
-                items: ["Services & tarifs", "Biographie pro", "Prise de RDV optionnelle"],
-                delay: "0.16s",
+                accentBorder: "hsl(160,84%,39%,0.25)",
+                accentText: "hsl(160,84%,55%)",
+                glowColor: "hsl(160,84%,39%,0.35)",
+                borderHover: "hsl(160,84%,39%,0.5)",
+                icon: <Briefcase className="w-6 h-6" style={{ color: "hsl(160,84%,55%)" }} />,
+                tag: "Indépendant",
+                title: "Site Profession Libérale",
+                text: "Valorisez votre expertise et facilitez la prise de contact. Parfait pour consultants, coachs et thérapeutes.",
+                items: ["Présentation claire des services", "Biographie & parcours pro", "Prise de contact simplifiée"],
+                delay: "0.2s",
               },
             ].map((card, i) => (
               <div
                 key={i}
-                className="flex flex-col rounded-[18px] overflow-hidden transition-all duration-300 cursor-pointer"
+                className="relative flex flex-col rounded-[18px] overflow-hidden transition-all duration-300"
                 style={{
                   border: "1px solid hsl(217,32%,16%)",
                   background: "linear-gradient(180deg,hsl(217,33%,10%),hsl(222,84%,5%))",
+                  padding: 28,
                   opacity: scrollTypes.visible ? 1 : 0,
-                  transform: scrollTypes.visible ? "translateY(0)" : "translateY(36px)",
-                  transition: `opacity 0.65s ease ${card.delay}, transform 0.65s ease ${card.delay}, box-shadow 0.25s`,
-                }}
-                onMouseMove={handleTilt}
-                onMouseLeave={(e) => {
-                  handleTiltReset(e);
-                  e.currentTarget.style.boxShadow = "none";
+                  transform: scrollTypes.visible ? "translateY(0)" : "translateY(28px)",
+                  transition: `opacity 0.8s cubic-bezier(.16,1,.3,1) ${card.delay}, transform 0.8s cubic-bezier(.16,1,.3,1) ${card.delay}`,
                 }}
                 onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = card.borderHover;
                   e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.boxShadow = `0 30px 60px -20px ${card.glow}`;
-                  e.currentTarget.style.borderColor = card.accent.replace(")", ",0.3)").replace("hsl(", "hsl(");
+                  e.currentTarget.style.boxShadow = `0 30px 60px -30px ${card.glowColor}`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = "hsl(217,32%,16%)";
+                  e.currentTarget.style.transform = scrollTypes.visible ? "translateY(0)" : "translateY(28px)";
+                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                {/* Accent bar */}
-                <div className="h-[3px] w-full" style={{ background: `linear-gradient(90deg,${card.accent},transparent)` }} />
+                {/* Barre accent top */}
+                <span className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg,${card.accent},transparent)` }} />
 
-                <div className="p-7 flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-[12px] grid place-items-center shrink-0" style={{ background: card.accentBg }}>
-                      {card.icon}
-                    </div>
-                    <span className="text-[10.5px] font-bold tracking-[0.08em]" style={{ color: card.accent }}>{card.tag}</span>
+                {/* Icône + badge catégorie */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-[52px] h-[52px] rounded-[14px] grid place-items-center shrink-0" style={{ background: card.accentBg }}>
+                    {card.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>{card.title}</h3>
-                  <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "hsl(215,20%,65%)" }}>{card.text}</p>
-                  <ul className="space-y-2 text-sm mb-6" style={{ color: "hsl(215,20%,65%)" }}>
-                    {card.items.map(it => (
-                      <li key={it} className="flex items-center gap-2.5">
-                        <span className="w-1 h-1 rounded-full shrink-0" style={{ background: card.accent }} />
-                        {it}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="#infos" className="text-sm font-semibold flex items-center gap-1.5 mt-auto transition-colors" style={{ color: card.accent }}>
-                    Demander un devis
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </a>
+                  <span
+                    className="text-[10.5px] font-bold uppercase tracking-[0.08em] px-[11px] py-[5px] rounded-full"
+                    style={{ background: card.accentBg, color: card.accentText, border: `1px solid ${card.accentBorder}` }}
+                  >
+                    {card.tag}
+                  </span>
                 </div>
+
+                <h3 className="text-xl font-bold mb-[10px]">{card.title}</h3>
+                <p className="text-[14px] leading-[1.65] mb-[18px] flex-1" style={{ color: "hsl(215,20%,72%)" }}>{card.text}</p>
+
+                <ul className="flex flex-col gap-[9px] mb-[22px]">
+                  {card.items.map(it => (
+                    <li key={it} className="flex items-center gap-[9px] text-[13px]" style={{ color: "hsl(215,20%,76%)" }}>
+                      <Check className="w-[15px] h-[15px] shrink-0" style={{ color: card.accent }} />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href="#infos" className="text-[14px] font-semibold inline-flex items-center gap-[7px] mt-auto transition-all duration-200 hover:gap-[11px]" style={{ color: card.accentText }}>
+                  Demander un devis <ArrowRight className="w-[15px] h-[15px]" />
+                </a>
               </div>
             ))}
           </div>
