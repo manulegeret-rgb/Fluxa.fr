@@ -366,14 +366,14 @@ useEffect(() => {
 
         {/* Accroche — sobre, une seule idée par ligne */}
         <p className="text-lg text-muted-foreground leading-relaxed max-w-lg animate-[fade-in-up_0.7s_ease_0.3s_both]">
-          Artisan, TPE ou indépendant — vos clients cherchent vos services sur Google.
-          Fluxa vous livre un site soigné en 2–3 semaines, hébergement inclus.
+          Vos clients cherchent vos services sur Google.
+          Fluxa vous livre un site soigné en 2 à 3 semaines, hébergement inclus.
         </p>
 
         {/* Bénéfices — 4 points, icône + texte, pas de puce générique */}
         <ul className="space-y-3 animate-[fade-in-up_0.7s_ease_0.4s_both]">
           {[
-            { icon: <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />, txt: "Design responsive — mobile, tablette, desktop" },
+            { icon: <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />, txt: "Design responsive mobile, tablette et desktop" },
             { icon: <Search className="w-4 h-4 text-primary shrink-0 mt-0.5" />, txt: "SEO Google optimisé dès la conception" },
             { icon: <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />, txt: "Hébergement + domaine offerts la 1ʳᵉ année" },
             { icon: <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />, txt: "Support technique inclus après livraison" },
@@ -468,7 +468,7 @@ useEffect(() => {
         Un site taillé pour votre activité
       </h2>
       <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-        Artisan, TPE, indépendant — chaque site est conçu pour votre métier.
+        Artisan, TPE ou indépendant, chaque site est conçu pour votre métier.
       </p>
     </div>
 

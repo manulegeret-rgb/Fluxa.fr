@@ -24,35 +24,35 @@ export function CommentCaMarche() {
       icon: MessageSquare,
       title: "1. Premier contact & Brief",
       detail: "Contact mail + formulaire détaillé",
-      text: "Vous nous contactez par mail pour nous présenter votre projet. Nous vous envoyons ensuite un formulaire de brief détaillé pour préciser vos besoins : quelles pages souhaitez-vous ? Quelles informations mettre en avant ? Quel style vous correspond ? Ce formulaire nous permet de bien comprendre votre activité, vos objectifs et vos attentes pour vous proposer un devis ajusté et démarrer sur de bonnes bases.",
+      text: "Vous nous contactez par mail pour présenter votre projet. On vous envoie un formulaire de brief pour préciser vos besoins, le style souhaité, les pages à créer. L'objectif : bien comprendre votre activité avant de vous proposer un devis adapté.",
       tag: "Gratuit & sans engagement",
     },
     {
       icon: Palette,
       title: "2. Maquette & Validation",
       detail: "Design personnalisé",
-      text: "À partir de votre brief, nous créons une maquette visuelle de votre futur site : structure des pages, couleurs, typographie, disposition des éléments. Vous voyez exactement à quoi ressemblera votre site avant le développement. Une fois la maquette validée ensemble (avec ajustements si besoin), nous passons au développement. Cette étape garantit que le résultat final correspond parfaitement à vos attentes.",
+      text: "On crée une maquette visuelle de votre site : structure des pages, couleurs, typographie. Vous voyez exactement le résultat avant qu'on code quoi que ce soit. On ajuste ensemble jusqu'à ce que ce soit parfait, puis on démarre le développement.",
       tag: "Validation avant dev",
     },
     {
       icon: Code,
       title: "3. Développement",
       detail: "Code propre et optimisé",
-      text: "Nous développons votre site avec des technologies modernes et performantes : design responsive (mobile + desktop), formulaires fonctionnels, optimisation SEO, vitesse de chargement rapide. Le code est propre, sécurisé et respecte les standards du web. Tout est testé sur différents navigateurs et appareils pour garantir une expérience utilisateur parfaite.",
+      text: "On développe votre site avec des technologies modernes : responsive mobile et desktop, formulaires fonctionnels, SEO optimisé, chargement rapide. Code propre, sécurisé, testé sur tous les navigateurs. Vous recevez un site prêt à convertir.",
       tag: "2-3 semaines",
     },
     {
       icon: Rocket,
       title: "4. Mise en ligne",
       detail: "Hébergement & domaine",
-      text: "Une fois le site prêt, nous nous occupons de tout : achat et configuration du nom de domaine, hébergement sécurisé, mise en ligne et configuration finale. Votre site est accessible immédiatement et prêt à recevoir vos visiteurs. Hébergement et domaine inclus la première année, puis renouvellement annuel simple (environ 50-80€/an selon l'hébergeur).",
+      text: "On gère tout : nom de domaine, hébergement sécurisé, mise en ligne. Votre site est accessible immédiatement. Hébergement et domaine inclus la première année, puis renouvellement simple autour de 50 à 80€ par an.",
       tag: "Clé en main",
     },
     {
       icon: HeadphonesIcon,
       title: "5. Support & Suivi",
       detail: "Accompagnement après livraison",
-      text: "Après la mise en ligne, vous n'êtes pas seul. Nous restons disponibles pour toute question technique, correction mineure ou conseil. Si vous souhaitez faire évoluer votre site (nouvelles pages, fonctionnalités), nous sommes là. La maintenance mensuelle optionnelle (59€/mois) inclut les mises à jour de sécurité, sauvegardes régulières, et corrections mineures pour garder votre site performant dans la durée.",
+      text: "Après la mise en ligne, on reste disponibles pour toute question ou correction. La maintenance mensuelle optionnelle à 59€/mois couvre les mises à jour de sécurité, sauvegardes régulières et petites corrections pour garder votre site performant dans le temps.",
       tag: "Toujours disponible",
     },
   ];
@@ -68,11 +68,16 @@ export function CommentCaMarche() {
             transform: scrollSection.visible ? "translateY(0)" : "translateY(28px)",
           }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold" id="comment-ca-marche">
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-primary/70">Processus</p>
+          <h2
+            className="text-[clamp(28px,3.8vw,48px)] font-black leading-[1.1] tracking-tight"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            id="comment-ca-marche"
+          >
             Comment ça marche ?
           </h2>
-          <p className="text-sm md:text-base leading-7 text-muted-foreground mt-1">
-            De la première discussion à la mise en ligne, votre site vitrine professionnel en 5 étapes claires et sans surprise.
+          <p className="text-base leading-relaxed text-muted-foreground mt-2 max-w-xl mx-auto">
+            De la première discussion à la mise en ligne, 5 étapes claires et sans surprise.
           </p>
         </div>
 

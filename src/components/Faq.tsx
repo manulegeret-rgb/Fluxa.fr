@@ -6,39 +6,39 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const QUESTIONS = [
   {
     q: "Combien coûte un site vitrine ?",
-    a: "Notre formule de base est à 890€ pour un site de 5 pages (Accueil, Services, À propos, Galerie, Contact) avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser votre site selon vos besoins.",
+    a: "Notre formule de base est à 890€ pour un site de 5 pages avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser selon vos besoins.",
   },
   {
     q: "Combien de temps pour créer mon site ?",
-    a: "Le délai est précisé dans votre devis selon les options choisies et le contenu à intégrer. Après validation de la maquette, votre site est développé et mis en ligne dès que possible.",
+    a: "Le délai est précisé dans votre devis selon les options choisies. Après validation de la maquette, votre site est développé et mis en ligne en 2 à 3 semaines.",
   },
   {
     q: "Qu'est-ce qui est inclus dans le prix ?",
-    a: "Design responsive (mobile + desktop), jusqu'à 5 pages, formulaire de contact, optimisation SEO de base, hébergement et nom de domaine pour la première année, 1 round de modifications, et support technique.",
+    a: "Design responsive mobile et desktop, jusqu'à 5 pages, formulaire de contact, SEO de base, hébergement et nom de domaine pour la première année, un round de modifications et le support technique.",
   },
   {
-    q: "Mon site sera-t-il optimisé pour Google (SEO) ?",
-    a: "Oui, tous nos sites incluent l'optimisation SEO de base : balises meta, structure HTML propre, vitesse de chargement optimisée, et compatibilité mobile. Idéal pour le référencement local.",
+    q: "Mon site sera-t-il optimisé pour Google ?",
+    a: "Oui. Tous nos sites incluent le SEO de base : balises meta, structure HTML propre, vitesse de chargement optimisée et compatibilité mobile. Idéal pour le référencement local.",
   },
   {
     q: "Puis-je modifier mon site moi-même après ?",
-    a: "Les modifications de contenu simples peuvent être faites par nos soins dans le cadre de la maintenance (59€/mois). Pour des changements ponctuels, nous facturons à l'heure selon la complexité.",
+    a: "Les modifications simples sont prises en charge dans le cadre de la maintenance (59€/mois). Pour des changements ponctuels, nous facturons à l'heure selon la complexité.",
   },
   {
     q: "L'hébergement et le nom de domaine sont-ils inclus ?",
-    a: "Oui, l'hébergement et le nom de domaine sont inclus la première année dans le tarif de base. Après la première année, le renouvellement est à prévoir (environ 50-80€/an selon l'hébergeur).",
+    a: "Oui, inclus la première année. Après, le renouvellement est à prévoir, environ 50 à 80€ par an selon l'hébergeur.",
   },
   {
     q: "Que se passe-t-il après la livraison ?",
-    a: "Vous recevez votre site clé en main, prêt à l'emploi. Nous restons disponibles pour le support technique. La maintenance mensuelle (optionnelle, 59€/mois) inclut les mises à jour, sauvegardes et corrections mineures.",
+    a: "Vous recevez votre site clé en main, prêt à l'emploi. Nous restons disponibles pour le support technique. La maintenance mensuelle optionnelle (59€/mois) couvre les mises à jour, sauvegardes et corrections mineures.",
   },
   {
     q: "Puis-je payer en plusieurs fois ?",
-    a: "Oui, nous proposons un paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison. Pour des projets plus importants, d'autres arrangements sont possibles sur demande.",
+    a: "Oui, paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison. Pour des projets plus importants, d'autres arrangements sont possibles sur demande.",
   },
   {
     q: "Que se passe-t-il si je ne suis pas satisfait ?",
-    a: "Nous incluons 1 round de modifications dans le tarif de base. Nous travaillons avec vous jusqu'à validation complète du site. Notre objectif est votre satisfaction à 100%.",
+    a: "Nous incluons un round de modifications dans le tarif de base et travaillons avec vous jusqu'à validation complète. Votre satisfaction est notre priorité.",
   },
 ];
 
@@ -99,16 +99,22 @@ export function Faq() {
   return (
     <section id="faq" className="py-24 bg-gradient-to-b from-muted/20 to-background">
       <div ref={scrollFaq.ref} className="container mx-auto px-6 max-w-3xl">
-        <h2
-          className="text-center text-4xl lg:text-5xl font-bold mb-10 transition-all duration-700"
+        <div
+          className="text-center mb-12 transition-all duration-700"
           style={{
             opacity: scrollFaq.visible ? 1 : 0,
             transform: scrollFaq.visible ? "translateY(0)" : "translateY(28px)",
           }}
-          id="faq-heading"
         >
-          Questions fréquentes
-        </h2>
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-primary/70 mb-4">FAQ</p>
+          <h2
+            className="text-[clamp(28px,3.8vw,48px)] font-black leading-[1.1] tracking-tight"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            id="faq-heading"
+          >
+            Questions fréquentes
+          </h2>
+        </div>
 
         <div className="space-y-3">
           {QUESTIONS.map((item, i) => (
