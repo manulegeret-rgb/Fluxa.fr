@@ -161,3 +161,24 @@ body {
   background-size: 200% auto;
   animation: shimmer 2.5s linear infinite;
 }
+
+/* ── Claude Design animations ── */
+@keyframes gridFade {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1;   }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1);    }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes floatY2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(7px); }
+}
