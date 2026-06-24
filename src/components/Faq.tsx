@@ -91,8 +91,8 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="scroll-mt-[20px]"
-      style={{ position: "relative", padding: "70px 0", background: "linear-gradient(180deg,#050a18,hsl(217,40%,8%),#050a18)" }}
+      className="scroll-mt-[10px]"
+      style={{ position: "relative", paddingBottom: "70px", background: "linear-gradient(180deg,#050a18,hsl(217,40%,8%),#050a18)" }}
     >
       <div ref={scrollFaq.ref} className="mx-auto px-8" style={{ maxWidth: 780 }}>
 
