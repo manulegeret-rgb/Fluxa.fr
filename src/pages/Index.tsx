@@ -619,7 +619,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           MÉTHODE (#comment-ca-marche)
       ═══════════════════════════════════════════ */}
-      <section id="comment-ca-marche" className="scroll-mt-[100px]">
+      <section id="comment-ca-marche" className="scroll-mt-[270px]">
         <CommentCaMarche />
       </section>
 
