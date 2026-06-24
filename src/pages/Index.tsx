@@ -202,7 +202,7 @@ const Index = () => {
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         style={{
-          height: 72,
+          height: 88,
           background: scrolled ? "hsl(222,84%,4.9%,0.82)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid hsl(217,32%,18%)" : "1px solid transparent",
@@ -222,7 +222,7 @@ const Index = () => {
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           {/* Logo */}
           <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" className="h-14 w-auto object-contain" />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 120, width: "auto", objectFit: "contain" }} />
           </a>
 
           {/* Nav desktop */}
@@ -373,8 +373,8 @@ const Index = () => {
                 className="mb-7 animate-[fade-in-up_0.8s_ease_0.15s_both]"
                 style={{ fontSize: 18, lineHeight: 1.7, color: "hsl(215,20%,76%)", maxWidth: 520 }}
               >
-                Artisan, TPE ou indépendant ? Fluxa conçoit votre site en{" "}
-                <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>2 à 3 semaines</strong>,
+                Artisan, TPE ou indépendant ? Fluxa crée votre site pro,{" "}
+                <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>clé en main</strong>,
                 optimisé pour transformer vos visiteurs en clients.
               </p>
 
