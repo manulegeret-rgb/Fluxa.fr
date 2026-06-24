@@ -483,7 +483,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           NOS SITES (#services)
       ═══════════════════════════════════════════ */}
-      <section id="services" className="py-[70px] bg-background">
+      <section id="services" className="pt-[70px] pb-0 bg-background">
         <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête avec tirets */}
@@ -619,7 +619,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           MÉTHODE (#comment-ca-marche)
       ═══════════════════════════════════════════ */}
-      <section id="comment-ca-marche" className="scroll-mt-[270px]">
+      <section id="comment-ca-marche" className="scroll-mt-[100px]">
         <CommentCaMarche />
       </section>
 
