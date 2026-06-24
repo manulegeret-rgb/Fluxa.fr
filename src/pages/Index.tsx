@@ -126,16 +126,6 @@ const Index = () => {
     return () => cancelAnimationFrame(rafId);
   }, []);
 
-  // ── Cursor custom dot
-  const [cursor, setCursor] = useState({ x: -100, y: -100, visible: false });
-  useEffect(() => {
-    const move = (e: MouseEvent) => setCursor({ x: e.clientX, y: e.clientY, visible: true });
-    const hide = () => setCursor(c => ({ ...c, visible: false }));
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mouseleave", hide);
-    return () => { window.removeEventListener("mousemove", move); window.removeEventListener("mouseleave", hide); };
-  }, []);
-
   // ── Parallax mockup
   const [mockupY, setMockupY] = useState(0);
   useEffect(() => {
@@ -214,32 +204,6 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead />
 
-      {/* ── Cursor dot custom ── */}
-      <div
-        className="fixed pointer-events-none z-[9999] hidden md:block"
-        style={{
-          width: 10,
-          height: 10,
-          borderRadius: "50%",
-          background: "hsl(217,91%,66%)",
-          transform: `translate(${cursor.x - 5}px, ${cursor.y - 5}px)`,
-          opacity: cursor.visible ? 0.7 : 0,
-          transition: "opacity 0.3s, transform 0.08s linear",
-          mixBlendMode: "screen",
-        }}
-      />
-      <div
-        className="fixed pointer-events-none z-[9998] hidden md:block"
-        style={{
-          width: 36,
-          height: 36,
-          borderRadius: "50%",
-          border: "1px solid hsl(217,91%,60%,0.35)",
-          transform: `translate(${cursor.x - 18}px, ${cursor.y - 18}px)`,
-          opacity: cursor.visible ? 1 : 0,
-          transition: "opacity 0.3s, transform 0.18s ease-out",
-        }}
-      />
 
       {/* ═══════════════════════════════════════════
           HEADER
