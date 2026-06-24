@@ -1129,12 +1129,11 @@ const Index = () => {
 
             {/* Logo + description + adresse */}
             <div className="flex flex-col gap-[14px]" style={{ maxWidth: 340 }}>
-              <img src={fluxaLogo} alt="Fluxa" className="h-[38px] w-auto" />
+              <img src={fluxaLogo} alt="Fluxa" style={{ height: 80, width: "auto", objectFit: "contain" }} />
               <p style={{ fontSize: 13.5, color: "hsl(215,20%,68%)", lineHeight: 1.6 }}>
                 Création de sites web professionnels, clé en main, pour artisans, TPE et indépendants.
               </p>
               <address className="not-italic" style={{ fontSize: 12.5, color: "hsl(215,20%,58%)", lineHeight: 1.7 }}>
-                36 rue des Criquets, 73160 Cognin, Savoie<br />
                 <a href="mailto:fluxa.contact@gmail.com" className="transition-colors hover:text-primary" style={{ color: "hsl(215,20%,68%)" }}>fluxa.contact@gmail.com</a>
               </address>
             </div>
