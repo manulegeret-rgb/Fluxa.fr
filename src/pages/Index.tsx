@@ -231,7 +231,7 @@ const Index = () => {
         {/* Mobile : logo centré + hamburger à droite */}
         <div className="md:hidden relative flex items-center justify-center h-full px-4">
           <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 -translate-x-1/2">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 105, width: "auto", objectFit: "contain" }} />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 80, width: "auto", objectFit: "contain" }} />
           </a>
           <div className="ml-auto">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
@@ -409,8 +409,8 @@ const Index = () => {
               </div>
             </div>
 
-            {/* ── Colonne droite : mockup ── */}
-            <div className="relative cursor-pointer animate-[fade-in-up_1s_ease_0.18s_both]" style={{ perspective: 1400, transform: `translateY(${mockupY}px)`, transition: "transform 0.1s linear" }} onClick={() => setLightboxOpen(true)}>
+            {/* ── Colonne droite : mockup (desktop only) ── */}
+            <div className="relative hidden lg:block cursor-pointer animate-[fade-in-up_1s_ease_0.18s_both]" style={{ perspective: 1400, transform: `translateY(${mockupY}px)`, transition: "transform 0.1s linear" }} onClick={() => setLightboxOpen(true)}>
 
               {/* Halo gradient */}
               <div
