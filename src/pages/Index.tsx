@@ -483,7 +483,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           NOS SITES (#services)
       ═══════════════════════════════════════════ */}
-      <section id="services" className="py-[110px] bg-background">
+      <section id="services" className="py-[70px] bg-background">
         <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête avec tirets */}
@@ -619,7 +619,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           MÉTHODE (#comment-ca-marche)
       ═══════════════════════════════════════════ */}
-      <section id="comment-ca-marche" className="scroll-mt-20">
+      <section id="comment-ca-marche" className="scroll-mt-28">
         <CommentCaMarche />
       </section>
 
@@ -627,7 +627,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           PRICING (#pricing)
       ═══════════════════════════════════════════ */}
-      <section id="pricing" className="py-[110px] bg-background scroll-mt-10">
+      <section id="pricing" className="py-[70px] bg-background scroll-mt-28">
         <div ref={scrollPricing.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête */}
@@ -782,7 +782,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           CONTACT (#infos)
       ═══════════════════════════════════════════ */}
-      <section id="infos" className="py-[110px] bg-background relative overflow-hidden scroll-mt-20">
+      <section id="infos" className="py-[70px] bg-background relative overflow-hidden scroll-mt-28">
         {/* Glow blob centré */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "hsl(217,91%,60%,0.08)", filter: "blur(120px)", animation: "glowPulse 7s ease-in-out infinite" }} />
 
@@ -897,7 +897,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           POURQUOI FLUXA (#pourquoi-choisir-fluxa)
       ═══════════════════════════════════════════ */}
-      <section id="pourquoi-choisir-fluxa" className="py-[110px] bg-background">
+      <section id="pourquoi-choisir-fluxa" className="py-[70px] bg-background">
         <div ref={scrollWhy.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête */}
@@ -1055,7 +1055,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════ */}
-      <section id="faq" className="scroll-mt-20">
+      <section id="faq" className="scroll-mt-28">
         <Faq />
       </section>
 
