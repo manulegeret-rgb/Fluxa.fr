@@ -94,7 +94,7 @@ const Index = () => {
   }, []);
 
   // ── Typing effect (rAF)
-  const typingPhrases = ["livré clé en main", "en 2 à 3 semaines", "prêt à vous trouver des clients"];
+  const typingPhrases = ["livré clé en main", "qui vous trouve des clients", "sans prise de tête"];
   const [typingText, setTypingText] = useState("");
   useEffect(() => {
     let rafId: number;
@@ -103,7 +103,7 @@ const Index = () => {
     let charIdx = 0;
     let deleting = false;
     let pauseUntil = 0;
-    const CHAR = 40, DEL = 18, PAUSE_FULL = 2200, PAUSE_EMPTY = 120;
+    const CHAR = 75, DEL = 30, PAUSE_FULL = 3000, PAUSE_EMPTY = 200;
     function tick(now: number) {
       const phrase = typingPhrases[phraseIdx];
       if (now < pauseUntil) { rafId = requestAnimationFrame(tick); return; }
@@ -202,7 +202,7 @@ const Index = () => {
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         style={{
-          height: 88,
+          height: 100,
           background: scrolled ? "hsl(222,84%,4.9%,0.82)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid hsl(217,32%,18%)" : "1px solid transparent",
@@ -222,11 +222,11 @@ const Index = () => {
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           {/* Logo */}
           <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 120, width: "auto", objectFit: "contain" }} />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 180, width: "auto", objectFit: "contain" }} />
           </a>
 
           {/* Nav desktop */}
-          <nav className="hidden md:flex items-center gap-7 text-[14.5px] font-medium text-foreground/75">
+          <nav className="hidden md:flex items-center gap-7 text-[17px] font-medium text-foreground/75">
             {[
               { href: "#services", label: "Nos sites" },
               { href: "#comment-ca-marche", label: "Méthode" },
