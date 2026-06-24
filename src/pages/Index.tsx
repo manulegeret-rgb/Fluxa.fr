@@ -222,7 +222,7 @@ const Index = () => {
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           {/* Logo */}
           <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" className="h-10 w-auto object-contain" />
+            <img src={fluxaLogo} alt="Fluxa" className="h-14 w-auto object-contain" />
           </a>
 
           {/* Nav desktop */}
@@ -353,7 +353,7 @@ const Index = () => {
                 style={{ border: "1px solid hsl(217,91%,60%,0.28)", background: "hsl(217,91%,60%,0.08)" }}
               >
                 <span className="w-[7px] h-[7px] rounded-full shrink-0" style={{ background: "hsl(160,84%,45%)", boxShadow: "0 0 0 3px hsl(160,84%,45%,0.25)" }} />
-                <span className="text-[12.5px] font-semibold tracking-[0.04em]" style={{ color: "hsl(210,40%,92%)" }}>Agence web · Sites vitrines clé en main</span>
+                <span className="text-[12.5px] font-semibold tracking-[0.04em]" style={{ color: "hsl(210,40%,92%)" }}>Agence web · Votre site pro, clé en main</span>
               </div>
 
               {/* H1 */}
@@ -378,22 +378,6 @@ const Index = () => {
                 optimisé pour transformer vos visiteurs en clients.
               </p>
 
-              {/* Bénéfices 2×2 */}
-              <div
-                className="grid grid-cols-2 gap-x-5 gap-y-3 mb-8 w-full max-w-[560px] animate-[fade-in-up_0.8s_ease_0.21s_both]"
-              >
-                {[
-                  { icon: <CheckCircle2 className="w-[17px] h-[17px] shrink-0 mt-[2px]" style={{ color: "hsl(217,91%,62%)" }} />, txt: "Responsive mobile & desktop" },
-                  { icon: <Search className="w-[17px] h-[17px] shrink-0 mt-[2px]" style={{ color: "hsl(217,91%,62%)" }} />, txt: "Référencement Google inclus" },
-                  { icon: <Globe className="w-[17px] h-[17px] shrink-0 mt-[2px]" style={{ color: "hsl(217,91%,62%)" }} />, txt: "Hébergement + domaine offerts" },
-                  { icon: <Headphones className="w-[17px] h-[17px] shrink-0 mt-[2px]" style={{ color: "hsl(217,91%,62%)" }} />, txt: "Support après livraison" },
-                ].map(({ icon, txt }) => (
-                  <div key={txt} className="flex items-start gap-[9px] text-[14px]" style={{ color: "hsl(215,20%,78%)" }}>
-                    {icon}{txt}
-                  </div>
-                ))}
-              </div>
-
               {/* CTAs */}
               <div className="flex flex-wrap gap-3.5 mb-7 animate-[fade-in-up_0.8s_ease_0.27s_both]">
                 <a
@@ -417,15 +401,10 @@ const Index = () => {
               </div>
 
               {/* Ligne réassurance */}
-              <div className="flex flex-wrap items-center gap-4 text-[13.5px] animate-[fade-in_0.8s_ease_0.33s_both]" style={{ color: "hsl(215,20%,62%)" }}>
-                <span className="inline-flex items-center gap-1.5">
-                  <Banknote className="w-[15px] h-[15px]" style={{ color: "hsl(217,91%,60%)" }} />
-                  À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700, margin: "0 3px" }}>890 €</strong> tout compris
-                </span>
+              <div className="flex flex-wrap items-center gap-4 text-[13.5px] animate-[fade-in_0.8s_ease_0.27s_both]" style={{ color: "hsl(215,20%,62%)" }}>
+                À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700, margin: "0 2px" }}>890 €</strong> tout compris
                 <span className="w-1 h-1 rounded-full" style={{ background: "hsl(215,20%,30%)" }} />
-                <span>Réponse sous 48h</span>
-                <span className="w-1 h-1 rounded-full" style={{ background: "hsl(215,20%,30%)" }} />
-                <span>Paiement en 2× sans frais</span>
+                Paiement en 2× sans frais
               </div>
             </div>
 
