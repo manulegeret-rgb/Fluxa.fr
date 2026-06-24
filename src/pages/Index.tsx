@@ -495,20 +495,20 @@ const Index = () => {
           >
             <div className="inline-flex items-center gap-[10px] mb-[18px]">
               <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
-              <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Nos réalisations</span>
+              <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Exemples de sites</span>
               <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
             </div>
             <h2
               className="mb-4"
               style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Un site pensé pour{" "}
+              Quel type de site{" "}
               <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                votre métier
+                vous correspond ?
               </span>
             </h2>
             <p className="text-[17px] max-w-[680px] mx-auto" style={{ color: "hsl(215,20%,72%)" }}>
-              Chaque activité a ses besoins. Nous adaptons la structure, le design et le contenu au vôtre.
+              Trois exemples de sites que nous réalisons. Chaque projet est unique et adapté à votre activité.
             </p>
           </div>
 
