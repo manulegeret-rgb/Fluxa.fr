@@ -24,7 +24,7 @@
 /* ✅ Correction du décalage sur mobile pour les ancres */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px; /* hauteur du header */
+  scroll-padding-top: 100px; /* hauteur du header */
   overflow-x: hidden; /* Empêche le débordement horizontal */
 }
 
@@ -37,7 +37,7 @@ body {
 
 @media (min-width: 768px) {
   html {
-    scroll-padding-top: 110px; /* hauteur du header desktop */
+    scroll-padding-top: 100px; /* hauteur du header desktop */
   }
 }
 
