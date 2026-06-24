@@ -239,7 +239,7 @@ const Index = () => {
             {[
               { href: "#services", label: "Nos sites" },
               { href: "#comment-ca-marche", label: "Méthode" },
-              { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous" },
+              { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
               { href: "#faq", label: "FAQ" },
             ].map((item) => (
               <a
@@ -279,7 +279,7 @@ const Index = () => {
                     { href: "#services", label: "Nos sites" },
                     { href: "#comment-ca-marche", label: "Méthode" },
                     { href: "#pricing", label: "Tarifs" },
-                    { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous" },
+                    { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
                     { href: "#faq", label: "FAQ" },
                     { href: "#infos", label: "Contact" },
                   ].map((item, i) => (
