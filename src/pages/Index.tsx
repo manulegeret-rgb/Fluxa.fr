@@ -231,7 +231,7 @@ const Index = () => {
         {/* Mobile : logo centré + hamburger à droite */}
         <div className="md:hidden relative flex items-center justify-center h-full px-4">
           <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 -translate-x-1/2">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 70, width: "auto", objectFit: "contain" }} />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 105, width: "auto", objectFit: "contain" }} />
           </a>
           <div className="ml-auto">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
