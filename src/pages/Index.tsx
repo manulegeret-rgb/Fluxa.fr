@@ -228,48 +228,15 @@ const Index = () => {
           }}
         />
 
-        <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          {/* Logo */}
-          <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 180, width: "auto", objectFit: "contain" }} />
+        {/* Mobile : logo centré + hamburger à droite */}
+        <div className="md:hidden relative flex items-center justify-center h-full px-4">
+          <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 -translate-x-1/2">
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 70, width: "auto", objectFit: "contain" }} />
           </a>
-
-          {/* Nav desktop */}
-          <nav className="hidden md:flex items-center gap-7 text-[17px] font-medium text-foreground/75">
-            {[
-              { href: "#services", label: "Nos sites" },
-              { href: "#comment-ca-marche", label: "Méthode" },
-              { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
-              { href: "#faq", label: "FAQ" },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="relative group hover:text-foreground transition-colors duration-200"
-              >
-                {item.label}
-                <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 bg-primary rounded-full group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA + hamburger */}
-          <div className="flex items-center gap-3">
-            <a
-              href="#infos"
-              className="hidden md:inline-flex items-center gap-2 rounded-[10px] px-[18px] py-[10px] text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-[2px]"
-              style={{
-                background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))",
-                boxShadow: "0 8px 24px -8px hsl(217,91%,60%,0.55)",
-              }}
-            >
-              Devis gratuit <ArrowRight className="w-4 h-4" />
-            </a>
-
-            {/* Hamburger mobile */}
+          <div className="ml-auto">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>
-                <button aria-label="Menu" className="md:hidden p-2">
+                <button aria-label="Menu" className="p-2">
                   <Menu size={22} />
                 </button>
               </SheetTrigger>
@@ -306,6 +273,33 @@ const Index = () => {
               </SheetContent>
             </Sheet>
           </div>
+        </div>
+
+        {/* Desktop : logo gauche + nav centre + CTA droite */}
+        <div className="hidden md:flex container mx-auto px-6 h-full items-center justify-between">
+          <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 180, width: "auto", objectFit: "contain" }} />
+          </a>
+          <nav className="flex items-center gap-7 text-[17px] font-medium text-foreground/75">
+            {[
+              { href: "#services", label: "Nos sites" },
+              { href: "#comment-ca-marche", label: "Méthode" },
+              { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
+              { href: "#faq", label: "FAQ" },
+            ].map((item) => (
+              <a key={item.href} href={item.href} className="relative group hover:text-foreground transition-colors duration-200">
+                {item.label}
+                <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 bg-primary rounded-full group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+          </nav>
+          <a
+            href="#infos"
+            className="inline-flex items-center gap-2 rounded-[10px] px-[18px] py-[10px] text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-[2px]"
+            style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 8px 24px -8px hsl(217,91%,60%,0.55)" }}
+          >
+            Devis gratuit <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </header>
 
@@ -354,7 +348,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
 
             {/* ── Colonne gauche ── */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
 
               {/* Eyebrow pill */}
               <div
@@ -388,7 +382,7 @@ const Index = () => {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-3.5 mb-7 animate-[fade-in-up_0.8s_ease_0.27s_both]">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3.5 mb-7 w-full sm:w-auto animate-[fade-in-up_0.8s_ease_0.27s_both]">
                 <a
                   href="#infos"
                   className="group relative inline-flex items-center gap-[10px] rounded-[13px] px-7 py-[15px] text-[15.5px] font-semibold text-white overflow-hidden transition-all duration-200 hover:-translate-y-[3px]"
