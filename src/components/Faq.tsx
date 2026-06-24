@@ -1,4 +1,3 @@
-// src/components/Faq.tsx
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -6,47 +5,35 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const QUESTIONS = [
   {
     q: "Combien coûte un site vitrine ?",
-    a: "Notre formule de base est à 890€ pour un site de 5 pages avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser selon vos besoins.",
+    a: "Notre formule de base est à 890 € pour un site jusqu'à 5 pages, avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser selon vos besoins.",
   },
   {
     q: "Combien de temps pour créer mon site ?",
-    a: "Le délai est précisé dans votre devis selon les options choisies. Après validation de la maquette, votre site est développé et mis en ligne en 2 à 3 semaines.",
+    a: "Après validation de la maquette, votre site est développé et mis en ligne généralement en 2 à 3 semaines, selon les options choisies et le contenu à intégrer.",
   },
   {
     q: "Qu'est-ce qui est inclus dans le prix ?",
-    a: "Design responsive mobile et desktop, jusqu'à 5 pages, formulaire de contact, SEO de base, hébergement et nom de domaine pour la première année, un round de modifications et le support technique.",
+    a: "Design responsive, jusqu'à 5 pages, formulaire de contact, SEO de base, hébergement et nom de domaine la première année, 1 round de modifications et le support technique.",
   },
   {
-    q: "Mon site sera-t-il optimisé pour Google ?",
-    a: "Oui. Tous nos sites incluent le SEO de base : balises meta, structure HTML propre, vitesse de chargement optimisée et compatibilité mobile. Idéal pour le référencement local.",
-  },
-  {
-    q: "Puis-je modifier mon site moi-même après ?",
-    a: "Les modifications simples sont prises en charge dans le cadre de la maintenance (59€/mois). Pour des changements ponctuels, nous facturons à l'heure selon la complexité.",
-  },
-  {
-    q: "L'hébergement et le nom de domaine sont-ils inclus ?",
-    a: "Oui, inclus la première année. Après, le renouvellement est à prévoir, environ 50 à 80€ par an selon l'hébergeur.",
-  },
-  {
-    q: "Que se passe-t-il après la livraison ?",
-    a: "Vous recevez votre site clé en main, prêt à l'emploi. Nous restons disponibles pour le support technique. La maintenance mensuelle optionnelle (59€/mois) couvre les mises à jour, sauvegardes et corrections mineures.",
+    q: "L'hébergement et le domaine sont-ils inclus ?",
+    a: "Oui, l'hébergement et le nom de domaine sont inclus la première année. Ensuite, le renouvellement est à prévoir (environ 50 à 80 €/an selon l'hébergeur).",
   },
   {
     q: "Puis-je payer en plusieurs fois ?",
-    a: "Oui, paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison. Pour des projets plus importants, d'autres arrangements sont possibles sur demande.",
+    a: "Oui, paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison. D'autres arrangements sont possibles pour des projets plus importants.",
   },
   {
     q: "Que se passe-t-il si je ne suis pas satisfait ?",
-    a: "Nous incluons un round de modifications dans le tarif de base et travaillons avec vous jusqu'à validation complète. Votre satisfaction est notre priorité.",
+    a: "Nous incluons 1 round de modifications et travaillons avec vous jusqu'à validation complète. Notre objectif est votre satisfaction à 100%.",
   },
 ];
 
-function FaqItem({ item, index, isOpen, onToggle }: {
+function FaqItem({ item, isOpen, onToggle, delay }: {
   item: typeof QUESTIONS[0];
-  index: number;
   isOpen: boolean;
   onToggle: () => void;
+  delay: string;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -58,28 +45,33 @@ function FaqItem({ item, index, isOpen, onToggle }: {
   }, [isOpen]);
 
   return (
-    <div className={`rounded-2xl border bg-card overflow-hidden transition-colors duration-300 ${isOpen ? "border-primary/40" : "border-border"}`}>
+    <div
+      className="overflow-hidden transition-colors duration-300"
+      style={{
+        borderRadius: 14,
+        border: `1px solid ${isOpen ? "hsl(217,91%,60%,.35)" : "hsl(217,32%,16%)"}`,
+        background: "hsl(217,33%,9%)",
+      }}
+    >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-medium hover:bg-primary/5 transition-colors duration-200"
+        className="w-full flex items-center justify-between gap-4 text-left transition-colors duration-200 hover:bg-white/[0.02]"
+        style={{ padding: "20px 22px", fontSize: 15.5, fontWeight: 600, color: "hsl(210,40%,96%)" }}
       >
         <span>{item.q}</span>
         <ChevronDown
-          className={`w-5 h-5 shrink-0 text-primary transition-transform duration-300 ease-in-out ${isOpen ? "rotate-180" : ""}`}
+          style={{ width: 19, height: 19, color: "hsl(217,91%,64%)", flexShrink: 0, transition: "transform 0.3s", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
         />
       </button>
-      {/* Slide-down animé */}
-      <div
-        style={{
-          height: `${height}px`,
-          overflow: "hidden",
-          transition: "height 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
-      >
+
+      <div style={{ maxHeight: height, overflow: "hidden", transition: "max-height 0.35s ease" }}>
         <div
           ref={contentRef}
-          className="px-5 pb-5 text-muted-foreground text-base leading-relaxed"
           style={{
+            padding: "0 22px 20px",
+            fontSize: 14,
+            color: "hsl(215,20%,72%)",
+            lineHeight: 1.7,
             opacity: isOpen ? 1 : 0,
             transform: isOpen ? "translateY(0)" : "translateY(-6px)",
             transition: "opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s",
@@ -97,57 +89,73 @@ export function Faq() {
   const scrollFaq = useScrollAnimation(0.08);
 
   return (
-    <section id="faq" className="py-24 bg-gradient-to-b from-muted/20 to-background">
-      <div ref={scrollFaq.ref} className="container mx-auto px-6 max-w-3xl">
-        <div
-          className="text-center mb-12 transition-all duration-700"
-          style={{
-            opacity: scrollFaq.visible ? 1 : 0,
-            transform: scrollFaq.visible ? "translateY(0)" : "translateY(28px)",
-          }}
-        >
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-primary/70 mb-4">FAQ</p>
+    <section
+      id="faq"
+      style={{ position: "relative", padding: "110px 0", background: "linear-gradient(180deg,#050a18,hsl(217,40%,8%),#050a18)" }}
+    >
+      <div ref={scrollFaq.ref} className="mx-auto px-8" style={{ maxWidth: 780 }}>
+
+        {/* Titre */}
+        <div className="text-center mb-[52px]">
+          <div
+            className="inline-flex items-center gap-[10px] mb-[18px] transition-all duration-700"
+            style={{ opacity: scrollFaq.visible ? 1 : 0, transform: scrollFaq.visible ? "translateY(0)" : "translateY(24px)" }}
+          >
+            <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
+            <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>FAQ</span>
+            <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
+          </div>
           <h2
-            className="text-[clamp(28px,3.8vw,48px)] font-black leading-[1.1] tracking-tight"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            id="faq-heading"
+            className="transition-all duration-700"
+            style={{
+              fontSize: "clamp(30px,4vw,46px)",
+              fontWeight: 800,
+              lineHeight: 1.12,
+              letterSpacing: "-0.02em",
+              fontFamily: "'Playfair Display', Georgia, serif",
+              opacity: scrollFaq.visible ? 1 : 0,
+              transform: scrollFaq.visible ? "translateY(0)" : "translateY(24px)",
+              transitionDelay: "0.06s",
+            }}
           >
             Questions fréquentes
           </h2>
         </div>
 
-        <div className="space-y-3">
+        {/* Accordion */}
+        <div className="flex flex-col gap-3">
           {QUESTIONS.map((item, i) => (
             <div
               key={i}
               style={{
                 opacity: scrollFaq.visible ? 1 : 0,
                 transform: scrollFaq.visible ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`,
+                transition: `opacity 0.7s cubic-bezier(.16,1,.3,1) ${i * 0.06}s, transform 0.7s cubic-bezier(.16,1,.3,1) ${i * 0.06}s`,
               }}
             >
               <FaqItem
                 item={item}
-                index={i}
                 isOpen={open === i}
                 onToggle={() => setOpen(open === i ? null : i)}
+                delay={`${i * 0.06}s`}
               />
             </div>
           ))}
         </div>
 
-        {/* CTA bas de FAQ */}
+        {/* CTA bas */}
         <div
-          className="mt-10 text-center"
+          className="mt-10 text-center transition-all duration-700"
           style={{
             opacity: scrollFaq.visible ? 1 : 0,
-            transition: "opacity 0.6s ease 0.5s",
+            transitionDelay: "0.5s",
           }}
         >
-          <p className="text-muted-foreground text-sm mb-3">Vous n'avez pas trouvé votre réponse ?</p>
+          <p className="text-sm mb-3" style={{ color: "hsl(215,20%,55%)" }}>Vous n'avez pas trouvé votre réponse ?</p>
           <a
             href="#infos"
-            className="group inline-flex items-center gap-2 text-primary font-medium hover:underline transition-all"
+            className="group inline-flex items-center gap-2 font-semibold transition-all hover:underline"
+            style={{ color: "hsl(217,91%,64%)" }}
           >
             Contactez-nous directement
             <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>

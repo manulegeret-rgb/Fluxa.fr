@@ -814,62 +814,64 @@ const Index = () => {
 
             {/* Gauche : info */}
             <div>
-              <p className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-3" style={{ color: "hsl(217,91%,60%)" }}>Contact</p>
+              <div className="inline-flex items-center gap-[10px] mb-[18px]">
+                <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
+                <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Contact</span>
+              </div>
               <h2
-                className="mb-4"
-                style={{ fontSize: "clamp(28px,3.8vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
+                className="mb-[18px]"
+                style={{ fontSize: "clamp(28px,3.6vw,42px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Parlons de votre projet
+                Créons votre{" "}
+                <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                  site vitrine
+                </span>
               </h2>
-              <p className="text-lg mb-8" style={{ color: "hsl(215,20%,65%)" }}>Devis personnalisé sous 48h, sans engagement.</p>
+              <p className="mb-7" style={{ fontSize: 16, color: "hsl(215,20%,74%)", lineHeight: 1.7 }}>
+                Parlez-nous de votre projet et recevez un devis personnalisé sous 48h, sans engagement.
+              </p>
 
-              <div className="space-y-5">
+              <div className="flex flex-col gap-4">
                 {[
-                  { icon: <Mail className="w-5 h-5" style={{ color: "hsl(217,91%,60%)" }} />, label: "Email", value: "fluxa.contact@gmail.com", href: "mailto:fluxa.contact@gmail.com" },
-                  { icon: <MapPin className="w-5 h-5" style={{ color: "hsl(217,91%,60%)" }} />, label: "Localisation", value: "Chambéry, Savoie" },
-                  { icon: <Clock className="w-5 h-5" style={{ color: "hsl(217,91%,60%)" }} />, label: "Réponse", value: "Sous 48h garantie" },
+                  { icon: <Mail style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Email", value: "fluxa.contact@gmail.com", href: "mailto:fluxa.contact@gmail.com" },
+                  { icon: <MapPin style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Localisation", value: "Cognin, Savoie · France entière" },
+                  { icon: <Clock style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Délai de réponse", value: "Sous 48h, sans engagement" },
                 ].map(({ icon, label, value, href }) => (
-                  <div key={label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-[10px] grid place-items-center shrink-0" style={{ background: "hsl(217,91%,60%,0.10)" }}>{icon}</div>
+                  <div key={label} className="flex items-center gap-[13px]">
+                    <div className="grid place-items-center shrink-0" style={{ width: 42, height: 42, borderRadius: 11, background: "hsl(217,91%,60%,.12)" }}>{icon}</div>
                     <div>
-                      <p className="text-xs font-semibold tracking-widest uppercase mb-0.5" style={{ color: "hsl(215,20%,48%)" }}>{label}</p>
-                      {href ? <a href={href} className="text-sm font-medium hover:text-primary transition-colors">{value}</a> : <p className="text-sm">{value}</p>}
+                      <div style={{ fontSize: 12, color: "hsl(215,20%,60%)" }}>{label}</div>
+                      {href
+                        ? <a href={href} className="hover:text-primary transition-colors" style={{ fontSize: 14.5, fontWeight: 600, color: "hsl(210,40%,94%)" }}>{value}</a>
+                        : <div style={{ fontSize: 14.5, fontWeight: 600, color: "hsl(210,40%,94%)" }}>{value}</div>
+                      }
                     </div>
                   </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-3 mt-8">
-                {[
-                  { href: "https://instagram.com/fluxa.fr", icon: <Instagram className="w-4 h-4" />, label: "@fluxa.fr" },
-                  { href: "https://www.facebook.com/fluxa.fr", icon: <Facebook className="w-4 h-4" />, label: "fluxa.fr" },
-                  { href: "https://www.linkedin.com/company/fluxa-fr/", icon: <Linkedin className="w-4 h-4" />, label: "Fluxa" },
-                ].map(s => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm px-3.5 py-2 rounded-[10px] transition-all duration-200 hover:bg-primary/15" style={{ border: "1px solid hsl(217,32%,18%)", color: "hsl(215,20%,60%)" }}>
-                    {s.icon}{s.label}
-                  </a>
                 ))}
               </div>
             </div>
 
             {/* Droite : formulaire */}
-            <div className="rounded-[22px] p-8" style={{ background: "hsl(217,33%,9%,0.85)", border: "1px solid hsl(217,32%,18%)", backdropFilter: "blur(12px)" }}>
-              <form id="contact" onSubmit={onSubmitInfo} className="space-y-4">
+            <div
+              className="rounded-[20px] flex flex-col gap-4"
+              style={{ border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,8%,.7)", backdropFilter: "blur(12px)", padding: 30 }}
+            >
+              <form id="contact" onSubmit={onSubmitInfo} className="flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="contact-name" className="text-xs font-semibold uppercase tracking-widest mb-1.5 block" style={{ color: "hsl(215,20%,55%)" }}>Nom</label>
-                    <input id="contact-name" name="name" required className="w-full rounded-[11px] px-4 py-3.5 text-sm outline-none transition-all" style={{ border: "1px solid hsl(217,32%,20%)", background: "hsl(217,33%,7%)", color: "hsl(210,40%,96%)" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,0.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,0.15)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,20%)"; e.currentTarget.style.boxShadow = "none"; }} />
+                    <label htmlFor="contact-name" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Nom</label>
+                    <input id="contact-name" name="name" required placeholder="Jean Dupont" className="w-full outline-none transition-all" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="text-xs font-semibold uppercase tracking-widest mb-1.5 block" style={{ color: "hsl(215,20%,55%)" }}>Email</label>
-                    <input id="contact-email" name="email" type="email" required className="w-full rounded-[11px] px-4 py-3.5 text-sm outline-none transition-all" style={{ border: "1px solid hsl(217,32%,20%)", background: "hsl(217,33%,7%)", color: "hsl(210,40%,96%)" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,0.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,0.15)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,20%)"; e.currentTarget.style.boxShadow = "none"; }} />
+                    <label htmlFor="contact-email" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Email</label>
+                    <input id="contact-email" name="email" type="email" required placeholder="jean@exemple.fr" className="w-full outline-none transition-all" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-need" className="text-xs font-semibold uppercase tracking-widest mb-1.5 block" style={{ color: "hsl(215,20%,55%)" }}>Type de site</label>
-                  <select id="contact-need" name="need" required defaultValue="" className="w-full rounded-[11px] px-4 py-3.5 text-sm outline-none transition-all" style={{ border: "1px solid hsl(217,32%,20%)", background: "hsl(217,33%,7%)", color: "hsl(210,40%,96%)" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,0.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,0.15)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,20%)"; e.currentTarget.style.boxShadow = "none"; }}>
-                    <option value="" disabled>Sélectionner…</option>
+                  <label htmlFor="contact-need" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Type de site souhaité</label>
+                  <select id="contact-need" name="need" required defaultValue="" className="w-full outline-none transition-all cursor-pointer" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14, appearance: "none" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }}>
+                    <option value="" disabled>Sélectionner</option>
                     <option>Site vitrine simple (890€)</option>
                     <option>Site avec galerie photo</option>
                     <option>Site avec prise de RDV</option>
@@ -879,31 +881,31 @@ const Index = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="contact-message" className="text-xs font-semibold uppercase tracking-widest mb-1.5 block" style={{ color: "hsl(215,20%,55%)" }}>Message</label>
-                  <textarea id="contact-message" name="message" rows={4} placeholder="Votre activité, vos besoins, vos attentes…" className="w-full rounded-[11px] px-4 py-3.5 text-sm outline-none transition-all resize-none" style={{ border: "1px solid hsl(217,32%,20%)", background: "hsl(217,33%,7%)", color: "hsl(210,40%,96%)" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,0.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,0.15)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,20%)"; e.currentTarget.style.boxShadow = "none"; }} />
+                  <label htmlFor="contact-message" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Votre message</label>
+                  <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet : votre activité, vos besoins, vos attentes…" className="w-full outline-none transition-all resize-none" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
                 </div>
 
                 <button
                   type="submit"
                   disabled={sending}
-                  className="group relative w-full flex items-center justify-center gap-2 rounded-[13px] py-[15px] text-[15.5px] font-semibold text-white overflow-hidden transition-all duration-200 hover:-translate-y-[2px] disabled:opacity-60"
-                  style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.55)" }}
+                  className="group relative w-full flex items-center justify-center gap-[9px] text-white font-semibold overflow-hidden transition-all duration-200 hover:-translate-y-[3px] disabled:opacity-60"
+                  style={{ fontSize: 15, padding: 15, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 12px 32px -10px hsl(217,91%,60%,.55)" }}
                 >
                   {sending && <span className="btn-spinner" />}
                   <span className="relative z-10">{sending ? "Envoi en cours…" : "Envoyer ma demande"}</span>
-                  {!sending && <Send className="w-[17px] h-[17px] relative z-10" />}
+                  {!sending && <Send style={{ width: 16, height: 16 }} className="relative z-10" />}
                   <div className="btn-shimmer absolute inset-0 pointer-events-none" />
                 </button>
 
                 {sendError && <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>}
 
-                <div className="flex flex-wrap gap-3 justify-center pt-1">
+                <div className="flex flex-wrap gap-2">
                   {[
-                    { icon: <Lock className="w-3.5 h-3.5" />, txt: "Données sécurisées" },
-                    { icon: <Zap className="w-3.5 h-3.5" />, txt: "Réponse sous 48h" },
-                    { icon: <Search className="w-3.5 h-3.5" />, txt: "Sans engagement" },
+                    { icon: <Lock style={{ width: 12, height: 12, color: "hsl(160,84%,50%)" }} />, txt: "Hébergement sécurisé" },
+                    { icon: <Zap style={{ width: 12, height: 12, color: "hsl(43,96%,58%)" }} />, txt: "Livraison rapide" },
+                    { icon: <Search style={{ width: 12, height: 12, color: "hsl(217,91%,64%)" }} />, txt: "SEO optimisé" },
                   ].map(tag => (
-                    <span key={tag.txt} className="flex items-center gap-1.5 text-xs" style={{ color: "hsl(215,20%,52%)" }}>
+                    <span key={tag.txt} className="inline-flex items-center gap-[6px]" style={{ fontSize: 11.5, color: "hsl(215,20%,68%)", border: "1px solid hsl(217,32%,18%)", borderRadius: 999, padding: "5px 12px" }}>
                       {tag.icon}{tag.txt}
                     </span>
                   ))}
@@ -921,119 +923,153 @@ const Index = () => {
       <section id="pourquoi-choisir-fluxa" className="py-[110px] bg-background">
         <div ref={scrollWhy.ref} className="container mx-auto px-6 max-w-[1200px]">
 
-          <div
-            className="text-center mb-14 transition-all duration-700"
-            style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(28px)" }}
-          >
-            <p className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-3" style={{ color: "hsl(217,91%,60%)" }}>Pourquoi nous</p>
-            <h2
-              className="mb-4"
-              style={{ fontSize: "clamp(28px,3.8vw,46px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
+          {/* En-tête */}
+          <div className="text-center max-w-[680px] mx-auto mb-[60px]">
+            <div
+              className="inline-flex items-center gap-[10px] mb-[18px] transition-all duration-700"
+              style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)" }}
             >
-              Local. Rapide. Sans dépendance.
+              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
+              <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Pourquoi Fluxa</span>
+              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
+            </div>
+            <h2
+              className="mb-4 transition-all duration-700"
+              style={{
+                fontSize: "clamp(30px,4vw,46px)",
+                fontWeight: 800,
+                lineHeight: 1.12,
+                letterSpacing: "-0.02em",
+                fontFamily: "'Playfair Display', Georgia, serif",
+                opacity: scrollWhy.visible ? 1 : 0,
+                transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)",
+                transitionDelay: "0.06s",
+              }}
+            >
+              Des engagements concrets
             </h2>
-            <p className="text-lg max-w-xl mx-auto" style={{ color: "hsl(215,20%,65%)" }}>
-              Agence web à Chambéry. Sites livrés clé en main, sans contrat long terme, sans frais cachés.
+            <p
+              className="text-[17px] transition-all duration-700"
+              style={{
+                color: "hsl(215,20%,72%)",
+                opacity: scrollWhy.visible ? 1 : 0,
+                transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)",
+                transitionDelay: "0.12s",
+              }}
+            >
+              Transparence sur les prix, sur les délais, et sur la qualité du livrable.
             </p>
           </div>
 
-          {/* 4 garanties avec accents colorés */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+          {/* 4 garanties — centré, icône margin auto */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-[54px]">
             {[
-              { accent: "hsl(160,84%,39%)", accentLight: "hsl(160,84%,39%,0.12)", icon: <ShieldCheck className="w-5 h-5" style={{ color: "hsl(160,84%,50%)" }} />, title: "Satisfaction garantie", text: "Modifications incluses jusqu'à validation complète.", delay: "0s" },
-              { accent: "hsl(43,96%,56%)", accentLight: "hsl(43,96%,56%,0.10)", icon: <Zap className="w-5 h-5" style={{ color: "hsl(43,96%,56%)" }} />, title: "Respect des délais", text: "Livraison en 2–3 semaines ou remboursement partiel.", delay: "0.08s" },
-              { accent: "hsl(263,90%,74%)", accentLight: "hsl(263,90%,74%,0.10)", icon: <Code2 className="w-5 h-5" style={{ color: "hsl(263,90%,74%)" }} />, title: "Code propre", text: "Standards du web respectés, performance Core Web Vitals.", delay: "0.16s" },
-              { accent: "hsl(217,91%,60%)", accentLight: "hsl(217,91%,60%,0.10)", icon: <Headphones className="w-5 h-5" style={{ color: "hsl(217,91%,60%)" }} />, title: "Support réactif", text: "Réponse sous 48h, corrections de bugs prioritaires.", delay: "0.24s" },
+              {
+                accentLight: "hsl(160,84%,45%,.13)",
+                hoverBorder: "hsl(160,84%,45%,.45)",
+                hoverShadow: "0 24px 50px -28px hsl(160,84%,45%,.4)",
+                icon: <ShieldCheck style={{ width: 24, height: 24, color: "hsl(160,84%,50%)" }} />,
+                title: "Satisfaction garantie",
+                text: "Modifications incluses jusqu'à validation, sans surcoût.",
+                delay: "0s",
+              },
+              {
+                accentLight: "hsl(43,96%,56%,.13)",
+                hoverBorder: "hsl(43,96%,56%,.45)",
+                hoverShadow: "0 24px 50px -28px hsl(43,96%,56%,.4)",
+                icon: <Zap style={{ width: 24, height: 24, color: "hsl(43,96%,58%)" }} />,
+                title: "Respect des délais",
+                text: "Livraison en 2 à 3 semaines, annoncée dès le devis.",
+                delay: "0.08s",
+              },
+              {
+                accentLight: "hsl(263,90%,74%,.13)",
+                hoverBorder: "hsl(263,90%,64%,.45)",
+                hoverShadow: "0 24px 50px -28px hsl(263,90%,64%,.4)",
+                icon: <Code2 style={{ width: 24, height: 24, color: "hsl(263,90%,76%)" }} />,
+                title: "Code propre",
+                text: "Standards du web respectés, performances optimales.",
+                delay: "0.16s",
+              },
+              {
+                accentLight: "hsl(217,91%,60%,.13)",
+                hoverBorder: "hsl(217,91%,60%,.45)",
+                hoverShadow: "0 24px 50px -28px hsl(217,91%,60%,.4)",
+                icon: <Headphones style={{ width: 24, height: 24, color: "hsl(217,91%,64%)" }} />,
+                title: "Support réactif",
+                text: "Réponse sous 48h, corrections de bugs prioritaires.",
+                delay: "0.24s",
+              },
             ].map((g, i) => (
               <div
                 key={i}
-                className="rounded-[18px] p-6 transition-all duration-300"
+                className="rounded-[16px] transition-all duration-300"
                 style={{
                   border: "1px solid hsl(217,32%,16%)",
-                  background: "linear-gradient(180deg,hsl(217,33%,10%),hsl(222,84%,5%))",
+                  background: "hsl(217,33%,9%)",
+                  padding: 26,
+                  textAlign: "center",
                   opacity: scrollWhy.visible ? 1 : 0,
-                  transform: scrollWhy.visible ? "translateY(0)" : "translateY(36px)",
-                  transition: `opacity 0.65s ease ${g.delay}, transform 0.65s ease ${g.delay}`,
+                  transform: scrollWhy.visible ? "translateY(0)" : "translateY(28px)",
+                  transition: `opacity 0.8s cubic-bezier(.16,1,.3,1) ${g.delay}, transform 0.8s cubic-bezier(.16,1,.3,1) ${g.delay}, border-color 0.25s, box-shadow 0.25s`,
                 }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.borderColor = g.accent.replace(")", ",0.3)").replace("hsl(", "hsl("); e.currentTarget.style.boxShadow = `0 24px 48px -16px ${g.accent.replace(")", ",0.25)").replace("hsl(", "hsl(")}`; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = scrollWhy.visible ? "translateY(0)" : "translateY(36px)"; e.currentTarget.style.borderColor = "hsl(217,32%,16%)"; e.currentTarget.style.boxShadow = "none"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = g.hoverBorder; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = g.hoverShadow; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "hsl(217,32%,16%)"; e.currentTarget.style.transform = scrollWhy.visible ? "translateY(0)" : "translateY(28px)"; e.currentTarget.style.boxShadow = "none"; }}
               >
-                <div className="w-10 h-10 rounded-[12px] grid place-items-center mb-4" style={{ background: g.accentLight }}>{g.icon}</div>
-                <h3 className="font-semibold mb-2 text-[15px]">{g.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>{g.text}</p>
+                <div
+                  className="grid place-items-center"
+                  style={{ width: 54, height: 54, borderRadius: 14, background: g.accentLight, margin: "0 auto 18px" }}
+                >
+                  {g.icon}
+                </div>
+                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>{g.title}</h3>
+                <p style={{ fontSize: 13, color: "hsl(215,20%,70%)", lineHeight: 1.55 }}>{g.text}</p>
               </div>
             ))}
           </div>
 
           {/* Stats animées */}
-          <div ref={scrollStats.ref} className="grid md:grid-cols-3 gap-4 mb-12">
+          <div
+            ref={scrollStats.ref}
+            className="grid md:grid-cols-3 gap-5"
+            style={{
+              opacity: scrollStats.visible ? 1 : 0,
+              transform: scrollStats.visible ? "translateY(0)" : "translateY(28px)",
+              transition: "opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1)",
+            }}
+          >
             {[
-              { count: stat890, suffix: "€", label: "tarif de départ tout compris", delay: "0s" },
-              { count: stat100, suffix: "%", label: "responsive mobile + desktop", delay: "0.15s" },
-              { count: stat48, suffix: "h", label: "pour recevoir votre devis", delay: "0.3s" },
+              { count: stat890, suffix: " €", label: "tarif de départ tout compris" },
+              { count: stat100, suffix: " %", label: "responsive, mobile & desktop" },
+              { count: stat48, suffix: "h", label: "pour recevoir votre devis" },
             ].map((stat, i) => (
               <div
                 key={i}
-                className="rounded-[18px] py-10 px-6 text-center"
+                className="text-center"
                 style={{
-                  border: "1px solid hsl(217,32%,14%)",
-                  background: "hsl(217,33%,8%)",
-                  opacity: scrollStats.visible ? 1 : 0,
-                  transform: scrollStats.visible ? "translateY(0)" : "translateY(24px)",
-                  transition: `opacity 0.6s ease ${stat.delay}, transform 0.6s ease ${stat.delay}`,
+                  borderRadius: 16,
+                  border: "1px solid hsl(217,32%,16%)",
+                  background: "linear-gradient(180deg,hsl(217,33%,9%),hsl(222,84%,5%))",
+                  padding: "38px 24px",
                 }}
               >
                 <div
-                  className="text-5xl md:text-6xl font-black mb-2"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                  style={{
+                    fontSize: "clamp(34px,5vw,48px)",
+                    fontWeight: 800,
+                    lineHeight: 1,
+                    background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    marginBottom: 10,
+                  }}
                 >
                   {stat.count}{stat.suffix}
                 </div>
-                <p className="text-sm" style={{ color: "hsl(215,20%,55%)" }}>{stat.label}</p>
+                <div style={{ fontSize: 13.5, color: "hsl(215,20%,72%)" }}>{stat.label}</div>
               </div>
             ))}
-          </div>
-
-          {/* SEO local */}
-          <div
-            className="rounded-[18px] p-7 md:p-8"
-            style={{
-              border: "1px solid hsl(217,91%,60%,0.20)",
-              background: "hsl(217,91%,60%,0.05)",
-              opacity: scrollWhy.visible ? 1 : 0,
-              transform: scrollWhy.visible ? "translateY(0)" : "translateY(20px)",
-              transition: "opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s",
-            }}
-          >
-            <div className="flex flex-col md:flex-row md:items-center gap-6">
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                  <Globe className="w-4 h-4 shrink-0" style={{ color: "hsl(217,91%,60%)" }} />
-                  Agence web locale · Chambéry &amp; Savoie
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>
-                  Basée à Cognin, à deux pas de Chambéry, Fluxa accompagne les artisans, TPE et indépendants de toute la Savoie.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2 shrink-0">
-                {["Chambéry", "Aix-les-Bains", "Albertville", "Annecy", "Savoie"].map(ville => (
-                  <span key={ville} className="text-xs font-medium px-3 py-1.5 rounded-full" style={{ border: "1px solid hsl(217,91%,60%,0.30)", background: "hsl(217,91%,60%,0.10)", color: "hsl(217,91%,65%)" }}>{ville}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* CTA final */}
-          <div className="text-center mt-12" style={{ opacity: scrollWhy.visible ? 1 : 0, transition: "opacity 0.6s ease 0.55s" }}>
-            <a
-              href="#infos"
-              className="group relative inline-flex items-center gap-2.5 rounded-[13px] px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-200 hover:-translate-y-[2px]"
-              style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.55)" }}
-            >
-              <span className="relative z-10">Je veux mon site vitrine</span>
-              <ArrowRight className="w-[17px] h-[17px] relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
-              <div className="btn-shimmer absolute inset-0 pointer-events-none" />
-            </a>
           </div>
         </div>
       </section>
@@ -1103,47 +1139,100 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           FOOTER
       ═══════════════════════════════════════════ */}
-      <footer className="py-12 md:py-14" style={{ borderTop: "1px solid hsl(217,32%,12%)" }}>
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col gap-6 md:flex-row md:justify-between md:items-start">
-            <div className="flex flex-col gap-1.5">
-              <div className="flex items-center gap-3">
-                <img src={fluxaLogo} alt="Logo Fluxa" className="h-8 w-auto" />
-                <p className="text-sm" style={{ color: "hsl(215,20%,50%)" }}>Création de sites vitrines professionnels</p>
-              </div>
-              <address className="not-italic text-xs mt-0.5" style={{ color: "hsl(215,20%,40%)" }}>
-                <a href="mailto:fluxa.contact@gmail.com" className="hover:text-primary transition-colors">fluxa.contact@gmail.com</a>
-                {" · "}Chambéry, Savoie
+      <footer style={{ borderTop: "1px solid hsl(217,32%,15%)", padding: "50px 0 34px" }}>
+        <div className="container mx-auto px-8">
+
+          {/* Ligne principale */}
+          <div className="flex flex-wrap justify-between gap-7 mb-[30px]">
+
+            {/* Logo + description + adresse */}
+            <div className="flex flex-col gap-[14px]" style={{ maxWidth: 340 }}>
+              <img src={fluxaLogo} alt="Fluxa" className="h-[38px] w-auto" />
+              <p style={{ fontSize: 13.5, color: "hsl(215,20%,68%)", lineHeight: 1.6 }}>
+                Création de sites vitrines professionnels, clé en main, pour artisans, TPE et indépendants.
+              </p>
+              <address className="not-italic" style={{ fontSize: 12.5, color: "hsl(215,20%,58%)", lineHeight: 1.7 }}>
+                36 rue des Criquets, 73160 Cognin, Savoie<br />
+                <a href="mailto:fluxa.contact@gmail.com" className="transition-colors hover:text-primary" style={{ color: "hsl(215,20%,68%)" }}>fluxa.contact@gmail.com</a>
               </address>
             </div>
 
-            <nav className="flex flex-wrap items-center gap-5 text-sm" aria-label="Réseaux sociaux">
-              {[
-                { href: "mailto:fluxa.contact@gmail.com", icon: <Mail className="w-4 h-4" />, label: "Email" },
-                { href: "https://instagram.com/fluxa.fr", icon: <Instagram className="w-4 h-4" />, label: "Instagram" },
-                { href: "https://www.facebook.com/fluxa.fr", icon: <Facebook className="w-4 h-4" />, label: "Facebook" },
-                { href: "https://www.linkedin.com/company/fluxa-fr/", icon: <Linkedin className="w-4 h-4" />, label: "LinkedIn" },
-              ].map(s => (
-                <a key={s.label} href={s.href} target={s.href.startsWith("mailto") ? undefined : "_blank"} rel="noopener noreferrer" className="transition-colors inline-flex items-center gap-2" style={{ color: "hsl(215,20%,45%)" }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "hsl(217,91%,60%)"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,45%)"}
-                >
-                  {s.icon}{s.label}
-                </a>
-              ))}
-            </nav>
+            {/* Colonnes Navigation + Légal */}
+            <div className="flex gap-[54px] flex-wrap">
+              <div className="flex flex-col gap-[11px]">
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "hsl(215,20%,52%)", marginBottom: 4 }}>Navigation</div>
+                {[
+                  { href: "#services", label: "Nos sites" },
+                  { href: "#comment-ca-marche", label: "Méthode" },
+                  { href: "/tarifs", label: "Tarifs" },
+                  { href: "#faq", label: "FAQ" },
+                ].map(l => (
+                  <a key={l.label} href={l.href} className="transition-colors hover:text-primary" style={{ fontSize: 13.5, color: "hsl(215,20%,70%)" }}>{l.label}</a>
+                ))}
+              </div>
+              <div className="flex flex-col gap-[11px]">
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "hsl(215,20%,52%)", marginBottom: 4 }}>Légal</div>
+                {[
+                  { href: "/mentions-legales", label: "Mentions légales" },
+                  { href: "/cgv", label: "CGV" },
+                  { href: "/politique-confidentialite", label: "Confidentialité" },
+                ].map(l => (
+                  <a key={l.label} href={l.href} className="transition-colors hover:text-primary" style={{ fontSize: 13.5, color: "hsl(215,20%,70%)" }}>{l.label}</a>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="my-7" style={{ borderTop: "1px solid hsl(217,32%,10%)" }} />
+          {/* Bas footer */}
+          <div className="flex flex-wrap justify-between items-center gap-[14px] pt-[22px]" style={{ borderTop: "1px solid hsl(217,32%,13%)" }}>
+            <span style={{ fontSize: 12, color: "hsl(215,20%,48%)" }}>© {new Date().getFullYear()} Fluxa — Tous droits réservés</span>
 
-          <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
-            <p className="text-xs" style={{ color: "hsl(215,20%,35%)" }}>© {new Date().getFullYear()} Fluxa · SIRET 83014496000044</p>
-            <div className="flex items-center gap-4 text-xs" style={{ color: "hsl(215,20%,42%)" }}>
-              <a href="/mentions-legales" className="hover:text-primary transition">Mentions légales</a>
-              <span style={{ color: "hsl(217,32%,18%)" }}>·</span>
-              <a href="/politique-confidentialite" className="hover:text-primary transition">Confidentialité</a>
-              <span style={{ color: "hsl(217,32%,18%)" }}>·</span>
-              <a href="/cgv" className="hover:text-primary transition">CGV</a>
+            {/* Icônes sociales 34×34 */}
+            <div className="flex gap-[9px]">
+              {[
+                {
+                  href: "mailto:fluxa.contact@gmail.com",
+                  label: "Email",
+                  icon: <Mail style={{ width: 15, height: 15 }} />,
+                },
+                {
+                  href: "https://instagram.com/fluxa.fr",
+                  label: "Instagram",
+                  icon: (
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                  ),
+                },
+                {
+                  href: "https://www.facebook.com/fluxa.fr",
+                  label: "Facebook",
+                  icon: (
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                  ),
+                },
+                {
+                  href: "https://www.linkedin.com/company/fluxa-fr/",
+                  label: "LinkedIn",
+                  icon: <Linkedin style={{ width: 15, height: 15 }} />,
+                },
+              ].map(s => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="grid place-items-center transition-colors"
+                  style={{ width: 34, height: 34, borderRadius: 9, border: "1px solid hsl(217,32%,18%)", color: "hsl(215,20%,65%)" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "hsl(217,91%,66%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,.35)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,65%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,32%,18%)"; }}
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>

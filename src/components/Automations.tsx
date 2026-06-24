@@ -1,120 +1,168 @@
 import {
   MessageSquare,
   Palette,
-  Code,
+  Code2,
   Rocket,
   HeadphonesIcon,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-type Item = {
+type Step = {
   icon: LucideIcon;
+  etape: string;
   title: string;
-  detail: string;
   text: string;
-  tag: string;
+  delay: string;
 };
 
 export function CommentCaMarche() {
   const scrollSection = useScrollAnimation(0.08);
 
-  const items: Item[] = [
+  const steps: Step[] = [
     {
       icon: MessageSquare,
-      title: "1. Premier contact & Brief",
-      detail: "Contact mail + formulaire détaillé",
-      text: "Vous nous contactez par mail pour présenter votre projet. On vous envoie un formulaire de brief pour préciser vos besoins, le style souhaité, les pages à créer. L'objectif : bien comprendre votre activité avant de vous proposer un devis adapté.",
-      tag: "Gratuit & sans engagement",
+      etape: "ÉTAPE 1",
+      title: "Contact & brief",
+      text: "Vous nous contactez. Un formulaire de brief précise vos besoins, pages et objectifs.",
+      delay: "0s",
     },
     {
       icon: Palette,
-      title: "2. Maquette & Validation",
-      detail: "Design personnalisé",
-      text: "On crée une maquette visuelle de votre site : structure des pages, couleurs, typographie. Vous voyez exactement le résultat avant qu'on code quoi que ce soit. On ajuste ensemble jusqu'à ce que ce soit parfait, puis on démarre le développement.",
-      tag: "Validation avant dev",
+      etape: "ÉTAPE 2",
+      title: "Maquette & validation",
+      text: "Nous créons une maquette. Vous validez structure, couleurs et contenu avant le développement.",
+      delay: "0.08s",
     },
     {
-      icon: Code,
-      title: "3. Développement",
-      detail: "Code propre et optimisé",
-      text: "On développe votre site avec des technologies modernes : responsive mobile et desktop, formulaires fonctionnels, SEO optimisé, chargement rapide. Code propre, sécurisé, testé sur tous les navigateurs. Vous recevez un site prêt à convertir.",
-      tag: "2-3 semaines",
+      icon: Code2,
+      etape: "ÉTAPE 3",
+      title: "Développement",
+      text: "Code moderne, responsive, testé sur tous les navigateurs. SEO et performance optimisés.",
+      delay: "0.16s",
     },
     {
       icon: Rocket,
-      title: "4. Mise en ligne",
-      detail: "Hébergement & domaine",
-      text: "On gère tout : nom de domaine, hébergement sécurisé, mise en ligne. Votre site est accessible immédiatement. Hébergement et domaine inclus la première année, puis renouvellement simple autour de 50 à 80€ par an.",
-      tag: "Clé en main",
+      etape: "ÉTAPE 4",
+      title: "Mise en ligne",
+      text: "Domaine, hébergement sécurisé, configuration finale. Votre site est en ligne, clé en main.",
+      delay: "0.24s",
     },
     {
       icon: HeadphonesIcon,
-      title: "5. Support & Suivi",
-      detail: "Accompagnement après livraison",
-      text: "Après la mise en ligne, on reste disponibles pour toute question ou correction. La maintenance mensuelle optionnelle à 59€/mois couvre les mises à jour de sécurité, sauvegardes régulières et petites corrections pour garder votre site performant dans le temps.",
-      tag: "Toujours disponible",
+      etape: "ÉTAPE 5",
+      title: "Support & suivi",
+      text: "Nous restons disponibles. Maintenance optionnelle : mises à jour, sauvegardes, corrections.",
+      delay: "0.32s",
     },
   ];
 
   return (
-    <section className="pt-8 pb-6 md:pt-8 md:pb-2 bg-gradient-to-b from-muted/20 to-background">
-      <div ref={scrollSection.ref} className="container mx-auto px-6">
+    <section
+      className="relative"
+      style={{ padding: "110px 0", background: "linear-gradient(180deg,#050a18,hsl(217,40%,8%),#050a18)" }}
+    >
+      <div ref={scrollSection.ref} className="container mx-auto px-6 max-w-[1200px]">
+
         {/* Titre */}
-        <div
-          className="text-center space-y-4 md:space-y-6 mb-8 md:mb-14 transition-all duration-700"
-          style={{
-            opacity: scrollSection.visible ? 1 : 0,
-            transform: scrollSection.visible ? "translateY(0)" : "translateY(28px)",
-          }}
-        >
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-primary/70">Processus</p>
-          <h2
-            className="text-[clamp(28px,3.8vw,48px)] font-black leading-[1.1] tracking-tight"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            id="comment-ca-marche"
+        <div className="text-center max-w-[680px] mx-auto mb-[60px]">
+          <div
+            className="inline-flex items-center gap-[10px] mb-[18px] transition-all duration-700"
+            style={{ opacity: scrollSection.visible ? 1 : 0, transform: scrollSection.visible ? "translateY(0)" : "translateY(24px)" }}
           >
-            Comment ça marche ?
+            <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
+            <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Méthode</span>
+            <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
+          </div>
+          <h2
+            id="comment-ca-marche"
+            className="mb-4 transition-all duration-700"
+            style={{
+              fontSize: "clamp(30px,4vw,46px)",
+              fontWeight: 800,
+              lineHeight: 1.12,
+              letterSpacing: "-0.02em",
+              fontFamily: "'Playfair Display', Georgia, serif",
+              opacity: scrollSection.visible ? 1 : 0,
+              transform: scrollSection.visible ? "translateY(0)" : "translateY(24px)",
+              transitionDelay: "0.06s",
+            }}
+          >
+            De l'idée à la mise en ligne, en 5 étapes
           </h2>
-          <p className="text-base leading-relaxed text-muted-foreground mt-2 max-w-xl mx-auto">
-            De la première discussion à la mise en ligne, 5 étapes claires et sans surprise.
+          <p
+            className="text-[17px] transition-all duration-700"
+            style={{
+              color: "hsl(215,20%,72%)",
+              opacity: scrollSection.visible ? 1 : 0,
+              transform: scrollSection.visible ? "translateY(0)" : "translateY(24px)",
+              transitionDelay: "0.12s",
+            }}
+          >
+            Un processus clair et sans surprise, du premier contact au suivi.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {items.map((it, i) => {
-            const Icon = it.icon;
+        {/* 5 étapes */}
+        <div
+          className="grid gap-[18px] relative"
+          style={{ gridTemplateColumns: "repeat(5,1fr)" }}
+        >
+          {/* Ligne connecteur */}
+          <div
+            className="absolute pointer-events-none"
+            style={{ top: 26, left: "8%", right: "8%", height: 2, background: "linear-gradient(90deg,hsl(217,91%,60%,.4),hsl(217,91%,60%,.15))", zIndex: 0 }}
+          />
+
+          {steps.map((step, i) => {
+            const Icon = step.icon;
             return (
               <div
                 key={i}
-                className="rounded-2xl border border-border bg-card p-6 hover:border-primary/60 transition-colors"
+                className="relative rounded-[16px] transition-all duration-300"
                 style={{
+                  zIndex: 1,
+                  border: "1px solid hsl(217,32%,16%)",
+                  background: "hsl(222,84%,5%)",
+                  padding: 22,
                   opacity: scrollSection.visible ? 1 : 0,
-                  transform: scrollSection.visible ? "translateY(0)" : "translateY(36px)",
-                  transition: `opacity 0.55s ease ${i * 0.1}s, transform 0.55s ease ${i * 0.1}s, border-color 0.3s`,
+                  transform: scrollSection.visible ? "translateY(0)" : "translateY(28px)",
+                  transition: `opacity 0.8s cubic-bezier(.16,1,.3,1) ${step.delay}, transform 0.8s cubic-bezier(.16,1,.3,1) ${step.delay}, border-color 0.25s`,
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = "hsl(217,91%,60%,.45)";
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = "hsl(217,32%,16%)";
+                  e.currentTarget.style.transform = scrollSection.visible ? "translateY(0)" : "translateY(28px)";
                 }}
               >
-                <div className="flex items-start gap-3 mb-4">
-                  {/* Icône avec pulse au load */}
-                  <div
-                    className="shrink-0 w-10 h-10 rounded-xl bg-primary text-primary-foreground grid place-items-center"
-                    style={{
-                      animation: scrollSection.visible
-                        ? `iconBounce 0.5s ease ${i * 0.1 + 0.3}s both`
-                        : "none",
-                    }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="flex flex-col justify-center leading-tight">
-                    <h3 className="font-semibold">{it.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">{it.detail}</p>
-                  </div>
+                {/* Icône gradient */}
+                <div
+                  className="grid place-items-center mb-[18px]"
+                  style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 13,
+                    background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,44%))",
+                    boxShadow: "0 10px 26px -10px hsl(217,91%,60%,.6)",
+                  }}
+                >
+                  <Icon style={{ width: 22, height: 22, color: "#fff" }} />
                 </div>
-                <p className="text-[15px] leading-relaxed text-muted-foreground mt-2">{it.text}</p>
-                <div className="mt-4 text-xs inline-flex items-center rounded-full border border-primary/30 bg-primary/5 text-primary px-2.5 py-1 font-medium">
-                  {it.tag}
+
+                {/* Étape label */}
+                <div
+                  className="mb-[7px]"
+                  style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", color: "hsl(217,91%,66%)" }}
+                >
+                  {step.etape}
                 </div>
+
+                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>{step.title}</h3>
+                <p style={{ fontSize: 13, color: "hsl(215,20%,70%)", lineHeight: 1.6 }}>{step.text}</p>
               </div>
             );
           })}
@@ -122,20 +170,26 @@ export function CommentCaMarche() {
 
         {/* CTA */}
         <div
-          className="text-center mt-8 md:mt-20 pb-16 md:pb-32"
+          className="text-center mt-[52px] transition-all duration-700"
           style={{
             opacity: scrollSection.visible ? 1 : 0,
-            transform: scrollSection.visible ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s",
+            transform: scrollSection.visible ? "translateY(0)" : "translateY(24px)",
+            transitionDelay: "0.4s",
           }}
         >
           <a
-            href="#pricing"
-            className="group inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:opacity-90 transition gap-2"
-            aria-label="Voir les tarifs"
+            href="#infos"
+            className="group inline-flex items-center gap-[10px] text-white font-semibold transition-all duration-200 hover:-translate-y-[3px]"
+            style={{
+              fontSize: 15,
+              padding: "15px 28px",
+              borderRadius: 13,
+              background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))",
+              boxShadow: "0 14px 36px -10px hsl(217,91%,60%,.55)",
+            }}
           >
-            Voir les tarifs et démarrer
-            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            Démarrer mon projet
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
