@@ -619,7 +619,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           MÉTHODE (#comment-ca-marche)
       ═══════════════════════════════════════════ */}
-      <section id="comment-ca-marche" className="scroll-mt-28">
+      <section id="comment-ca-marche" className="scroll-mt-28 pt-[70px]">
         <CommentCaMarche />
       </section>
 
@@ -1055,7 +1055,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════ */}
-      <section id="faq" className="scroll-mt-28">
+      <section id="faq" className="scroll-mt-28 pt-[70px]">
         <Faq />
       </section>
 
