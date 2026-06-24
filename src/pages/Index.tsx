@@ -1121,84 +1121,51 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           FOOTER
       ═══════════════════════════════════════════ */}
-      <footer style={{ borderTop: "1px solid hsl(217,32%,15%)", padding: "50px 0 34px" }}>
-        <div className="container mx-auto px-8">
+      <footer style={{ borderTop: "1px solid hsl(217,32%,15%)", padding: "60px 0 36px", background: "hsl(222,84%,4%)" }}>
+        <div className="container mx-auto px-8 max-w-[1200px]">
 
-          {/* Ligne principale */}
-          <div className="flex flex-wrap justify-between gap-7 mb-[30px]">
-
-            {/* Logo + description + adresse */}
-            <div className="flex flex-col gap-[14px]" style={{ maxWidth: 340 }}>
-              <img src={fluxaLogo} alt="Fluxa" style={{ height: 80, width: "auto", objectFit: "contain" }} />
-              <p style={{ fontSize: 13.5, color: "hsl(215,20%,68%)", lineHeight: 1.6 }}>
-                Création de sites web professionnels, clé en main, pour artisans, TPE et indépendants.
-              </p>
-              <address className="not-italic" style={{ fontSize: 12.5, color: "hsl(215,20%,58%)", lineHeight: 1.7 }}>
-                <a href="mailto:fluxa.contact@gmail.com" className="transition-colors hover:text-primary" style={{ color: "hsl(215,20%,68%)" }}>fluxa.contact@gmail.com</a>
-              </address>
-            </div>
-
-            {/* Colonnes Navigation + Légal */}
-            <div className="flex gap-[54px] flex-wrap">
-              <div className="flex flex-col gap-[11px]">
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "hsl(215,20%,52%)", marginBottom: 4 }}>Navigation</div>
-                {[
-                  { href: "#services", label: "Nos sites" },
-                  { href: "#comment-ca-marche", label: "Méthode" },
-                  { href: "/tarifs", label: "Tarifs" },
-                  { href: "#faq", label: "FAQ" },
-                ].map(l => (
-                  <a key={l.label} href={l.href} className="transition-colors hover:text-primary" style={{ fontSize: 13.5, color: "hsl(215,20%,70%)" }}>{l.label}</a>
-                ))}
-              </div>
-              <div className="flex flex-col gap-[11px]">
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "hsl(215,20%,52%)", marginBottom: 4 }}>Légal</div>
-                {[
-                  { href: "/mentions-legales", label: "Mentions légales" },
-                  { href: "/cgv", label: "CGV" },
-                  { href: "/politique-confidentialite", label: "Confidentialité" },
-                ].map(l => (
-                  <a key={l.label} href={l.href} className="transition-colors hover:text-primary" style={{ fontSize: 13.5, color: "hsl(215,20%,70%)" }}>{l.label}</a>
-                ))}
-              </div>
-            </div>
+          {/* Logo centré + tagline */}
+          <div className="flex flex-col items-center text-center mb-[48px]">
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 90, width: "auto", objectFit: "contain", marginBottom: 16 }} />
+            <p style={{ fontSize: 13.5, color: "hsl(215,20%,55%)", maxWidth: 340, lineHeight: 1.6 }}>
+              Création de sites web professionnels, clé en main, pour artisans, TPE et indépendants.
+            </p>
           </div>
 
-          {/* Bas footer */}
-          <div className="flex flex-wrap justify-between items-center gap-[14px] pt-[22px]" style={{ borderTop: "1px solid hsl(217,32%,13%)" }}>
-            <span style={{ fontSize: 12, color: "hsl(215,20%,48%)" }}>© {new Date().getFullYear()} Fluxa — Tous droits réservés</span>
+          {/* Nav centrale */}
+          <nav className="flex flex-wrap justify-center gap-x-[36px] gap-y-[10px] mb-[40px]">
+            {[
+              { href: "#services", label: "Nos sites" },
+              { href: "#comment-ca-marche", label: "Méthode" },
+              { href: "#pricing", label: "Tarifs" },
+              { href: "#faq", label: "FAQ" },
+              { href: "#infos", label: "Contact" },
+              { href: "/mentions-legales", label: "Mentions légales" },
+              { href: "/politique-confidentialite", label: "Confidentialité" },
+            ].map(l => (
+              <a key={l.label} href={l.href} className="transition-colors hover:text-white" style={{ fontSize: 13, color: "hsl(215,20%,55%)" }}>{l.label}</a>
+            ))}
+          </nav>
 
-            {/* Icônes sociales 34×34 */}
+          {/* Séparateur */}
+          <div style={{ height: 1, background: "hsl(217,32%,13%)", marginBottom: 28 }} />
+
+          {/* Bas : copyright + socials */}
+          <div className="flex flex-wrap justify-between items-center gap-4">
+            <span style={{ fontSize: 12, color: "hsl(215,20%,40%)" }}>© {new Date().getFullYear()} Fluxa — Tous droits réservés</span>
+
             <div className="flex gap-[9px]">
               {[
+                { href: "mailto:fluxa.contact@gmail.com", label: "Email", icon: <Mail style={{ width: 15, height: 15 }} /> },
                 {
-                  href: "mailto:fluxa.contact@gmail.com",
-                  label: "Email",
-                  icon: <Mail style={{ width: 15, height: 15 }} />,
+                  href: "https://instagram.com/fluxa.fr", label: "Instagram",
+                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
                 },
                 {
-                  href: "https://instagram.com/fluxa.fr",
-                  label: "Instagram",
-                  icon: (
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                    </svg>
-                  ),
+                  href: "https://www.facebook.com/fluxa.fr", label: "Facebook",
+                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>,
                 },
-                {
-                  href: "https://www.facebook.com/fluxa.fr",
-                  label: "Facebook",
-                  icon: (
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                    </svg>
-                  ),
-                },
-                {
-                  href: "https://www.linkedin.com/company/fluxa-fr/",
-                  label: "LinkedIn",
-                  icon: <Linkedin style={{ width: 15, height: 15 }} />,
-                },
+                { href: "https://www.linkedin.com/company/fluxa-fr/", label: "LinkedIn", icon: <Linkedin style={{ width: 15, height: 15 }} /> },
               ].map(s => (
                 <a
                   key={s.label}
@@ -1206,10 +1173,10 @@ const Index = () => {
                   target={s.href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="grid place-items-center transition-colors"
-                  style={{ width: 34, height: 34, borderRadius: 9, border: "1px solid hsl(217,32%,18%)", color: "hsl(215,20%,65%)" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "hsl(217,91%,66%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,.35)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,65%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,32%,18%)"; }}
+                  className="grid place-items-center transition-all duration-200"
+                  style={{ width: 34, height: 34, borderRadius: 9, border: "1px solid hsl(217,32%,18%)", color: "hsl(215,20%,55%)" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "hsl(217,91%,66%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,.4)"; (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,.08)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,55%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,32%,18%)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                 >
                   {s.icon}
                 </a>
