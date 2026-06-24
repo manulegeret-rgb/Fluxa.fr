@@ -401,10 +401,8 @@ const Index = () => {
               </div>
 
               {/* Ligne réassurance */}
-              <div className="flex flex-wrap items-center gap-4 text-[13.5px] animate-[fade-in_0.8s_ease_0.27s_both]" style={{ color: "hsl(215,20%,62%)" }}>
+              <div className="flex flex-wrap items-center gap-2 text-[13.5px] animate-[fade-in_0.8s_ease_0.27s_both]" style={{ color: "hsl(215,20%,62%)" }}>
                 À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700, margin: "0 2px" }}>890 €</strong> tout compris
-                <span className="w-1 h-1 rounded-full" style={{ background: "hsl(215,20%,30%)" }} />
-                Paiement en 2× sans frais
               </div>
             </div>
 
