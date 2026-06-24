@@ -62,7 +62,7 @@ export function CommentCaMarche() {
     <section
       id="comment-ca-marche"
       className="relative scroll-mt-[100px]"
-      style={{ padding: "70px 0", background: "linear-gradient(180deg,#050a18,hsl(217,40%,8%),#050a18)" }}
+      style={{ paddingBottom: "70px", background: "linear-gradient(180deg,#050a18,hsl(217,40%,8%),#050a18)" }}
     >
       <div ref={scrollSection.ref} className="container mx-auto px-6 max-w-[1200px]">
 
