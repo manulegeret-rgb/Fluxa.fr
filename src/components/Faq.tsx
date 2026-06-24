@@ -4,7 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const QUESTIONS = [
   {
-    q: "Combien coûte un site vitrine ?",
+    q: "Combien coûte un site web ?",
     a: "Notre formule de base est à 890 € pour un site jusqu'à 5 pages, avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser selon vos besoins.",
   },
   {

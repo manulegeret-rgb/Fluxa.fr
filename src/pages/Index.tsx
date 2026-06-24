@@ -361,7 +361,7 @@ const Index = () => {
                 className="mb-5 animate-[fade-in-up_0.8s_ease_0.08s_both]"
                 style={{ fontSize: "clamp(34px,5.2vw,62px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.025em", fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Votre site vitrine<br />professionnel,{" "}
+                Votre site web,{" "}<br />
                 <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                   {typingText || " "}
                 </span>
@@ -431,7 +431,7 @@ const Index = () => {
                     <Lock className="w-[10px] h-[10px]" />votre-client.fr
                   </span>
                 </div>
-                <img src={mockupAJour} alt="Exemple site vitrine professionnel créé par Fluxa" loading="eager" width="1920" height="1080" className="w-full block" />
+                <img src={mockupAJour} alt="Exemple de site web professionnel créé par Fluxa" loading="eager" width="1920" height="1080" className="w-full block" />
               </div>
 
               {/* Badge haut gauche */}
@@ -692,7 +692,7 @@ const Index = () => {
               <div className="h-[3px] w-full rounded-full mb-7" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))" }} />
 
               <div className="mb-6">
-                <p className="text-[13px] font-semibold tracking-[0.1em] uppercase mb-2" style={{ color: "hsl(217,91%,60%)" }}>Formule Site Vitrine</p>
+                <p className="text-[13px] font-semibold tracking-[0.1em] uppercase mb-2" style={{ color: "hsl(217,91%,60%)" }}>Formule Site Web</p>
                 {/* Prix 890€ gradient */}
                 <div className="flex items-baseline gap-2 mb-1">
                   <span style={{ fontSize: 54, fontWeight: 800, lineHeight: 1, background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>890€</span>
@@ -803,7 +803,7 @@ const Index = () => {
               >
                 Créons votre{" "}
                 <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  site vitrine
+                  site web
                 </span>
               </h2>
               <p className="mb-7" style={{ fontSize: 16, color: "hsl(215,20%,74%)", lineHeight: 1.7 }}>
@@ -851,7 +851,7 @@ const Index = () => {
                   <label htmlFor="contact-need" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Type de site souhaité</label>
                   <select id="contact-need" name="need" required defaultValue="" className="w-full outline-none transition-all cursor-pointer" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14, appearance: "none" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }}>
                     <option value="" disabled>Sélectionner</option>
-                    <option>Site vitrine simple (890€)</option>
+                    <option>Site web simple (890€)</option>
                     <option>Site avec galerie photo</option>
                     <option>Site avec prise de RDV</option>
                     <option>Refonte de site existant</option>
@@ -1079,7 +1079,7 @@ const Index = () => {
               Qui sommes-nous ?
             </h2>
             <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>
-              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est une agence web locale basée à Chambéry, spécialisée dans la création de sites vitrines pour artisans, TPE et indépendants. Sites responsive, optimisés SEO, hébergement inclus, livrés clé en main.
+              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est une agence web locale basée à Chambéry, spécialisée dans la création de sites web pour artisans, TPE et indépendants. Sites responsive, optimisés SEO, hébergement inclus, livrés clé en main.
             </p>
           </div>
 
@@ -1128,7 +1128,7 @@ const Index = () => {
             <div className="flex flex-col gap-[14px]" style={{ maxWidth: 340 }}>
               <img src={fluxaLogo} alt="Fluxa" className="h-[38px] w-auto" />
               <p style={{ fontSize: 13.5, color: "hsl(215,20%,68%)", lineHeight: 1.6 }}>
-                Création de sites vitrines professionnels, clé en main, pour artisans, TPE et indépendants.
+                Création de sites web professionnels, clé en main, pour artisans, TPE et indépendants.
               </p>
               <address className="not-italic" style={{ fontSize: 12.5, color: "hsl(215,20%,58%)", lineHeight: 1.7 }}>
                 36 rue des Criquets, 73160 Cognin, Savoie<br />
@@ -1231,7 +1231,7 @@ const Index = () => {
             <X className="w-6 h-6" />
           </button>
           <div className="max-w-7xl w-full" onClick={e => e.stopPropagation()}>
-            <img src={mockupAJour} alt="Site vitrine professionnel responsive créé par Fluxa" width="1920" height="1080" className="w-full h-auto rounded-2xl" style={{ border: "1px solid hsl(217,91%,60%,0.30)", boxShadow: "0 0 80px -20px hsl(217,91%,60%,0.3)" }} />
+            <img src={mockupAJour} alt="Site web professionnel responsive créé par Fluxa" width="1920" height="1080" className="w-full h-auto rounded-2xl" style={{ border: "1px solid hsl(217,91%,60%,0.30)", boxShadow: "0 0 80px -20px hsl(217,91%,60%,0.3)" }} />
             <p className="text-center text-sm mt-4" style={{ color: "hsl(215,20%,45%)" }}>Cliquez en dehors de l'image pour fermer</p>
           </div>
         </div>
