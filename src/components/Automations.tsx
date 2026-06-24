@@ -76,7 +76,6 @@ export function CommentCaMarche() {
             <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
           </div>
           <h2
-            id="comment-ca-marche"
             className="mb-4 transition-all duration-700"
             style={{
               fontSize: "clamp(30px,4vw,46px)",
