@@ -1,4 +1,4 @@
-import SEOHead from "@/components/SEOHead";
+﻿import SEOHead from "@/components/SEOHead";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +47,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 
 const Index = () => {
-  // ── Scroll header
+  // â”€â”€ Scroll header
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
@@ -61,7 +61,7 @@ const Index = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ── Scroll deep-link
+  // â”€â”€ Scroll deep-link
   useEffect(() => {
     const target = sessionStorage.getItem("scrollTo");
     if (target) {
@@ -71,7 +71,7 @@ const Index = () => {
     }
   }, []);
 
-  // ── Pricing carousel (mobile)
+  // â”€â”€ Pricing carousel (mobile)
   const pricingRef = useRef<HTMLDivElement>(null);
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(true);
@@ -93,8 +93,8 @@ const Index = () => {
     return () => { clearTimeout(t); el.removeEventListener("scroll", updateArrows); ro.disconnect(); };
   }, []);
 
-  // ── Typing effect (rAF)
-  const typingPhrases = ["livré clé en main", "qui vous trouve des clients", "sans prise de tête"];
+  // â”€â”€ Typing effect (rAF)
+  const typingPhrases = ["livrÃ© clÃ© en main", "qui vous trouve des clients", "sans prise de tÃªte"];
   const [typingText, setTypingText] = useState("");
   useEffect(() => {
     let rafId: number;
@@ -126,7 +126,7 @@ const Index = () => {
     return () => cancelAnimationFrame(rafId);
   }, []);
 
-  // ── Parallax mockup
+  // â”€â”€ Parallax mockup
   const [mockupY, setMockupY] = useState(0);
   useEffect(() => {
     const onScroll = () => setMockupY(window.scrollY * 0.12);
@@ -134,7 +134,7 @@ const Index = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ── Spotlight mouse tracking
+  // â”€â”€ Spotlight mouse tracking
   const heroRef = useRef<HTMLElement>(null);
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
   const handleHeroMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
@@ -146,7 +146,7 @@ const Index = () => {
     });
   }, []);
 
-  // ── Tilt 3D sur les cartes
+  // â”€â”€ Tilt 3D sur les cartes
   const handleTilt = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
@@ -158,7 +158,7 @@ const Index = () => {
     e.currentTarget.style.transform = "";
   }, []);
 
-  // ── Scroll animations
+  // â”€â”€ Scroll animations
   const scrollTypes = useScrollAnimation(0.12);
   const scrollPricing = useScrollAnimation(0.1);
   const scrollGuarantees = useScrollAnimation(0.12);
@@ -166,16 +166,16 @@ const Index = () => {
   const scrollAbout = useScrollAnimation(0.1);
   const scrollWhy = useScrollAnimation(0.1);
 
-  // ── Animated counters
+  // â”€â”€ Animated counters
   const stat890 = useCountUp(890, 1500, scrollStats.visible);
   const stat100 = useCountUp(100, 1000, scrollStats.visible);
   const stat48 = useCountUp(48, 900, scrollStats.visible);
 
-  // ── UI state
+  // â”€â”€ UI state
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  // ── EmailJS
+  // â”€â”€ EmailJS
   const navigate = useNavigate();
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
@@ -205,9 +205,9 @@ const Index = () => {
       <SEOHead />
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           HEADER
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         style={{
@@ -228,7 +228,7 @@ const Index = () => {
           }}
         />
 
-        {/* Mobile : logo centré + hamburger à droite */}
+        {/* Mobile : logo centrÃ© + hamburger Ã  droite */}
         <div className="md:hidden relative flex items-center justify-center h-full px-4">
           <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <img src={fluxaLogo} alt="Fluxa" style={{ height: 140, width: "auto", objectFit: "contain" }} />
@@ -244,7 +244,7 @@ const Index = () => {
                 <nav className="flex flex-col gap-2 mt-6">
                   {[
                     { href: "#services", label: "Nos sites" },
-                    { href: "#comment-ca-marche", label: "Méthode" },
+                    { href: "#comment-ca-marche", label: "MÃ©thode" },
                     { href: "#pricing", label: "Tarifs" },
                     { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
                     { href: "#faq", label: "FAQ" },
@@ -283,7 +283,7 @@ const Index = () => {
           <nav className="flex items-center gap-7 text-[17px] font-medium text-foreground/75">
             {[
               { href: "#services", label: "Nos sites" },
-              { href: "#comment-ca-marche", label: "Méthode" },
+              { href: "#comment-ca-marche", label: "MÃ©thode" },
               { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
               { href: "#faq", label: "FAQ" },
             ].map((item) => (
@@ -311,9 +311,9 @@ const Index = () => {
         </div>
       </header>
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           HERO
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section
         ref={heroRef}
         id="hero"
@@ -324,7 +324,7 @@ const Index = () => {
         {/* Radial bg */}
         <div className="absolute inset-0" style={{ background: "radial-gradient(120% 80% at 50% 0%,hsl(217,40%,10%),#050a18 60%)" }} />
 
-        {/* Grid animée */}
+        {/* Grid animÃ©e */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -352,138 +352,92 @@ const Index = () => {
           style={{ background: `radial-gradient(560px circle at ${spotlight.x}% ${spotlight.y}%, hsl(217,91%,60%,0.10), transparent)`, transition: "background 0.2s" }}
         />
 
-        <div className="container mx-auto px-6 relative z-10 max-w-[1200px] w-full">
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+        <div className="container mx-auto px-6 relative z-10 max-w-[860px] w-full">
+          <div className="flex flex-col items-center text-center">
 
-            {/* ── Colonne gauche ── */}
-            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-
-              {/* Eyebrow pill */}
-              <div
-                className="inline-flex items-center gap-[9px] px-[14px] py-[7px] rounded-full mb-6 animate-[fade-in-up_0.8s_ease_both]"
-                style={{ border: "1px solid hsl(217,91%,60%,0.28)", background: "hsl(217,91%,60%,0.08)" }}
-              >
-                <span className="w-[7px] h-[7px] rounded-full shrink-0" style={{ background: "hsl(160,84%,45%)", boxShadow: "0 0 0 3px hsl(160,84%,45%,0.25)" }} />
-                <span className="text-[12.5px] font-semibold tracking-[0.04em]" style={{ color: "hsl(210,40%,92%)" }}>Agence web · Votre site pro, clé en main</span>
-              </div>
-
-              {/* H1 */}
-              <h1
-                className="mb-5 animate-[fade-in-up_0.8s_ease_0.08s_both]"
-                style={{ fontSize: "clamp(34px,5.2vw,62px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.025em", fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                Votre site web,{" "}<br />
-                <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  {typingText || " "}
-                </span>
-                <span className="inline-block w-[3px] h-[0.85em] align-middle ml-0.5 animate-pulse" style={{ background: "hsl(217,91%,66%)" }} />
-              </h1>
-
-              {/* Accroche */}
-              <p
-                className="mb-7 animate-[fade-in-up_0.8s_ease_0.15s_both]"
-                style={{ fontSize: 18, lineHeight: 1.7, color: "hsl(215,20%,76%)", maxWidth: 520 }}
-              >
-                Vous êtes artisan, indépendant ou à la tête d'une petite structure ?{" "}
-                <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>Fluxa vous livre un site pro</strong>{" "}
-                qui vous ressemble, rapide, soigné, et pensé pour ramener des clients.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3.5 mb-7 w-full sm:w-auto animate-[fade-in-up_0.8s_ease_0.27s_both]">
-                <a
-                  href="#infos"
-                  className="group relative inline-flex items-center gap-[10px] rounded-[13px] px-7 py-[15px] text-[15.5px] font-semibold text-white overflow-hidden transition-all duration-200 hover:-translate-y-[3px]"
-                  style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.6)" }}
-                >
-                  Demander un devis gratuit
-                  <ArrowRight className="w-[17px] h-[17px]" />
-                  <div className="btn-shimmer absolute inset-0 pointer-events-none" />
-                </a>
-                <a
-                  href="#pricing"
-                  className="inline-flex items-center gap-[9px] rounded-[13px] px-[26px] py-[15px] text-[15.5px] font-semibold transition-all duration-200"
-                  style={{ background: "hsl(217,91%,60%,0.07)", border: "1px solid hsl(217,91%,60%,0.30)", color: "hsl(210,40%,96%)" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.55)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.07)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.30)"; }}
-                >
-                  Voir les tarifs <Tag className="w-4 h-4" />
-                </a>
-              </div>
-
-              {/* Ligne réassurance */}
-              <div className="flex flex-wrap items-center gap-2 text-[13.5px] animate-[fade-in_0.8s_ease_0.27s_both]" style={{ color: "hsl(215,20%,62%)" }}>
-                À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700, margin: "0 2px" }}>890 €</strong> tout compris
-              </div>
+            {/* Eyebrow pill */}
+            <div
+              className="inline-flex items-center gap-[9px] px-[14px] py-[7px] rounded-full mb-8 animate-[fade-in-up_0.8s_ease_both]"
+              style={{ border: "1px solid hsl(217,91%,60%,0.28)", background: "hsl(217,91%,60%,0.08)" }}
+            >
+              <span className="w-[7px] h-[7px] rounded-full shrink-0" style={{ background: "hsl(160,84%,45%)", boxShadow: "0 0 0 3px hsl(160,84%,45%,0.25)" }} />
+              <span className="text-[12.5px] font-semibold tracking-[0.04em]" style={{ color: "hsl(210,40%,92%)" }}>Chambéry · Savoie · France entière</span>
             </div>
 
-            {/* ── Colonne droite : mockup (desktop only) ── */}
-            <div className="relative hidden lg:block cursor-pointer animate-[fade-in-up_1s_ease_0.18s_both]" style={{ perspective: 1400, transform: `translateY(${mockupY}px)`, transition: "transform 0.1s linear" }} onClick={() => setLightboxOpen(true)}>
+            {/* H1 fixe */}
+            <h1
+              className="animate-[fade-in-up_0.8s_ease_0.05s_both]"
+              style={{ fontSize: "clamp(52px,8vw,100px)", fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.03em", fontFamily: "'Playfair Display', Georgia, serif", marginBottom: "0.15em" }}
+            >
+              Agence Web
+            </h1>
 
-              {/* Halo gradient */}
-              <div
-                className="absolute pointer-events-none"
-                style={{ inset: -30, borderRadius: 28, background: "linear-gradient(120deg,hsl(217,91%,60%,0.3),hsl(263,90%,64%,0.25))", filter: "blur(50px)", opacity: 0.7 }}
-              />
+            {/* H2 animé */}
+            <h2
+              className="mb-8 animate-[fade-in-up_0.8s_ease_0.1s_both]"
+              style={{ fontSize: "clamp(26px,4vw,54px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.025em", fontFamily: "'Playfair Display', Georgia, serif", minHeight: "1.2em" }}
+            >
+              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                {typingText || " "}
+              </span>
+              <span className="inline-block w-[3px] h-[0.8em] align-middle ml-1 animate-pulse" style={{ background: "hsl(217,91%,66%)" }} />
+            </h2>
 
-              {/* Cadre navigateur */}
-              <div
-                className="relative rounded-2xl overflow-hidden"
-                style={{ border: "1px solid hsl(217,91%,60%,0.25)", background: "#0a1224", boxShadow: "0 50px 110px -40px hsl(217,91%,60%,0.45), 0 0 0 1px hsl(217,32%,18%)" }}
+            {/* Accroche */}
+            <p
+              className="mb-9 animate-[fade-in-up_0.8s_ease_0.15s_both]"
+              style={{ fontSize: "clamp(16px,1.4vw,19px)", lineHeight: 1.7, color: "hsl(215,20%,72%)", maxWidth: 560 }}
+            >
+              Vous êtes artisan, indépendant ou à la tête d'une petite structure ?{" "}
+              <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>Fluxa vous livre un site pro</strong>{" "}
+              qui vous ressemble, rapide, soigné, et pensé pour ramener des clients.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3.5 mb-8 animate-[fade-in-up_0.8s_ease_0.22s_both]">
+              <a
+                href="#infos"
+                className="group relative inline-flex items-center justify-center gap-[10px] rounded-[13px] px-8 py-[15px] text-[15.5px] font-semibold text-white overflow-hidden transition-all duration-200 hover:-translate-y-[3px]"
+                style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.6)" }}
               >
-                {/* Barre navigateur */}
-                <div className="flex items-center gap-1.5 px-3.5 py-2.5" style={{ background: "hsl(217,33%,9%)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                  <span className="w-[11px] h-[11px] rounded-full" style={{ background: "#ff5f57" }} />
-                  <span className="w-[11px] h-[11px] rounded-full" style={{ background: "#febc2e" }} />
-                  <span className="w-[11px] h-[11px] rounded-full" style={{ background: "#28c840" }} />
-                  <span className="ml-3 flex items-center gap-1.5 text-[11px] rounded-md px-3 py-[3px] max-w-[200px]" style={{ color: "hsl(215,20%,45%)", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                    <Lock className="w-[10px] h-[10px]" />votre-client.fr
-                  </span>
-                </div>
-                <img src={mockupAJour} alt="Exemple de site web professionnel créé par Fluxa" loading="eager" width="1920" height="1080" className="w-full block" />
-              </div>
-
-              {/* Badge haut gauche */}
-              <div
-                className="absolute -top-5 -left-5 flex items-center gap-2.5 px-3.5 py-2.5 rounded-[13px] backdrop-blur-sm"
-                style={{ background: "hsl(222,84%,7%,0.92)", border: "1px solid hsl(217,91%,60%,0.25)", boxShadow: "0 16px 40px -16px rgba(0,0,0,0.8)", animation: "floatY 5s ease-in-out infinite" }}
+                Demander un devis gratuit
+                <ArrowRight className="w-[17px] h-[17px]" />
+                <div className="btn-shimmer absolute inset-0 pointer-events-none" />
+              </a>
+              <a
+                href="#pricing"
+                className="inline-flex items-center justify-center gap-[9px] rounded-[13px] px-[26px] py-[15px] text-[15.5px] font-semibold transition-all duration-200"
+                style={{ background: "hsl(217,91%,60%,0.07)", border: "1px solid hsl(217,91%,60%,0.30)", color: "hsl(210,40%,96%)" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.55)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.07)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.30)"; }}
               >
-                <div className="w-[34px] h-[34px] rounded-[9px] grid place-items-center shrink-0" style={{ background: "hsl(217,91%,60%,0.15)" }}>
-                  <Phone className="w-[18px] h-[18px]" style={{ color: "hsl(217,91%,60%)" }} />
-                </div>
-                <div>
-                  <div className="text-[13px] font-bold text-white leading-tight">100% responsive</div>
-                  <div className="text-[11px]" style={{ color: "hsl(215,20%,52%)" }}>mobile · tablette · desktop</div>
-                </div>
-              </div>
-
-              {/* Badge bas droite */}
-              <div
-                className="absolute -bottom-5 -right-5 flex items-center gap-2.5 px-3.5 py-2.5 rounded-[13px] backdrop-blur-sm"
-                style={{ background: "hsl(222,84%,7%,0.92)", border: "1px solid hsl(160,84%,45%,0.30)", boxShadow: "0 16px 40px -16px rgba(0,0,0,0.8)", animation: "floatY2 6s ease-in-out infinite 1s" }}
-              >
-                <div className="w-[34px] h-[34px] rounded-[9px] grid place-items-center shrink-0" style={{ background: "hsl(160,84%,45%,0.15)" }}>
-                  <TrendingUp className="w-[18px] h-[18px]" style={{ color: "hsl(160,84%,50%)" }} />
-                </div>
-                <div>
-                  <div className="text-[13px] font-bold text-white leading-tight">Visible sur Google</div>
-                  <div className="text-[11px]" style={{ color: "hsl(215,20%,52%)" }}>SEO optimisé dès le départ</div>
-                </div>
-              </div>
-
-              {/* Zoom overlay */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-200">
-                <div className="bg-background/80 backdrop-blur-sm rounded-full p-3 border border-primary/30">
-                  <ZoomIn className="w-5 h-5 text-primary" />
-                </div>
-              </div>
+                Voir les tarifs <Tag className="w-4 h-4" />
+              </a>
             </div>
+
+            {/* Réassurance inline */}
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 animate-[fade-in_0.8s_ease_0.3s_both]" style={{ color: "hsl(215,20%,50%)", fontSize: 13 }}>
+              <span className="flex items-center gap-1.5">
+                <Phone className="w-[13px] h-[13px]" style={{ color: "hsl(217,91%,60%)" }} />
+                100% responsive
+              </span>
+              <span className="w-[3px] h-[3px] rounded-full" style={{ background: "hsl(215,20%,28%)" }} />
+              <span className="flex items-center gap-1.5">
+                <TrendingUp className="w-[13px] h-[13px]" style={{ color: "hsl(160,84%,50%)" }} />
+                Visible sur Google
+              </span>
+              <span className="w-[3px] h-[3px] rounded-full" style={{ background: "hsl(215,20%,28%)" }} />
+              <span>
+                À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700 }}>890 €</strong> tout compris
+              </span>
+            </div>
+
           </div>
         </div>
 
         {/* Scroll cue (desktop only) */}
         <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-[fade-in_1s_ease_1.2s_both]">
-          <span className="text-[11px] tracking-[0.18em] uppercase" style={{ color: "hsl(215,20%,40%)" }}>Découvrir</span>
+          <span className="text-[11px] tracking-[0.18em] uppercase" style={{ color: "hsl(215,20%,40%)" }}>DÃ©couvrir</span>
           <div className="w-[22px] h-[34px] rounded-full flex justify-center pt-[6px]" style={{ border: "1px solid hsl(215,20%,30%)" }}>
             <div className="w-[3px] h-[7px] rounded-full animate-[scrollDot_1.8s_ease-in-out_infinite]" style={{ background: "hsl(217,91%,60%)" }} />
           </div>
@@ -491,13 +445,13 @@ const Index = () => {
       </section>
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           NOS SITES (#services)
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="services" className="pt-[20px] md:pt-[70px] pb-[20px] md:pb-[60px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
         <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
 
-          {/* En-tête avec tirets */}
+          {/* En-tÃªte avec tirets */}
           <div
             className="text-center mb-[60px] transition-all duration-700"
             style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(28px)" }}
@@ -513,11 +467,11 @@ const Index = () => {
             >
               Votre site web,{" "}
               <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                adapté à votre métier
+                adaptÃ© Ã  votre mÃ©tier
               </span>
             </h2>
             <p className="text-[17px] max-w-[680px] mx-auto" style={{ color: "hsl(215,20%,72%)" }}>
-              Trois formats éprouvés, chacun conçu pour un métier, une cible, un objectif précis.
+              Trois formats Ã©prouvÃ©s, chacun conÃ§u pour un mÃ©tier, une cible, un objectif prÃ©cis.
             </p>
           </div>
 
@@ -532,10 +486,10 @@ const Index = () => {
                 glowColor: "hsl(263,90%,64%,0.4)",
                 borderHover: "hsl(263,90%,64%,0.5)",
                 icon: <Palette className="w-6 h-6" style={{ color: "hsl(263,90%,76%)" }} />,
-                tag: "Artisan / Créatif",
-                title: "Vitrine & Réalisations",
-                text: "Vos chantiers parlent pour vous. Une galerie soignée qui montre votre travail et convainc avant même que le client appelle.",
-                items: ["Galerie photo avant/après", "Page réalisations par catégorie", "Bouton contact direct"],
+                tag: "Artisan / CrÃ©atif",
+                title: "Vitrine & RÃ©alisations",
+                text: "Vos chantiers parlent pour vous. Une galerie soignÃ©e qui montre votre travail et convainc avant mÃªme que le client appelle.",
+                items: ["Galerie photo avant/aprÃ¨s", "Page rÃ©alisations par catÃ©gorie", "Bouton contact direct"],
                 delay: "0s",
               },
               {
@@ -548,8 +502,8 @@ const Index = () => {
                 icon: <Building2 className="w-6 h-6" style={{ color: "hsl(217,91%,66%)" }} />,
                 tag: "TPE / PME",
                 title: "Site Entreprise",
-                text: "Une présence sérieuse qui rassure vos prospects. Services, équipe, avis clients : tout ce qu'il faut pour déclencher le contact.",
-                items: ["Pages services détaillées", "Section avis & références", "Google Maps + itinéraire"],
+                text: "Une prÃ©sence sÃ©rieuse qui rassure vos prospects. Services, Ã©quipe, avis clients : tout ce qu'il faut pour dÃ©clencher le contact.",
+                items: ["Pages services dÃ©taillÃ©es", "Section avis & rÃ©fÃ©rences", "Google Maps + itinÃ©raire"],
                 delay: "0.1s",
               },
               {
@@ -560,10 +514,10 @@ const Index = () => {
                 glowColor: "hsl(160,84%,39%,0.35)",
                 borderHover: "hsl(160,84%,39%,0.5)",
                 icon: <Briefcase className="w-6 h-6" style={{ color: "hsl(160,84%,55%)" }} />,
-                tag: "Indépendant",
+                tag: "IndÃ©pendant",
                 title: "Site Expertise",
-                text: "Vous vendez votre savoir-faire. Un site qui pose votre crédibilité, met en avant votre parcours et facilite la prise de rendez-vous.",
-                items: ["Présentation parcours & expertise", "Prise de RDV en ligne optionnelle", "Design épuré, axé conversion"],
+                text: "Vous vendez votre savoir-faire. Un site qui pose votre crÃ©dibilitÃ©, met en avant votre parcours et facilite la prise de rendez-vous.",
+                items: ["PrÃ©sentation parcours & expertise", "Prise de RDV en ligne optionnelle", "Design Ã©purÃ©, axÃ© conversion"],
                 delay: "0.2s",
               },
             ].map((card, i) => (
@@ -592,7 +546,7 @@ const Index = () => {
                 {/* Barre accent top */}
                 <span className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg,${card.accent},transparent)` }} />
 
-                {/* Icône + badge catégorie */}
+                {/* IcÃ´ne + badge catÃ©gorie */}
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-[52px] h-[52px] rounded-[14px] grid place-items-center shrink-0" style={{ background: card.accentBg }}>
                     {card.icon}
@@ -627,19 +581,19 @@ const Index = () => {
       </section>
 
 
-      {/* ═══════════════════════════════════════════
-          MÉTHODE (#comment-ca-marche)
-      ═══════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          MÃ‰THODE (#comment-ca-marche)
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <CommentCaMarche />
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           PRICING (#pricing)
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="pricing" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
         <div ref={scrollPricing.ref} className="container mx-auto px-6 max-w-[1200px]">
 
-          {/* En-tête */}
+          {/* En-tÃªte */}
           <div
             className="text-center mb-14 transition-all duration-700"
             style={{ opacity: scrollPricing.visible ? 1 : 0, transform: scrollPricing.visible ? "translateY(0)" : "translateY(28px)" }}
@@ -652,8 +606,8 @@ const Index = () => {
               Transparents, tout compris
             </h2>
             <p className="text-lg max-w-xl mx-auto" style={{ color: "hsl(215,20%,65%)" }}>
-              Un site soigné, livré rapidement, à partir de{" "}
-              <span className="font-semibold" style={{ color: "hsl(210,40%,96%)" }}>890€</span>{" "}
+              Un site soignÃ©, livrÃ© rapidement, Ã  partir de{" "}
+              <span className="font-semibold" style={{ color: "hsl(210,40%,96%)" }}>890â‚¬</span>{" "}
               tout compris.
             </p>
           </div>
@@ -668,16 +622,16 @@ const Index = () => {
               </div>
               <div className="grid grid-cols-3 text-center">
                 <div className="py-5 px-2" style={{ borderRight: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="font-bold text-[30px] md:text-2xl leading-tight" style={{ color: "hsl(215,20%,40%)" }}>3k–8k€</p>
-                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>2 à 4 mois</p>
+                  <p className="font-bold text-[30px] md:text-2xl leading-tight" style={{ color: "hsl(215,20%,40%)" }}>3kâ€“8kâ‚¬</p>
+                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>2 Ã  4 mois</p>
                 </div>
                 <div className="py-5 px-2" style={{ background: "hsl(217,91%,60%,0.05)", borderLeft: "1px solid hsl(217,91%,60%,0.20)", borderRight: "1px solid hsl(217,91%,60%,0.20)" }}>
-                  <p className="font-bold text-[30px] md:text-2xl" style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dès 890€</p>
-                  <p className="text-xs mt-1 font-medium" style={{ color: "hsl(217,91%,65%)" }}>Livré en 2–3 semaines</p>
+                  <p className="font-bold text-[30px] md:text-2xl" style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dÃ¨s 890â‚¬</p>
+                  <p className="text-xs mt-1 font-medium" style={{ color: "hsl(217,91%,65%)" }}>LivrÃ© en 2â€“3 semaines</p>
                 </div>
                 <div className="py-5 px-2" style={{ borderLeft: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="font-bold text-[30px] md:text-2xl leading-tight" style={{ color: "hsl(215,20%,40%)" }}>1k–4k€</p>
-                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>Délai variable</p>
+                  <p className="font-bold text-[30px] md:text-2xl leading-tight" style={{ color: "hsl(215,20%,40%)" }}>1kâ€“4kâ‚¬</p>
+                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>DÃ©lai variable</p>
                 </div>
               </div>
             </div>
@@ -700,22 +654,22 @@ const Index = () => {
 
               <div className="mb-6">
                 <p className="text-[13px] font-semibold tracking-[0.1em] uppercase mb-2" style={{ color: "hsl(217,91%,60%)" }}>Formule Site Web</p>
-                {/* Prix 890€ gradient */}
+                {/* Prix 890â‚¬ gradient */}
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span style={{ fontSize: 54, fontWeight: 800, lineHeight: 1, background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>890€</span>
+                  <span style={{ fontSize: 54, fontWeight: 800, lineHeight: 1, background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>890â‚¬</span>
                   <span className="text-sm" style={{ color: "hsl(215,20%,55%)" }}>tout compris</span>
                 </div>
-                <p className="text-xs" style={{ color: "hsl(215,20%,52%)" }}>Hébergement + domaine offerts la 1ère année</p>
+                <p className="text-xs" style={{ color: "hsl(215,20%,52%)" }}>HÃ©bergement + domaine offerts la 1Ã¨re annÃ©e</p>
               </div>
 
               <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "Jusqu'à 5 pages (Accueil, Services, À propos, Galerie, Contact)",
+                  "Jusqu'Ã  5 pages (Accueil, Services, Ã€ propos, Galerie, Contact)",
                   "Design responsive mobile + desktop",
                   "Formulaire de contact fonctionnel",
-                  "SEO de base (balises, métadonnées)",
+                  "SEO de base (balises, mÃ©tadonnÃ©es)",
                   "Optimisation vitesse & performance",
-                  "Hébergement & domaine 1ère année inclus",
+                  "HÃ©bergement & domaine 1Ã¨re annÃ©e inclus",
                   "1 round de modifications inclus",
                 ].map(f => (
                   <li key={f} className="flex items-start gap-3 text-sm" style={{ color: "hsl(215,20%,75%)" }}>
@@ -730,24 +684,24 @@ const Index = () => {
                 className="w-full flex items-center justify-center gap-2.5 rounded-[13px] py-[15px] text-[15.5px] font-semibold text-white transition-all duration-200 hover:-translate-y-[2px]"
                 style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.55)" }}
               >
-                Démarrer mon projet <ArrowRight className="w-[17px] h-[17px]" />
+                DÃ©marrer mon projet <ArrowRight className="w-[17px] h-[17px]" />
               </a>
             </div>
 
-            {/* Options à la carte */}
+            {/* Options Ã  la carte */}
             <div className="space-y-4">
               <div className="mb-2">
-                <h3 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Options à la carte</h3>
+                <h3 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Options Ã  la carte</h3>
                 <p className="text-sm mt-1" style={{ color: "hsl(215,20%,55%)" }}>Toutes les options sont cumulables.</p>
               </div>
 
               <div className="space-y-2.5">
                 {[
-                  { label: "Pages supplémentaires", price: "+100€/page", desc: "Blog, Équipe, Actualités, etc." },
-                  { label: "Galerie photo avancée", price: "+150€", desc: "Lightbox, filtres, mise en page optimisée" },
-                  { label: "Prise de RDV en ligne", price: "+180€", desc: "Calendrier + notifications email" },
-                  { label: "Rédaction SEO", price: "+250€", desc: "Textes pro optimisés Google (2 000 mots)" },
-                  { label: "Multilingue", price: "+250€/langue", desc: "Anglais, espagnol ou autre" },
+                  { label: "Pages supplÃ©mentaires", price: "+100â‚¬/page", desc: "Blog, Ã‰quipe, ActualitÃ©s, etc." },
+                  { label: "Galerie photo avancÃ©e", price: "+150â‚¬", desc: "Lightbox, filtres, mise en page optimisÃ©e" },
+                  { label: "Prise de RDV en ligne", price: "+180â‚¬", desc: "Calendrier + notifications email" },
+                  { label: "RÃ©daction SEO", price: "+250â‚¬", desc: "Textes pro optimisÃ©s Google (2 000 mots)" },
+                  { label: "Multilingue", price: "+250â‚¬/langue", desc: "Anglais, espagnol ou autre" },
                 ].map((opt) => (
                   <div
                     key={opt.label}
@@ -768,10 +722,10 @@ const Index = () => {
               <div className="rounded-[14px] px-5 py-4 mt-2" style={{ border: "1px solid hsl(217,91%,60%,0.25)", background: "hsl(217,91%,60%,0.05)" }}>
                 <div className="flex justify-between items-baseline mb-1.5">
                   <span className="font-semibold">Maintenance mensuelle</span>
-                  <span className="font-bold text-lg" style={{ color: "hsl(217,91%,60%)" }}>59€/mois</span>
+                  <span className="font-bold text-lg" style={{ color: "hsl(217,91%,60%)" }}>59â‚¬/mois</span>
                 </div>
                 <ul className="text-xs space-y-1 mt-2" style={{ color: "hsl(215,20%,55%)" }}>
-                  {["Mises à jour de sécurité", "Sauvegardes hebdomadaires", "Support technique prioritaire", "Modifications de contenu"].map(li => (
+                  {["Mises Ã  jour de sÃ©curitÃ©", "Sauvegardes hebdomadaires", "Support technique prioritaire", "Modifications de contenu"].map(li => (
                     <li key={li} className="flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full shrink-0" style={{ background: "hsl(217,91%,60%,0.5)" }} />{li}
                     </li>
@@ -782,17 +736,17 @@ const Index = () => {
           </div>
 
           <p className="mt-8 text-center text-sm" style={{ color: "hsl(215,20%,45%)" }}>
-            Paiement en 2 fois sans frais · Propriété totale du site · Support inclus
+            Paiement en 2 fois sans frais Â· PropriÃ©tÃ© totale du site Â· Support inclus
           </p>
         </div>
       </section>
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           CONTACT (#infos)
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="infos" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background relative overflow-hidden scroll-mt-[76px] md:scroll-mt-[104px]">
-        {/* Glow blob centré */}
+        {/* Glow blob centrÃ© */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "hsl(217,91%,60%,0.08)", filter: "blur(120px)", animation: "glowPulse 7s ease-in-out infinite" }} />
 
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
@@ -808,20 +762,20 @@ const Index = () => {
                 className="mb-[18px]"
                 style={{ fontSize: "clamp(28px,3.6vw,42px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Créons votre{" "}
+                CrÃ©ons votre{" "}
                 <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                   site web
                 </span>
               </h2>
               <p className="mb-7" style={{ fontSize: 16, color: "hsl(215,20%,74%)", lineHeight: 1.7 }}>
-                Parlez-nous de votre projet et recevez un devis personnalisé sous 48h, sans engagement.
+                Parlez-nous de votre projet et recevez un devis personnalisÃ© sous 48h, sans engagement.
               </p>
 
               <div className="flex flex-col gap-4">
                 {[
                   { icon: <Mail style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Email", value: "fluxa.contact@gmail.com", href: "mailto:fluxa.contact@gmail.com" },
-                  { icon: <MapPin style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Localisation", value: "Cognin, Savoie · France entière" },
-                  { icon: <Clock style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Délai de réponse", value: "Sous 48h, sans engagement" },
+                  { icon: <MapPin style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Localisation", value: "Cognin, Savoie Â· France entiÃ¨re" },
+                  { icon: <Clock style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "DÃ©lai de rÃ©ponse", value: "Sous 48h, sans engagement" },
                 ].map(({ icon, label, value, href }) => (
                   <div key={label} className="flex items-center gap-[13px]">
                     <div className="grid place-items-center shrink-0" style={{ width: 42, height: 42, borderRadius: 11, background: "hsl(217,91%,60%,.12)" }}>{icon}</div>
@@ -855,10 +809,10 @@ const Index = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="contact-need" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Type de site souhaité</label>
+                  <label htmlFor="contact-need" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Type de site souhaitÃ©</label>
                   <select id="contact-need" name="need" required defaultValue="" className="w-full outline-none transition-all cursor-pointer" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14, appearance: "none" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }}>
-                    <option value="" disabled>Sélectionner</option>
-                    <option>Site web simple (890€)</option>
+                    <option value="" disabled>SÃ©lectionner</option>
+                    <option>Site web simple (890â‚¬)</option>
                     <option>Site avec galerie photo</option>
                     <option>Site avec prise de RDV</option>
                     <option>Refonte de site existant</option>
@@ -868,7 +822,7 @@ const Index = () => {
 
                 <div>
                   <label htmlFor="contact-message" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Votre message</label>
-                  <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet : votre activité, vos besoins, vos attentes…" className="w-full outline-none transition-all resize-none" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
+                  <textarea id="contact-message" name="message" rows={4} placeholder="DÃ©crivez votre projet : votre activitÃ©, vos besoins, vos attentesâ€¦" className="w-full outline-none transition-all resize-none" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
                 </div>
 
                 <button
@@ -878,18 +832,18 @@ const Index = () => {
                   style={{ fontSize: 15, padding: 15, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 12px 32px -10px hsl(217,91%,60%,.55)" }}
                 >
                   {sending && <span className="btn-spinner" />}
-                  <span className="relative z-10">{sending ? "Envoi en cours…" : "Envoyer ma demande"}</span>
+                  <span className="relative z-10">{sending ? "Envoi en coursâ€¦" : "Envoyer ma demande"}</span>
                   {!sending && <Send style={{ width: 16, height: 16 }} className="relative z-10" />}
                   <div className="btn-shimmer absolute inset-0 pointer-events-none" />
                 </button>
 
-                {sendError && <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>}
+                {sendError && <p className="text-sm text-red-400">Une erreur est survenue. RÃ©essayez ou contactez-nous par email.</p>}
 
                 <div className="flex flex-wrap gap-2">
                   {[
-                    { icon: <Lock style={{ width: 12, height: 12, color: "hsl(160,84%,50%)" }} />, txt: "Hébergement sécurisé" },
+                    { icon: <Lock style={{ width: 12, height: 12, color: "hsl(160,84%,50%)" }} />, txt: "HÃ©bergement sÃ©curisÃ©" },
                     { icon: <Zap style={{ width: 12, height: 12, color: "hsl(43,96%,58%)" }} />, txt: "Livraison rapide" },
-                    { icon: <Search style={{ width: 12, height: 12, color: "hsl(217,91%,64%)" }} />, txt: "SEO optimisé" },
+                    { icon: <Search style={{ width: 12, height: 12, color: "hsl(217,91%,64%)" }} />, txt: "SEO optimisÃ©" },
                   ].map(tag => (
                     <span key={tag.txt} className="inline-flex items-center gap-[6px]" style={{ fontSize: 11.5, color: "hsl(215,20%,68%)", border: "1px solid hsl(217,32%,18%)", borderRadius: 999, padding: "5px 12px" }}>
                       {tag.icon}{tag.txt}
@@ -903,13 +857,13 @@ const Index = () => {
       </section>
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           POURQUOI FLUXA (#pourquoi-choisir-fluxa)
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="pourquoi-choisir-fluxa" className="py-[70px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
         <div ref={scrollWhy.ref} className="container mx-auto px-6 max-w-[1200px]">
 
-          {/* En-tête */}
+          {/* En-tÃªte */}
           <div className="text-center max-w-[680px] mx-auto mb-[60px]">
             <div
               className="inline-flex items-center gap-[10px] mb-[18px] transition-all duration-700"
@@ -946,11 +900,11 @@ const Index = () => {
                 transitionDelay: "0.12s",
               }}
             >
-              Prix fixes, délais tenus, résultat soigné. Pas de mauvaise surprise, pas de jargon.
+              Prix fixes, dÃ©lais tenus, rÃ©sultat soignÃ©. Pas de mauvaise surprise, pas de jargon.
             </p>
           </div>
 
-          {/* 4 garanties — centré, icône margin auto */}
+          {/* 4 garanties â€” centrÃ©, icÃ´ne margin auto */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-[54px]">
             {[
               {
@@ -959,7 +913,7 @@ const Index = () => {
                 hoverShadow: "0 24px 50px -28px hsl(160,84%,45%,.4)",
                 icon: <ShieldCheck style={{ width: 24, height: 24, color: "hsl(160,84%,50%)" }} />,
                 title: "Satisfait ou on retravaille",
-                text: "Modifications jusqu'à validation complète, sans surcoût caché.",
+                text: "Modifications jusqu'Ã  validation complÃ¨te, sans surcoÃ»t cachÃ©.",
                 delay: "0s",
               },
               {
@@ -967,8 +921,8 @@ const Index = () => {
                 hoverBorder: "hsl(43,96%,56%,.45)",
                 hoverShadow: "0 24px 50px -28px hsl(43,96%,56%,.4)",
                 icon: <Zap style={{ width: 24, height: 24, color: "hsl(43,96%,58%)" }} />,
-                title: "Délai tenu, pas négocié",
-                text: "2 à 3 semaines, annoncées dès le départ. Et respectées.",
+                title: "DÃ©lai tenu, pas nÃ©gociÃ©",
+                text: "2 Ã  3 semaines, annoncÃ©es dÃ¨s le dÃ©part. Et respectÃ©es.",
                 delay: "0.08s",
               },
               {
@@ -977,7 +931,7 @@ const Index = () => {
                 hoverShadow: "0 24px 50px -28px hsl(263,90%,64%,.4)",
                 icon: <Code2 style={{ width: 24, height: 24, color: "hsl(263,90%,76%)" }} />,
                 title: "Un site qui performe",
-                text: "Rapide, bien codé, optimisé Google. Pas juste beau, vraiment efficace.",
+                text: "Rapide, bien codÃ©, optimisÃ© Google. Pas juste beau, vraiment efficace.",
                 delay: "0.16s",
               },
               {
@@ -986,7 +940,7 @@ const Index = () => {
                 hoverShadow: "0 24px 50px -28px hsl(217,91%,60%,.4)",
                 icon: <Headphones style={{ width: 24, height: 24, color: "hsl(217,91%,64%)" }} />,
                 title: "Toujours joignable",
-                text: "Réponse sous 48h. Un vrai interlocuteur, pas un ticket support.",
+                text: "RÃ©ponse sous 48h. Un vrai interlocuteur, pas un ticket support.",
                 delay: "0.24s",
               },
             ].map((g, i) => (
@@ -1017,7 +971,7 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Stats animées */}
+          {/* Stats animÃ©es */}
           <div
             ref={scrollStats.ref}
             className="grid md:grid-cols-3 gap-5"
@@ -1028,7 +982,7 @@ const Index = () => {
             }}
           >
             {[
-              { count: stat890, suffix: " €", label: "tarif de départ tout compris" },
+              { count: stat890, suffix: " â‚¬", label: "tarif de dÃ©part tout compris" },
               { count: stat100, suffix: " %", label: "responsive, mobile & desktop" },
               { count: stat48, suffix: "h", label: "pour recevoir votre devis" },
             ].map((stat, i) => (
@@ -1064,15 +1018,15 @@ const Index = () => {
       </section>
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           FAQ
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <Faq />
 
 
-      {/* ═══════════════════════════════════════════
-          À PROPOS
-      ═══════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          Ã€ PROPOS
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="py-20 md:py-24 bg-background" style={{ borderTop: "1px solid hsl(217,32%,12%)" }}>
         <div ref={scrollAbout.ref} className="container mx-auto px-6 max-w-[1100px]">
           <div
@@ -1086,20 +1040,20 @@ const Index = () => {
             >
               Une agence locale,{" "}
               <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                pas une usine à sites
+                pas une usine Ã  sites
               </span>
             </h2>
             <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>
-              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est basée à Chambéry. On travaille avec des artisans, des indépendants, des petites boîtes qui ont besoin d'un site qui tourne, sans se ruiner et sans attendre 3 mois. Chaque projet est suivi personnellement, du brief à la mise en ligne.
+              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est basÃ©e Ã  ChambÃ©ry. On travaille avec des artisans, des indÃ©pendants, des petites boÃ®tes qui ont besoin d'un site qui tourne, sans se ruiner et sans attendre 3 mois. Chaque projet est suivi personnellement, du brief Ã  la mise en ligne.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Prix fixe, zéro surprise", text: "Devis clair, tarif annoncé dès le début. On ne revient pas dessus." },
-              { icon: <Wrench className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Tous corps de métier", text: "Plombier, électricien, coach, artisan… on connaît vos enjeux." },
-              { icon: <TrendingUp className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Visible sur Google", text: "SEO intégré dès la conception. Core Web Vitals au vert." },
-              { icon: <Lock className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Sécurisé & conforme RGPD", text: "SSL, hébergement en France, conformité légale incluse." },
+              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Prix fixe, zÃ©ro surprise", text: "Devis clair, tarif annoncÃ© dÃ¨s le dÃ©but. On ne revient pas dessus." },
+              { icon: <Wrench className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Tous corps de mÃ©tier", text: "Plombier, Ã©lectricien, coach, artisanâ€¦ on connaÃ®t vos enjeux." },
+              { icon: <TrendingUp className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Visible sur Google", text: "SEO intÃ©grÃ© dÃ¨s la conception. Core Web Vitals au vert." },
+              { icon: <Lock className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "SÃ©curisÃ© & conforme RGPD", text: "SSL, hÃ©bergement en France, conformitÃ© lÃ©gale incluse." },
             ].map((item, i) => (
               <div
                 key={i}
@@ -1126,17 +1080,17 @@ const Index = () => {
       </section>
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           FOOTER
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <footer style={{ borderTop: "1px solid hsl(217,32%,15%)", padding: "60px 0 36px", background: "hsl(222,84%,4%)" }}>
         <div className="container mx-auto px-8 max-w-[1200px]">
 
-          {/* Logo centré + tagline */}
+          {/* Logo centrÃ© + tagline */}
           <div className="flex flex-col items-center text-center mb-[48px]">
             <img src={fluxaLogo} alt="Fluxa" style={{ height: 90, width: "auto", objectFit: "contain", marginBottom: 16 }} />
             <p style={{ fontSize: 13.5, color: "hsl(215,20%,55%)", maxWidth: 340, lineHeight: 1.6 }}>
-              Des sites qui vous ressemblent, livrés vite, qui travaillent pour vous.
+              Des sites qui vous ressemblent, livrÃ©s vite, qui travaillent pour vous.
             </p>
           </div>
 
@@ -1144,23 +1098,23 @@ const Index = () => {
           <nav className="flex flex-wrap justify-center gap-x-[36px] gap-y-[10px] mb-[40px]">
             {[
               { href: "#services", label: "Nos sites" },
-              { href: "#comment-ca-marche", label: "Méthode" },
+              { href: "#comment-ca-marche", label: "MÃ©thode" },
               { href: "#pricing", label: "Tarifs" },
               { href: "#faq", label: "FAQ" },
               { href: "#infos", label: "Contact" },
-              { href: "/mentions-legales", label: "Mentions légales" },
-              { href: "/politique-confidentialite", label: "Confidentialité" },
+              { href: "/mentions-legales", label: "Mentions lÃ©gales" },
+              { href: "/politique-confidentialite", label: "ConfidentialitÃ©" },
             ].map(l => (
               <a key={l.label} href={l.href} className="transition-colors hover:text-white" style={{ fontSize: 13, color: "hsl(215,20%,55%)" }}>{l.label}</a>
             ))}
           </nav>
 
-          {/* Séparateur */}
+          {/* SÃ©parateur */}
           <div style={{ height: 1, background: "hsl(217,32%,13%)", marginBottom: 28 }} />
 
           {/* Bas : copyright + socials */}
           <div className="flex flex-wrap justify-between items-center gap-4">
-            <span style={{ fontSize: 12, color: "hsl(215,20%,40%)" }}>© {new Date().getFullYear()} Fluxa — Tous droits réservés</span>
+            <span style={{ fontSize: 12, color: "hsl(215,20%,40%)" }}>Â© {new Date().getFullYear()} Fluxa â€” Tous droits rÃ©servÃ©s</span>
 
             <div className="flex gap-[9px]">
               {[
@@ -1195,9 +1149,9 @@ const Index = () => {
       </footer>
 
 
-      {/* ═══════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           LIGHTBOX
-      ═══════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       {lightboxOpen && (
         <div
           className="fixed inset-0 z-[100] backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
@@ -1208,7 +1162,7 @@ const Index = () => {
             <X className="w-6 h-6" />
           </button>
           <div className="max-w-7xl w-full" onClick={e => e.stopPropagation()}>
-            <img src={mockupAJour} alt="Site web professionnel responsive créé par Fluxa" width="1920" height="1080" className="w-full h-auto rounded-2xl" style={{ border: "1px solid hsl(217,91%,60%,0.30)", boxShadow: "0 0 80px -20px hsl(217,91%,60%,0.3)" }} />
+            <img src={mockupAJour} alt="Site web professionnel responsive crÃ©Ã© par Fluxa" width="1920" height="1080" className="w-full h-auto rounded-2xl" style={{ border: "1px solid hsl(217,91%,60%,0.30)", boxShadow: "0 0 80px -20px hsl(217,91%,60%,0.3)" }} />
             <p className="text-center text-sm mt-4" style={{ color: "hsl(215,20%,45%)" }}>Cliquez en dehors de l'image pour fermer</p>
           </div>
         </div>
