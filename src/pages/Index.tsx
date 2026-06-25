@@ -276,45 +276,34 @@ const Index = () => {
         </div>
 
         {/* Desktop : logo gauche + nav centre + CTA droite */}
-        <div className="hidden md:flex container mx-auto px-8 h-full items-center justify-between">
-
-          {/* Logo + nom */}
-          <a href="/" aria-label="Fluxa - Accueil" className="flex items-center gap-3 shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 36, width: "auto", objectFit: "contain" }} />
-            <span style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", color: "hsl(210,40%,96%)" }}>Fluxa</span>
+        <div className="hidden md:flex container mx-auto px-6 h-full items-center justify-between">
+          <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 180, width: "auto", objectFit: "contain" }} />
           </a>
-
-          {/* Nav centrée */}
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-7 text-[17px] font-medium text-foreground/75">
             {[
               { href: "#services", label: "Nos sites" },
               { href: "#comment-ca-marche", label: "Méthode" },
-              { href: "#pricing", label: "Tarifs" },
               { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
               { href: "#faq", label: "FAQ" },
             ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="transition-colors duration-200"
-                style={{ fontSize: 15, fontWeight: 400, color: "hsl(215,20%,68%)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "hsl(210,40%,96%)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,68%)"; }}
-              >
+              <a key={item.href} href={item.href} className="relative group hover:text-foreground transition-colors duration-200">
                 {item.label}
+                <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 bg-primary rounded-full group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
-
-          {/* CTA pill */}
           <a
             href="#infos"
-            className="inline-flex items-center text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-            style={{
-              padding: "10px 22px",
-              borderRadius: 999,
-              background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))",
-              boxShadow: "0 8px 24px -8px hsl(217,91%,60%,0.55)",
+            className="inline-flex items-center gap-2 rounded-[999px] px-[26px] py-[13px] text-base font-semibold text-white transition-all duration-300"
+            style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 8px 24px -8px hsl(217,91%,60%,0.55)" }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px -8px hsl(217,91%,60%,0.75)";
+              (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg,hsl(217,91%,68%),hsl(217,77%,54%))";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px -8px hsl(217,91%,60%,0.55)";
+              (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))";
             }}
           >
             Nous contacter
