@@ -310,7 +310,7 @@ const Index = () => {
         ref={heroRef}
         id="hero"
         className="relative overflow-hidden flex items-center"
-        style={{ minHeight: "100vh", padding: "clamp(80px,12vw,120px) 0 clamp(40px,8vw,80px)" }}
+        style={{ minHeight: "100vh", padding: "clamp(60px,12vw,120px) 0 clamp(40px,8vw,80px)" }}
         onMouseMove={handleHeroMouseMove}
       >
         {/* Radial bg */}
