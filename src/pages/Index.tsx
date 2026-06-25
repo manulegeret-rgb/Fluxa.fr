@@ -352,17 +352,8 @@ const Index = () => {
           style={{ background: `radial-gradient(560px circle at ${spotlight.x}% ${spotlight.y}%, hsl(217,91%,60%,0.10), transparent)`, transition: "background 0.2s" }}
         />
 
-        <div className="container mx-auto px-6 relative z-10 max-w-[1200px] w-full">
+        <div className="container mx-auto px-6 relative z-10 w-full">
           <div className="flex flex-col items-center text-center">
-
-            {/* Eyebrow pill */}
-            <div
-              className="inline-flex items-center gap-[9px] px-[14px] py-[7px] rounded-full mb-6 animate-[fade-in-up_0.8s_ease_both]"
-              style={{ border: "1px solid hsl(217,91%,60%,0.28)", background: "hsl(217,91%,60%,0.08)" }}
-            >
-              <span className="w-[7px] h-[7px] rounded-full shrink-0" style={{ background: "hsl(160,84%,45%)", boxShadow: "0 0 0 3px hsl(160,84%,45%,0.25)" }} />
-              <span className="text-[12.5px] font-semibold tracking-[0.04em]" style={{ color: "hsl(210,40%,92%)" }}>Agence web &middot; Votre site pro, clé en main</span>
-            </div>
 
             {/* H1 fixe */}
             <h1
@@ -375,8 +366,9 @@ const Index = () => {
             {/* H2 : texte animé */}
             <h2
               className="mb-6 animate-[fade-in-up_0.8s_ease_0.1s_both]"
-              style={{ fontSize: "clamp(26px,4vw,54px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.025em", fontFamily: "'Playfair Display', Georgia, serif", minHeight: "1.2em" }}
+              style={{ fontSize: "clamp(30px,5vw,68px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.025em", fontFamily: "'Playfair Display', Georgia, serif", minHeight: "1.2em" }}
             >
+              <span>Votre site </span>
               <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 {typingText || " "}
               </span>
