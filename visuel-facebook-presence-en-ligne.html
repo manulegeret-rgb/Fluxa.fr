@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Facebook - Fluxa | Présence en ligne</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 20px;
+        }
+
+        .post-visual {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Grille subtile en arrière-plan */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Décorations géométriques */
+        .decoration {
+            position: absolute;
+            border: 3px solid rgba(255,255,255,0.15);
+        }
+
+        .dec1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .dec2 {
+            width: 200px;
+            height: 200px;
+            bottom: 100px;
+            left: -50px;
+            transform: rotate(45deg);
+        }
+
+        /* Contenu principal */
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 70px 70px 60px;
+            color: white;
+        }
+
+        /* En-tête avec logo */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .logo-container {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .logo-text {
+            font-size: 36px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* Zone statistique principale */
+        .stat-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 50px;
+            border: 2px solid rgba(255,255,255,0.25);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 120px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.3;
+            opacity: 0.95;
+        }
+
+        .stat-context {
+            font-size: 30px;
+            font-weight: 500;
+            margin-top: 20px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Message principal */
+        .main-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .question {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.3;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.3);
+        }
+
+        .answer {
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        .highlight {
+            background: rgba(255,255,255,0.25);
+            padding: 4px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+        }
+
+        /* Footer CTA */
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-label {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .website {
+            background: white;
+            color: #1e3a8a;
+            font-size: 36px;
+            font-weight: 800;
+            padding: 18px 40px;
+            border-radius: 50px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-visual">
+        <!-- Décorations -->
+        <div class="grid-overlay"></div>
+        <div class="decoration dec1"></div>
+        <div class="decoration dec2"></div>
+
+        <!-- Contenu -->
+        <div class="content">
+            <!-- En-tête -->
+            <div class="header">
+                <div class="logo-container">
+                    <div class="logo-text">F</div>
+                </div>
+                <div class="brand">FLUXA</div>
+            </div>
+
+            <!-- Statistique choc -->
+            <div class="stat-box">
+                <div class="stat-number">78%</div>
+                <div class="stat-label">
+                    des clients cherchent en ligne<br>avant de choisir un artisan
+                </div>
+                <div class="stat-context">
+                    Sans site web, vous êtes invisible pour 8 clients sur 10.
+                </div>
+            </div>
+
+            <!-- Message principal -->
+            <div class="main-text">
+                <div class="question">
+                    Votre savoir-faire mérite d'être vu.
+                </div>
+                <div class="answer">
+                    Un <span class="highlight">site vitrine professionnel</span> n'est plus un luxe : c'est votre première impression, votre carte de visite numérique, votre meilleur commercial 24h/24.
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="cta-label">Créez votre vitrine →</div>
+                <div class="website">fluxa.fr</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

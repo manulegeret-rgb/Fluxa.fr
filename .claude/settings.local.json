@@ -1,11 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git push)",
-      "Bash(git commit -m \"$(cat <<''EOF''\n🎨 Refonte Hero : H1 centré + layout 2 colonnes équilibré\n\n- H1 centré en haut pour impact visuel maximal\n- Layout 2 colonnes : texte (2 paragraphes) + image mockup\n- Réduction de 4 à 2 paragraphes dans Hero (moins compact)\n- Déplacement des 2 autres paragraphes dans section À propos\n- Amélioration espacements et responsive (lg:text-left)\n- Maintien SEO : 270+ mots répartis sur la page\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(copy:*)",
+      "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(npm run dev:*)",
-      "Bash(awk:*)"
+      "Bash(git push)",
+      "Bash(npm run build:*)",
+      "Bash(ls:*)",
+      "Bash(npm run *)",
+      "PowerShell(npm run dev)",
+      "PowerShell($env:PATH = $env:PATH + \";C:\\\\Program Files\\\\nodejs\"; npm run dev)"
     ],
     "deny": [],
     "ask": []
