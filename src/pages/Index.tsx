@@ -211,7 +211,7 @@ const Index = () => {
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         style={{
-          height: "clamp(70px, 8vw, 100px)",
+          height: "clamp(70px, 8vw, 80px)",
           background: scrolled ? "hsl(222,84%,4.9%,0.82)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid hsl(217,32%,18%)" : "1px solid transparent",
@@ -276,29 +276,52 @@ const Index = () => {
         </div>
 
         {/* Desktop : logo gauche + nav centre + CTA droite */}
-        <div className="hidden md:flex container mx-auto px-6 h-full items-center justify-between">
+        <div className="hidden md:flex container mx-auto px-8 h-full items-center justify-between">
           <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 180, width: "auto", objectFit: "contain" }} />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 52, width: "auto", objectFit: "contain" }} />
           </a>
-          <nav className="flex items-center gap-7 text-[17px] font-medium text-foreground/75">
+          <nav className="flex items-center gap-9">
             {[
               { href: "#services", label: "Nos sites" },
               { href: "#comment-ca-marche", label: "Méthode" },
               { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
               { href: "#faq", label: "FAQ" },
             ].map((item) => (
-              <a key={item.href} href={item.href} className="relative group hover:text-foreground transition-colors duration-200">
+              <a
+                key={item.href}
+                href={item.href}
+                className="relative group transition-colors duration-200"
+                style={{ fontSize: 14, fontWeight: 400, letterSpacing: "0.01em", color: "hsl(215,20%,65%)" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "hsl(210,40%,96%)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,65%)"; }}
+              >
                 {item.label}
-                <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 bg-primary rounded-full group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
           <a
             href="#infos"
-            className="inline-flex items-center gap-2 rounded-[10px] px-[18px] py-[10px] text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-[2px]"
-            style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 8px 24px -8px hsl(217,91%,60%,0.55)" }}
+            className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-200"
+            style={{
+              padding: "9px 20px",
+              borderRadius: 8,
+              border: "1px solid hsl(215,20%,30%)",
+              color: "hsl(210,40%,92%)",
+              background: "transparent",
+              letterSpacing: "0.01em",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.6)";
+              (e.currentTarget as HTMLElement).style.color = "#fff";
+              (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.08)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = "hsl(215,20%,30%)";
+              (e.currentTarget as HTMLElement).style.color = "hsl(210,40%,92%)";
+              (e.currentTarget as HTMLElement).style.background = "transparent";
+            }}
           >
-            Devis gratuit <ArrowRight className="w-4 h-4" />
+            Parlons de votre projet
           </a>
         </div>
       </header>
