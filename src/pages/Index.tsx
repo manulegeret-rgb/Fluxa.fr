@@ -382,7 +382,7 @@ const Index = () => {
             >
               Vous êtes artisan, indépendant ou à la tête d'une petite structure ?{" "}
               <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>Fluxa vous livre un site pro</strong>{" "}
-              qui vous ressemble, rapide, soigné, et pensé pour ramener des clients.
+              qui vous ressemble, rapide, soigné, et qui travaille pour vous 24h/24.
             </p>
 
             {/* CTAs */}
