@@ -230,7 +230,7 @@ const Index = () => {
 
         {/* Mobile : logo centré + hamburger à droite */}
         <div className="md:hidden relative flex items-center justify-center h-full px-4">
-          <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 -translate-x-1/2">
+          <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <img src={fluxaLogo} alt="Fluxa" style={{ height: 140, width: "auto", objectFit: "contain" }} />
           </a>
           <div className="ml-auto">
