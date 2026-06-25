@@ -644,9 +644,9 @@ const Index = () => {
               Transparents, tout compris
             </h2>
             <p className="text-lg max-w-xl mx-auto" style={{ color: "hsl(215,20%,65%)" }}>
-              Une formule à partir de{" "}
-              <span className="font-semibold" style={{ color: "hsl(210,40%,96%)" }}>890€</span>,
-              hébergement et domaine inclus la première année.
+              Un site soigné, livré rapidement, à partir de{" "}
+              <span className="font-semibold" style={{ color: "hsl(210,40%,96%)" }}>890€</span>{" "}
+              tout compris.
             </p>
           </div>
 
@@ -654,22 +654,22 @@ const Index = () => {
           <div className="max-w-3xl mx-auto mb-12">
             <div className="rounded-[18px] overflow-hidden" style={{ border: "1px solid hsl(217,32%,16%)" }}>
               <div className="grid grid-cols-3 text-center text-xs md:text-sm font-semibold" style={{ borderBottom: "1px solid hsl(217,32%,16%)" }}>
-                <div className="py-3.5 px-2" style={{ color: "hsl(215,20%,52%)" }}>Agence classique</div>
+                <div className="py-3.5 px-2" style={{ color: "hsl(215,20%,52%)" }}>Agence web</div>
                 <div className="py-3.5 px-2" style={{ background: "hsl(217,91%,60%,0.10)", color: "hsl(217,91%,65%)", borderLeft: "1px solid hsl(217,91%,60%,0.20)", borderRight: "1px solid hsl(217,91%,60%,0.20)" }}>Fluxa</div>
                 <div className="py-3.5 px-2" style={{ color: "hsl(215,20%,52%)" }}>Freelance</div>
               </div>
               <div className="grid grid-cols-3 text-center">
                 <div className="py-5 px-2" style={{ borderRight: "1px solid hsl(217,32%,12%)" }}>
                   <p className="text-lg md:text-2xl font-bold" style={{ color: "hsl(215,20%,40%)" }}>3 000–8 000€</p>
-                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>Délai 2–3 mois</p>
+                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>2 à 4 mois</p>
                 </div>
                 <div className="py-5 px-2" style={{ background: "hsl(217,91%,60%,0.05)", borderLeft: "1px solid hsl(217,91%,60%,0.20)", borderRight: "1px solid hsl(217,91%,60%,0.20)" }}>
                   <p className="text-lg md:text-2xl font-bold" style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dès 890€</p>
                   <p className="text-xs mt-1 font-medium" style={{ color: "hsl(217,91%,65%)" }}>Livré en 2–3 semaines</p>
                 </div>
                 <div className="py-5 px-2" style={{ borderLeft: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="text-lg md:text-2xl font-bold" style={{ color: "hsl(215,20%,40%)" }}>1 500–3 000€</p>
-                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>Qualité variable</p>
+                  <p className="text-lg md:text-2xl font-bold" style={{ color: "hsl(215,20%,40%)" }}>1 000–4 000€</p>
+                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>Délai variable</p>
                 </div>
               </div>
             </div>
