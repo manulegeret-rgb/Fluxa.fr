@@ -628,7 +628,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           PRICING (#pricing)
       ═══════════════════════════════════════════ */}
-      <section id="pricing" className="py-[70px] bg-background scroll-mt-28">
+      <section id="pricing" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background scroll-mt-28">
         <div ref={scrollPricing.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête */}
