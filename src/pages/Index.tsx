@@ -211,7 +211,7 @@ const Index = () => {
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         style={{
-          height: "clamp(64px, 8vw, 100px)",
+          height: "clamp(70px, 8vw, 100px)",
           background: scrolled ? "hsl(222,84%,4.9%,0.82)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid hsl(217,32%,18%)" : "1px solid transparent",
@@ -231,7 +231,7 @@ const Index = () => {
         {/* Mobile : logo centré + hamburger à droite */}
         <div className="md:hidden relative flex items-center justify-center h-full px-4">
           <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 -translate-x-1/2">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 110, width: "auto", objectFit: "contain" }} />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 140, width: "auto", objectFit: "contain" }} />
           </a>
           <div className="ml-auto">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
@@ -310,7 +310,7 @@ const Index = () => {
         ref={heroRef}
         id="hero"
         className="relative overflow-hidden flex items-center"
-        style={{ minHeight: "100vh", padding: "clamp(50px,10vw,120px) 0 clamp(30px,6vw,80px)" }}
+        style={{ minHeight: "100vh", padding: "clamp(28px,10vw,120px) 0 clamp(30px,6vw,80px)" }}
         onMouseMove={handleHeroMouseMove}
       >
         {/* Radial bg */}
