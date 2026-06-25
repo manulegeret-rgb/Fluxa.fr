@@ -231,7 +231,7 @@ const Index = () => {
         {/* Mobile : logo centré + hamburger à droite */}
         <div className="md:hidden relative flex items-center justify-center h-full px-4">
           <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 -translate-x-1/2">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 90, width: "auto", objectFit: "contain" }} />
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 110, width: "auto", objectFit: "contain" }} />
           </a>
           <div className="ml-auto">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
@@ -310,7 +310,7 @@ const Index = () => {
         ref={heroRef}
         id="hero"
         className="relative overflow-hidden flex items-center"
-        style={{ minHeight: "100vh", padding: "120px 0 80px" }}
+        style={{ minHeight: "100vh", padding: "clamp(80px,12vw,120px) 0 clamp(40px,8vw,80px)" }}
         onMouseMove={handleHeroMouseMove}
       >
         {/* Radial bg */}
