@@ -310,7 +310,7 @@ const Index = () => {
         ref={heroRef}
         id="hero"
         className="relative overflow-hidden flex items-center"
-        style={{ minHeight: "100vh", padding: "clamp(60px,12vw,120px) 0 clamp(40px,8vw,80px)" }}
+        style={{ minHeight: "100vh", padding: "clamp(50px,10vw,120px) 0 clamp(30px,6vw,80px)" }}
         onMouseMove={handleHeroMouseMove}
       >
         {/* Radial bg */}
@@ -473,8 +473,8 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-[fade-in_1s_ease_1.2s_both]">
+        {/* Scroll cue (desktop only) */}
+        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-[fade-in_1s_ease_1.2s_both]">
           <span className="text-[11px] tracking-[0.18em] uppercase" style={{ color: "hsl(215,20%,40%)" }}>Découvrir</span>
           <div className="w-[22px] h-[34px] rounded-full flex justify-center pt-[6px]" style={{ border: "1px solid hsl(215,20%,30%)" }}>
             <div className="w-[3px] h-[7px] rounded-full animate-[scrollDot_1.8s_ease-in-out_infinite]" style={{ background: "hsl(217,91%,60%)" }} />
