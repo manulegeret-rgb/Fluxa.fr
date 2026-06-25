@@ -660,15 +660,15 @@ const Index = () => {
               </div>
               <div className="grid grid-cols-3 text-center">
                 <div className="py-5 px-2" style={{ borderRight: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="text-lg md:text-2xl font-bold" style={{ color: "hsl(215,20%,40%)" }}>3 000–8 000€</p>
+                  <p className="font-bold text-[20px] md:text-2xl" style={{ color: "hsl(215,20%,40%)" }}>3 000–8 000€</p>
                   <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>2 à 4 mois</p>
                 </div>
                 <div className="py-5 px-2" style={{ background: "hsl(217,91%,60%,0.05)", borderLeft: "1px solid hsl(217,91%,60%,0.20)", borderRight: "1px solid hsl(217,91%,60%,0.20)" }}>
-                  <p className="text-lg md:text-2xl font-bold" style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dès 890€</p>
+                  <p className="font-bold text-[20px] md:text-2xl" style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dès 890€</p>
                   <p className="text-xs mt-1 font-medium" style={{ color: "hsl(217,91%,65%)" }}>Livré en 2–3 semaines</p>
                 </div>
                 <div className="py-5 px-2" style={{ borderLeft: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="text-lg md:text-2xl font-bold" style={{ color: "hsl(215,20%,40%)" }}>1 000–4 000€</p>
+                  <p className="font-bold text-[20px] md:text-2xl" style={{ color: "hsl(215,20%,40%)" }}>1 000–4 000€</p>
                   <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>Délai variable</p>
                 </div>
               </div>
