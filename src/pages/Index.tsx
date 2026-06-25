@@ -783,7 +783,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           CONTACT (#infos)
       ═══════════════════════════════════════════ */}
-      <section id="infos" className="py-[70px] bg-background relative overflow-hidden scroll-mt-28">
+      <section id="infos" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background relative overflow-hidden scroll-mt-[20px] md:scroll-mt-[100px]">
         {/* Glow blob centré */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "hsl(217,91%,60%,0.08)", filter: "blur(120px)", animation: "glowPulse 7s ease-in-out infinite" }} />
 
