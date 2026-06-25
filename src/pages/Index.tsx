@@ -376,9 +376,9 @@ const Index = () => {
                 className="mb-7 animate-[fade-in-up_0.8s_ease_0.15s_both]"
                 style={{ fontSize: 18, lineHeight: 1.7, color: "hsl(215,20%,76%)", maxWidth: 520 }}
               >
-                Artisan, TPE ou indépendant ? Fluxa crée votre site pro,{" "}
-                <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>clé en main</strong>,
-                optimisé pour transformer vos visiteurs en clients.
+                Vous êtes artisan, indépendant ou à la tête d'une petite structure ?{" "}
+                <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>Fluxa vous livre un site pro</strong>{" "}
+                qui vous ressemble — rapide, soigné, et pensé pour ramener des clients.
               </p>
 
               {/* CTAs */}
@@ -486,7 +486,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           NOS SITES (#services)
       ═══════════════════════════════════════════ */}
-      <section id="services" className="pt-[20px] md:pt-[70px] pb-[20px] md:pb-[60px] bg-background">
+      <section id="services" className="pt-[20px] md:pt-[70px] pb-[20px] md:pb-[60px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
         <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête avec tirets */}
@@ -503,13 +503,13 @@ const Index = () => {
               className="mb-4"
               style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Quel type de site{" "}
+              Votre site web,{" "}
               <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                vous correspond ?
+                adapté à votre métier
               </span>
             </h2>
             <p className="text-[17px] max-w-[680px] mx-auto" style={{ color: "hsl(215,20%,72%)" }}>
-              Trois exemples de sites que nous réalisons. Chaque projet est unique et adapté à votre activité.
+              Trois formats éprouvés — chacun conçu pour un métier, une cible, un objectif précis.
             </p>
           </div>
 
@@ -525,9 +525,9 @@ const Index = () => {
                 borderHover: "hsl(263,90%,64%,0.5)",
                 icon: <Palette className="w-6 h-6" style={{ color: "hsl(263,90%,76%)" }} />,
                 tag: "Artisan / Créatif",
-                title: "Site Portfolio",
-                text: "Mettez en avant vos réalisations avec une galerie soignée. Idéal pour artisans, photographes et prestataires.",
-                items: ["Galerie photo haute qualité", "Page réalisations / avant-après", "Contact rapide intégré"],
+                title: "Vitrine & Réalisations",
+                text: "Vos chantiers parlent pour vous. Une galerie soignée qui montre votre travail et convainc avant même que le client appelle.",
+                items: ["Galerie photo avant/après", "Page réalisations par catégorie", "Bouton contact direct"],
                 delay: "0s",
               },
               {
@@ -540,8 +540,8 @@ const Index = () => {
                 icon: <Building2 className="w-6 h-6" style={{ color: "hsl(217,91%,66%)" }} />,
                 tag: "TPE / PME",
                 title: "Site Entreprise",
-                text: "Présentez vos services, votre équipe et vos valeurs avec une structure claire qui asseoit votre crédibilité.",
-                items: ["Pages services détaillées", "Présentation équipe & valeurs", "Google Maps intégré"],
+                text: "Une présence sérieuse qui rassure vos prospects. Services, équipe, avis clients — tout ce qu'il faut pour déclencher le contact.",
+                items: ["Pages services détaillées", "Section avis & références", "Google Maps + itinéraire"],
                 delay: "0.1s",
               },
               {
@@ -553,9 +553,9 @@ const Index = () => {
                 borderHover: "hsl(160,84%,39%,0.5)",
                 icon: <Briefcase className="w-6 h-6" style={{ color: "hsl(160,84%,55%)" }} />,
                 tag: "Indépendant",
-                title: "Site Profession Libérale",
-                text: "Valorisez votre expertise et facilitez la prise de contact. Parfait pour consultants, coachs et thérapeutes.",
-                items: ["Présentation claire des services", "Biographie & parcours pro", "Prise de contact simplifiée"],
+                title: "Site Expertise",
+                text: "Vous vendez votre savoir-faire. Un site qui pose votre crédibilité, met en avant votre parcours et facilite la prise de rendez-vous.",
+                items: ["Présentation parcours & expertise", "Prise de RDV en ligne optionnelle", "Design épuré, axé conversion"],
                 delay: "0.2s",
               },
             ].map((card, i) => (
@@ -628,7 +628,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           PRICING (#pricing)
       ═══════════════════════════════════════════ */}
-      <section id="pricing" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background scroll-mt-[20px] md:scroll-mt-[100px]">
+      <section id="pricing" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
         <div ref={scrollPricing.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête */}
@@ -783,7 +783,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           CONTACT (#infos)
       ═══════════════════════════════════════════ */}
-      <section id="infos" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background relative overflow-hidden scroll-mt-[20px] md:scroll-mt-[100px]">
+      <section id="infos" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background relative overflow-hidden scroll-mt-[76px] md:scroll-mt-[104px]">
         {/* Glow blob centré */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "hsl(217,91%,60%,0.08)", filter: "blur(120px)", animation: "glowPulse 7s ease-in-out infinite" }} />
 
@@ -898,7 +898,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           POURQUOI FLUXA (#pourquoi-choisir-fluxa)
       ═══════════════════════════════════════════ */}
-      <section id="pourquoi-choisir-fluxa" className="py-[70px] bg-background">
+      <section id="pourquoi-choisir-fluxa" className="py-[70px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
         <div ref={scrollWhy.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête */}
@@ -924,7 +924,10 @@ const Index = () => {
                 transitionDelay: "0.06s",
               }}
             >
-              Des engagements concrets
+              Ce qu'on vous promet,{" "}
+              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                sans exception
+              </span>
             </h2>
             <p
               className="text-[17px] transition-all duration-700"
@@ -935,7 +938,7 @@ const Index = () => {
                 transitionDelay: "0.12s",
               }}
             >
-              Transparence sur les prix, sur les délais, et sur la qualité du livrable.
+              Prix fixes, délais tenus, résultat soigné. Pas de mauvaise surprise, pas de jargon.
             </p>
           </div>
 
@@ -947,8 +950,8 @@ const Index = () => {
                 hoverBorder: "hsl(160,84%,45%,.45)",
                 hoverShadow: "0 24px 50px -28px hsl(160,84%,45%,.4)",
                 icon: <ShieldCheck style={{ width: 24, height: 24, color: "hsl(160,84%,50%)" }} />,
-                title: "Satisfaction garantie",
-                text: "Modifications incluses jusqu'à validation, sans surcoût.",
+                title: "Satisfait ou on retravaille",
+                text: "Modifications jusqu'à validation complète, sans surcoût caché.",
                 delay: "0s",
               },
               {
@@ -956,8 +959,8 @@ const Index = () => {
                 hoverBorder: "hsl(43,96%,56%,.45)",
                 hoverShadow: "0 24px 50px -28px hsl(43,96%,56%,.4)",
                 icon: <Zap style={{ width: 24, height: 24, color: "hsl(43,96%,58%)" }} />,
-                title: "Respect des délais",
-                text: "Livraison en 2 à 3 semaines, annoncée dès le devis.",
+                title: "Délai tenu, pas négocié",
+                text: "2 à 3 semaines, annoncées dès le départ — et respectées.",
                 delay: "0.08s",
               },
               {
@@ -965,8 +968,8 @@ const Index = () => {
                 hoverBorder: "hsl(263,90%,64%,.45)",
                 hoverShadow: "0 24px 50px -28px hsl(263,90%,64%,.4)",
                 icon: <Code2 style={{ width: 24, height: 24, color: "hsl(263,90%,76%)" }} />,
-                title: "Code propre",
-                text: "Standards du web respectés, performances optimales.",
+                title: "Un site qui performe",
+                text: "Rapide, bien codé, optimisé Google. Pas juste beau — efficace.",
                 delay: "0.16s",
               },
               {
@@ -974,8 +977,8 @@ const Index = () => {
                 hoverBorder: "hsl(217,91%,60%,.45)",
                 hoverShadow: "0 24px 50px -28px hsl(217,91%,60%,.4)",
                 icon: <Headphones style={{ width: 24, height: 24, color: "hsl(217,91%,64%)" }} />,
-                title: "Support réactif",
-                text: "Réponse sous 48h, corrections de bugs prioritaires.",
+                title: "Toujours joignable",
+                text: "Réponse sous 48h. Un vrai interlocuteur, pas un ticket support.",
                 delay: "0.24s",
               },
             ].map((g, i) => (
@@ -1073,19 +1076,22 @@ const Index = () => {
               className="mb-4"
               style={{ fontSize: "clamp(24px,3.2vw,40px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Qui sommes-nous ?
+              Une agence locale,{" "}
+              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                pas une usine à sites
+              </span>
             </h2>
             <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>
-              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est une agence web locale basée à Chambéry, spécialisée dans la création de sites web pour artisans, TPE et indépendants. Sites responsive, optimisés SEO, hébergement inclus, livrés clé en main.
+              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est basée à Chambéry. On travaille avec des artisans, des indépendants, des petites boîtes qui ont besoin d'un site qui tourne — sans se ruiner et sans attendre 3 mois. Chaque projet est suivi personnellement, du brief à la mise en ligne.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Qualité & prix accessible", text: "Tarif transparent, de la maquette à la mise en ligne." },
-              { icon: <Wrench className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Tous corps de métier", text: "Plombier, électricien, coach, consultant, artisan…" },
-              { icon: <TrendingUp className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "SEO & performance", text: "Core Web Vitals respectés, référencement Google optimisé." },
-              { icon: <Lock className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Sécurité & RGPD", text: "SSL inclus, conformité RGPD, hébergement en France." },
+              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Prix fixe, zéro surprise", text: "Devis clair, tarif annoncé dès le début — on ne revient pas dessus." },
+              { icon: <Wrench className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Tous corps de métier", text: "Plombier, électricien, coach, artisan… on connaît vos enjeux." },
+              { icon: <TrendingUp className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Visible sur Google", text: "SEO intégré dès la conception. Core Web Vitals au vert." },
+              { icon: <Lock className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Sécurisé & conforme RGPD", text: "SSL, hébergement en France, conformité légale incluse." },
             ].map((item, i) => (
               <div
                 key={i}
@@ -1122,7 +1128,7 @@ const Index = () => {
           <div className="flex flex-col items-center text-center mb-[48px]">
             <img src={fluxaLogo} alt="Fluxa" style={{ height: 90, width: "auto", objectFit: "contain", marginBottom: 16 }} />
             <p style={{ fontSize: 13.5, color: "hsl(215,20%,55%)", maxWidth: 340, lineHeight: 1.6 }}>
-              Création de sites web professionnels, clé en main, pour artisans, TPE et indépendants.
+              Des sites qui vous ressemblent, livrés vite, qui travaillent pour vous.
             </p>
           </div>
 
