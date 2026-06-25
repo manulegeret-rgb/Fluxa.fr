@@ -378,7 +378,7 @@ const Index = () => {
               >
                 Vous êtes artisan, indépendant ou à la tête d'une petite structure ?{" "}
                 <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>Fluxa vous livre un site pro</strong>{" "}
-                qui vous ressemble — rapide, soigné, et pensé pour ramener des clients.
+                qui vous ressemble, rapide, soigné, et pensé pour ramener des clients.
               </p>
 
               {/* CTAs */}
@@ -509,7 +509,7 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-[17px] max-w-[680px] mx-auto" style={{ color: "hsl(215,20%,72%)" }}>
-              Trois formats éprouvés — chacun conçu pour un métier, une cible, un objectif précis.
+              Trois formats éprouvés, chacun conçu pour un métier, une cible, un objectif précis.
             </p>
           </div>
 
@@ -540,7 +540,7 @@ const Index = () => {
                 icon: <Building2 className="w-6 h-6" style={{ color: "hsl(217,91%,66%)" }} />,
                 tag: "TPE / PME",
                 title: "Site Entreprise",
-                text: "Une présence sérieuse qui rassure vos prospects. Services, équipe, avis clients — tout ce qu'il faut pour déclencher le contact.",
+                text: "Une présence sérieuse qui rassure vos prospects. Services, équipe, avis clients : tout ce qu'il faut pour déclencher le contact.",
                 items: ["Pages services détaillées", "Section avis & références", "Google Maps + itinéraire"],
                 delay: "0.1s",
               },
@@ -960,7 +960,7 @@ const Index = () => {
                 hoverShadow: "0 24px 50px -28px hsl(43,96%,56%,.4)",
                 icon: <Zap style={{ width: 24, height: 24, color: "hsl(43,96%,58%)" }} />,
                 title: "Délai tenu, pas négocié",
-                text: "2 à 3 semaines, annoncées dès le départ — et respectées.",
+                text: "2 à 3 semaines, annoncées dès le départ. Et respectées.",
                 delay: "0.08s",
               },
               {
@@ -969,7 +969,7 @@ const Index = () => {
                 hoverShadow: "0 24px 50px -28px hsl(263,90%,64%,.4)",
                 icon: <Code2 style={{ width: 24, height: 24, color: "hsl(263,90%,76%)" }} />,
                 title: "Un site qui performe",
-                text: "Rapide, bien codé, optimisé Google. Pas juste beau — efficace.",
+                text: "Rapide, bien codé, optimisé Google. Pas juste beau, vraiment efficace.",
                 delay: "0.16s",
               },
               {
@@ -1082,13 +1082,13 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>
-              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est basée à Chambéry. On travaille avec des artisans, des indépendants, des petites boîtes qui ont besoin d'un site qui tourne — sans se ruiner et sans attendre 3 mois. Chaque projet est suivi personnellement, du brief à la mise en ligne.
+              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est basée à Chambéry. On travaille avec des artisans, des indépendants, des petites boîtes qui ont besoin d'un site qui tourne, sans se ruiner et sans attendre 3 mois. Chaque projet est suivi personnellement, du brief à la mise en ligne.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Prix fixe, zéro surprise", text: "Devis clair, tarif annoncé dès le début — on ne revient pas dessus." },
+              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Prix fixe, zéro surprise", text: "Devis clair, tarif annoncé dès le début. On ne revient pas dessus." },
               { icon: <Wrench className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Tous corps de métier", text: "Plombier, électricien, coach, artisan… on connaît vos enjeux." },
               { icon: <TrendingUp className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Visible sur Google", text: "SEO intégré dès la conception. Core Web Vitals au vert." },
               { icon: <Lock className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Sécurisé & conforme RGPD", text: "SSL, hébergement en France, conformité légale incluse." },
