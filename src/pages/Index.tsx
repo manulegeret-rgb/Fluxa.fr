@@ -486,7 +486,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           NOS SITES (#services)
       ═══════════════════════════════════════════ */}
-      <section id="services" className="pt-[70px] pb-[20px] md:pb-[60px] bg-background">
+      <section id="services" className="pt-[20px] md:pt-[70px] pb-[20px] md:pb-[60px] bg-background">
         <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
 
           {/* En-tête avec tirets */}
