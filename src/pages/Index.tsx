@@ -1,67 +1,63 @@
 import SEOHead from "@/components/SEOHead";
 import emailjs from "@emailjs/browser";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
-import { Faq } from "@/components/Faq";
-import { CommentCaMarche } from "@/components/Automations";
-import { PricingCard } from "@/components/PricingCard";
-import {
-  Calendar,
-  MessageSquare,
-  Mail,
-  Instagram,
-  Facebook,
-  Linkedin,
-  Check,
-  CheckCircle2,
-  Menu,
-  X,
-  ZoomIn,
-  Zap,
-  ShieldCheck,
-  Code2,
-  Headphones,
-  Search,
-  Globe,
-  Phone,
-  CreditCard,
-  Lock,
-  Target,
-  Palette,
-  Building2,
-  Briefcase,
-  Trophy,
-  Wrench,
-  TrendingUp,
-  Banknote,
-  ArrowRight,
-  Tag,
-  Send,
-  MapPin,
-  Clock,
-} from "lucide-react";
-import mockupAJour from "@/assets/realisation-client.png";
-import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 
+const SORA: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
+const INTER: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
+
+const FAQ_DATA = [
+  { q: "Combien coûte un site web ?", a: "Notre formule de base est à 890 € pour un site jusqu'à 5 pages, avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser selon vos besoins." },
+  { q: "Combien de temps pour créer mon site ?", a: "Après validation de la maquette, votre site est développé et mis en ligne généralement en 2 à 3 semaines, selon les options choisies et le contenu à intégrer." },
+  { q: "Qu'est-ce qui est inclus dans le prix ?", a: "Design responsive, jusqu'à 5 pages, formulaire de contact, SEO de base, hébergement et nom de domaine la première année, 1 round de modifications et le support technique." },
+  { q: "L'hébergement et le domaine sont-ils inclus ?", a: "Oui, l'hébergement et le nom de domaine sont inclus la première année. Ensuite, le renouvellement est à prévoir (environ 50 à 80 €/an selon l'hébergeur)." },
+  { q: "Puis-je payer en plusieurs fois ?", a: "Oui, paiement en 2 fois sans frais : 50% à la commande, 50% à la livraison. D'autres arrangements sont possibles pour des projets plus importants." },
+  { q: "Que se passe-t-il si je ne suis pas satisfait ?", a: "Nous incluons 1 round de modifications et travaillons avec vous jusqu'à validation complète. Notre objectif est votre satisfaction à 100%." },
+];
+
+function SectionBadge({ label, color = "hsl(217,91%,60%)" }: { label: string; color?: string }) {
+  return (
+    <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 20, padding: "6px 16px", borderRadius: 999, border: `1px solid ${color}26`, background: `${color}0a` }}>
+      <span style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color }}>{label}</span>
+    </div>
+  );
+}
+
+function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div style={{ borderRadius: 14, border: `1px solid ${isOpen ? "hsl(217,91%,60%,.35)" : "hsl(217,32%,14%)"}`, background: "hsl(217,33%,8%)", overflow: "hidden", transition: "border-color 0.3s" }}>
+      <button onClick={onToggle} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, textAlign: "left", padding: "20px 22px", border: "none", cursor: "pointer", background: "transparent", ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(210,40%,96%)" }}>
+        <span>{q}</span>
+        <ChevronDown size={18} style={{ flexShrink: 0, transition: "transform 0.3s", transform: isOpen ? "rotate(180deg)" : "rotate(0)", color: "hsl(217,91%,64%)" }} />
+      </button>
+      <div style={{ maxHeight: isOpen ? 200 : 0, overflow: "hidden", transition: "max-height 0.35s ease" }}>
+        <div style={{ padding: "0 22px 20px", ...INTER, fontSize: 14, color: "hsl(215,20%,68%)", lineHeight: 1.7, opacity: isOpen ? 1 : 0, transform: isOpen ? "translateY(0)" : "translateY(-6px)", transition: "opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s" }}>
+          {a}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const Index = () => {
-  // ── Scroll header
+  const navigate = useNavigate();
+
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 18);
+      setScrolled(window.scrollY > 20);
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(max > 0 ? window.scrollY / max : 0);
+      setScrollProgress(max > 0 ? Math.min(window.scrollY / max, 1) : 0);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ── Scroll deep-link
   useEffect(() => {
     const target = sessionStorage.getItem("scrollTo");
     if (target) {
@@ -71,44 +67,24 @@ const Index = () => {
     }
   }, []);
 
-  // ── Pricing carousel (mobile)
-  const pricingRef = useRef<HTMLDivElement>(null);
-  const [canLeft, setCanLeft] = useState(false);
-  const [canRight, setCanRight] = useState(true);
-  const updateArrows = () => {
-    const el = pricingRef.current;
-    if (!el) return;
-    const EPS = 40;
-    setCanLeft(el.scrollLeft > EPS);
-    setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - EPS);
-  };
+  const [spot, setSpot] = useState({ x: 0, y: 0 });
   useEffect(() => {
-    const el = pricingRef.current;
-    if (!el) return;
-    updateArrows();
-    const t = setTimeout(updateArrows, 0);
-    el.addEventListener("scroll", updateArrows, { passive: true });
-    const ro = new ResizeObserver(updateArrows);
-    ro.observe(el);
-    return () => { clearTimeout(t); el.removeEventListener("scroll", updateArrows); ro.disconnect(); };
+    const onMouseMove = (e: MouseEvent) => setSpot({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
-  // ── Typing effect (rAF)
-  const typingPhrases = ["livré clé en main", "qui vous trouve des clients", "sans prise de tête"];
+  const PHRASES = ["livré clé en main", "qui vous trouve des clients", "sans prise de tête"];
   const [typingText, setTypingText] = useState("");
   useEffect(() => {
     let rafId: number;
-    let lastTime = 0;
-    let phraseIdx = 0;
-    let charIdx = 0;
-    let deleting = false;
-    let pauseUntil = 0;
-    const CHAR = 75, DEL = 30, PAUSE_FULL = 3000, PAUSE_EMPTY = 200;
-    function tick(now: number) {
-      const phrase = typingPhrases[phraseIdx];
+    let phraseIdx = 0, charIdx = 0, deleting = false, pauseUntil = 0, lastTime = 0;
+    const CHAR = 80, DEL = 35, PAUSE_FULL = 3000, PAUSE_EMPTY = 300;
+    const tick = (now: number) => {
+      const phrase = PHRASES[phraseIdx];
       if (now < pauseUntil) { rafId = requestAnimationFrame(tick); return; }
-      const interval = deleting ? DEL : CHAR;
-      if (now - lastTime >= interval) {
+      if (!lastTime) lastTime = now;
+      if (now - lastTime >= (deleting ? DEL : CHAR)) {
         lastTime = now;
         if (!deleting) {
           charIdx = Math.min(charIdx + 1, phrase.length);
@@ -117,82 +93,32 @@ const Index = () => {
         } else {
           charIdx = Math.max(charIdx - 1, 0);
           setTypingText(phrase.slice(0, charIdx));
-          if (charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % typingPhrases.length; pauseUntil = now + PAUSE_EMPTY; }
+          if (charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % PHRASES.length; pauseUntil = now + PAUSE_EMPTY; }
         }
       }
       rafId = requestAnimationFrame(tick);
-    }
+    };
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
   }, []);
 
-  // ── Parallax mockup
-  const [mockupY, setMockupY] = useState(0);
-  useEffect(() => {
-    const onScroll = () => setMockupY(window.scrollY * 0.12);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // ── Spotlight mouse tracking
-  const heroRef = useRef<HTMLElement>(null);
-  const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
-  const handleHeroMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    const rect = heroRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setSpotlight({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-    });
-  }, []);
-
-  // ── Tilt 3D sur les cartes
-  const handleTilt = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 6;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -6;
-    card.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${y}deg) translateY(-4px)`;
-  }, []);
-  const handleTiltReset = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.style.transform = "";
-  }, []);
-
-  // ── Scroll animations
-  const scrollTypes = useScrollAnimation(0.12);
-  const scrollPricing = useScrollAnimation(0.1);
-  const scrollGuarantees = useScrollAnimation(0.12);
-  const scrollStats = useScrollAnimation(0.2);
-  const scrollAbout = useScrollAnimation(0.1);
-  const scrollWhy = useScrollAnimation(0.1);
-
-  // ── Animated counters
-  const stat890 = useCountUp(890, 1500, scrollStats.visible);
-  const stat100 = useCountUp(100, 1000, scrollStats.visible);
-  const stat48 = useCountUp(48, 900, scrollStats.visible);
-
-  // ── UI state
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-
-  // ── EmailJS
-  const navigate = useNavigate();
+  const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
-  const onSubmitInfo = async (e: React.FormEvent<HTMLFormElement>) => {
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
     const f = new FormData(e.currentTarget);
-    const templateParams = {
-      from_name: (f.get("name") as string) || "",
-      from_email: (f.get("email") as string) || "",
-      subject: `Demande de site : ${(f.get("need") as string) || ""}`,
-      message: (f.get("message") as string) || "(aucun message)",
-    };
-    setSending(true);
-    setSendError(false);
+    setSending(true); setSendError(false);
     try {
-      await emailjs.send("service_mxfwifu", "template_co6wxnr", templateParams, "Fr5bTGX_sdi1ekCv8");
+      await emailjs.send("service_mxfwifu", "template_co6wxnr", {
+        from_name: f.get("name") as string || "",
+        from_email: f.get("email") as string || "",
+        subject: `Demande de site : ${f.get("need") || ""}`,
+        message: f.get("message") as string || "(aucun message)",
+      }, "Fr5bTGX_sdi1ekCv8");
       navigate("/merci");
     } catch {
       setSendError(true);
@@ -200,608 +126,348 @@ const Index = () => {
     }
   };
 
+  const NAV = [
+    { href: "#methode", label: "Méthode" },
+    { href: "#pricing", label: "Tarifs" },
+    { href: "#pourquoi", label: "Pourquoi nous ?" },
+    { href: "#faq", label: "FAQ" },
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div style={{ minHeight: "100vh", background: "#030812", color: "hsl(210,40%,98%)" }}>
       <SEOHead />
 
+      <style>{`
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeIn { from{opacity:0}to{opacity:1} }
+        @keyframes glowPulse { 0%,100%{opacity:.25}50%{opacity:.5} }
+        @keyframes scrollDot { 0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(8px);opacity:1} }
+        @keyframes gridShift { 0%{transform:translateY(0)}100%{transform:translateY(72px)} }
+        @keyframes shimmer { 0%{transform:translateX(-100%)}100%{transform:translateX(100%)} }
+        @keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
+        .nl span.nl-bar{position:absolute;bottom:0;left:0;width:100%;height:2px;background:hsl(217,91%,60%);border-radius:1px;transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+        .nl:hover span.nl-bar{transform:scaleX(1)}
+        .opt:hover{border-color:hsl(217,91%,60%,0.25)!important;background:hsl(217,91%,60%,0.04)!important}
+        .gc:hover{transform:translateY(-4px)}
+        .sc:hover{transform:translateY(-4px)}
+        .si:hover{border-color:hsl(217,91%,60%,.3)!important;background:hsl(217,91%,60%,.15)!important}
+        input:focus,textarea:focus,select:focus{border-color:hsl(217,91%,60%,.5)!important;box-shadow:0 0 0 2px hsl(217,91%,60%,.12)!important;outline:none}
+        .bp:hover{transform:translateY(-3px);box-shadow:0 20px 50px -12px hsl(217,91%,60%,.65)!important}
+        .bs:hover{background:hsl(217,91%,60%,.12)!important;border-color:hsl(217,91%,60%,.35)!important}
+        .ch:hover{box-shadow:0 0 24px -4px hsl(217,91%,60%,.5)!important;transform:translateY(-1px)}
+        .opt{transition:all .2s ease}.gc{transition:all .3s ease}.sc{transition:all .35s ease}
+      `}</style>
 
-      {/* ═══════════════════════════════════════════
-          HEADER
-      ═══════════════════════════════════════════ */}
-      <header
-        className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-        style={{
-          height: "clamp(70px, 8vw, 100px)",
-          background: scrolled ? "hsl(222,84%,4.9%,0.82)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          borderBottom: scrolled ? "1px solid hsl(217,32%,18%)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 12px 34px -22px rgba(0,0,0,0.9)" : "none",
-        }}
-      >
-        {/* Barre de progression lecture */}
-        <div
-          className="absolute top-0 left-0 h-[2px] w-full origin-left"
-          style={{
-            background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))",
-            transform: `scaleX(${scrollProgress})`,
-            transition: "transform 0.1s linear",
-          }}
-        />
-
-        {/* Mobile : logo centré + hamburger à droite */}
-        <div className="md:hidden relative flex items-center justify-center h-full px-4">
-          <a href="/" aria-label="Fluxa - Accueil" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 140, width: "auto", objectFit: "contain" }} />
+      {/* HEADER */}
+      <header style={{ position: "fixed", inset: "0 0 auto 0", zIndex: 1000, transition: "all 0.4s cubic-bezier(.4,0,.2,1)", height: 80, display: "flex", alignItems: "center", background: scrolled ? "hsla(222,84%,3.5%,.88)" : "transparent", backdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "none", borderBottom: `1px solid ${scrolled ? "hsl(217,32%,14%)" : "transparent"}` }}>
+        <div style={{ position: "absolute", top: 0, left: 0, height: 1, width: "100%", transformOrigin: "left", transform: `scaleX(${scrollProgress})`, background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))", transition: "transform .1s linear" }} />
+        <div style={{ maxWidth: 1400, width: "100%", margin: "0 auto", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 160, width: "auto", objectFit: "contain" }} />
           </a>
-          <div className="ml-auto">
+          <nav className="hidden md:flex" style={{ alignItems: "center", gap: 44 }}>
+            {NAV.map(item => (
+              <a key={item.href} href={item.href} className="nl" style={{ position: "relative", textDecoration: "none", ...INTER, fontSize: 16, fontWeight: 500, color: "#fff", letterSpacing: "0.02em", paddingBottom: 5, display: "block" }}>
+                {item.label}<span className="nl-bar" />
+              </a>
+            ))}
+          </nav>
+          <a href="#contact" className="ch hidden md:inline-flex" style={{ alignItems: "center", gap: 8, padding: "11px 24px", borderRadius: 999, ...INTER, fontSize: 17, fontWeight: 600, letterSpacing: "0.03em", textDecoration: "none", color: "#fff", background: "hsl(217,91%,60%)", transition: "all .25s cubic-bezier(.4,0,.2,1)" }}>
+            Nous contacter
+          </a>
+          <div className="md:hidden">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>
-                <button aria-label="Menu" className="p-2">
-                  <Menu size={22} />
-                </button>
+                <button aria-label="Menu" style={{ padding: 8, background: "transparent", border: "none", cursor: "pointer", color: "#fff" }}><Menu size={22} /></button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] max-w-sm">
-                <nav className="flex flex-col gap-2 mt-6">
-                  {[
-                    { href: "#services", label: "Nos sites" },
-                    { href: "#comment-ca-marche", label: "Méthode" },
-                    { href: "#pricing", label: "Tarifs" },
-                    { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
-                    { href: "#faq", label: "FAQ" },
-                    { href: "#infos", label: "Contact" },
-                  ].map((item, i) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="py-3 text-base border-b border-border/40 last:border-0 hover:text-primary transition-colors"
-                      style={{
-                        opacity: menuOpen ? 1 : 0,
-                        transform: menuOpen ? "translateX(0)" : "translateX(20px)",
-                        transition: `opacity 0.3s ease ${i * 0.06 + 0.1}s, transform 0.3s ease ${i * 0.06 + 0.1}s`,
-                      }}
-                    >
-                      {item.label}
-                    </a>
+                <nav style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 24 }}>
+                  {NAV.map((item, i) => (
+                    <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ padding: "12px 0", ...INTER, fontSize: 16, borderBottom: "1px solid hsl(217,32%,16%)", color: "hsl(210,40%,96%)", textDecoration: "none", opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)", transition: `opacity .3s ease ${i * 0.06 + 0.1}s, transform .3s ease ${i * 0.06 + 0.1}s` }}>{item.label}</a>
                   ))}
+                  <a href="#contact" onClick={() => setMenuOpen(false)} style={{ marginTop: 16, display: "flex", justifyContent: "center", padding: 14, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", color: "#fff", ...INTER, fontWeight: 600, textDecoration: "none" }}>Nous contacter</a>
                 </nav>
-                <div className="mt-6">
-                  <Button asChild className="w-full">
-                    <a href="#infos" onClick={() => setMenuOpen(false)}>Demander un devis</a>
-                  </Button>
-                </div>
               </SheetContent>
             </Sheet>
           </div>
         </div>
-
-        {/* Desktop : logo gauche + nav centre + CTA droite */}
-        <div className="hidden md:flex container mx-auto px-6 h-full items-center justify-between">
-          <a href="/" aria-label="Fluxa - Accueil" className="shrink-0">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 180, width: "auto", objectFit: "contain" }} />
-          </a>
-          <nav className="flex items-center gap-7 text-[17px] font-medium text-foreground/75">
-            {[
-              { href: "#services", label: "Nos sites" },
-              { href: "#comment-ca-marche", label: "Méthode" },
-              { href: "#pourquoi-choisir-fluxa", label: "Pourquoi nous ?" },
-              { href: "#faq", label: "FAQ" },
-            ].map((item) => (
-              <a key={item.href} href={item.href} className="relative group hover:text-foreground transition-colors duration-200">
-                {item.label}
-                <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 bg-primary rounded-full group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
-          </nav>
-          <a
-            href="#infos"
-            className="inline-flex items-center gap-2 rounded-[999px] px-[26px] py-[13px] text-base font-semibold text-white transition-all duration-300"
-            style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 8px 24px -8px hsl(217,91%,60%,0.55)" }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px -8px hsl(217,91%,60%,0.75)";
-              (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg,hsl(217,91%,68%),hsl(217,77%,54%))";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px -8px hsl(217,91%,60%,0.55)";
-              (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))";
-            }}
-          >
-            Nous contacter
-          </a>
-        </div>
       </header>
 
-      {/* ═══════════════════════════════════════════
-          HERO
-      ═══════════════════════════════════════════ */}
-      <section
-        ref={heroRef}
-        id="hero"
-        className="relative overflow-hidden flex items-center"
-        style={{ minHeight: "100vh", padding: "clamp(28px,10vw,120px) 0 clamp(30px,6vw,80px)" }}
-        onMouseMove={handleHeroMouseMove}
-      >
-        {/* Radial bg */}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(120% 80% at 50% 0%,hsl(217,40%,10%),#050a18 60%)" }} />
+      {/* HERO */}
+      <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#030812", padding: "clamp(100px,14vw,160px) 40px 60px" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 30%,hsl(217,50%,8%) 0%,#030812 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", backgroundImage: "linear-gradient(hsl(217,91%,60%,.03) 1px,transparent 1px),linear-gradient(90deg,hsl(217,91%,60%,.03) 1px,transparent 1px)", backgroundSize: "72px 72px", maskImage: "radial-gradient(ellipse 70% 50% at 50% 40%,black,transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 50% at 50% 40%,black,transparent 80%)", animation: "gridShift 20s linear infinite" }} />
+        <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "hsl(217,91%,60%,.07)", filter: "blur(140px)", top: "10%", left: "50%", transform: "translateX(-50%)", animation: "glowPulse 8s ease-in-out infinite", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(600px circle at ${spot.x}px ${spot.y}px,hsl(217,91%,60%,.04),transparent 40%)`, transition: "background .3s ease" }} />
 
-        {/* Grid animée */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(hsl(217,91%,60%,0.06) 1px,transparent 1px),linear-gradient(90deg,hsl(217,91%,60%,0.06) 1px,transparent 1px)",
-            backgroundSize: "54px 54px",
-            maskImage: "radial-gradient(120% 70% at 50% 25%,#000,transparent 75%)",
-            WebkitMaskImage: "radial-gradient(120% 70% at 50% 25%,#000,transparent 75%)",
-            animation: "gridFade 8s ease-in-out infinite",
-          }}
-        />
+        <div style={{ position: "relative", zIndex: 10, maxWidth: 1200, width: "100%", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 24, animation: "fadeIn .8s ease .1s both", padding: "6px 16px", borderRadius: 999, border: "1px solid hsl(217,91%,60%,.15)", background: "hsl(217,91%,60%,.04)" }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "hsl(217,91%,60%)", boxShadow: "0 0 8px hsl(217,91%,60%,.5)", flexShrink: 0 }} />
+            <span style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "hsl(217,91%,68%)" }}>Agence web</span>
+          </div>
 
-        {/* Orbe bleu */}
-        <div
-          className="absolute pointer-events-none"
-          style={{ width: 520, height: 520, borderRadius: "50%", background: "hsl(217,91%,60%,0.18)", filter: "blur(120px)", top: "6%", left: "4%", animation: "glowPulse 6s ease-in-out infinite" }}
-        />
-        {/* Orbe violet */}
-        <div
-          className="absolute pointer-events-none"
-          style={{ width: 440, height: 440, borderRadius: "50%", background: "hsl(263,90%,64%,0.14)", filter: "blur(120px)", bottom: "4%", right: "6%", animation: "glowPulse 7s ease-in-out infinite 1.2s" }}
-        />
-        {/* Spotlight souris */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: `radial-gradient(560px circle at ${spotlight.x}% ${spotlight.y}%, hsl(217,91%,60%,0.10), transparent)`, transition: "background 0.2s" }}
-        />
+          <h1 style={{ ...SORA, fontSize: "clamp(52px,8vw,96px)", fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.04em", color: "hsl(210,40%,98%)", margin: "0 0 8px", animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .15s both" }}>
+            Votre site
+          </h1>
 
-        <div className="container mx-auto px-6 relative z-10 w-full">
-          <div className="flex flex-col items-center text-center">
+          <div style={{ minHeight: "clamp(56px,8vw,100px)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .25s both" }}>
+            <span style={{ ...SORA, fontSize: "clamp(44px,7vw,84px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.04em", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,80%,72%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              {typingText || " "}
+            </span>
+            <span style={{ display: "inline-block", width: 4, height: "0.85em", background: "hsl(217,91%,66%)", borderRadius: 3, marginLeft: 6, animation: "blink 1s step-end infinite", verticalAlign: "baseline" }} />
+          </div>
 
-            {/* H1 fixe */}
-            <h1
-              className="animate-[fade-in-up_0.8s_ease_0.06s_both]"
-              style={{ fontSize: "clamp(48px,7vw,90px)", fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.03em", fontFamily: "'Playfair Display', Georgia, serif", marginBottom: "0.15em" }}
-            >
-              Agence Web
-            </h1>
+          <p style={{ ...INTER, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.75, color: "hsl(215,20%,62%)", maxWidth: 680, margin: "0 0 44px", animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .4s both" }}>
+            Artisan, indépendant ou petite structure.&nbsp;
+            <span style={{ color: "hsl(210,40%,92%)", fontWeight: 500 }}>Fluxa conçoit votre site professionnel</span>, rapide et soigné, livré clé en main.
+          </p>
 
-            {/* H2 : texte animé */}
-            <h2
-              className="mb-6 animate-[fade-in-up_0.8s_ease_0.1s_both]"
-              style={{ fontSize: "clamp(30px,5vw,68px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.025em", fontFamily: "'Playfair Display', Georgia, serif", minHeight: "1.2em" }}
-            >
-              <span>Votre site </span>
-              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                {typingText || " "}
-              </span>
-              <span className="inline-block w-[3px] h-[0.8em] align-middle ml-0.5 animate-pulse" style={{ background: "hsl(217,91%,66%)" }} />
-            </h2>
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", marginBottom: 52, animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .55s both" }}>
+            <a href="#contact" className="bp" style={{ position: "relative", display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 32px", borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 16px 40px -12px hsl(217,91%,60%,.5)", overflow: "hidden", transition: "all .3s cubic-bezier(.4,0,.2,1)" }}>
+              Demander un devis gratuit <ArrowRight size={16} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,transparent,hsla(0,0%,100%,.12),transparent)", animation: "shimmer 3s ease-in-out infinite", pointerEvents: "none" }} />
+            </a>
+            <a href="#pricing" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 9, padding: "16px 28px", borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "hsl(210,40%,92%)", background: "hsl(217,91%,60%,.06)", border: "1px solid hsl(217,91%,60%,.18)", transition: "all .25s ease" }}>
+              Voir les tarifs
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" /><line x1="7" y1="7" x2="7.01" y2="7" /></svg>
+            </a>
+          </div>
 
-            {/* Accroche */}
-            <p
-              className="mb-7 animate-[fade-in-up_0.8s_ease_0.15s_both]"
-              style={{ fontSize: "clamp(16px,1.4vw,19px)", lineHeight: 1.7, color: "hsl(215,20%,76%)", maxWidth: 560 }}
-            >
-              Vous êtes artisan, indépendant ou à la tête d'une petite structure ?{" "}
-              <strong style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>Fluxa vous livre un site pro</strong>{" "}
-              qui vous ressemble, rapide, soigné, et qui travaille pour vous 24h/24.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3.5 mb-7 animate-[fade-in-up_0.8s_ease_0.22s_both]">
-              <a
-                href="#infos"
-                className="group relative inline-flex items-center justify-center gap-[10px] rounded-[13px] px-8 py-[15px] text-[15.5px] font-semibold text-white overflow-hidden transition-all duration-200 hover:-translate-y-[3px]"
-                style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.6)" }}
-              >
-                Demander un devis gratuit
-                <ArrowRight className="w-[17px] h-[17px]" />
-                <div className="btn-shimmer absolute inset-0 pointer-events-none" />
-              </a>
-              <a
-                href="#pricing"
-                className="inline-flex items-center justify-center gap-[9px] rounded-[13px] px-[26px] py-[15px] text-[15.5px] font-semibold transition-all duration-200"
-                style={{ background: "hsl(217,91%,60%,0.07)", border: "1px solid hsl(217,91%,60%,0.30)", color: "hsl(210,40%,96%)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.55)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.07)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.30)"; }}
-              >
-                Voir les tarifs <Tag className="w-4 h-4" />
-              </a>
-            </div>
-
-            {/* Ligne réassurance */}
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 animate-[fade-in_0.8s_ease_0.3s_both]" style={{ color: "hsl(215,20%,50%)", fontSize: 13 }}>
-              <span className="flex items-center gap-1.5">
-                <Phone className="w-[13px] h-[13px]" style={{ color: "hsl(217,91%,60%)" }} />
-                100% responsive
-              </span>
-              <span className="w-[3px] h-[3px] rounded-full" style={{ background: "hsl(215,20%,28%)" }} />
-              <span className="flex items-center gap-1.5">
-                <TrendingUp className="w-[13px] h-[13px]" style={{ color: "hsl(160,84%,50%)" }} />
-                Visible sur Google
-              </span>
-              <span className="w-[3px] h-[3px] rounded-full" style={{ background: "hsl(215,20%,28%)" }} />
-              <span>
-                À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700 }}>890 €</strong> tout compris
-              </span>
-            </div>
-
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: 24, animation: "fadeIn 1s ease .7s both" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 7, ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+              100% responsive
+            </span>
+            <span style={{ width: 3, height: 3, borderRadius: "50%", background: "hsl(215,20%,22%)" }} />
+            <span style={{ display: "flex", alignItems: "center", gap: 7, ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,45%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>
+              Visible sur Google
+            </span>
+            <span style={{ width: 3, height: 3, borderRadius: "50%", background: "hsl(215,20%,22%)" }} />
+            <span style={{ ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>
+              À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700 }}>890 €</strong> tout compris
+            </span>
           </div>
         </div>
-        {/* Scroll cue (desktop only) */}
-        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-[fade-in_1s_ease_1.2s_both]">
-          <span className="text-[11px] tracking-[0.18em] uppercase" style={{ color: "hsl(215,20%,40%)" }}>Découvrir</span>
-          <div className="w-[22px] h-[34px] rounded-full flex justify-center pt-[6px]" style={{ border: "1px solid hsl(215,20%,30%)" }}>
-            <div className="w-[3px] h-[7px] rounded-full animate-[scrollDot_1.8s_ease-in-out_infinite]" style={{ background: "hsl(217,91%,60%)" }} />
+
+        <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, animation: "fadeIn 1.2s ease 1.4s both" }}>
+          <span style={{ ...INTER, fontSize: 10, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: "hsl(215,20%,32%)" }}>Découvrir</span>
+          <div style={{ width: 20, height: 32, borderRadius: 999, border: "1px solid hsl(215,20%,22%)", display: "flex", justifyContent: "center", paddingTop: 6 }}>
+            <div style={{ width: 2, height: 6, borderRadius: 999, background: "hsl(217,91%,60%)", animation: "scrollDot 2s ease-in-out infinite" }} />
           </div>
         </div>
       </section>
 
-
-      {/* ═══════════════════════════════════════════
-          NOS SITES (#services)
-      ═══════════════════════════════════════════ */}
-      <section id="services" className="pt-[20px] md:pt-[70px] pb-[20px] md:pb-[60px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
-        <div ref={scrollTypes.ref} className="container mx-auto px-6 max-w-[1200px]">
-
-          {/* En-tête avec tirets */}
-          <div
-            className="text-center mb-[60px] transition-all duration-700"
-            style={{ opacity: scrollTypes.visible ? 1 : 0, transform: scrollTypes.visible ? "translateY(0)" : "translateY(28px)" }}
-          >
-            <div className="inline-flex items-center gap-[10px] mb-[18px]">
-              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
-              <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Exemples de sites</span>
-              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
+      {/* TRUST STRIP */}
+      <div style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "52px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
+          {[{ value: "890€", label: "Tout compris" }, { value: "2–3", label: "Semaines de livraison" }, { value: "100%", label: "Propriété du site" }].map((stat, i) => (
+            <div key={stat.label} style={{ display: "contents" }}>
+              {i > 0 && <div style={{ width: 1, height: 40, background: "hsl(217,32%,12%)" }} />}
+              <div style={{ textAlign: "center" }}>
+                <div style={{ ...SORA, fontSize: 36, fontWeight: 700, color: "hsl(210,40%,98%)", letterSpacing: "-0.03em", lineHeight: 1 }}>{stat.value}</div>
+                <div style={{ ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,42%)", marginTop: 8, letterSpacing: "0.04em" }}>{stat.label}</div>
+              </div>
             </div>
-            <h2
-              className="mb-4"
-              style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              Votre site web,{" "}
-              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                adapté à votre métier
-              </span>
-            </h2>
-            <p className="text-[17px] max-w-[680px] mx-auto" style={{ color: "hsl(215,20%,72%)" }}>
-              Trois formats éprouvés, chacun conçu pour un métier, une cible, un objectif précis.
-            </p>
+          ))}
+        </div>
+      </div>
+
+      {/* MÉTHODE */}
+      <section id="methode" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 40% at 50% 80%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 80 }}>
+            <SectionBadge label="Notre méthode" />
+            <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Simple, rapide, efficace</h2>
+            <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>De votre premier message à la mise en ligne, en 4 étapes claires.</p>
           </div>
-
-          {/* 3 cards */}
-          <div className="grid md:grid-cols-3 gap-[22px]">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
             {[
-              {
-                accent: "hsl(263,90%,74%)",
-                accentBg: "hsl(263,90%,74%,0.13)",
-                accentBorder: "hsl(263,90%,74%,0.25)",
-                accentText: "hsl(263,90%,80%)",
-                glowColor: "hsl(263,90%,64%,0.4)",
-                borderHover: "hsl(263,90%,64%,0.5)",
-                icon: <Palette className="w-6 h-6" style={{ color: "hsl(263,90%,76%)" }} />,
-                tag: "Artisan / Créatif",
-                title: "Vitrine & Réalisations",
-                text: "Vos chantiers parlent pour vous. Une galerie soignée qui montre votre travail et convainc avant même que le client appelle.",
-                items: ["Galerie photo avant/après", "Page réalisations par catégorie", "Bouton contact direct"],
-                delay: "0s",
-              },
-              {
-                accent: "hsl(217,91%,60%)",
-                accentBg: "hsl(217,91%,60%,0.12)",
-                accentBorder: "hsl(217,91%,60%,0.25)",
-                accentText: "hsl(217,91%,72%)",
-                glowColor: "hsl(217,91%,60%,0.4)",
-                borderHover: "hsl(217,91%,60%,0.5)",
-                icon: <Building2 className="w-6 h-6" style={{ color: "hsl(217,91%,66%)" }} />,
-                tag: "TPE / PME",
-                title: "Site Entreprise",
-                text: "Une présence sérieuse qui rassure vos prospects. Services, équipe, avis clients : tout ce qu'il faut pour déclencher le contact.",
-                items: ["Pages services détaillées", "Section avis & références", "Google Maps + itinéraire"],
-                delay: "0.1s",
-              },
-              {
-                accent: "hsl(160,84%,39%)",
-                accentBg: "hsl(160,84%,39%,0.12)",
-                accentBorder: "hsl(160,84%,39%,0.25)",
-                accentText: "hsl(160,84%,55%)",
-                glowColor: "hsl(160,84%,39%,0.35)",
-                borderHover: "hsl(160,84%,39%,0.5)",
-                icon: <Briefcase className="w-6 h-6" style={{ color: "hsl(160,84%,55%)" }} />,
-                tag: "Indépendant",
-                title: "Site Expertise",
-                text: "Vous vendez votre savoir-faire. Un site qui pose votre crédibilité, met en avant votre parcours et facilite la prise de rendez-vous.",
-                items: ["Présentation parcours & expertise", "Prise de RDV en ligne optionnelle", "Design épuré, axé conversion"],
-                delay: "0.2s",
-              },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="relative flex flex-col rounded-[18px] overflow-hidden transition-all duration-300"
-                style={{
-                  border: "1px solid hsl(217,32%,16%)",
-                  background: "linear-gradient(180deg,hsl(217,33%,10%),hsl(222,84%,5%))",
-                  padding: 28,
-                  opacity: scrollTypes.visible ? 1 : 0,
-                  transform: scrollTypes.visible ? "translateY(0)" : "translateY(28px)",
-                  transition: `opacity 0.8s cubic-bezier(.16,1,.3,1) ${card.delay}, transform 0.8s cubic-bezier(.16,1,.3,1) ${card.delay}`,
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = card.borderHover;
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.boxShadow = `0 30px 60px -30px ${card.glowColor}`;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = "hsl(217,32%,16%)";
-                  e.currentTarget.style.transform = scrollTypes.visible ? "translateY(0)" : "translateY(28px)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                {/* Barre accent top */}
-                <span className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg,${card.accent},transparent)` }} />
-
-                {/* Icône + badge catégorie */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-[52px] h-[52px] rounded-[14px] grid place-items-center shrink-0" style={{ background: card.accentBg }}>
-                    {card.icon}
-                  </div>
-                  <span
-                    className="text-[10.5px] font-bold uppercase tracking-[0.08em] px-[11px] py-[5px] rounded-full"
-                    style={{ background: card.accentBg, color: card.accentText, border: `1px solid ${card.accentBorder}` }}
-                  >
-                    {card.tag}
-                  </span>
+              { num: "01", color: "hsl(217,91%,66%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,66%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, title: "Échange initial", text: "On discute de votre activité, vos besoins et vos objectifs. Gratuit et sans engagement." },
+              { num: "02", color: "hsl(263,90%,74%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(263,90%,74%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" /><path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83" /></svg>, title: "Maquette et design", text: "On crée la maquette visuelle de votre site. Vous validez, on ajuste ensemble." },
+              { num: "03", color: "hsl(160,84%,45%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,45%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, title: "Développement", text: "On code votre site, optimisé SEO, rapide et responsive. Vous suivez l'avancement en temps réel." },
+              { num: "04", color: "hsl(43,96%,56%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" /></svg>, title: "Mise en ligne", text: "Votre site est en ligne, avec domaine et hébergement configurés. Vous êtes visible." },
+            ].map(step => (
+              <div key={step.num} className="sc" style={{ position: "relative", padding: "36px 28px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ width: 66, height: 56, borderRadius: 12, background: `${step.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+                  <span style={{ ...SORA, fontSize: 40, fontWeight: 700, color: step.color }}>{step.num}</span>
                 </div>
-
-                <h3 className="text-xl font-bold mb-[10px]">{card.title}</h3>
-                <p className="text-[14px] leading-[1.65] mb-[18px] flex-1" style={{ color: "hsl(215,20%,72%)" }}>{card.text}</p>
-
-                <ul className="flex flex-col gap-[9px] mb-[22px]">
-                  {card.items.map(it => (
-                    <li key={it} className="flex items-center gap-[9px] text-[13px]" style={{ color: "hsl(215,20%,76%)" }}>
-                      <Check className="w-[15px] h-[15px] shrink-0" style={{ color: card.accent }} />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-
-                <a href="#infos" className="text-[14px] font-semibold inline-flex items-center gap-[7px] mt-auto transition-all duration-200 hover:gap-[11px]" style={{ color: card.accentText }}>
-                  Demander un devis <ArrowRight className="w-[15px] h-[15px]" />
-                </a>
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: `${step.color}14`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>{step.icon}</div>
+                <h3 style={{ ...SORA, fontSize: 18, fontWeight: 600, color: "hsl(210,40%,98%)", margin: "0 0 10px", letterSpacing: "-0.01em" }}>{step.title}</h3>
+                <p style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)", lineHeight: 1.65, margin: 0 }}>{step.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-
-      {/* ═══════════════════════════════════════════
-          MÉTHODE (#comment-ca-marche)
-      ═══════════════════════════════════════════ */}
-      <CommentCaMarche />
-
-
-      {/* ═══════════════════════════════════════════
-          PRICING (#pricing)
-      ═══════════════════════════════════════════ */}
-      <section id="pricing" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
-        <div ref={scrollPricing.ref} className="container mx-auto px-6 max-w-[1200px]">
-
-          {/* En-tête */}
-          <div
-            className="text-center mb-14 transition-all duration-700"
-            style={{ opacity: scrollPricing.visible ? 1 : 0, transform: scrollPricing.visible ? "translateY(0)" : "translateY(28px)" }}
-          >
-            <p className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-3" style={{ color: "hsl(217,91%,60%)" }}>Tarifs</p>
-            <h2
-              className="mb-4"
-              style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              Transparents, tout compris
-            </h2>
-            <p className="text-lg max-w-xl mx-auto" style={{ color: "hsl(215,20%,65%)" }}>
-              Un site soigné, livré rapidement, à partir de{" "}
-              <span className="font-semibold" style={{ color: "hsl(210,40%,96%)" }}>890€</span>{" "}
-              tout compris.
+      {/* PRICING */}
+      <section id="pricing" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 50% at 50% 20%,hsl(217,50%,7%) 0%,#030812 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <SectionBadge label="Tarifs" />
+            <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Transparents, tout compris</h2>
+            <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
+              Un site soigné, livré rapidement, à partir de <span style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>890€</span> tout compris.
             </p>
           </div>
 
           {/* Comparatif */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className="rounded-[18px] overflow-hidden" style={{ border: "1px solid hsl(217,32%,16%)" }}>
-              <div className="grid grid-cols-3 text-center text-xs md:text-sm font-semibold" style={{ borderBottom: "1px solid hsl(217,32%,16%)" }}>
-                <div className="py-3.5 px-2" style={{ color: "hsl(215,20%,52%)" }}>Agence web</div>
-                <div className="py-3.5 px-2" style={{ background: "hsl(217,91%,60%,0.10)", color: "hsl(217,91%,65%)", borderLeft: "1px solid hsl(217,91%,60%,0.20)", borderRight: "1px solid hsl(217,91%,60%,0.20)" }}>Fluxa</div>
-                <div className="py-3.5 px-2" style={{ color: "hsl(215,20%,52%)" }}>Freelance</div>
+          <div style={{ maxWidth: 720, margin: "0 auto 64px", borderRadius: 18, overflow: "hidden", border: "1px solid hsl(217,32%,14%)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", borderBottom: "1px solid hsl(217,32%,14%)" }}>
+              <div style={{ padding: "16px 8px", ...INTER, fontSize: 13, fontWeight: 600, color: "hsl(215,20%,45%)" }}>Agence web</div>
+              <div style={{ padding: "16px 8px", ...INTER, fontSize: 13, fontWeight: 600, color: "hsl(217,91%,68%)", background: "hsl(217,91%,60%,.08)", borderLeft: "1px solid hsl(217,91%,60%,.15)", borderRight: "1px solid hsl(217,91%,60%,.15)" }}>Fluxa</div>
+              <div style={{ padding: "16px 8px", ...INTER, fontSize: 13, fontWeight: 600, color: "hsl(215,20%,45%)" }}>Freelance</div>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center" }}>
+              <div style={{ padding: "24px 8px" }}>
+                <div style={{ ...SORA, fontSize: 28, fontWeight: 700, color: "hsl(215,20%,35%)", letterSpacing: "-0.02em" }}>3k–8k€</div>
+                <div style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,35%)", marginTop: 4 }}>2 à 4 mois</div>
               </div>
-              <div className="grid grid-cols-3 text-center">
-                <div className="py-5 px-2" style={{ borderRight: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="font-bold text-[30px] md:text-2xl leading-tight" style={{ color: "hsl(215,20%,40%)" }}>3k–8k€</p>
-                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>2 à 4 mois</p>
-                </div>
-                <div className="py-5 px-2" style={{ background: "hsl(217,91%,60%,0.05)", borderLeft: "1px solid hsl(217,91%,60%,0.20)", borderRight: "1px solid hsl(217,91%,60%,0.20)" }}>
-                  <p className="font-bold text-[30px] md:text-2xl" style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dès 890€</p>
-                  <p className="text-xs mt-1 font-medium" style={{ color: "hsl(217,91%,65%)" }}>Livré en 2–3 semaines</p>
-                </div>
-                <div className="py-5 px-2" style={{ borderLeft: "1px solid hsl(217,32%,12%)" }}>
-                  <p className="font-bold text-[30px] md:text-2xl leading-tight" style={{ color: "hsl(215,20%,40%)" }}>1k–4k€</p>
-                  <p className="text-xs mt-1" style={{ color: "hsl(215,20%,40%)" }}>Délai variable</p>
-                </div>
+              <div style={{ padding: "24px 8px", background: "hsl(217,91%,60%,.04)", borderLeft: "1px solid hsl(217,91%,60%,.15)", borderRight: "1px solid hsl(217,91%,60%,.15)" }}>
+                <div style={{ ...SORA, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>dès 890€</div>
+                <div style={{ ...INTER, fontSize: 12, color: "hsl(217,91%,65%)", marginTop: 4, fontWeight: 500 }}>Livré en 2–3 semaines</div>
+              </div>
+              <div style={{ padding: "24px 8px" }}>
+                <div style={{ ...SORA, fontSize: 28, fontWeight: 700, color: "hsl(215,20%,35%)", letterSpacing: "-0.02em" }}>1k–4k€</div>
+                <div style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,35%)", marginTop: 4 }}>Délai variable</div>
               </div>
             </div>
           </div>
 
-          {/* Formule + Options */}
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-
-            {/* Card principale featured */}
-            <div
-              className="rounded-[22px] p-8 flex flex-col"
-              style={{
-                border: "1px solid hsl(217,91%,60%,0.35)",
-                background: "linear-gradient(180deg,hsl(217,33%,9%),hsl(222,84%,5%))",
-                boxShadow: "0 40px 90px -40px hsl(217,91%,60%,0.4)",
-              }}
-            >
-              {/* Accent top */}
-              <div className="h-[3px] w-full rounded-full mb-7" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))" }} />
-
-              <div className="mb-6">
-                <p className="text-[13px] font-semibold tracking-[0.1em] uppercase mb-2" style={{ color: "hsl(217,91%,60%)" }}>Formule Site Web</p>
-                {/* Prix 890€ gradient */}
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span style={{ fontSize: 54, fontWeight: 800, lineHeight: 1, background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>890€</span>
-                  <span className="text-sm" style={{ color: "hsl(215,20%,55%)" }}>tout compris</span>
-                </div>
-                <p className="text-xs" style={{ color: "hsl(215,20%,52%)" }}>Hébergement + domaine offerts la 1ère année</p>
+          {/* Grid prix */}
+          <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 32, alignItems: "start" }}>
+            <div style={{ position: "relative", borderRadius: 24, padding: "40px 36px", border: "1px solid hsl(217,91%,60%,.3)", background: "linear-gradient(180deg,hsl(217,33%,9%) 0%,hsl(222,84%,4.9%) 100%)", boxShadow: "0 40px 90px -40px hsl(217,91%,60%,.3)" }}>
+              <div style={{ position: "absolute", top: 0, left: 24, right: 24, height: 2, borderRadius: "0 0 2px 2px", background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))" }} />
+              <div style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "hsl(217,91%,60%)", marginBottom: 12 }}>Formule Site Web</div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 6 }}>
+                <span style={{ ...SORA, fontSize: 56, fontWeight: 800, lineHeight: 1, letterSpacing: "-0.03em", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>890€</span>
+                <span style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)" }}>tout compris</span>
               </div>
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Jusqu'à 5 pages (Accueil, Services, À propos, Galerie, Contact)",
-                  "Design responsive mobile + desktop",
-                  "Formulaire de contact fonctionnel",
-                  "SEO de base (balises, métadonnées)",
-                  "Optimisation vitesse & performance",
-                  "Hébergement & domaine 1ère année inclus",
-                  "1 round de modifications inclus",
-                ].map(f => (
-                  <li key={f} className="flex items-start gap-3 text-sm" style={{ color: "hsl(215,20%,75%)" }}>
-                    <CheckCircle2 className="w-[17px] h-[17px] shrink-0 mt-[2px]" style={{ color: "hsl(217,91%,60%)" }} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#infos"
-                className="w-full flex items-center justify-center gap-2.5 rounded-[13px] py-[15px] text-[15.5px] font-semibold text-white transition-all duration-200 hover:-translate-y-[2px]"
-                style={{ background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,0.55)" }}
-              >
-                Démarrer mon projet <ArrowRight className="w-[17px] h-[17px]" />
-              </a>
-            </div>
-
-            {/* Options à la carte */}
-            <div className="space-y-4">
-              <div className="mb-2">
-                <h3 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Options à la carte</h3>
-                <p className="text-sm mt-1" style={{ color: "hsl(215,20%,55%)" }}>Toutes les options sont cumulables.</p>
-              </div>
-
-              <div className="space-y-2.5">
-                {[
-                  { label: "Pages supplémentaires", price: "+100€/page", desc: "Blog, Équipe, Actualités, etc." },
-                  { label: "Galerie photo avancée", price: "+150€", desc: "Lightbox, filtres, mise en page optimisée" },
-                  { label: "Prise de RDV en ligne", price: "+180€", desc: "Calendrier + notifications email" },
-                  { label: "Rédaction SEO", price: "+250€", desc: "Textes pro optimisés Google (2 000 mots)" },
-                  { label: "Multilingue", price: "+250€/langue", desc: "Anglais, espagnol ou autre" },
-                ].map((opt) => (
-                  <div
-                    key={opt.label}
-                    className="rounded-[14px] px-4 py-3.5 transition-all duration-200 cursor-default"
-                    style={{ border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,9%)" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,0.30)"; (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,0.05)"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,32%,16%)"; (e.currentTarget as HTMLElement).style.background = "hsl(217,33%,9%)"; }}
-                  >
-                    <div className="flex justify-between items-baseline mb-0.5">
-                      <span className="font-semibold text-sm">{opt.label}</span>
-                      <span className="font-bold text-sm shrink-0 ml-3" style={{ color: "hsl(217,91%,60%)" }}>{opt.price}</span>
-                    </div>
-                    <p className="text-xs" style={{ color: "hsl(215,20%,52%)" }}>{opt.desc}</p>
+              <p style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)", margin: "0 0 28px" }}>Hébergement + domaine offerts la 1ère année</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 32 }}>
+                {["Jusqu'à 5 pages (Accueil, Services, À propos, Galerie, Contact)", "Design responsive mobile + desktop", "Formulaire de contact fonctionnel", "SEO de base (balises, métadonnées)", "Optimisation vitesse et performance", "Hébergement et domaine 1ère année inclus", "1 round de modifications inclus"].map(feat => (
+                  <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,60%)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                    <span style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,72%)", lineHeight: 1.5 }}>{feat}</span>
                   </div>
                 ))}
               </div>
+              <a href="#contact" className="bp" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, width: "100%", padding: 16, borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,.5)", transition: "all .25s ease" }}>
+                Démarrer mon projet <ArrowRight size={16} />
+              </a>
+            </div>
 
-              <div className="rounded-[14px] px-5 py-4 mt-2" style={{ border: "1px solid hsl(217,91%,60%,0.25)", background: "hsl(217,91%,60%,0.05)" }}>
-                <div className="flex justify-between items-baseline mb-1.5">
-                  <span className="font-semibold">Maintenance mensuelle</span>
-                  <span className="font-bold text-lg" style={{ color: "hsl(217,91%,60%)" }}>59€/mois</span>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div style={{ marginBottom: 4 }}>
+                <h3 style={{ ...SORA, fontSize: 24, fontWeight: 700, color: "hsl(210,40%,98%)", margin: "0 0 6px", letterSpacing: "-0.02em" }}>Options à la carte</h3>
+                <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,50%)", margin: 0 }}>Toutes les options sont cumulables.</p>
+              </div>
+              {[
+                { label: "Pages supplémentaires", price: "+100€/page", desc: "Blog, Équipe, Actualités, etc." },
+                { label: "Galerie photo avancée", price: "+150€", desc: "Lightbox, filtres, mise en page optimisée" },
+                { label: "Prise de RDV en ligne", price: "+180€", desc: "Calendrier + notifications email" },
+                { label: "Rédaction SEO", price: "+250€", desc: "Textes pro optimisés Google (2 000 mots)" },
+                { label: "Multilingue", price: "+250€/langue", desc: "Anglais, espagnol ou autre" },
+              ].map(opt => (
+                <div key={opt.label} className="opt" style={{ borderRadius: 14, padding: "16px 18px", border: "1px solid hsl(217,32%,14%)", background: "hsl(217,33%,8%)" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 3 }}>
+                    <span style={{ ...INTER, fontSize: 14, fontWeight: 600, color: "hsl(210,40%,92%)" }}>{opt.label}</span>
+                    <span style={{ ...SORA, fontSize: 14, fontWeight: 700, color: "hsl(217,91%,66%)" }}>{opt.price}</span>
+                  </div>
+                  <p style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)", margin: 0 }}>{opt.desc}</p>
                 </div>
-                <ul className="text-xs space-y-1 mt-2" style={{ color: "hsl(215,20%,55%)" }}>
-                  {["Mises à jour de sécurité", "Sauvegardes hebdomadaires", "Support technique prioritaire", "Modifications de contenu"].map(li => (
-                    <li key={li} className="flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full shrink-0" style={{ background: "hsl(217,91%,60%,0.5)" }} />{li}
-                    </li>
-                  ))}
-                </ul>
+              ))}
+              <div style={{ borderRadius: 16, padding: "20px 22px", border: "1px solid hsl(217,91%,60%,.2)", background: "hsl(217,91%,60%,.04)", marginTop: 4 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
+                  <span style={{ ...SORA, fontSize: 16, fontWeight: 600, color: "hsl(210,40%,98%)" }}>Maintenance mensuelle</span>
+                  <span style={{ ...SORA, fontSize: 20, fontWeight: 700, color: "hsl(217,91%,66%)" }}>59€/mois</span>
+                </div>
+                {["Mises à jour de sécurité", "Sauvegardes hebdomadaires", "Support technique prioritaire", "Modifications de contenu"].map(item => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+                    <span style={{ width: 4, height: 4, borderRadius: "50%", background: "hsl(217,91%,60%,.5)", flexShrink: 0 }} />
+                    <span style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,55%)" }}>{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-
-          <p className="mt-8 text-center text-sm" style={{ color: "hsl(215,20%,45%)" }}>
+          <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,40%)", textAlign: "center", marginTop: 48 }}>
             Paiement en 2 fois sans frais · Propriété totale du site · Support inclus
           </p>
         </div>
       </section>
 
-
-      {/* ═══════════════════════════════════════════
-          CONTACT (#infos)
-      ═══════════════════════════════════════════ */}
-      <section id="infos" className="pt-[20px] md:pt-[70px] pb-[70px] bg-background relative overflow-hidden scroll-mt-[76px] md:scroll-mt-[104px]">
-        {/* Glow blob centré */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "hsl(217,91%,60%,0.08)", filter: "blur(120px)", animation: "glowPulse 7s ease-in-out infinite" }} />
-
-        <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
-          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
-
-            {/* Gauche : info */}
-            <div>
-              <div className="inline-flex items-center gap-[10px] mb-[18px]">
-                <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
-                <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Contact</span>
+      {/* POURQUOI FLUXA */}
+      <section id="pourquoi" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 30% 50%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 72 }}>
+            <SectionBadge label="Nos garanties" color="hsl(160,84%,50%)" />
+            <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Pourquoi choisir Fluxa</h2>
+            <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>Ce qui nous différencie des autres agences et freelances.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
+            {[
+              { color: "hsl(160,84%,50%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,50%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>, title: "Propriété totale", text: "Le site est à vous. Code source, contenu, domaine : tout vous appartient." },
+              { color: "hsl(43,96%,56%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>, title: "Rapide et performant", text: "Sites optimisés pour la vitesse. Vos visiteurs n'attendent pas, Google non plus." },
+              { color: "hsl(263,90%,74%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(263,90%,74%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, title: "Code propre", text: "Pas de WordPress ni de constructeur. Du code sur-mesure, maintenable et évolutif." },
+              { color: "hsl(217,91%,66%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,66%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></svg>, title: "Support dédié", text: "Un interlocuteur unique, disponible et réactif. Pas de ticket, pas de robot." },
+            ].map(g => (
+              <div key={g.title} className="gc" style={{ padding: "32px 24px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ width: 52, height: 52, borderRadius: 14, background: `${g.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>{g.icon}</div>
+                <h3 style={{ ...SORA, fontSize: 17, fontWeight: 600, color: "hsl(210,40%,98%)", margin: "0 0 8px" }}>{g.title}</h3>
+                <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,50%)", lineHeight: 1.6, margin: 0 }}>{g.text}</p>
               </div>
-              <h2
-                className="mb-[18px]"
-                style={{ fontSize: "clamp(28px,3.6vw,42px)", fontWeight: 800, lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                Créons votre{" "}
-                <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  site web
-                </span>
-              </h2>
-              <p className="mb-7" style={{ fontSize: 16, color: "hsl(215,20%,74%)", lineHeight: 1.7 }}>
-                Parlez-nous de votre projet et recevez un devis personnalisé sous 48h, sans engagement.
-              </p>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <div className="flex flex-col gap-4">
+      {/* CONTACT */}
+      <section id="contact" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "hsl(217,91%,60%,.06)", filter: "blur(120px)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 56, alignItems: "start" }}>
+            <div>
+              <SectionBadge label="Contact" />
+              <h2 style={{ ...SORA, fontSize: "clamp(28px,4vw,42px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>
+                Créons votre{" "}
+                <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>site web</span>
+              </h2>
+              <p style={{ ...INTER, fontSize: 16, color: "hsl(215,20%,62%)", lineHeight: 1.7, margin: "0 0 32px" }}>Parlez-nous de votre projet et recevez un devis personnalisé sous 48h, sans engagement.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 {[
-                  { icon: <Mail style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Email", value: "fluxa.contact@gmail.com", href: "mailto:fluxa.contact@gmail.com" },
-                  { icon: <MapPin style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Localisation", value: "Cognin, Savoie · France entière" },
-                  { icon: <Clock style={{ width: 19, height: 19, color: "hsl(217,91%,64%)" }} />, label: "Délai de réponse", value: "Sous 48h, sans engagement" },
-                ].map(({ icon, label, value, href }) => (
-                  <div key={label} className="flex items-center gap-[13px]">
-                    <div className="grid place-items-center shrink-0" style={{ width: 42, height: 42, borderRadius: 11, background: "hsl(217,91%,60%,.12)" }}>{icon}</div>
+                  { icon: <Mail size={19} color="hsl(217,91%,64%)" />, label: "Email", content: <a href="mailto:fluxa.contact@gmail.com" style={{ ...INTER, fontSize: 14, fontWeight: 600, color: "hsl(210,40%,94%)", textDecoration: "none" }}>fluxa.contact@gmail.com</a> },
+                  { icon: <MapPin size={19} color="hsl(217,91%,64%)" />, label: "Localisation", content: <span style={{ ...INTER, fontSize: 14, fontWeight: 600, color: "hsl(210,40%,94%)" }}>Cognin, Savoie · France entière</span> },
+                  { icon: <Clock size={19} color="hsl(217,91%,64%)" />, label: "Délai de réponse", content: <span style={{ ...INTER, fontSize: 14, fontWeight: 600, color: "hsl(210,40%,94%)" }}>Sous 48h, sans engagement</span> },
+                ].map(item => (
+                  <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: 12, background: "hsl(217,91%,60%,.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{item.icon}</div>
                     <div>
-                      <div style={{ fontSize: 12, color: "hsl(215,20%,60%)" }}>{label}</div>
-                      {href
-                        ? <a href={href} className="hover:text-primary transition-colors" style={{ fontSize: 14.5, fontWeight: 600, color: "hsl(210,40%,94%)" }}>{value}</a>
-                        : <div style={{ fontSize: 14.5, fontWeight: 600, color: "hsl(210,40%,94%)" }}>{value}</div>
-                      }
+                      <div style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,50%)" }}>{item.label}</div>
+                      {item.content}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Droite : formulaire */}
-            <div
-              className="rounded-[20px] flex flex-col gap-4"
-              style={{ border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,8%,.7)", backdropFilter: "blur(12px)", padding: 30 }}
-            >
-              <form id="contact" onSubmit={onSubmitInfo} className="flex flex-col gap-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="contact-name" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Nom</label>
-                    <input id="contact-name" name="name" required placeholder="Jean Dupont" className="w-full outline-none transition-all" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-email" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Email</label>
-                    <input id="contact-email" name="email" type="email" required placeholder="jean@exemple.fr" className="w-full outline-none transition-all" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
-                  </div>
+            <div style={{ borderRadius: 20, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,7%)", backdropFilter: "blur(12px)", padding: 32 }}>
+              <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  {[{ name: "name", label: "Nom", type: "text", placeholder: "Jean Dupont" }, { name: "email", label: "Email", type: "email", placeholder: "jean@exemple.fr" }].map(field => (
+                    <div key={field.name}>
+                      <label style={{ display: "block", marginBottom: 7, ...INTER, fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>{field.label}</label>
+                      <input name={field.name} type={field.type} required placeholder={field.placeholder} style={{ width: "100%", borderRadius: 11, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,10%)", color: "hsl(210,40%,96%)", padding: "13px 15px", ...INTER, fontSize: 14, outline: "none", transition: "all .2s", boxSizing: "border-box" as const }} />
+                    </div>
+                  ))}
                 </div>
-
                 <div>
-                  <label htmlFor="contact-need" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Type de site souhaité</label>
-                  <select id="contact-need" name="need" required defaultValue="" className="w-full outline-none transition-all cursor-pointer" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14, appearance: "none" }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }}>
+                  <label style={{ display: "block", marginBottom: 7, ...INTER, fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Type de site souhaité</label>
+                  <select name="need" required defaultValue="" style={{ width: "100%", borderRadius: 11, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,10%)", color: "hsl(210,40%,96%)", padding: "13px 15px", ...INTER, fontSize: 14, outline: "none", transition: "all .2s", boxSizing: "border-box" as const, cursor: "pointer" }}>
                     <option value="" disabled>Sélectionner</option>
                     <option>Site web simple (890€)</option>
                     <option>Site avec galerie photo</option>
@@ -810,34 +476,23 @@ const Index = () => {
                     <option>Autre / Je ne sais pas encore</option>
                   </select>
                 </div>
-
                 <div>
-                  <label htmlFor="contact-message" className="block mb-[7px]" style={{ fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Votre message</label>
-                  <textarea id="contact-message" name="message" rows={4} placeholder="Décrivez votre projet : votre activité, vos besoins, vos attentes…" className="w-full outline-none transition-all resize-none" style={{ borderRadius: 11, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,33%,11%)", color: "hsl(210,40%,96%)", padding: "13px 15px", fontSize: 14 }} onFocus={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,.5)"; e.currentTarget.style.boxShadow = "0 0 0 2px hsl(217,91%,60%,.12)"; }} onBlur={e => { e.currentTarget.style.borderColor = "hsl(217,32%,18%)"; e.currentTarget.style.boxShadow = "none"; }} />
+                  <label style={{ display: "block", marginBottom: 7, ...INTER, fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Votre message</label>
+                  <textarea name="message" rows={4} placeholder="Décrivez votre projet : votre activité, vos besoins, vos attentes…" style={{ width: "100%", borderRadius: 11, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,10%)", color: "hsl(210,40%,96%)", padding: "13px 15px", ...INTER, fontSize: 14, outline: "none", transition: "all .2s", boxSizing: "border-box" as const, resize: "none" }} />
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={sending}
-                  className="group relative w-full flex items-center justify-center gap-[9px] text-white font-semibold overflow-hidden transition-all duration-200 hover:-translate-y-[3px] disabled:opacity-60"
-                  style={{ fontSize: 15, padding: 15, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,60%),hsl(217,77%,46%))", boxShadow: "0 12px 32px -10px hsl(217,91%,60%,.55)" }}
-                >
-                  {sending && <span className="btn-spinner" />}
-                  <span className="relative z-10">{sending ? "Envoi en cours…" : "Envoyer ma demande"}</span>
-                  {!sending && <Send style={{ width: 16, height: 16 }} className="relative z-10" />}
-                  <div className="btn-shimmer absolute inset-0 pointer-events-none" />
+                {sendError && <p style={{ ...INTER, fontSize: 13, color: "hsl(0,90%,65%)", margin: 0 }}>Erreur d'envoi. Réessayez ou écrivez-nous directement.</p>}
+                <button type="submit" className="bp" disabled={sending} style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, padding: 16, borderRadius: 14, border: "none", ...INTER, fontSize: 15, fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 12px 32px -10px hsl(217,91%,60%,.5)", cursor: sending ? "not-allowed" : "pointer", overflow: "hidden", transition: "all .25s ease", opacity: sending ? 0.7 : 1 }}>
+                  {sending ? "Envoi en cours…" : "Envoyer ma demande"} <Send size={16} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,transparent,hsla(0,0%,100%,.1),transparent)", animation: "shimmer 3s ease-in-out infinite", pointerEvents: "none" }} />
                 </button>
-
-                {sendError && <p className="text-sm text-red-400">Une erreur est survenue. Réessayez ou contactez-nous par email.</p>}
-
-                <div className="flex flex-wrap gap-2">
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                   {[
-                    { icon: <Lock style={{ width: 12, height: 12, color: "hsl(160,84%,50%)" }} />, txt: "Hébergement sécurisé" },
-                    { icon: <Zap style={{ width: 12, height: 12, color: "hsl(43,96%,58%)" }} />, txt: "Livraison rapide" },
-                    { icon: <Search style={{ width: 12, height: 12, color: "hsl(217,91%,64%)" }} />, txt: "SEO optimisé" },
+                    { icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,50%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>, label: "Hébergement sécurisé" },
+                    { icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>, label: "Livraison rapide" },
+                    { icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,64%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>, label: "SEO optimisé" },
                   ].map(tag => (
-                    <span key={tag.txt} className="inline-flex items-center gap-[6px]" style={{ fontSize: 11.5, color: "hsl(215,20%,68%)", border: "1px solid hsl(217,32%,18%)", borderRadius: 999, padding: "5px 12px" }}>
-                      {tag.icon}{tag.txt}
+                    <span key={tag.label} style={{ display: "inline-flex", alignItems: "center", gap: 6, ...INTER, fontSize: 11, color: "hsl(215,20%,60%)", border: "1px solid hsl(217,32%,16%)", borderRadius: 999, padding: "5px 12px" }}>
+                      {tag.icon} {tag.label}
                     </span>
                   ))}
                 </div>
@@ -847,317 +502,70 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" style={{ position: "relative", background: "linear-gradient(180deg,#030812,hsl(217,40%,6%),#030812)", padding: "100px 40px", scrollMarginTop: 80 }}>
+        <div style={{ maxWidth: 780, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
+            <SectionBadge label="FAQ" />
+            <h2 style={{ ...SORA, fontSize: "clamp(30px,4vw,46px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: 0, lineHeight: 1.1 }}>Questions fréquentes</h2>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {FAQ_DATA.map((item, i) => (
+              <FaqItem key={i} q={item.q} a={item.a} isOpen={faqOpen === i} onToggle={() => setFaqOpen(faqOpen === i ? null : i)} />
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <p style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)", margin: "0 0 12px" }}>Vous n'avez pas trouvé votre réponse ?</p>
+            <a href="#contact" style={{ ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(217,91%,66%)", textDecoration: "none" }}>Contactez-nous directement →</a>
+          </div>
+        </div>
+      </section>
 
-      {/* ═══════════════════════════════════════════
-          POURQUOI FLUXA (#pourquoi-choisir-fluxa)
-      ═══════════════════════════════════════════ */}
-      <section id="pourquoi-choisir-fluxa" className="py-[70px] bg-background scroll-mt-[76px] md:scroll-mt-[104px]">
-        <div ref={scrollWhy.ref} className="container mx-auto px-6 max-w-[1200px]">
-
-          {/* En-tête */}
-          <div className="text-center max-w-[680px] mx-auto mb-[60px]">
-            <div
-              className="inline-flex items-center gap-[10px] mb-[18px] transition-all duration-700"
-              style={{ opacity: scrollWhy.visible ? 1 : 0, transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)" }}
-            >
-              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,transparent,hsl(217,91%,60%))" }} />
-              <span className="text-[13px] font-semibold tracking-[0.16em] uppercase" style={{ color: "hsl(217,91%,68%)" }}>Pourquoi Fluxa</span>
-              <span className="w-[26px] h-[1px]" style={{ background: "linear-gradient(90deg,hsl(217,91%,60%),transparent)" }} />
+      {/* FOOTER */}
+      <footer style={{ background: "#020710", borderTop: "1px solid hsl(217,32%,10%)", padding: "56px 40px 32px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", flexWrap: "wrap", gap: 40, marginBottom: 40 }}>
+            <div style={{ maxWidth: 280 }}>
+              <img src={fluxaLogo} alt="Fluxa" style={{ height: 100, width: "auto", objectFit: "contain", marginBottom: 12 }} />
+              <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,42%)", lineHeight: 1.6, margin: 0 }}>Agence web spécialisée dans la création de sites professionnels pour artisans, TPE et indépendants.</p>
             </div>
-            <h2
-              className="mb-4 transition-all duration-700"
-              style={{
-                fontSize: "clamp(30px,4vw,46px)",
-                fontWeight: 800,
-                lineHeight: 1.12,
-                letterSpacing: "-0.02em",
-                fontFamily: "'Playfair Display', Georgia, serif",
-                opacity: scrollWhy.visible ? 1 : 0,
-                transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)",
-                transitionDelay: "0.06s",
-              }}
-            >
-              Ce qu'on vous promet,{" "}
-              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                sans exception
-              </span>
-            </h2>
-            <p
-              className="text-[17px] transition-all duration-700"
-              style={{
-                color: "hsl(215,20%,72%)",
-                opacity: scrollWhy.visible ? 1 : 0,
-                transform: scrollWhy.visible ? "translateY(0)" : "translateY(24px)",
-                transitionDelay: "0.12s",
-              }}
-            >
-              Prix fixes, délais tenus, résultat soigné. Pas de mauvaise surprise, pas de jargon.
-            </p>
-          </div>
-
-          {/* 4 garanties — centré, icône margin auto */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-[54px]">
-            {[
-              {
-                accentLight: "hsl(160,84%,45%,.13)",
-                hoverBorder: "hsl(160,84%,45%,.45)",
-                hoverShadow: "0 24px 50px -28px hsl(160,84%,45%,.4)",
-                icon: <ShieldCheck style={{ width: 24, height: 24, color: "hsl(160,84%,50%)" }} />,
-                title: "Satisfait ou on retravaille",
-                text: "Modifications jusqu'à validation complète, sans surcoût caché.",
-                delay: "0s",
-              },
-              {
-                accentLight: "hsl(43,96%,56%,.13)",
-                hoverBorder: "hsl(43,96%,56%,.45)",
-                hoverShadow: "0 24px 50px -28px hsl(43,96%,56%,.4)",
-                icon: <Zap style={{ width: 24, height: 24, color: "hsl(43,96%,58%)" }} />,
-                title: "Délai tenu, pas négocié",
-                text: "2 à 3 semaines, annoncées dès le départ. Et respectées.",
-                delay: "0.08s",
-              },
-              {
-                accentLight: "hsl(263,90%,74%,.13)",
-                hoverBorder: "hsl(263,90%,64%,.45)",
-                hoverShadow: "0 24px 50px -28px hsl(263,90%,64%,.4)",
-                icon: <Code2 style={{ width: 24, height: 24, color: "hsl(263,90%,76%)" }} />,
-                title: "Un site qui performe",
-                text: "Rapide, bien codé, optimisé Google. Pas juste beau, vraiment efficace.",
-                delay: "0.16s",
-              },
-              {
-                accentLight: "hsl(217,91%,60%,.13)",
-                hoverBorder: "hsl(217,91%,60%,.45)",
-                hoverShadow: "0 24px 50px -28px hsl(217,91%,60%,.4)",
-                icon: <Headphones style={{ width: 24, height: 24, color: "hsl(217,91%,64%)" }} />,
-                title: "Toujours joignable",
-                text: "Réponse sous 48h. Un vrai interlocuteur, pas un ticket support.",
-                delay: "0.24s",
-              },
-            ].map((g, i) => (
-              <div
-                key={i}
-                className="rounded-[16px] transition-all duration-300"
-                style={{
-                  border: "1px solid hsl(217,32%,16%)",
-                  background: "hsl(217,33%,9%)",
-                  padding: 26,
-                  textAlign: "center",
-                  opacity: scrollWhy.visible ? 1 : 0,
-                  transform: scrollWhy.visible ? "translateY(0)" : "translateY(28px)",
-                  transition: `opacity 0.8s cubic-bezier(.16,1,.3,1) ${g.delay}, transform 0.8s cubic-bezier(.16,1,.3,1) ${g.delay}, border-color 0.25s, box-shadow 0.25s`,
-                }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = g.hoverBorder; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = g.hoverShadow; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "hsl(217,32%,16%)"; e.currentTarget.style.transform = scrollWhy.visible ? "translateY(0)" : "translateY(28px)"; e.currentTarget.style.boxShadow = "none"; }}
-              >
-                <div
-                  className="grid place-items-center"
-                  style={{ width: 54, height: 54, borderRadius: 14, background: g.accentLight, margin: "0 auto 18px" }}
-                >
-                  {g.icon}
-                </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>{g.title}</h3>
-                <p style={{ fontSize: 13, color: "hsl(215,20%,70%)", lineHeight: 1.55 }}>{g.text}</p>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Navigation</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" }].map(l => (
+                  <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* Stats animées */}
-          <div
-            ref={scrollStats.ref}
-            className="grid md:grid-cols-3 gap-5"
-            style={{
-              opacity: scrollStats.visible ? 1 : 0,
-              transform: scrollStats.visible ? "translateY(0)" : "translateY(28px)",
-              transition: "opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1)",
-            }}
-          >
-            {[
-              { count: stat890, suffix: " €", label: "tarif de départ tout compris" },
-              { count: stat100, suffix: " %", label: "responsive, mobile & desktop" },
-              { count: stat48, suffix: "h", label: "pour recevoir votre devis" },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="text-center"
-                style={{
-                  borderRadius: 16,
-                  border: "1px solid hsl(217,32%,16%)",
-                  background: "linear-gradient(180deg,hsl(217,33%,9%),hsl(222,84%,5%))",
-                  padding: "38px 24px",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "clamp(34px,5vw,48px)",
-                    fontWeight: 800,
-                    lineHeight: 1,
-                    background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    marginBottom: 10,
-                  }}
-                >
-                  {stat.count}{stat.suffix}
-                </div>
-                <div style={{ fontSize: 13.5, color: "hsl(215,20%,72%)" }}>{stat.label}</div>
+            </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Contact</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <a href="mailto:fluxa.contact@gmail.com" style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>fluxa.contact@gmail.com</a>
+                <span style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)" }}>Cognin, Savoie</span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════
-          FAQ
-      ═══════════════════════════════════════════ */}
-      <Faq />
-
-
-      {/* ═══════════════════════════════════════════
-          À PROPOS
-      ═══════════════════════════════════════════ */}
-      <section className="py-20 md:py-24 bg-background" style={{ borderTop: "1px solid hsl(217,32%,12%)" }}>
-        <div ref={scrollAbout.ref} className="container mx-auto px-6 max-w-[1100px]">
-          <div
-            className="text-center mb-12 transition-all duration-700"
-            style={{ opacity: scrollAbout.visible ? 1 : 0, transform: scrollAbout.visible ? "translateY(0)" : "translateY(20px)" }}
-          >
-            <p className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-3" style={{ color: "hsl(217,91%,60%)" }}>L'agence</p>
-            <h2
-              className="mb-4"
-              style={{ fontSize: "clamp(24px,3.2vw,40px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              Une agence locale,{" "}
-              <span style={{ background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,90%,74%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                pas une usine à sites
-              </span>
-            </h2>
-            <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(215,20%,60%)" }}>
-              <strong style={{ color: "hsl(210,40%,80%)" }}>Fluxa</strong> est basée à Chambéry. On travaille avec des artisans, des indépendants, des petites boîtes qui ont besoin d'un site qui tourne, sans se ruiner et sans attendre 3 mois. Chaque projet est suivi personnellement, du brief à la mise en ligne.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { icon: <Trophy className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Prix fixe, zéro surprise", text: "Devis clair, tarif annoncé dès le début. On ne revient pas dessus." },
-              { icon: <Wrench className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Tous corps de métier", text: "Plombier, électricien, coach, artisan… on connaît vos enjeux." },
-              { icon: <TrendingUp className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Visible sur Google", text: "SEO intégré dès la conception. Core Web Vitals au vert." },
-              { icon: <Lock className="w-4 h-4" style={{ color: "hsl(217,91%,60%)" }} />, title: "Sécurisé & conforme RGPD", text: "SSL, hébergement en France, conformité légale incluse." },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex flex-col gap-2.5 rounded-[16px] p-5 transition-all duration-300"
-                style={{
-                  border: "1px solid hsl(217,32%,14%)",
-                  background: "hsl(217,33%,8%)",
-                  opacity: scrollAbout.visible ? 1 : 0,
-                  transform: scrollAbout.visible ? "translateY(0)" : "translateY(20px)",
-                  transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`,
-                }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "hsl(217,91%,60%,0.25)"; e.currentTarget.style.background = "hsl(217,91%,60%,0.05)"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "hsl(217,32%,14%)"; e.currentTarget.style.background = "hsl(217,33%,8%)"; }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg grid place-items-center shrink-0" style={{ background: "hsl(217,91%,60%,0.10)" }}>{item.icon}</div>
-                  <p className="font-semibold text-sm">{item.title}</p>
-                </div>
-                <p className="text-xs leading-relaxed" style={{ color: "hsl(215,20%,55%)" }}>{item.text}</p>
+            </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Suivez-nous</h4>
+              <div style={{ display: "flex", gap: 12 }}>
+                {[
+                  { href: "https://www.instagram.com/fluxa.fr", icon: <Instagram size={16} color="hsl(215,20%,55%)" /> },
+                  { href: "https://www.facebook.com/fluxa.fr", icon: <Facebook size={16} color="hsl(215,20%,55%)" /> },
+                  { href: "https://www.linkedin.com/company/fluxa-fr/", icon: <Linkedin size={16} color="hsl(215,20%,55%)" /> },
+                ].map(s => (
+                  <a key={s.href} href={s.href} target="_blank" rel="noopener" className="si" style={{ width: 38, height: 38, borderRadius: 10, background: "hsl(217,91%,60%,.08)", border: "1px solid hsl(217,32%,14%)", display: "flex", alignItems: "center", justifyContent: "center" }}>{s.icon}</a>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════
-          FOOTER
-      ═══════════════════════════════════════════ */}
-      <footer style={{ borderTop: "1px solid hsl(217,32%,15%)", padding: "60px 0 36px", background: "hsl(222,84%,4%)" }}>
-        <div className="container mx-auto px-8 max-w-[1200px]">
-
-          {/* Logo centré + tagline */}
-          <div className="flex flex-col items-center text-center mb-[48px]">
-            <img src={fluxaLogo} alt="Fluxa" style={{ height: 90, width: "auto", objectFit: "contain", marginBottom: 16 }} />
-            <p style={{ fontSize: 13.5, color: "hsl(215,20%,55%)", maxWidth: 340, lineHeight: 1.6 }}>
-              Des sites qui vous ressemblent, livrés vite, qui travaillent pour vous.
-            </p>
-          </div>
-
-          {/* Nav centrale */}
-          <nav className="flex flex-wrap justify-center gap-x-[36px] gap-y-[10px] mb-[40px]">
-            {[
-              { href: "#services", label: "Nos sites" },
-              { href: "#comment-ca-marche", label: "Méthode" },
-              { href: "#pricing", label: "Tarifs" },
-              { href: "#faq", label: "FAQ" },
-              { href: "#infos", label: "Contact" },
-              { href: "/mentions-legales", label: "Mentions légales" },
-              { href: "/politique-confidentialite", label: "Confidentialité" },
-            ].map(l => (
-              <a key={l.label} href={l.href} className="transition-colors hover:text-white" style={{ fontSize: 13, color: "hsl(215,20%,55%)" }}>{l.label}</a>
-            ))}
-          </nav>
-
-          {/* Séparateur */}
-          <div style={{ height: 1, background: "hsl(217,32%,13%)", marginBottom: 28 }} />
-
-          {/* Bas : copyright + socials */}
-          <div className="flex flex-wrap justify-between items-center gap-4">
-            <span style={{ fontSize: 12, color: "hsl(215,20%,40%)" }}>© {new Date().getFullYear()} Fluxa — Tous droits réservés</span>
-
-            <div className="flex gap-[9px]">
-              {[
-                { href: "mailto:fluxa.contact@gmail.com", label: "Email", icon: <Mail style={{ width: 15, height: 15 }} /> },
-                {
-                  href: "https://instagram.com/fluxa.fr", label: "Instagram",
-                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
-                },
-                {
-                  href: "https://www.facebook.com/fluxa.fr", label: "Facebook",
-                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>,
-                },
-                { href: "https://www.linkedin.com/company/fluxa-fr/", label: "LinkedIn", icon: <Linkedin style={{ width: 15, height: 15 }} /> },
-              ].map(s => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="grid place-items-center transition-all duration-200"
-                  style={{ width: 34, height: 34, borderRadius: 9, border: "1px solid hsl(217,32%,18%)", color: "hsl(215,20%,55%)" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "hsl(217,91%,66%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,91%,60%,.4)"; (e.currentTarget as HTMLElement).style.background = "hsl(217,91%,60%,.08)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "hsl(215,20%,55%)"; (e.currentTarget as HTMLElement).style.borderColor = "hsl(217,32%,18%)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
-                >
-                  {s.icon}
-                </a>
-              ))}
+          <div style={{ borderTop: "1px solid hsl(217,32%,10%)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+            <p style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", margin: 0 }}>© 2025 Fluxa. Tous droits réservés.</p>
+            <div style={{ display: "flex", gap: 20 }}>
+              <a href="/mentions-legales" style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", textDecoration: "none" }}>Mentions légales</a>
+              <a href="/politique-confidentialite" style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", textDecoration: "none" }}>Politique de confidentialité</a>
             </div>
           </div>
         </div>
       </footer>
-
-
-      {/* ═══════════════════════════════════════════
-          LIGHTBOX
-      ═══════════════════════════════════════════ */}
-      {lightboxOpen && (
-        <div
-          className="fixed inset-0 z-[100] backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-          style={{ background: "hsl(222,84%,4.9%,0.95)" }}
-          onClick={() => setLightboxOpen(false)}
-        >
-          <button onClick={() => setLightboxOpen(false)} className="absolute top-4 right-4 p-2 rounded-full transition" style={{ background: "hsl(217,33%,10%)", border: "1px solid hsl(217,32%,20%)" }} aria-label="Fermer">
-            <X className="w-6 h-6" />
-          </button>
-          <div className="max-w-7xl w-full" onClick={e => e.stopPropagation()}>
-            <img src={mockupAJour} alt="Site web professionnel responsive créé par Fluxa" width="1920" height="1080" className="w-full h-auto rounded-2xl" style={{ border: "1px solid hsl(217,91%,60%,0.30)", boxShadow: "0 0 80px -20px hsl(217,91%,60%,0.3)" }} />
-            <p className="text-center text-sm mt-4" style={{ color: "hsl(215,20%,45%)" }}>Cliquez en dehors de l'image pour fermer</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
