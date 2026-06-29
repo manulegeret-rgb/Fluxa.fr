@@ -170,11 +170,11 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ typingText, onCta, onP
         <div style={{ position: "absolute", top: "52%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle at 25% 90%, hsl(217,60%,14%) 15%, #000000de 70%, #000000ed 100%)", backdropFilter: "blur(48px)", zIndex: 1 }} />
         {/* Lightning shader */}
         <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", height: "100%", zIndex: 2 }}>
-          <Lightning hue={217} xOffset={0} speed={1.6} intensity={0.65} size={2} />
+          <Lightning hue={217} xOffset={0} speed={0.6} intensity={0.35} size={2} />
         </div>
         {/* Second lightning offset */}
-        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", height: "100%", zIndex: 2, opacity: 0.4 }}>
-          <Lightning hue={263} xOffset={0.3} speed={1.2} intensity={0.5} size={2.4} />
+        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", height: "100%", zIndex: 2, opacity: 0.25 }}>
+          <Lightning hue={263} xOffset={0.3} speed={0.45} intensity={0.28} size={2.4} />
         </div>
       </div>
 
