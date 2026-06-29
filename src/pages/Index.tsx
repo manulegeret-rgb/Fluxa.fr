@@ -177,6 +177,33 @@ const Index = () => {
         .swipe-hint{animation:swipeHint 1.8s ease-in-out 1.2s 2 forwards}
         @media(min-width:768px){.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
         @media(max-width:767px){.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}.header-mobile{display:flex!important}.header-desktop{display:none!important}}
+        @property --shiny-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+        @keyframes shiny-spin{to{--shiny-angle:360deg}}
+        .header-cta-shiny{
+          position:relative;display:inline-flex;align-items:center;gap:8px;
+          padding:11px 24px;border-radius:999px;
+          font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.03em;
+          color:#fff;text-decoration:none;cursor:pointer;
+          background:hsl(217,91%,60%);
+          border:1px solid transparent;
+          box-shadow:0 8px 24px -8px hsl(217,91%,60%,.45);
+          transition:transform .25s ease,box-shadow .25s ease;
+          background-clip:padding-box;
+          isolation:isolate;
+          overflow:hidden;
+        }
+        .header-cta-shiny::before{
+          content:'';position:absolute;inset:-1px;border-radius:999px;
+          background:conic-gradient(from var(--shiny-angle),hsl(217,91%,75%) 0%,hsl(263,80%,72%) 20%,hsl(217,77%,44%) 40%,hsl(217,91%,75%) 60%,hsl(263,80%,72%) 80%,hsl(217,91%,75%) 100%);
+          animation:shiny-spin 2.5s linear infinite;
+          z-index:-1;
+        }
+        .header-cta-shiny::after{
+          content:'';position:absolute;inset:1px;border-radius:999px;
+          background:linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%));
+          z-index:-1;
+        }
+        .header-cta-shiny:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px hsl(217,91%,60%,.65)}
       `}</style>
 
       {/* HEADER */}
@@ -219,8 +246,8 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <a href="#contact" className="ch" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 24px", borderRadius: 999, ...INTER, fontSize: 17, fontWeight: 600, letterSpacing: "0.03em", textDecoration: "none", color: "#fff", background: "hsl(217,91%,60%)", transition: "all .25s cubic-bezier(.4,0,.2,1)" }}>
-            Nous contacter
+          <a href="#contact" className="header-cta-shiny">
+            <span>Nous contacter</span>
           </a>
         </div>
       </header>

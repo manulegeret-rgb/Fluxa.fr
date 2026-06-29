@@ -1,154 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-
-interface LightningProps {
-  hue?: number;
-  xOffset?: number;
-  speed?: number;
-  intensity?: number;
-  size?: number;
-}
-
-const Lightning: React.FC<LightningProps> = ({
-  hue = 217,
-  xOffset = 0,
-  speed = 1.6,
-  intensity = 0.6,
-  size = 2,
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const resizeCanvas = () => {
-      canvas.width = canvas.clientWidth;
-      canvas.height = canvas.clientHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    const gl = canvas.getContext("webgl");
-    if (!gl) return;
-
-    const vertexShaderSource = `
-      attribute vec2 aPosition;
-      void main() { gl_Position = vec4(aPosition, 0.0, 1.0); }
-    `;
-
-    const fragmentShaderSource = `
-      precision mediump float;
-      uniform vec2 iResolution;
-      uniform float iTime;
-      uniform float uHue;
-      uniform float uXOffset;
-      uniform float uSpeed;
-      uniform float uIntensity;
-      uniform float uSize;
-      #define OCTAVE_COUNT 10
-      vec3 hsv2rgb(vec3 c) {
-        vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,0.0,1.0);
-        return c.z * mix(vec3(1.0), rgb, c.y);
-      }
-      float hash11(float p) { p=fract(p*.1031); p*=p+33.33; p*=p+p; return fract(p); }
-      float hash12(vec2 p) {
-        vec3 p3=fract(vec3(p.xyx)*.1031); p3+=dot(p3,p3.yzx+33.33);
-        return fract((p3.x+p3.y)*p3.z);
-      }
-      mat2 rotate2d(float theta) { float c=cos(theta),s=sin(theta); return mat2(c,-s,s,c); }
-      float noise(vec2 p) {
-        vec2 ip=floor(p),fp=fract(p);
-        float a=hash12(ip),b=hash12(ip+vec2(1,0)),c2=hash12(ip+vec2(0,1)),d=hash12(ip+vec2(1,1));
-        vec2 t=smoothstep(0.0,1.0,fp);
-        return mix(mix(a,b,t.x),mix(c2,d,t.x),t.y);
-      }
-      float fbm(vec2 p) {
-        float value=0.0,amplitude=0.5;
-        for(int i=0;i<OCTAVE_COUNT;++i){value+=amplitude*noise(p);p*=rotate2d(0.45);p*=2.0;amplitude*=0.5;}
-        return value;
-      }
-      void main() {
-        vec2 uv=gl_FragCoord.xy/iResolution.xy;
-        uv=2.0*uv-1.0; uv.x*=iResolution.x/iResolution.y; uv.x+=uXOffset;
-        uv+=2.0*fbm(uv*uSize+0.8*iTime*uSpeed)-1.0;
-        float dist=abs(uv.x);
-        vec3 baseColor=hsv2rgb(vec3(uHue/360.0,0.7,0.9));
-        vec3 col=baseColor*pow(mix(0.0,0.07,hash11(iTime*uSpeed))/dist,1.0)*uIntensity;
-        gl_FragColor=vec4(col,1.0);
-      }
-    `;
-
-    const compileShader = (source: string, type: number): WebGLShader | null => {
-      const shader = gl.createShader(type);
-      if (!shader) return null;
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) { gl.deleteShader(shader); return null; }
-      return shader;
-    };
-
-    const vs = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-    const fs = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
-    if (!vs || !fs) return;
-
-    const program = gl.createProgram();
-    if (!program) return;
-    gl.attachShader(program, vs);
-    gl.attachShader(program, fs);
-    gl.linkProgram(program);
-    gl.useProgram(program);
-
-    const vertices = new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]);
-    const buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-
-    const aPos = gl.getAttribLocation(program, "aPosition");
-    gl.enableVertexAttribArray(aPos);
-    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-    const uRes = gl.getUniformLocation(program, "iResolution");
-    const uTime = gl.getUniformLocation(program, "iTime");
-    const uHueLoc = gl.getUniformLocation(program, "uHue");
-    const uXOff = gl.getUniformLocation(program, "uXOffset");
-    const uSpd = gl.getUniformLocation(program, "uSpeed");
-    const uInt = gl.getUniformLocation(program, "uIntensity");
-    const uSz = gl.getUniformLocation(program, "uSize");
-
-    const startTime = performance.now();
-    let rafId: number;
-    const render = () => {
-      resizeCanvas();
-      gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.uniform1f(uTime, (performance.now() - startTime) / 1000);
-      gl.uniform1f(uHueLoc, hue);
-      gl.uniform1f(uXOff, xOffset);
-      gl.uniform1f(uSpd, speed);
-      gl.uniform1f(uInt, intensity);
-      gl.uniform1f(uSz, size);
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-      rafId = requestAnimationFrame(render);
-    };
-    rafId = requestAnimationFrame(render);
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(rafId);
-    };
-  }, [hue, xOffset, speed, intensity, size]);
-
-  return <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />;
-};
 
 const container = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.18, delayChildren: 0.3 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.16, delayChildren: 0.2 } },
 };
 const item = {
-  hidden: { y: 28, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { y: 24, opacity: 0, filter: "blur(8px)" },
+  visible: { y: 0, opacity: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 interface HeroOdysseyProps {
@@ -163,30 +22,41 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ typingText, onCta, onP
 
   return (
     <div style={{ position: "relative", width: "100%", minHeight: "100vh", background: "#030812", overflow: "hidden" }}>
-      {/* WebGL Lightning background */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        <div style={{ position: "absolute", inset: 0, background: "rgba(3,8,18,0.72)" }} />
-        {/* Glow sphere */}
-        <div style={{ position: "absolute", top: "52%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle at 25% 90%, hsl(217,60%,14%) 15%, #000000de 70%, #000000ed 100%)", backdropFilter: "blur(48px)", zIndex: 1 }} />
-        {/* Lightning shader */}
-        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", height: "100%", zIndex: 2 }}>
-          <Lightning hue={217} xOffset={0} speed={0.6} intensity={0.35} size={2} />
-        </div>
-        {/* Second lightning offset */}
-        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", height: "100%", zIndex: 2, opacity: 0.25 }}>
-          <Lightning hue={263} xOffset={0.3} speed={0.45} intensity={0.28} size={2.4} />
-        </div>
-      </div>
+
+      {/* Retro grid */}
+      <div style={{
+        position: "absolute", inset: 0, zIndex: 0,
+        backgroundImage: "linear-gradient(hsl(217,32%,12%,.45) 1px, transparent 1px), linear-gradient(90deg, hsl(217,32%,12%,.45) 1px, transparent 1px)",
+        backgroundSize: "72px 72px",
+        maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
+        WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
+      }} />
+
+      {/* Aurora orbs */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 1, scale: 1, x: [0, 30, -20, 0], y: [0, -20, 15, 0] }}
+        transition={{ opacity: { duration: 1.4 }, scale: { duration: 1.4 }, x: { duration: 18, repeat: Infinity, ease: "easeInOut" }, y: { duration: 18, repeat: Infinity, ease: "easeInOut" } }}
+        style={{ position: "absolute", top: "-10%", left: "20%", width: "clamp(380px,45vw,600px)", height: "clamp(380px,45vw,600px)", borderRadius: "50%", background: "radial-gradient(circle at 30% 30%, hsl(217,91%,60%,.22) 0%, transparent 70%)", filter: "blur(72px)", zIndex: 1, pointerEvents: "none" }}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 1, scale: 1, x: [0, -25, 18, 0], y: [0, 18, -12, 0] }}
+        transition={{ opacity: { duration: 1.8, delay: 0.3 }, scale: { duration: 1.8, delay: 0.3 }, x: { duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }, y: { duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 } }}
+        style={{ position: "absolute", top: "5%", right: "15%", width: "clamp(280px,35vw,480px)", height: "clamp(280px,35vw,480px)", borderRadius: "50%", background: "radial-gradient(circle at 70% 40%, hsl(263,80%,65%,.18) 0%, transparent 70%)", filter: "blur(80px)", zIndex: 1, pointerEvents: "none" }}
+      />
+      {/* Subtle bottom glow */}
+      <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "70%", height: 2, background: "linear-gradient(90deg, transparent, hsl(217,91%,60%,.3), transparent)", zIndex: 1 }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 10, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(100px,14vw,160px) 24px 60px" }}>
-        <motion.div variants={container} initial="hidden" animate="visible" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: 820 }}>
+      <div style={{ position: "relative", zIndex: 10, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(100px,14vw,160px) clamp(20px,5vw,40px) 60px" }}>
+        <motion.div variants={container} initial="hidden" animate="visible" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: 860 }}>
 
           {/* Badge */}
           <motion.div variants={item}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 28, padding: "6px 16px", borderRadius: 999, border: "1px solid hsl(217,91%,60%,0.25)", background: "hsl(217,91%,60%,0.08)" }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "hsl(217,91%,60%)", boxShadow: "0 0 8px hsl(217,91%,60%)" }} />
-              <span style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "hsl(217,91%,65%)" }}>Agence Web</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 32, padding: "6px 18px", borderRadius: 999, border: "1px solid hsl(217,91%,60%,.2)", background: "hsl(217,91%,60%,.07)" }}>
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "hsl(217,91%,60%)", boxShadow: "0 0 10px hsl(217,91%,60%,.7)", display: "inline-block" }} />
+              <span style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "hsl(217,91%,65%)" }}>Agence Web</span>
             </div>
           </motion.div>
 
@@ -196,7 +66,7 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ typingText, onCta, onP
           </motion.h1>
 
           {/* Typing line */}
-          <motion.div variants={item} style={{ minHeight: "clamp(56px,8vw,100px)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 28 }}>
+          <motion.div variants={item} style={{ minHeight: "clamp(56px,8vw,100px)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32 }}>
             <span style={{ ...SORA, fontSize: "clamp(44px,7vw,84px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.04em", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,80%,72%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {typingText || " "}
               <span style={{ display: "inline-block", width: "0.08em", height: "1em", background: "hsl(217,91%,66%)", borderRadius: 2, marginLeft: "0.05em", animation: "blink 1s step-end infinite", verticalAlign: "text-bottom", WebkitTextFillColor: "initial" }} />
@@ -204,42 +74,85 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ typingText, onCta, onP
           </motion.div>
 
           {/* Description */}
-          <motion.p variants={item} style={{ ...INTER, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.75, color: "hsl(215,20%,62%)", maxWidth: 620, margin: "0 0 44px" }}>
+          <motion.p variants={item} style={{ ...INTER, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.8, color: "hsl(215,20%,58%)", maxWidth: 580, margin: "0 0 48px" }}>
             Artisan, indépendant ou petite structure.&nbsp;
-            <span style={{ color: "hsl(210,40%,92%)", fontWeight: 500 }}>Fluxa conçoit votre site professionnel</span>, rapide et soigné, livré clé en main.
+            <span style={{ color: "hsl(210,40%,88%)", fontWeight: 500 }}>Fluxa conçoit votre site professionnel</span>, rapide et soigné, livré clé en main.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={item} style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", marginBottom: 48 }}>
-            <button onClick={onCta} style={{ position: "relative", display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 32px", borderRadius: 14, fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 16px 40px -12px hsl(217,91%,60%,.55)", border: "none", cursor: "pointer", overflow: "hidden", transition: "all .3s ease" }}
-              onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-3px)")}
-              onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}>
-              Demander un devis gratuit
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <motion.div variants={item} style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", marginBottom: 56 }}>
+            {/* Primary CTA — shimmer border */}
+            <button onClick={onCta} className="hero-cta-primary">
+              <span>Demander un devis gratuit</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-            <button onClick={onPricing} style={{ display: "inline-flex", alignItems: "center", gap: 9, padding: "16px 28px", borderRadius: 14, fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 600, color: "hsl(210,40%,92%)", background: "hsl(217,91%,60%,.06)", border: "1px solid hsl(217,91%,60%,.18)", cursor: "pointer", transition: "all .25s ease" }}
+            <button onClick={onPricing} style={{ display: "inline-flex", alignItems: "center", gap: 9, padding: "15px 28px", borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(210,40%,90%)", background: "hsl(217,91%,60%,.06)", border: "1px solid hsl(217,91%,60%,.18)", cursor: "pointer", transition: "all .25s ease" }}
               onMouseEnter={e => { e.currentTarget.style.background = "hsl(217,91%,60%,.12)"; e.currentTarget.style.borderColor = "hsl(217,91%,60%,.35)"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "hsl(217,91%,60%,.06)"; e.currentTarget.style.borderColor = "hsl(217,91%,60%,.18)"; }}>
               Voir les tarifs
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
             </button>
           </motion.div>
 
           {/* Trust badges */}
           <motion.div variants={item} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: 20 }}>
             {[
-              { icon: "📱", label: "100% responsive" },
-              { icon: "📈", label: "Visible sur Google" },
-              { icon: "💰", label: "À partir de 890 € tout compris" },
+              { label: "100% responsive" },
+              { label: "Visible sur Google" },
+              { label: "À partir de 890 € tout compris" },
             ].map((b, i) => (
               <React.Fragment key={b.label}>
-                {i > 0 && <span style={{ width: 3, height: 3, borderRadius: "50%", background: "hsl(215,20%,22%)" }} />}
-                <span style={{ ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>{b.label}</span>
+                {i > 0 && <span style={{ width: 3, height: 3, borderRadius: "50%", background: "hsl(215,20%,18%)", display: "inline-block" }} />}
+                <span style={{ ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,40%)" }}>{b.label}</span>
               </React.Fragment>
             ))}
           </motion.div>
         </motion.div>
       </div>
+
+      <style>{`
+        @property --hero-angle {
+          syntax: "<angle>";
+          initial-value: 0deg;
+          inherits: false;
+        }
+        @keyframes hero-spin { to { --hero-angle: 360deg; } }
+        .hero-cta-primary {
+          --h: hsl(217,91%,60%);
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 15px 32px;
+          border-radius: 14px;
+          font-family: 'Inter', sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          color: #fff;
+          background: linear-gradient(135deg, hsl(217,91%,58%), hsl(217,77%,44%));
+          border: none;
+          cursor: pointer;
+          box-shadow: 0 16px 40px -12px hsl(217,91%,60%,.45);
+          transition: transform .3s ease, box-shadow .3s ease;
+          overflow: hidden;
+        }
+        .hero-cta-primary::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          border-radius: 16px;
+          padding: 2px;
+          background: conic-gradient(from var(--hero-angle), hsl(217,91%,60%), hsl(263,80%,70%), hsl(217,91%,60%));
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          animation: hero-spin 3s linear infinite;
+          opacity: 0;
+          transition: opacity .3s ease;
+        }
+        .hero-cta-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px -12px hsl(217,91%,60%,.65); }
+        .hero-cta-primary:hover::before { opacity: 1; }
+      `}</style>
     </div>
   );
 };
