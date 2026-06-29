@@ -372,7 +372,7 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-              <a href="#contact" className="bp" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, width: "100%", padding: 16, borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,.5)", transition: "all .25s ease" }}>
+              <a href="#contact-form" className="bp" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, width: "100%", padding: 16, borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 14px 36px -10px hsl(217,91%,60%,.5)", transition: "all .25s ease" }}>
                 Démarrer mon projet <ArrowRight size={16} />
               </a>
             </div>
@@ -550,7 +550,7 @@ const Index = () => {
           <Reveal delay={0.2}>
             <div style={{ textAlign: "center", marginTop: 40 }}>
               <p style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)", margin: "0 0 12px" }}>Vous n'avez pas trouvé votre réponse ?</p>
-              <a href="#contact" style={{ ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(217,91%,66%)", textDecoration: "none" }}>Contactez-nous directement →</a>
+              <a href="#contact-form" style={{ ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(217,91%,66%)", textDecoration: "none" }}>Contactez-nous directement →</a>
             </div>
           </Reveal>
         </div>

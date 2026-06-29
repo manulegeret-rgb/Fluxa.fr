@@ -82,7 +82,7 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ typingText, onCta, onP
           {/* CTAs */}
           <motion.div variants={item} style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", marginBottom: 56 }}>
             {/* Primary CTA — shimmer border */}
-            <button onClick={onCta} className="hero-cta-primary">
+            <button onClick={() => { const el = document.getElementById("contact-form"); el?.scrollIntoView({ behavior: "smooth", block: "start" }); }} className="hero-cta-primary">
               <span>Demander un devis gratuit</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
