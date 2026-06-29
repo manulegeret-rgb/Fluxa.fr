@@ -1,4 +1,4 @@
-import SEOHead from "@/components/SEOHead";
+﻿import SEOHead from "@/components/SEOHead";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -224,8 +224,8 @@ const Index = () => {
           <div style={{ minHeight: "clamp(56px,8vw,100px)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .25s both" }}>
             <span style={{ ...SORA, fontSize: "clamp(44px,7vw,84px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.04em", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,80%,72%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {typingText || " "}
+              <span style={{ display: "inline-block", width: "0.08em", height: "1em", background: "hsl(217,91%,66%)", borderRadius: 2, marginLeft: "0.05em", animation: "blink 1s step-end infinite", verticalAlign: "text-bottom", WebkitTextFillColor: "initial" }} />
             </span>
-            <span style={{ display: "inline-block", width: 4, height: "0.85em", background: "hsl(217,91%,66%)", borderRadius: 3, marginLeft: 6, animation: "blink 1s step-end infinite", verticalAlign: "baseline" }} />
           </div>
 
           <p style={{ ...INTER, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.75, color: "hsl(215,20%,62%)", maxWidth: 680, margin: "0 0 44px", animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .4s both" }}>
