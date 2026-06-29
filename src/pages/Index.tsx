@@ -221,7 +221,7 @@ const Index = () => {
                 {NAV.map((item, i) => (
                   <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ padding: "12px 0", ...INTER, fontSize: 16, borderBottom: "1px solid hsl(217,32%,16%)", color: "hsl(210,40%,96%)", textDecoration: "none", opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)", transition: `opacity .3s ease ${i * 0.06 + 0.1}s, transform .3s ease ${i * 0.06 + 0.1}s` }}>{item.label}</a>
                 ))}
-                <a href="#contact" onClick={() => setMenuOpen(false)} style={{ marginTop: 16, display: "flex", justifyContent: "center", padding: 14, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", color: "#fff", ...INTER, fontWeight: 600, textDecoration: "none" }}>Nous contacter</a>
+                <a href="#contact-form" onClick={() => setMenuOpen(false)} style={{ marginTop: 16, display: "flex", justifyContent: "center", padding: 14, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", color: "#fff", ...INTER, fontWeight: 600, textDecoration: "none" }}>Nous contacter</a>
               </nav>
             </SheetContent>
           </Sheet>
@@ -477,7 +477,7 @@ const Index = () => {
             </Reveal>
 
             <Reveal delay={0.15} y={24}>
-            <div style={{ borderRadius: 20, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,7%)", backdropFilter: "blur(12px)", padding: 32 }}>
+            <div id="contact-form" style={{ borderRadius: 20, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,7%)", backdropFilter: "blur(12px)", padding: 32 }}>
               <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                   {[{ name: "name", label: "Nom", type: "text", placeholder: "Jean Dupont" }, { name: "email", label: "Email", type: "email", placeholder: "jean@exemple.fr" }].map(field => (
