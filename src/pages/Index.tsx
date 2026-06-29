@@ -566,48 +566,87 @@ const Index = () => {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: "#020710", borderTop: "1px solid hsl(217,32%,10%)" }} className="section-mobile-pad" >
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 40px 32px" }} className="[padding:32px_20px_24px] md:[padding:56px_40px_32px]">
-          {/* Mobile : centré en colonne — Desktop : row space-between */}
-          <div className="flex flex-col items-center text-center md:flex-row md:items-start md:justify-between md:text-left" style={{ gap: 40, marginBottom: 40 }}>
-            {/* Logo + description */}
+      <footer style={{ background: "#020710", borderTop: "1px solid hsl(217,32%,10%)" }}>
+
+        {/* ── MOBILE FOOTER ── */}
+        <div className="md:hidden" style={{ padding: "28px 20px 20px" }}>
+          {/* Logo centré */}
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 80, width: "auto", objectFit: "contain" }} />
+          </div>
+          {/* Nav + Contact côte à côte */}
+          <div style={{ display: "flex", justifyContent: "space-around", marginBottom: 20 }}>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 12, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 10px", letterSpacing: "0.04em" }}>Navigation</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" }].map(l => (
+                  <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 12, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 10px", letterSpacing: "0.04em" }}>Contact</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
+                <a href="mailto:fluxa.contact@gmail.com" style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)", textDecoration: "none" }}>fluxa.contact@gmail.com</a>
+                <span style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)" }}>Cognin, Savoie</span>
+              </div>
+              <div style={{ display: "flex", gap: 10 }}>
+                {[
+                  { href: "https://www.instagram.com/fluxa.fr", icon: <Instagram size={14} color="hsl(215,20%,55%)" /> },
+                  { href: "https://www.facebook.com/fluxa.fr", icon: <Facebook size={14} color="hsl(215,20%,55%)" /> },
+                  { href: "https://www.linkedin.com/company/fluxa-fr/", icon: <Linkedin size={14} color="hsl(215,20%,55%)" /> },
+                ].map(s => (
+                  <a key={s.href} href={s.href} target="_blank" rel="noopener" className="si" style={{ width: 32, height: 32, borderRadius: 8, background: "hsl(217,91%,60%,.08)", border: "1px solid hsl(217,32%,14%)", display: "flex", alignItems: "center", justifyContent: "center" }}>{s.icon}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+          {/* Bas */}
+          <div style={{ borderTop: "1px solid hsl(217,32%,10%)", paddingTop: 16, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+            <p style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", margin: 0 }}>© 2025 Fluxa. Tous droits réservés.</p>
+            <div style={{ display: "flex", gap: 16 }}>
+              <a href="/mentions-legales" style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", textDecoration: "none" }}>Mentions légales</a>
+              <a href="/politique-confidentialite" style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", textDecoration: "none" }}>Confidentialité</a>
+            </div>
+          </div>
+        </div>
+
+        {/* ── DESKTOP FOOTER ── inchangé */}
+        <div className="hidden md:block" style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 40px 32px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 40, marginBottom: 40 }}>
             <div style={{ maxWidth: 280 }}>
               <img src={fluxaLogo} alt="Fluxa" style={{ height: 100, width: "auto", objectFit: "contain", marginBottom: 12 }} />
               <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,42%)", lineHeight: 1.6, margin: 0 }}>Agence web spécialisée dans la création de sites professionnels pour artisans, TPE et indépendants.</p>
             </div>
-            {/* Colonnes nav/contact/réseaux : en ligne sur mobile, idem sur desktop */}
-            <div className="flex flex-row justify-center gap-10 md:gap-12 flex-wrap">
-              <div>
-                <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Navigation</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" }].map(l => (
-                    <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
-                  ))}
-                </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Navigation</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" }].map(l => (
+                  <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
+                ))}
               </div>
-              <div>
-                <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Contact</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <a href="mailto:fluxa.contact@gmail.com" style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>fluxa.contact@gmail.com</a>
-                  <span style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)" }}>Cognin, Savoie</span>
-                </div>
+            </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Contact</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <a href="mailto:fluxa.contact@gmail.com" style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>fluxa.contact@gmail.com</a>
+                <span style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)" }}>Cognin, Savoie</span>
               </div>
-              <div>
-                <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Suivez-nous</h4>
-                <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
-                  {[
-                    { href: "https://www.instagram.com/fluxa.fr", icon: <Instagram size={16} color="hsl(215,20%,55%)" /> },
-                    { href: "https://www.facebook.com/fluxa.fr", icon: <Facebook size={16} color="hsl(215,20%,55%)" /> },
-                    { href: "https://www.linkedin.com/company/fluxa-fr/", icon: <Linkedin size={16} color="hsl(215,20%,55%)" /> },
-                  ].map(s => (
-                    <a key={s.href} href={s.href} target="_blank" rel="noopener" className="si" style={{ width: 38, height: 38, borderRadius: 10, background: "hsl(217,91%,60%,.08)", border: "1px solid hsl(217,32%,14%)", display: "flex", alignItems: "center", justifyContent: "center" }}>{s.icon}</a>
-                  ))}
-                </div>
+            </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Suivez-nous</h4>
+              <div style={{ display: "flex", gap: 12 }}>
+                {[
+                  { href: "https://www.instagram.com/fluxa.fr", icon: <Instagram size={16} color="hsl(215,20%,55%)" /> },
+                  { href: "https://www.facebook.com/fluxa.fr", icon: <Facebook size={16} color="hsl(215,20%,55%)" /> },
+                  { href: "https://www.linkedin.com/company/fluxa-fr/", icon: <Linkedin size={16} color="hsl(215,20%,55%)" /> },
+                ].map(s => (
+                  <a key={s.href} href={s.href} target="_blank" rel="noopener" className="si" style={{ width: 38, height: 38, borderRadius: 10, background: "hsl(217,91%,60%,.08)", border: "1px solid hsl(217,32%,14%)", display: "flex", alignItems: "center", justifyContent: "center" }}>{s.icon}</a>
+                ))}
               </div>
             </div>
           </div>
-          {/* Bas de footer */}
-          <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between" style={{ borderTop: "1px solid hsl(217,32%,10%)", paddingTop: 24 }}>
+          <div style={{ borderTop: "1px solid hsl(217,32%,10%)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <p style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", margin: 0 }}>© 2025 Fluxa. Tous droits réservés.</p>
             <div style={{ display: "flex", gap: 20 }}>
               <a href="/mentions-legales" style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", textDecoration: "none" }}>Mentions légales</a>
@@ -615,6 +654,7 @@ const Index = () => {
             </div>
           </div>
         </div>
+
       </footer>
     </div>
   );
