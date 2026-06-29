@@ -603,7 +603,7 @@ const Index = () => {
           </div>
           {/* Bas */}
           <div style={{ borderTop: "1px solid hsl(217,32%,10%)", paddingTop: 16, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <p style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", margin: 0 }}>© 2025 Fluxa. Tous droits réservés.</p>
+            <p style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", margin: 0 }}>© 2026 Fluxa. Tous droits réservés.</p>
             <div style={{ display: "flex", gap: 16 }}>
               <a href="/mentions-legales" style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", textDecoration: "none" }}>Mentions légales</a>
               <a href="/politique-confidentialite" style={{ ...INTER, fontSize: 11, color: "hsl(215,20%,28%)", textDecoration: "none" }}>Confidentialité</a>
@@ -647,7 +647,7 @@ const Index = () => {
             </div>
           </div>
           <div style={{ borderTop: "1px solid hsl(217,32%,10%)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <p style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", margin: 0 }}>© 2025 Fluxa. Tous droits réservés.</p>
+            <p style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", margin: 0 }}>© 2026 Fluxa. Tous droits réservés.</p>
             <div style={{ display: "flex", gap: 20 }}>
               <a href="/mentions-legales" style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", textDecoration: "none" }}>Mentions légales</a>
               <a href="/politique-confidentialite" style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,32%)", textDecoration: "none" }}>Politique de confidentialité</a>
