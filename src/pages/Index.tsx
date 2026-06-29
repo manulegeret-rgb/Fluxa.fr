@@ -161,35 +161,46 @@ const Index = () => {
       {/* HEADER */}
       <header style={{ position: "fixed", inset: "0 0 auto 0", zIndex: 1000, transition: "all 0.4s cubic-bezier(.4,0,.2,1)", height: 80, display: "flex", alignItems: "center", background: scrolled ? "hsla(222,84%,3.5%,.88)" : "transparent", backdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "none", borderBottom: `1px solid ${scrolled ? "hsl(217,32%,14%)" : "transparent"}` }}>
         <div style={{ position: "absolute", top: 0, left: 0, height: 1, width: "100%", transformOrigin: "left", transform: `scaleX(${scrollProgress})`, background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))", transition: "transform .1s linear" }} />
-        <div style={{ maxWidth: 1400, width: "100%", margin: "0 auto", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        {/* ── MOBILE HEADER ── hamburger gauche | logo centré | spacer droite */}
+        <div className="md:hidden" style={{ width: "100%", padding: "0 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger asChild>
+              <button aria-label="Menu" style={{ padding: 8, background: "transparent", border: "none", cursor: "pointer", color: "#fff", flexShrink: 0 }}><Menu size={22} /></button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[85vw] max-w-sm">
+              <nav style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 24 }}>
+                {NAV.map((item, i) => (
+                  <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ padding: "12px 0", ...INTER, fontSize: 16, borderBottom: "1px solid hsl(217,32%,16%)", color: "hsl(210,40%,96%)", textDecoration: "none", opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)", transition: `opacity .3s ease ${i * 0.06 + 0.1}s, transform .3s ease ${i * 0.06 + 0.1}s` }}>{item.label}</a>
+                ))}
+                <a href="#contact" onClick={() => setMenuOpen(false)} style={{ marginTop: 16, display: "flex", justifyContent: "center", padding: 14, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", color: "#fff", ...INTER, fontWeight: 600, textDecoration: "none" }}>Nous contacter</a>
+              </nav>
+            </SheetContent>
+          </Sheet>
+
+          {/* Logo centré — disparaît quand le menu est ouvert */}
+          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", opacity: menuOpen ? 0 : 1, pointerEvents: menuOpen ? "none" : "auto", transition: "opacity 0.2s ease", position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
+            <img src={fluxaLogo} alt="Fluxa" style={{ height: 160, width: "auto", objectFit: "contain" }} />
+          </a>
+
+          {/* Spacer droite pour équilibrer le hamburger */}
+          <div style={{ width: 38, flexShrink: 0 }} />
+        </div>
+
+        {/* ── DESKTOP HEADER ── logo gauche | nav centre | CTA droite */}
+        <div className="hidden md:flex" style={{ maxWidth: 1400, width: "100%", margin: "0 auto", padding: "0 40px", alignItems: "center", justifyContent: "space-between" }}>
           <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
             <img src={fluxaLogo} alt="Fluxa" style={{ height: 160, width: "auto", objectFit: "contain" }} />
           </a>
-          <nav className="hidden md:flex" style={{ alignItems: "center", gap: 44 }}>
+          <nav style={{ display: "flex", alignItems: "center", gap: 44 }}>
             {NAV.map(item => (
               <a key={item.href} href={item.href} className="nl" style={{ position: "relative", textDecoration: "none", ...INTER, fontSize: 16, fontWeight: 500, color: "#fff", letterSpacing: "0.02em", paddingBottom: 5, display: "block" }}>
                 {item.label}<span className="nl-bar" />
               </a>
             ))}
           </nav>
-          <a href="#contact" className="ch hidden md:inline-flex" style={{ alignItems: "center", gap: 8, padding: "11px 24px", borderRadius: 999, ...INTER, fontSize: 17, fontWeight: 600, letterSpacing: "0.03em", textDecoration: "none", color: "#fff", background: "hsl(217,91%,60%)", transition: "all .25s cubic-bezier(.4,0,.2,1)" }}>
+          <a href="#contact" className="ch" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 24px", borderRadius: 999, ...INTER, fontSize: 17, fontWeight: 600, letterSpacing: "0.03em", textDecoration: "none", color: "#fff", background: "hsl(217,91%,60%)", transition: "all .25s cubic-bezier(.4,0,.2,1)" }}>
             Nous contacter
           </a>
-          <div className="md:hidden">
-            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-              <SheetTrigger asChild>
-                <button aria-label="Menu" style={{ padding: 8, background: "transparent", border: "none", cursor: "pointer", color: "#fff" }}><Menu size={22} /></button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[85vw] max-w-sm">
-                <nav style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 24 }}>
-                  {NAV.map((item, i) => (
-                    <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ padding: "12px 0", ...INTER, fontSize: 16, borderBottom: "1px solid hsl(217,32%,16%)", color: "hsl(210,40%,96%)", textDecoration: "none", opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)", transition: `opacity .3s ease ${i * 0.06 + 0.1}s, transform .3s ease ${i * 0.06 + 0.1}s` }}>{item.label}</a>
-                  ))}
-                  <a href="#contact" onClick={() => setMenuOpen(false)} style={{ marginTop: 16, display: "flex", justifyContent: "center", padding: 14, borderRadius: 12, background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", color: "#fff", ...INTER, fontWeight: 600, textDecoration: "none" }}>Nous contacter</a>
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
         </div>
       </header>
 
