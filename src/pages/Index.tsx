@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import fluxaLogo from "@/assets/logo-transparent.webp";
+import { HeroOdyssey } from "@/components/HeroOdyssey";
 
 const SORA: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
 const INTER: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
@@ -225,71 +226,13 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#030812", padding: "clamp(100px,14vw,160px) 40px 60px" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 30%,hsl(217,50%,8%) 0%,#030812 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", backgroundImage: "linear-gradient(hsl(217,91%,60%,.03) 1px,transparent 1px),linear-gradient(90deg,hsl(217,91%,60%,.03) 1px,transparent 1px)", backgroundSize: "72px 72px", maskImage: "radial-gradient(ellipse 70% 50% at 50% 40%,black,transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 50% at 50% 40%,black,transparent 80%)", animation: "gridShift 20s linear infinite" }} />
-        <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "hsl(217,91%,60%,.07)", filter: "blur(140px)", top: "10%", left: "50%", transform: "translateX(-50%)", animation: "glowPulse 8s ease-in-out infinite", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(600px circle at ${spot.x}px ${spot.y}px,hsl(217,91%,60%,.04),transparent 40%)`, transition: "background .3s ease" }} />
+      <HeroOdyssey
+        typingText={typingText}
+        onCta={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+        onPricing={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
+      />
 
-        <div style={{ position: "relative", zIndex: 10, maxWidth: 1200, width: "100%", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 24, animation: "fadeIn .8s ease .1s both", padding: "6px 16px", borderRadius: 999, border: "1px solid hsl(217,91%,60%,.15)", background: "hsl(217,91%,60%,.04)" }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "hsl(217,91%,60%)", boxShadow: "0 0 8px hsl(217,91%,60%,.5)", flexShrink: 0 }} />
-            <span style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "hsl(217,91%,68%)" }}>Agence web</span>
-          </div>
-
-          <h1 style={{ ...SORA, fontSize: "clamp(52px,8vw,96px)", fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.04em", color: "hsl(210,40%,98%)", margin: "0 0 8px", animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .15s both" }}>
-            Votre site
-          </h1>
-
-          <div style={{ minHeight: "clamp(56px,8vw,100px)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .25s both" }}>
-            <span style={{ ...SORA, fontSize: "clamp(44px,7vw,84px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.04em", background: "linear-gradient(110deg,hsl(217,91%,66%),hsl(263,80%,72%))", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              {typingText || " "}
-              <span style={{ display: "inline-block", width: "0.08em", height: "1em", background: "hsl(217,91%,66%)", borderRadius: 2, marginLeft: "0.05em", animation: "blink 1s step-end infinite", verticalAlign: "text-bottom", WebkitTextFillColor: "initial" }} />
-            </span>
-          </div>
-
-          <p style={{ ...INTER, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.75, color: "hsl(215,20%,62%)", maxWidth: 680, margin: "0 0 44px", animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .4s both" }}>
-            Artisan, indépendant ou petite structure.&nbsp;
-            <span style={{ color: "hsl(210,40%,92%)", fontWeight: 500 }}>Fluxa conçoit votre site professionnel</span>, rapide et soigné, livré clé en main.
-          </p>
-
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", marginBottom: 52, animation: "fadeInUp 1s cubic-bezier(.16,1,.3,1) .55s both" }}>
-            <a href="#contact" className="bp" style={{ position: "relative", display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 32px", borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 16px 40px -12px hsl(217,91%,60%,.5)", overflow: "hidden", transition: "all .3s cubic-bezier(.4,0,.2,1)" }}>
-              Demander un devis gratuit <ArrowRight size={16} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,transparent,hsla(0,0%,100%,.12),transparent)", animation: "shimmer 3s ease-in-out infinite", pointerEvents: "none" }} />
-            </a>
-            <a href="#pricing" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 9, padding: "16px 28px", borderRadius: 14, ...INTER, fontSize: 15, fontWeight: 600, textDecoration: "none", color: "hsl(210,40%,92%)", background: "hsl(217,91%,60%,.06)", border: "1px solid hsl(217,91%,60%,.18)", transition: "all .25s ease" }}>
-              Voir les tarifs
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" /><line x1="7" y1="7" x2="7.01" y2="7" /></svg>
-            </a>
-          </div>
-
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: 24, animation: "fadeIn 1s ease .7s both" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 7, ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
-              100% responsive
-            </span>
-            <span style={{ width: 3, height: 3, borderRadius: "50%", background: "hsl(215,20%,22%)" }} />
-            <span style={{ display: "flex", alignItems: "center", gap: 7, ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,45%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>
-              Visible sur Google
-            </span>
-            <span style={{ width: 3, height: 3, borderRadius: "50%", background: "hsl(215,20%,22%)" }} />
-            <span style={{ ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,45%)" }}>
-              À partir de <strong style={{ color: "hsl(217,91%,66%)", fontWeight: 700 }}>890 €</strong> tout compris
-            </span>
-          </div>
-        </div>
-
-        <div className="hidden md:flex" style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", flexDirection: "column", alignItems: "center", gap: 10, animation: "fadeIn 1.2s ease 1.4s both" }}>
-          <span style={{ ...INTER, fontSize: 10, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: "hsl(215,20%,32%)" }}>Découvrir</span>
-          <div style={{ width: 20, height: 32, borderRadius: 999, border: "1px solid hsl(215,20%,22%)", display: "flex", justifyContent: "center", paddingTop: 6 }}>
-            <div style={{ width: 2, height: 6, borderRadius: 999, background: "hsl(217,91%,60%)", animation: "scrollDot 2s ease-in-out infinite" }} />
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST STRIP */}
+            {/* TRUST STRIP */}
       <div className="hidden md:block" style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "52px 40px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
           {[{ value: "890€", label: "Tout compris" }, { value: "2–3", label: "Semaines de livraison" }, { value: "100%", label: "Propriété du site" }].map((stat, i) => (
