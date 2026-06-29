@@ -156,6 +156,10 @@ const Index = () => {
         .bs:hover{background:hsl(217,91%,60%,.12)!important;border-color:hsl(217,91%,60%,.35)!important}
         .ch:hover{box-shadow:0 0 24px -4px hsl(217,91%,60%,.5)!important;transform:translateY(-1px)}
         .opt{transition:all .2s ease}.gc{transition:all .3s ease}.sc{transition:all .35s ease}
+        .method-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:16px;scrollbar-width:none}
+        .method-carousel::-webkit-scrollbar{display:none}
+        .method-carousel>.method-card{flex:0 0 80vw;max-width:300px;scroll-snap-align:start}
+        @media(min-width:768px){.method-carousel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));overflow-x:visible;scroll-snap-type:none;padding-bottom:0}.method-carousel>.method-card{flex:unset;max-width:unset}}
       `}</style>
 
       {/* HEADER */}
@@ -261,7 +265,7 @@ const Index = () => {
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, animation: "fadeIn 1.2s ease 1.4s both" }}>
+        <div className="hidden md:flex" style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", flexDirection: "column", alignItems: "center", gap: 10, animation: "fadeIn 1.2s ease 1.4s both" }}>
           <span style={{ ...INTER, fontSize: 10, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: "hsl(215,20%,32%)" }}>Découvrir</span>
           <div style={{ width: 20, height: 32, borderRadius: 999, border: "1px solid hsl(215,20%,22%)", display: "flex", justifyContent: "center", paddingTop: 6 }}>
             <div style={{ width: 2, height: 6, borderRadius: 999, background: "hsl(217,91%,60%)", animation: "scrollDot 2s ease-in-out infinite" }} />
@@ -270,7 +274,7 @@ const Index = () => {
       </section>
 
       {/* TRUST STRIP */}
-      <div style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "52px 40px" }}>
+      <div className="hidden md:block" style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "52px 40px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
           {[{ value: "890€", label: "Tout compris" }, { value: "2–3", label: "Semaines de livraison" }, { value: "100%", label: "Propriété du site" }].map((stat, i) => (
             <div key={stat.label} style={{ display: "contents" }}>
@@ -293,14 +297,14 @@ const Index = () => {
             <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Simple, rapide, efficace</h2>
             <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>De votre premier message à la mise en ligne, en 4 étapes claires.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
+          <div className="method-carousel">
             {[
               { num: "01", color: "hsl(217,91%,66%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,66%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, title: "Échange initial", text: "On discute de votre activité, vos besoins et vos objectifs. Gratuit et sans engagement." },
               { num: "02", color: "hsl(263,90%,74%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(263,90%,74%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" /><path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83" /></svg>, title: "Maquette et design", text: "On crée la maquette visuelle de votre site. Vous validez, on ajuste ensemble." },
               { num: "03", color: "hsl(160,84%,45%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,45%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, title: "Développement", text: "On code votre site, optimisé SEO, rapide et responsive. Vous suivez l'avancement en temps réel." },
               { num: "04", color: "hsl(43,96%,56%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" /></svg>, title: "Mise en ligne", text: "Votre site est en ligne, avec domaine et hébergement configurés. Vous êtes visible." },
             ].map(step => (
-              <div key={step.num} className="sc" style={{ position: "relative", padding: "36px 28px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div key={step.num} className="sc method-card" style={{ position: "relative", padding: "36px 28px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: 66, height: 56, borderRadius: 12, background: `${step.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
                   <span style={{ ...SORA, fontSize: 40, fontWeight: 700, color: step.color }}>{step.num}</span>
                 </div>
@@ -405,7 +409,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,40%)", textAlign: "center", marginTop: 48 }}>
+          <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,40%)", textAlign: "center", marginTop: 24 }}>
             Paiement en 2 fois sans frais · Propriété totale du site · Support inclus
           </p>
         </div>
@@ -416,7 +420,7 @@ const Index = () => {
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 30% 50%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
-            <SectionBadge label="Nos garanties" color="hsl(160,84%,50%)" />
+            <SectionBadge label="Nos garanties" />
             <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Pourquoi choisir Fluxa</h2>
             <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>Ce qui nous différencie des autres agences et freelances.</p>
           </div>
