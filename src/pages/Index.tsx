@@ -524,6 +524,14 @@ const Index = () => {
                   <label style={{ display: "block", marginBottom: 7, ...INTER, fontSize: 13, fontWeight: 500, color: "hsl(210,40%,88%)" }}>Votre message</label>
                   <textarea name="message" rows={4} placeholder="Décrivez votre projet : votre activité, vos besoins, vos attentes…" style={{ width: "100%", borderRadius: 11, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,10%)", color: "hsl(210,40%,96%)", padding: "13px 15px", ...INTER, fontSize: 14, outline: "none", transition: "all .2s", boxSizing: "border-box" as const, resize: "none" }} />
                 </div>
+                {/* Consentement RGPD */}
+                <label style={{ display: "flex", alignItems: "flex-start", gap: 10, cursor: "pointer" }}>
+                  <input type="checkbox" name="consent" required style={{ marginTop: 2, flexShrink: 0, accentColor: "hsl(217,91%,60%)", width: 15, height: 15 }} />
+                  <span style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,55%)", lineHeight: 1.5 }}>
+                    J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la{" "}
+                    <a href="/politique-confidentialite" style={{ color: "hsl(217,91%,65%)", textDecoration: "underline" }}>politique de confidentialité</a>.
+                  </span>
+                </label>
                 {sendError && <p style={{ ...INTER, fontSize: 13, color: "hsl(0,90%,65%)", margin: 0 }}>Erreur d'envoi. Réessayez ou écrivez-nous directement.</p>}
                 <button type="submit" className="bp" disabled={sending} style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, padding: 16, borderRadius: 14, border: "none", ...INTER, fontSize: 15, fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 12px 32px -10px hsl(217,91%,60%,.5)", cursor: sending ? "not-allowed" : "pointer", overflow: "hidden", transition: "all .25s ease", opacity: sending ? 0.7 : 1 }}>
                   {sending ? "Envoi en cours…" : "Envoyer ma demande"} <Send size={16} />

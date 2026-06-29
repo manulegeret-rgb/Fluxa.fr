@@ -38,9 +38,9 @@ export function CookieBanner() {
       >
         {/* Texte */}
         <p className="text-[13.5px] flex-1 leading-relaxed" style={{ color: "hsl(215,20%,65%)" }}>
-          Ce site utilise des cookies techniques pour son bon fonctionnement.{" "}
+          Ce site n'utilise aucun cookie de suivi ni de publicité. Seul un cookie technique mémorise votre choix ici.{" "}
           <a href="/politique-confidentialite" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: "hsl(217,91%,65%)" }}>
-            En savoir plus
+            Politique de confidentialité
           </a>
         </p>
 
