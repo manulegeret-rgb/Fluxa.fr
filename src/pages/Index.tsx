@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 import { HeroOdyssey } from "@/components/HeroOdyssey";
+import { Reveal, RevealGroup } from "@/components/Reveal";
 
 const SORA: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
 const INTER: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
@@ -261,9 +262,9 @@ const Index = () => {
 
             {/* TRUST STRIP */}
       <div className="hidden md:block" style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "52px 40px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
+        <RevealGroup stagger={0.15} delay={0} style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
           {[{ value: "890€", label: "Tout compris" }, { value: "2–3", label: "Semaines de livraison" }, { value: "100%", label: "Propriété du site" }].map((stat, i) => (
-            <div key={stat.label} style={{ display: "contents" }}>
+            <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 80 }}>
               {i > 0 && <div style={{ width: 1, height: 40, background: "hsl(217,32%,12%)" }} />}
               <div style={{ textAlign: "center" }}>
                 <div style={{ ...SORA, fontSize: 36, fontWeight: 700, color: "hsl(210,40%,98%)", letterSpacing: "-0.03em", lineHeight: 1 }}>{stat.value}</div>
@@ -271,18 +272,18 @@ const Index = () => {
               </div>
             </div>
           ))}
-        </div>
+        </RevealGroup>
       </div>
 
       {/* MÉTHODE */}
       <section id="methode" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 40% at 50% 80%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 80 }}>
+          <Reveal style={{ textAlign: "center", marginBottom: 80 }}>
             <SectionBadge label="Notre méthode" />
             <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Simple, rapide, efficace</h2>
             <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>De votre premier message à la mise en ligne, en 4 étapes claires.</p>
-          </div>
+          </Reveal>
           <div ref={carouselRef} className="method-carousel">
             {[
               { num: "01", color: "hsl(217,91%,66%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,66%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, title: "Échange initial", text: "On discute de votre activité, vos besoins et vos objectifs. Gratuit et sans engagement." },
@@ -290,7 +291,8 @@ const Index = () => {
               { num: "03", color: "hsl(160,84%,45%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,45%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, title: "Développement", text: "On code votre site, optimisé SEO, rapide et responsive. Vous suivez l'avancement en temps réel." },
               { num: "04", color: "hsl(43,96%,56%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" /></svg>, title: "Mise en ligne", text: "Votre site est en ligne, avec domaine et hébergement configurés. Vous êtes visible." },
             ].map((step, i) => (
-              <div key={step.num} className="sc method-card" style={{ position: "relative", padding: "36px 28px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <Reveal key={step.num} delay={i * 0.1} y={20} className="method-card">
+              <div className="sc" style={{ height: "100%", position: "relative", padding: "36px 28px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: 66, height: 56, borderRadius: 12, background: `${step.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
                   <span style={{ ...SORA, fontSize: 40, fontWeight: 700, color: step.color }}>{step.num}</span>
                 </div>
@@ -305,6 +307,7 @@ const Index = () => {
                   </div>
                 )}
               </div>
+              </Reveal>
             ))}
           </div>
           {/* Dots pagination — mobile only */}
@@ -320,16 +323,16 @@ const Index = () => {
       <section id="pricing" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 50% at 50% 20%,hsl(217,50%,7%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
+          <Reveal style={{ textAlign: "center", marginBottom: 64 }}>
             <SectionBadge label="Tarifs" />
             <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Transparents, tout compris</h2>
             <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
               Un site soigné, livré rapidement, à partir de <span style={{ color: "hsl(210,40%,96%)", fontWeight: 600 }}>890€</span> tout compris.
             </p>
-          </div>
+          </Reveal>
 
           {/* Comparatif */}
-          <div style={{ maxWidth: 720, margin: "0 auto 64px", borderRadius: 18, overflow: "hidden", border: "1px solid hsl(217,32%,14%)" }}>
+          <Reveal delay={0.15} style={{ maxWidth: 720, margin: "0 auto 64px", borderRadius: 18, overflow: "hidden", border: "1px solid hsl(217,32%,14%)" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", borderBottom: "1px solid hsl(217,32%,14%)" }}>
               <div style={{ padding: "16px 8px", ...INTER, fontSize: 13, fontWeight: 600, color: "hsl(215,20%,45%)" }}>Agence web</div>
               <div style={{ padding: "16px 8px", ...INTER, fontSize: 13, fontWeight: 600, color: "hsl(217,91%,68%)", background: "hsl(217,91%,60%,.08)", borderLeft: "1px solid hsl(217,91%,60%,.15)", borderRight: "1px solid hsl(217,91%,60%,.15)" }}>Fluxa</div>
@@ -349,10 +352,10 @@ const Index = () => {
                 <div style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,35%)", marginTop: 4 }}>Délai variable</div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Grid prix */}
-          <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 32, alignItems: "start" }}>
+          <Reveal delay={0.2} style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 32, alignItems: "start" }}>
             <div style={{ position: "relative", borderRadius: 24, padding: "40px 36px", border: "1px solid hsl(217,91%,60%,.3)", background: "linear-gradient(180deg,hsl(217,33%,9%) 0%,hsl(222,84%,4.9%) 100%)", boxShadow: "0 40px 90px -40px hsl(217,91%,60%,.3)" }}>
               <div style={{ position: "absolute", top: 0, left: 24, right: 24, height: 2, borderRadius: "0 0 2px 2px", background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))" }} />
               <div style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "hsl(217,91%,60%)", marginBottom: 12 }}>Formule Site Web</div>
@@ -407,10 +410,12 @@ const Index = () => {
                 ))}
               </div>
             </div>
-          </div>
-          <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,40%)", textAlign: "center", marginTop: 24 }}>
-            Paiement en 2 fois sans frais · Propriété totale du site · Support inclus
-          </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,40%)", textAlign: "center", marginTop: 24 }}>
+              Paiement en 2 fois sans frais · Propriété totale du site · Support inclus
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -418,23 +423,25 @@ const Index = () => {
       <section id="pourquoi" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 30% 50%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 72 }}>
+          <Reveal style={{ textAlign: "center", marginBottom: 72 }}>
             <SectionBadge label="Nos garanties" />
             <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Pourquoi choisir Fluxa</h2>
             <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>Ce qui nous différencie des autres agences et freelances.</p>
-          </div>
+          </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
             {[
               { color: "hsl(160,84%,50%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,50%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>, title: "Propriété totale", text: "Le site est à vous. Code source, contenu, domaine : tout vous appartient." },
               { color: "hsl(43,96%,56%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>, title: "Rapide et performant", text: "Sites optimisés pour la vitesse. Vos visiteurs n'attendent pas, Google non plus." },
               { color: "hsl(263,90%,74%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(263,90%,74%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, title: "Code propre", text: "Pas de WordPress ni de constructeur. Du code sur-mesure, maintenable et évolutif." },
               { color: "hsl(217,91%,66%)", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,66%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></svg>, title: "Support dédié", text: "Un interlocuteur unique, disponible et réactif. Pas de ticket, pas de robot." },
-            ].map(g => (
-              <div key={g.title} className="gc" style={{ padding: "32px 24px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ width: 52, height: 52, borderRadius: 14, background: `${g.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>{g.icon}</div>
-                <h3 style={{ ...SORA, fontSize: 17, fontWeight: 600, color: "hsl(210,40%,98%)", margin: "0 0 8px" }}>{g.title}</h3>
-                <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,50%)", lineHeight: 1.6, margin: 0 }}>{g.text}</p>
-              </div>
+            ].map((g, i) => (
+              <Reveal key={g.title} delay={i * 0.1} y={20}>
+                <div className="gc" style={{ height: "100%", padding: "32px 24px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <div style={{ width: 52, height: 52, borderRadius: 14, background: `${g.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>{g.icon}</div>
+                  <h3 style={{ ...SORA, fontSize: 17, fontWeight: 600, color: "hsl(210,40%,98%)", margin: "0 0 8px" }}>{g.title}</h3>
+                  <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,50%)", lineHeight: 1.6, margin: 0 }}>{g.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -445,7 +452,7 @@ const Index = () => {
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "hsl(217,91%,60%,.06)", filter: "blur(120px)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 56, alignItems: "start" }}>
-            <div>
+            <Reveal y={24}>
               <SectionBadge label="Contact" />
               <h2 style={{ ...SORA, fontSize: "clamp(28px,4vw,42px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>
                 Créons votre{" "}
@@ -467,8 +474,9 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
+            <Reveal delay={0.15} y={24}>
             <div style={{ borderRadius: 20, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,7%)", backdropFilter: "blur(12px)", padding: 32 }}>
               <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -520,6 +528,7 @@ const Index = () => {
                 </div>
               </form>
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -527,19 +536,23 @@ const Index = () => {
       {/* FAQ */}
       <section id="faq" className="section-mobile-pad" style={{ position: "relative", background: "linear-gradient(180deg,#030812,hsl(217,40%,6%),#030812)", padding: "100px 40px", scrollMarginTop: 80 }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 52 }}>
+          <Reveal style={{ textAlign: "center", marginBottom: 52 }}>
             <SectionBadge label="FAQ" />
             <h2 style={{ ...SORA, fontSize: "clamp(30px,4vw,46px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: 0, lineHeight: 1.1 }}>Questions fréquentes</h2>
-          </div>
+          </Reveal>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {FAQ_DATA.map((item, i) => (
-              <FaqItem key={i} q={item.q} a={item.a} isOpen={faqOpen === i} onToggle={() => setFaqOpen(faqOpen === i ? null : i)} />
+              <Reveal key={i} delay={i * 0.07} y={16}>
+                <FaqItem q={item.q} a={item.a} isOpen={faqOpen === i} onToggle={() => setFaqOpen(faqOpen === i ? null : i)} />
+              </Reveal>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <p style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)", margin: "0 0 12px" }}>Vous n'avez pas trouvé votre réponse ?</p>
-            <a href="#contact" style={{ ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(217,91%,66%)", textDecoration: "none" }}>Contactez-nous directement →</a>
-          </div>
+          <Reveal delay={0.2}>
+            <div style={{ textAlign: "center", marginTop: 40 }}>
+              <p style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)", margin: "0 0 12px" }}>Vous n'avez pas trouvé votre réponse ?</p>
+              <a href="#contact" style={{ ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(217,91%,66%)", textDecoration: "none" }}>Contactez-nous directement →</a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
