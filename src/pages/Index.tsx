@@ -179,10 +179,10 @@ const Index = () => {
       `}</style>
 
       {/* HEADER */}
-      <header style={{ position: "fixed", inset: "0 0 auto 0", zIndex: 1000, transition: "all 0.4s cubic-bezier(.4,0,.2,1)", height: 80, display: "flex", alignItems: "center", background: scrolled ? "hsla(222,84%,3.5%,.88)" : "transparent", backdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "none", borderBottom: `1px solid ${scrolled ? "hsl(217,32%,14%)" : "transparent"}` }}>
+      <header style={{ position: "fixed", inset: "0 0 auto 0", zIndex: 1000, transition: "all 0.4s cubic-bezier(.4,0,.2,1)", height: 80, background: scrolled ? "hsla(222,84%,3.5%,.88)" : "transparent", backdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "none", borderBottom: `1px solid ${scrolled ? "hsl(217,32%,14%)" : "transparent"}` }}>
         <div style={{ position: "absolute", top: 0, left: 0, height: 1, width: "100%", transformOrigin: "left", transform: `scaleX(${scrollProgress})`, background: "linear-gradient(90deg,hsl(217,91%,60%),hsl(263,90%,74%))", transition: "transform .1s linear" }} />
         {/* ── MOBILE HEADER ── hamburger gauche | logo centré | spacer droite */}
-        <div className="md:hidden" style={{ width: "100%", padding: "0 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="md:hidden" style={{ width: "100%", height: 80, padding: "0 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
               <button aria-label="Menu" style={{ padding: 8, background: "transparent", border: "none", cursor: "pointer", color: "#fff", flexShrink: 0 }}><Menu size={22} /></button>
@@ -207,7 +207,7 @@ const Index = () => {
         </div>
 
         {/* ── DESKTOP HEADER ── logo gauche | nav centre | CTA droite */}
-        <div className="hidden md:flex" style={{ maxWidth: 1400, width: "100%", margin: "0 auto", padding: "0 40px", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="hidden md:flex" style={{ maxWidth: 1400, width: "100%", height: 80, margin: "0 auto", padding: "0 40px", alignItems: "center", justifyContent: "space-between" }}>
           <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
             <img src={fluxaLogo} alt="Fluxa" style={{ height: 160, width: "auto", objectFit: "contain" }} />
           </a>
