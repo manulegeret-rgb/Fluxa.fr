@@ -106,6 +106,18 @@ const Index = () => {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
+  const [carouselIdx, setCarouselIdx] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const idx = Math.round(el.scrollLeft / el.offsetWidth);
+      setCarouselIdx(idx);
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -158,8 +170,12 @@ const Index = () => {
         .opt{transition:all .2s ease}.gc{transition:all .3s ease}.sc{transition:all .35s ease}
         .method-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:16px;scrollbar-width:none}
         .method-carousel::-webkit-scrollbar{display:none}
-        .method-carousel>.method-card{flex:0 0 80vw;max-width:300px;scroll-snap-align:start}
+        .method-carousel>.method-card{flex:0 0 82vw;max-width:320px;scroll-snap-align:start}
         @media(min-width:768px){.method-carousel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));overflow-x:visible;scroll-snap-type:none;padding-bottom:0}.method-carousel>.method-card{flex:unset;max-width:unset}}
+        @keyframes swipeHint{0%{transform:translateX(0);opacity:.7}40%{transform:translateX(10px);opacity:1}70%{transform:translateX(4px);opacity:.9}100%{transform:translateX(0);opacity:.7}}
+        .swipe-hint{animation:swipeHint 1.8s ease-in-out 1.2s 2 forwards}
+        @media(min-width:768px){.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}}
+        @media(max-width:767px){.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}}
       `}</style>
 
       {/* HEADER */}
@@ -289,7 +305,7 @@ const Index = () => {
       </div>
 
       {/* MÉTHODE */}
-      <section id="methode" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+      <section id="methode" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 40% at 50% 80%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 80 }}>
@@ -297,13 +313,13 @@ const Index = () => {
             <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Simple, rapide, efficace</h2>
             <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 500, margin: "0 auto", lineHeight: 1.7 }}>De votre premier message à la mise en ligne, en 4 étapes claires.</p>
           </div>
-          <div className="method-carousel">
+          <div ref={carouselRef} className="method-carousel">
             {[
               { num: "01", color: "hsl(217,91%,66%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,66%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, title: "Échange initial", text: "On discute de votre activité, vos besoins et vos objectifs. Gratuit et sans engagement." },
               { num: "02", color: "hsl(263,90%,74%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(263,90%,74%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" /><path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83" /></svg>, title: "Maquette et design", text: "On crée la maquette visuelle de votre site. Vous validez, on ajuste ensemble." },
               { num: "03", color: "hsl(160,84%,45%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(160,84%,45%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, title: "Développement", text: "On code votre site, optimisé SEO, rapide et responsive. Vous suivez l'avancement en temps réel." },
               { num: "04", color: "hsl(43,96%,56%)", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43,96%,56%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" /></svg>, title: "Mise en ligne", text: "Votre site est en ligne, avec domaine et hébergement configurés. Vous êtes visible." },
-            ].map(step => (
+            ].map((step, i) => (
               <div key={step.num} className="sc method-card" style={{ position: "relative", padding: "36px 28px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: 66, height: 56, borderRadius: 12, background: `${step.color}1a`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
                   <span style={{ ...SORA, fontSize: 40, fontWeight: 700, color: step.color }}>{step.num}</span>
@@ -311,14 +327,27 @@ const Index = () => {
                 <div style={{ width: 48, height: 48, borderRadius: 14, background: `${step.color}14`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>{step.icon}</div>
                 <h3 style={{ ...SORA, fontSize: 18, fontWeight: 600, color: "hsl(210,40%,98%)", margin: "0 0 10px", letterSpacing: "-0.01em" }}>{step.title}</h3>
                 <p style={{ ...INTER, fontSize: 14, color: "hsl(215,20%,50%)", lineHeight: 1.65, margin: 0 }}>{step.text}</p>
+                {/* Swipe hint sur la première carte uniquement, visible mobile seulement */}
+                {i === 0 && (
+                  <div className="swipe-hint" style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 6 }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(217,91%,60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span style={{ ...INTER, fontSize: 11, color: "hsl(217,91%,60%)", letterSpacing: "0.08em" }}>Glisser</span>
+                  </div>
+                )}
               </div>
+            ))}
+          </div>
+          {/* Dots pagination — mobile only */}
+          <div className="md:hidden" style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 20 }}>
+            {[0,1,2,3].map(i => (
+              <button key={i} onClick={() => carouselRef.current?.scrollTo({ left: i * carouselRef.current.offsetWidth * 0.82, behavior: "smooth" })} style={{ width: carouselIdx === i ? 20 : 6, height: 6, borderRadius: 999, border: "none", cursor: "pointer", transition: "all .3s ease", background: carouselIdx === i ? "hsl(217,91%,60%)" : "hsl(217,32%,20%)", padding: 0 }} />
             ))}
           </div>
         </div>
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+      <section id="pricing" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 50% at 50% 20%,hsl(217,50%,7%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 64 }}>
@@ -416,7 +445,7 @@ const Index = () => {
       </section>
 
       {/* POURQUOI FLUXA */}
-      <section id="pourquoi" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+      <section id="pourquoi" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 30% 50%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
@@ -442,7 +471,7 @@ const Index = () => {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+      <section id="contact" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "hsl(217,91%,60%,.06)", filter: "blur(120px)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 56, alignItems: "start" }}>
@@ -518,7 +547,7 @@ const Index = () => {
       </section>
 
       {/* FAQ */}
-      <section id="faq" style={{ position: "relative", background: "linear-gradient(180deg,#030812,hsl(217,40%,6%),#030812)", padding: "100px 40px", scrollMarginTop: 80 }}>
+      <section id="faq" className="section-mobile-pad" style={{ position: "relative", background: "linear-gradient(180deg,#030812,hsl(217,40%,6%),#030812)", padding: "100px 40px", scrollMarginTop: 80 }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 52 }}>
             <SectionBadge label="FAQ" />
