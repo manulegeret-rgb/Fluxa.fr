@@ -261,14 +261,14 @@ const Index = () => {
       />
 
             {/* TRUST STRIP */}
-      <div style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "40px 20px" }}>
-        <RevealGroup stagger={0.15} delay={0} style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
-          {[{ value: "890€", label: "Tout compris" }, { value: "2–3", label: "Semaines de livraison" }, { value: "100%", label: "Propriété du site" }].map((stat, i) => (
-            <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 80 }}>
-              {i > 0 && <div style={{ width: 1, height: 40, background: "hsl(217,32%,12%)" }} />}
-              <div style={{ textAlign: "center" }}>
-                <div style={{ ...SORA, fontSize: 36, fontWeight: 700, color: "hsl(210,40%,98%)", letterSpacing: "-0.03em", lineHeight: 1 }}>{stat.value}</div>
-                <div style={{ ...INTER, fontSize: 12, fontWeight: 500, color: "hsl(215,20%,42%)", marginTop: 8, letterSpacing: "0.04em" }}>{stat.label}</div>
+      <div style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "clamp(20px,4vw,52px) 20px" }}>
+        <RevealGroup stagger={0.15} delay={0} style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "nowrap", gap: 0 }}>
+          {[{ value: "890€", label: "Tout compris" }, { value: "2–3 sem.", label: "Livraison" }, { value: "100%", label: "Propriété" }].map((stat, i) => (
+            <div key={stat.label} style={{ display: "flex", alignItems: "center", flex: 1 }}>
+              {i > 0 && <div style={{ width: 1, height: 32, background: "hsl(217,32%,12%)", flexShrink: 0 }} />}
+              <div style={{ textAlign: "center", flex: 1, padding: "0 8px" }}>
+                <div style={{ ...SORA, fontSize: "clamp(18px,4vw,36px)", fontWeight: 700, color: "hsl(210,40%,98%)", letterSpacing: "-0.03em", lineHeight: 1 }}>{stat.value}</div>
+                <div style={{ ...INTER, fontSize: "clamp(10px,2.2vw,12px)", fontWeight: 500, color: "hsl(215,20%,42%)", marginTop: 6, letterSpacing: "0.04em" }}>{stat.label}</div>
               </div>
             </div>
           ))}
