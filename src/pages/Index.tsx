@@ -113,12 +113,49 @@ const Index = () => {
   useEffect(() => {
     const el = carouselRef.current;
     if (!el) return;
+
     const onScroll = () => {
-      const idx = Math.round(el.scrollLeft / el.offsetWidth);
-      setCarouselIdx(idx);
+      const cardW = el.offsetWidth * 0.82;
+      const idx = Math.round(el.scrollLeft / cardW);
+      setCarouselIdx(Math.min(idx, 3));
     };
     el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
+
+    // Touch: un swipe = une carte, peu importe la vélocité
+    let touchStartX = 0;
+    let touchStartScroll = 0;
+    let currentIdx = 0;
+
+    const getCardWidth = () => el.offsetWidth * 0.82;
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartScroll = el.scrollLeft;
+      currentIdx = Math.round(el.scrollLeft / getCardWidth());
+      // Désactive le scroll natif pendant qu'on gère nous-mêmes
+      el.style.overflowX = "hidden";
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      const threshold = 30; // px minimum pour compter comme swipe
+      const cardW = getCardWidth();
+      let next = currentIdx;
+      if (dx > threshold) next = Math.min(currentIdx + 1, 3);
+      else if (dx < -threshold) next = Math.max(currentIdx - 1, 0);
+      el.style.overflowX = "auto";
+      el.scrollTo({ left: next * cardW, behavior: "smooth" });
+      setCarouselIdx(next);
+    };
+
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);
+    };
   }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -170,9 +207,9 @@ const Index = () => {
         .bs:hover{background:hsl(217,91%,60%,.12)!important;border-color:hsl(217,91%,60%,.35)!important}
         .ch:hover{box-shadow:0 0 24px -4px hsl(217,91%,60%,.5)!important;transform:translateY(-1px)}
         .opt{transition:all .2s ease}.gc{transition:all .3s ease}.sc{transition:all .35s ease}
-        .method-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:16px;scrollbar-width:none}
+        .method-carousel{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:16px;scrollbar-width:none}
         .method-carousel::-webkit-scrollbar{display:none}
-        .method-carousel>.method-card{flex:0 0 82vw;max-width:320px;scroll-snap-align:start}
+        .method-carousel>.method-card{flex:0 0 82vw;max-width:320px}
         @media(min-width:768px){.method-carousel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));overflow-x:visible;scroll-snap-type:none;padding-bottom:0}.method-carousel>.method-card{flex:unset;max-width:unset}}
         @keyframes swipeHint{0%{transform:translateX(0);opacity:.7}40%{transform:translateX(10px);opacity:1}70%{transform:translateX(4px);opacity:.9}100%{transform:translateX(0);opacity:.7}}
         .swipe-hint{animation:swipeHint 1.8s ease-in-out 1.2s 2 forwards}
