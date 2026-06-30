@@ -23,7 +23,7 @@ export default function SEOHead() {
     };
 
     // === TITLE & DESCRIPTION ===
-    const title = "Fluxa | Création site vitrine Chambéry, Savoie — dès 890€";
+    const title = "Fluxa | Création de site internet professionnel dès 890€";
     const description =
       "Agence web création sites vitrines professionnels pour TPE, artisans et indépendants. Site responsive, SEO optimisé, hébergement inclus. Dès 890€. Livraison 2-3 semaines.";
 
