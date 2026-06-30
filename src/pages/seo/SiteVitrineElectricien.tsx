@@ -30,7 +30,7 @@ export default function SiteVitrineElectricien() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Vos clients cherchent un électricien qualifié sur Google avant d'appeler. Sans site, vous ratez ces opportunités chaque jour. Fluxa crée votre site vitrine en 2-3 semaines, dès 890€ tout compris.
           </p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
@@ -80,7 +80,7 @@ export default function SiteVitrineElectricien() {
         <div className="container mx-auto px-6 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Lancez votre présence en ligne dès maintenant</h2>
           <p className="text-muted-foreground mb-8">Devis gratuit sous 48h, sans engagement. On adapte le site à votre activité et votre zone d'intervention.</p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Obtenir mon devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>

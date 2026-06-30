@@ -31,7 +31,7 @@ export default function SiteVitrineArtisanChambery() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Vous êtes artisan, plombier, électricien, paysagiste ou indépendant en Savoie ? Fluxa crée votre site vitrine professionnel en 2 à 3 semaines, clé en main, dès 890€ tout compris.
           </p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
@@ -138,7 +138,7 @@ export default function SiteVitrineArtisanChambery() {
         <div className="container mx-auto px-6 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Prêt à être visible sur Google ?</h2>
           <p className="text-muted-foreground mb-8">Contactez-nous pour un devis gratuit et personnalisé. Réponse sous 48h, sans engagement.</p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander mon devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>

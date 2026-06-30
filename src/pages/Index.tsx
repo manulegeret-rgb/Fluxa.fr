@@ -247,7 +247,7 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <a href="#contact" className="header-cta-shiny">
+          <a href="#contact-form" className="header-cta-shiny">
             <span>Nous contacter</span>
           </a>
         </div>
@@ -256,12 +256,12 @@ const Index = () => {
       {/* HERO */}
       <HeroOdyssey
         typingText={typingText}
-        onCta={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+        onCta={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
         onPricing={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
       />
 
             {/* TRUST STRIP */}
-      <div className="hidden md:block" style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "52px 40px" }}>
+      <div style={{ background: "#030812", borderTop: "1px solid hsl(217,32%,10%)", padding: "40px 20px" }}>
         <RevealGroup stagger={0.15} delay={0} style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap", alignItems: "center" }}>
           {[{ value: "890€", label: "Tout compris" }, { value: "2–3", label: "Semaines de livraison" }, { value: "100%", label: "Propriété du site" }].map((stat, i) => (
             <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 80 }}>

@@ -30,7 +30,7 @@ export default function SiteVitrinePaysagiste() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Votre travail se voit dans les jardins — il doit aussi se voir sur Google. Un site vitrine avec vos réalisations en photos convaincra vos futurs clients bien mieux que le bouche-à-oreille seul. Fluxa le crée en 2-3 semaines, dès 890€.
           </p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
@@ -82,7 +82,7 @@ export default function SiteVitrinePaysagiste() {
         <div className="container mx-auto px-6 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Montrez votre travail, trouvez de nouveaux clients</h2>
           <p className="text-muted-foreground mb-8">Un devis gratuit, une réponse sous 48h. On crée votre site vitrine à partir de vos photos et vos services.</p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Obtenir mon devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>

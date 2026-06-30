@@ -30,7 +30,7 @@ export default function SiteVitrineArtisanPlombier() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Quand un client a une fuite à 22h, il cherche "plombier urgence" sur Google. Si vous n'avez pas de site, il appelle votre concurrent. Fluxa crée votre site vitrine en 2-3 semaines, dès 890€ tout compris.
           </p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
@@ -106,7 +106,7 @@ export default function SiteVitrineArtisanPlombier() {
         <div className="container mx-auto px-6 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Votre site vitrine plombier, livré en 2-3 semaines</h2>
           <p className="text-muted-foreground mb-8">Devis gratuit, sans engagement. On vous répond sous 48h avec une proposition adaptée à votre activité.</p>
-          <a href="/#infos" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
+          <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Obtenir mon devis gratuit
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>

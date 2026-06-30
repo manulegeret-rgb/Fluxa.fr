@@ -1,70 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Page d'accueil — priorité maximale -->
+  <!-- Page d'accueil -->
   <url>
     <loc>https://fluxa.fr/</loc>
     <lastmod>2026-05-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+  </url>
+
+  <!-- Hub articles et ressources -->
+  <url>
+    <loc>https://fluxa.fr/articles</loc>
+    <lastmod>2026-05-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/ressources</loc>
+    <lastmod>2026-05-03</lastmod>
+  </url>
+
+  <!-- Article viral standalone -->
+  <url>
+    <loc>https://fluxa.fr/guide-complet-roi-automatisation-artisans</loc>
+    <lastmod>2026-05-03</lastmod>
+  </url>
+
+  <!-- Articles individuels -->
+  <url>
+    <loc>https://fluxa.fr/articles/pourquoi-un-site-vitrine-est-indispensable-pour-un-artisan-en-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/combien-coute-un-site-vitrine-professionnel-en-2025</loc>
+    <lastmod>2025-01-20</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/site-vitrine-vs-page-facebook-quelle-difference-pour-votre-activite</loc>
+    <lastmod>2025-01-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales</loc>
+    <lastmod>2025-02-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/pourquoi-votre-site-doit-etre-responsive-mobile-en-2025</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/comment-obtenir-des-avis-google-pour-son-activite-artisanale</loc>
+    <lastmod>2025-02-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/5-pages-indispensables-pour-un-site-vitrine-artisan-efficace</loc>
+    <lastmod>2025-02-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/galerie-photos-realisations-comment-mettre-en-valeur-votre-travail-en-ligne</loc>
+    <lastmod>2025-02-20</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/prise-de-rendez-vous-en-ligne-pourquoi-et-comment-lajouter-a-votre-site</loc>
+    <lastmod>2025-02-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/hebergement-web-nom-de-domaine-ce-quil-faut-savoir-pour-votre-site</loc>
+    <lastmod>2025-03-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/comment-rediger-les-textes-de-votre-site-vitrine-pour-attirer-des-clients</loc>
+    <lastmod>2025-03-05</lastmod>
+  </url>
+
+  <url>
+    <loc>https://fluxa.fr/articles/maintenance-site-internet-pourquoi-cest-indispensable</loc>
+    <lastmod>2025-03-10</lastmod>
   </url>
 
   <!-- Pages SEO locales -->
   <url>
     <loc>https://fluxa.fr/creation-site-vitrine-artisan-chambery</loc>
     <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/creation-site-vitrine-plombier</loc>
     <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/creation-site-vitrine-electricien</loc>
     <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/creation-site-vitrine-paysagiste</loc>
     <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/prix-site-vitrine-2026</loc>
     <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
 
   <!-- Pages légales -->
   <url>
     <loc>https://fluxa.fr/mentions-legales</loc>
     <lastmod>2026-03-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/politique-confidentialite</loc>
     <lastmod>2026-03-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
 
   <url>
     <loc>https://fluxa.fr/cgv</loc>
     <lastmod>2026-03-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
 
 </urlset>
