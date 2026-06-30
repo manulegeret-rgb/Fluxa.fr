@@ -570,7 +570,12 @@ const Index = () => {
             <div>
               <h4 style={{ ...SORA, fontSize: 12, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 10px", letterSpacing: "0.04em" }}>Navigation</h4>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" }].map(l => (
+                {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" },
+                  { href: "/creation-site-vitrine-artisan-chambery", label: "Artisans Chambéry" },
+                  { href: "/creation-site-vitrine-plombier", label: "Plombier" },
+                  { href: "/creation-site-vitrine-electricien", label: "Électricien" },
+                  { href: "/creation-site-vitrine-paysagiste", label: "Paysagiste" },
+                ].map(l => (
                   <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
                 ))}
               </div>
@@ -613,6 +618,19 @@ const Index = () => {
               <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Navigation</h4>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" }].map(l => (
+                  <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Nos pages métiers</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {[
+                  { href: "/creation-site-vitrine-artisan-chambery", label: "Artisans Chambéry" },
+                  { href: "/creation-site-vitrine-plombier", label: "Site vitrine plombier" },
+                  { href: "/creation-site-vitrine-electricien", label: "Site vitrine électricien" },
+                  { href: "/creation-site-vitrine-paysagiste", label: "Site vitrine paysagiste" },
+                ].map(l => (
                   <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
                 ))}
               </div>

@@ -8,19 +8,30 @@
 - [Blog & Articles](https://fluxa.fr/articles): Guides complets sur la création de sites vitrines, le SEO, l'automatisation pour artisans et TPE
 - [Ressources](https://fluxa.fr/ressources): Outils et ressources pour les entrepreneurs
 
+## Pages locales et métiers
+
+- [Création site vitrine artisan Chambéry & Savoie](https://fluxa.fr/creation-site-vitrine-artisan-chambery): Agence web locale à Cognin, création de sites vitrines pour artisans de Chambéry, Aix-les-Bains, Albertville et toute la Savoie
+- [Création site vitrine plombier](https://fluxa.fr/creation-site-vitrine-plombier): Site vitrine professionnel pour plombiers et chauffagistes, SEO local, dès 890€
+- [Création site vitrine électricien](https://fluxa.fr/creation-site-vitrine-electricien): Site vitrine pour électriciens et installateurs, formulaire de contact, SEO local
+- [Création site vitrine paysagiste](https://fluxa.fr/creation-site-vitrine-paysagiste): Site avec galerie de réalisations pour paysagistes et jardiniers
+- [Prix site vitrine 2026](https://fluxa.fr/prix-site-vitrine-2026): Guide complet des tarifs de création de sites vitrines professionnels
+
 ## Services proposés
 
 - Création site vitrine professionnel : à partir de 890€ (5 pages, responsive, SEO, hébergement inclus 1ère année)
-- Site Portfolio : idéal pour artisans et créatifs, avec galerie photo
-- Site Entreprise TPE/PME : présentation services, équipe, Google Maps
-- Site Profession Libérale : pour consultants, coachs, experts indépendants
+- Site Portfolio : idéal pour artisans et créatifs, avec galerie photo — 890€
+- Site Entreprise TPE/PME : présentation services, équipe, Google Maps — à partir de 1200€
+- Site Profession Libérale : pour consultants, coachs, experts indépendants — à partir de 1500€
 - Maintenance mensuelle : 59€/mois (mises à jour, sauvegardes, support)
+- Options : pages supplémentaires +100€/page, galerie avancée +150€, prise de RDV +180€, rédaction SEO +250€
 
 ## Informations de contact
 
 - Adresse : 36 rue des Criquets, 73160 Cognin, Savoie, France
 - Email : fluxa.contact@gmail.com
-- Zone d'intervention : Cognin, Chambéry, Savoie, toute la France
+- Zone d'intervention : Cognin, Chambéry, Aix-les-Bains, Albertville, Annecy, Grenoble, Savoie, Haute-Savoie, toute la France
+- Horaires : lundi–vendredi, 9h–18h
+- Réponse sous 48h, sans engagement
 
 ## Articles recommandés (contenu citable)
 
@@ -29,6 +40,20 @@
 - [Guide complet ROI automatisation artisans](https://fluxa.fr/guide-complet-roi-automatisation-artisans)
 - [Comment automatiser sa facturation — guide complet 2025](https://fluxa.fr/articles/comment-automatiser-sa-facturation-guide-complet-2025)
 - [CRM automatisé pour TPE — guide 2025](https://fluxa.fr/articles/crm-automatise-pour-tpe-le-guide-2025-pour-gagner-du-temps-et-fideliser-ses-clients)
+- [SEO local pour artisans — comment être trouvé sur Google](https://fluxa.fr/articles/seo-local-artisans-comment-etre-trouve-sur-google)
+- [Les erreurs à éviter sur un site vitrine artisan](https://fluxa.fr/articles/erreurs-a-eviter-site-vitrine-artisan)
+- [Créer un site vitrine sans budget : ce que ça coûte vraiment](https://fluxa.fr/articles/creer-site-vitrine-sans-budget)
+- [Refonte de site web : quand et pourquoi ?](https://fluxa.fr/articles/refonte-site-web-quand-et-pourquoi)
+- [Hébergement web : ce qu'il faut savoir avant de choisir](https://fluxa.fr/articles/hebergement-web-ce-quil-faut-savoir)
+
+## Blocked
+
+- /demo/ (interface de démonstration interactive, non pertinente pour les LLMs)
+- /demo/dashboard
+- /demo/clients
+- /demo/messages
+- /demo/factures
+- /demo/automations
 
 ## Pages légales
 
