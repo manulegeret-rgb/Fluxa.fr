@@ -217,7 +217,7 @@ const Index = () => {
         @media(min-width:768px){.method-carousel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));overflow-x:visible;scroll-snap-type:none;padding-bottom:0}.method-carousel>.method-card{flex:unset;max-width:unset}}
         @keyframes swipeHint{0%{transform:translateX(0);opacity:.7}40%{transform:translateX(10px);opacity:1}70%{transform:translateX(4px);opacity:.9}100%{transform:translateX(0);opacity:.7}}
         .swipe-hint{animation:swipeHint 1.8s ease-in-out 1.2s 2 forwards}
-        @media(min-width:768px){#methode{scroll-margin-top:5px!important}.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
+        @media(min-width:768px){#methode{scroll-margin-top:-60px!important}.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
         @media(max-width:767px){.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}.header-mobile{display:flex!important}.header-desktop{display:none!important}}
         @property --shiny-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
         @keyframes shiny-spin{to{--shiny-angle:360deg}}
