@@ -1,7 +1,17 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
+    { "source": "/creation-site-vitrine-artisan-chambery", "destination": "/creation-site-vitrine-artisan-chambery/index.html" },
+    { "source": "/creation-site-vitrine-plombier", "destination": "/creation-site-vitrine-plombier/index.html" },
+    { "source": "/creation-site-vitrine-electricien", "destination": "/creation-site-vitrine-electricien/index.html" },
+    { "source": "/creation-site-vitrine-paysagiste", "destination": "/creation-site-vitrine-paysagiste/index.html" },
+    { "source": "/prix-site-vitrine-2026", "destination": "/prix-site-vitrine-2026/index.html" },
+    { "source": "/guide-complet-roi-automatisation-artisans", "destination": "/guide-complet-roi-automatisation-artisans/index.html" },
+    { "source": "/articles", "destination": "/articles/index.html" },
+    { "source": "/ressources", "destination": "/ressources/index.html" },
+    { "source": "/mentions-legales", "destination": "/mentions-legales/index.html" },
+    { "source": "/politique-confidentialite", "destination": "/politique-confidentialite/index.html" },
+    { "source": "/cgv", "destination": "/cgv/index.html" },
+    { "source": "/merci", "destination": "/merci/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
