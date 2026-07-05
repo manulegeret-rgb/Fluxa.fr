@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 import { HeroOdyssey } from "@/components/HeroOdyssey";
 import { Reveal, RevealGroup } from "@/components/Reveal";
@@ -220,15 +220,23 @@ const Index = () => {
         @media(min-width:768px){#methode{scroll-margin-top:-95px!important}#pricing{scroll-margin-top:-95px!important}#pourquoi{scroll-margin-top:-95px!important}#faq{scroll-margin-top:-95px!important}.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
         @media(max-width:767px){#methode{scroll-margin-top:-60px!important}#pricing{scroll-margin-top:-60px!important}#pourquoi{scroll-margin-top:-60px!important}#faq{scroll-margin-top:-60px!important}.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}.header-mobile{display:flex!important}.header-desktop{display:none!important}}
         .header-cta-shiny{
-          position:relative;display:inline-flex;align-items:center;gap:8px;
-          padding:11px 24px;border-radius:999px;
+          position:relative;display:inline-flex;align-items:center;gap:10px;
+          padding:5px 22px 5px 5px;border-radius:999px;
           font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.01em;
           color:#fff;text-decoration:none;cursor:pointer;
           background:hsl(217,91%,60%);
           box-shadow:0 6px 18px -6px hsl(217,91%,55%,.5),inset 0 1px 0 hsl(0,0%,100%,.15);
           transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
         }
+        .header-cta-shiny .cta-ico{
+          display:inline-flex;align-items:center;justify-content:center;
+          width:34px;height:34px;border-radius:999px;flex-shrink:0;
+          background:hsl(0,0%,100%,.16);
+          box-shadow:inset 0 0 0 1px hsl(0,0%,100%,.2);
+          transition:background .2s ease,transform .2s ease;
+        }
         .header-cta-shiny:hover{background:hsl(217,91%,64%);transform:translateY(-1px);box-shadow:0 10px 26px -6px hsl(217,91%,55%,.6),inset 0 1px 0 hsl(0,0%,100%,.2)}
+        .header-cta-shiny:hover .cta-ico{background:hsl(0,0%,100%,.24);transform:scale(1.05)}
         .header-cta-shiny:active{transform:translateY(0);box-shadow:0 4px 12px -6px hsl(217,91%,55%,.5),inset 0 1px 0 hsl(0,0%,100%,.15)}
       `}</style>
 
@@ -273,6 +281,7 @@ const Index = () => {
             ))}
           </nav>
           <a href="#contact-form" className="header-cta-shiny">
+            <span className="cta-ico"><Phone size={16} strokeWidth={2.2} /></span>
             <span>Nous contacter</span>
           </a>
         </div>
