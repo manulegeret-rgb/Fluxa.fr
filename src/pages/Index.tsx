@@ -511,7 +511,7 @@ const Index = () => {
             </Reveal>
 
             <Reveal delay={0.15} y={24}>
-            <div id="contact-form" style={{ borderRadius: 20, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,7%)", backdropFilter: "blur(12px)", padding: 32 }}>
+            <div id="contact-form" style={{ borderRadius: 20, border: "1px solid hsl(217,32%,16%)", background: "hsl(217,33%,7%)", backdropFilter: "blur(12px)", padding: 32, scrollMarginTop: 160 }}>
               <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                   {[{ name: "name", label: "Nom", type: "text", placeholder: "Jean Dupont" }, { name: "email", label: "Email", type: "email", placeholder: "jean@exemple.fr" }].map(field => (
