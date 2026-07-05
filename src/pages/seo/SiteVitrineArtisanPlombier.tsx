@@ -3,7 +3,7 @@ import { CheckCircle2, Zap, Shield, Clock, Wrench, ArrowRight } from "lucide-rea
 
 export default function SiteVitrineArtisanPlombier() {
   useEffect(() => {
-    document.title = "Création site vitrine plombier — Fluxa, dès 890€ tout compris";
+    document.title = "Création site vitrine plombier : Fluxa, dès 890€ tout compris";
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", "Fluxa crée le site vitrine de votre entreprise de plomberie. Design professionnel, SEO local, formulaire de contact, hébergement inclus. Livré en 2-3 semaines dès 890€.");
 

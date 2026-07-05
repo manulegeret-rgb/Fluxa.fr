@@ -3,7 +3,7 @@ import { CheckCircle2, Zap, Shield, Clock, ArrowRight } from "lucide-react";
 
 export default function SiteVitrinePaysagiste() {
   useEffect(() => {
-    document.title = "Création site vitrine paysagiste & jardinier — Fluxa, dès 890€";
+    document.title = "Création site vitrine paysagiste & jardinier : Fluxa, dès 890€";
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", "Fluxa crée le site vitrine de votre entreprise de paysagisme ou jardinage. Galerie de réalisations, SEO local, hébergement inclus. Livré en 2-3 semaines dès 890€.");
 
