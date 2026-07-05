@@ -7,6 +7,13 @@
       "runtimeArgs": ["run", "dev"],
       "port": 8086,
       "autoPort": true
+    },
+    {
+      "name": "fluxa-preview-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "preview", "--", "--port", "4173"],
+      "port": 4173,
+      "autoPort": true
     }
   ]
 }

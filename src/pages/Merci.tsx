@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import SEOHead from "@/components/SEOHead";
+import PageSEO from "@/components/PageSEO";
 
 const Merci = () => (
   <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center px-6 text-center">
-    <SEOHead
+    <PageSEO
       title="Merci pour votre message · Fluxa"
       description="Votre demande a bien été reçue. On vous répond sous 48h."
+      canonicalPath="/merci"
+      noindex
     />
     <div className="max-w-md space-y-6">
       <div className="text-5xl">✅</div>

@@ -3,7 +3,7 @@ import { CheckCircle2, Zap, Shield, Clock, MapPin, ArrowRight } from "lucide-rea
 
 export default function SiteVitrineArtisanChambery() {
   useEffect(() => {
-    document.title = "Création site vitrine artisan Chambéry & Savoie — Fluxa, dès 890€";
+    document.title = "Création site vitrine artisan Chambéry & Savoie : Fluxa, dès 890€";
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", "Fluxa crée votre site vitrine professionnel à Chambéry et en Savoie. Artisan, TPE ou indépendant : site responsive, SEO local, hébergement inclus, livré en 2-3 semaines dès 890€.");
 
