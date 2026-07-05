@@ -219,33 +219,17 @@ const Index = () => {
         .swipe-hint{animation:swipeHint 1.8s ease-in-out 1.2s 2 forwards}
         @media(min-width:768px){#methode{scroll-margin-top:-95px!important}#pricing{scroll-margin-top:-95px!important}#pourquoi{scroll-margin-top:-95px!important}#faq{scroll-margin-top:-95px!important}.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
         @media(max-width:767px){#methode{scroll-margin-top:-60px!important}#pricing{scroll-margin-top:-60px!important}#pourquoi{scroll-margin-top:-60px!important}#faq{scroll-margin-top:-60px!important}.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}.header-mobile{display:flex!important}.header-desktop{display:none!important}}
-        @property --shiny-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
-        @keyframes shiny-spin{to{--shiny-angle:360deg}}
         .header-cta-shiny{
           position:relative;display:inline-flex;align-items:center;gap:8px;
           padding:11px 24px;border-radius:999px;
-          font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.03em;
+          font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.01em;
           color:#fff;text-decoration:none;cursor:pointer;
           background:hsl(217,91%,60%);
-          border:1px solid transparent;
-          box-shadow:0 8px 24px -8px hsl(217,91%,60%,.45);
-          transition:transform .25s ease,box-shadow .25s ease;
-          background-clip:padding-box;
-          isolation:isolate;
-          overflow:hidden;
+          box-shadow:0 6px 18px -6px hsl(217,91%,55%,.5),inset 0 1px 0 hsl(0,0%,100%,.15);
+          transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
         }
-        .header-cta-shiny::before{
-          content:'';position:absolute;inset:-1px;border-radius:999px;
-          background:conic-gradient(from var(--shiny-angle),hsl(217,91%,75%) 0%,hsl(263,80%,72%) 20%,hsl(217,77%,44%) 40%,hsl(217,91%,75%) 60%,hsl(263,80%,72%) 80%,hsl(217,91%,75%) 100%);
-          animation:shiny-spin 2.5s linear infinite;
-          z-index:-1;
-        }
-        .header-cta-shiny::after{
-          content:'';position:absolute;inset:1px;border-radius:999px;
-          background:linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%));
-          z-index:-1;
-        }
-        .header-cta-shiny:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px hsl(217,91%,60%,.65)}
+        .header-cta-shiny:hover{background:hsl(217,91%,64%);transform:translateY(-1px);box-shadow:0 10px 26px -6px hsl(217,91%,55%,.6),inset 0 1px 0 hsl(0,0%,100%,.2)}
+        .header-cta-shiny:active{transform:translateY(0);box-shadow:0 4px 12px -6px hsl(217,91%,55%,.5),inset 0 1px 0 hsl(0,0%,100%,.15)}
       `}</style>
 
       {/* HEADER */}
