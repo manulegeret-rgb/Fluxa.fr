@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 import { HeroOdyssey } from "@/components/HeroOdyssey";
 import { Reveal, RevealGroup } from "@/components/Reveal";
@@ -281,7 +281,7 @@ const Index = () => {
             ))}
           </nav>
           <a href="#contact-form" className="header-cta-shiny">
-            <span className="cta-ico"><Phone size={16} strokeWidth={2.2} /></span>
+            <span className="cta-ico"><Mail size={16} strokeWidth={2.2} /></span>
             <span>Nous contacter</span>
           </a>
         </div>
