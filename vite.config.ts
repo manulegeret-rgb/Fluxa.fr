@@ -22,8 +22,32 @@ const PRERENDER_ROUTES = [
   "/prix-site-vitrine-2026",
 ];
 
+// Résout le chemin d'un exécutable Chrome selon l'environnement de build.
+// - Sur Vercel (pas de Chrome système) : @sparticuz/chromium.
+// - En local : Chromium téléchargé par Puppeteer, ou Chrome système via PUPPETEER_EXECUTABLE_PATH.
+async function resolveChromium() {
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    return { executablePath: process.env.PUPPETEER_EXECUTABLE_PATH, args: [] as string[] };
+  }
+  if (process.env.VERCEL) {
+    const chromium = (await import("@sparticuz/chromium")).default;
+    return {
+      executablePath: await chromium.executablePath(),
+      args: chromium.args,
+    };
+  }
+  // Local : laisse Puppeteer utiliser son Chromium téléchargé (executablePath undefined).
+  return { executablePath: undefined as string | undefined, args: [] as string[] };
+}
+
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(async ({ mode }) => {
+  const isProdBuild = mode !== "development";
+  const chromium = isProdBuild
+    ? await resolveChromium()
+    : { executablePath: undefined as string | undefined, args: [] as string[] };
+
+  return {
   server: {
     host: "::",
     port: 8086,
@@ -47,6 +71,8 @@ export default defineConfig(({ mode }) => ({
           renderAfterTime: 1500,
           headless: true,
           maxConcurrentRoutes: 2,
+          executablePath: chromium.executablePath,
+          args: chromium.args,
         },
         postProcess(renderedRoute) {
           // 1) Marque le HTML comme pré-rendu -> main.tsx fera hydrateRoot.
@@ -84,4 +110,5 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-}));
+  };
+});
