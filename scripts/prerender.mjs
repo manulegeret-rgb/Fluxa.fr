@@ -17,7 +17,7 @@
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { mkdir, writeFile, rm } from "node:fs/promises";
+import { mkdir, writeFile, rm, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import puppeteer from "puppeteer";
 
@@ -26,8 +26,24 @@ const ROOT = join(__dirname, "..");
 const PORT = 4178;
 const BASE = `http://localhost:${PORT}`;
 
-// Routes à pré-rendre (hors "/" — voir en-tête). /demo/* volontairement exclu.
-const ROUTES = [
+// Slugs d'articles dérivés de src/data/articles.ts (source unique de vérité).
+// On lit le fichier en texte et on extrait les "slug": "...", pour ne pas avoir
+// à maintenir une liste en double ici : ajouter un article dans articles.ts
+// suffit pour qu'il soit pré-rendu au prochain `npm run prerender`.
+async function getArticleRoutes() {
+  const src = await readFile(join(ROOT, "src", "data", "articles.ts"), "utf8");
+  // On isole le tableau ARTICLES pour ne PAS capturer les "slug" de CATEGORIES
+  // (site-vitrine, seo-visibilite, conseils-web) qui ne sont pas des articles.
+  const start = src.indexOf("export const ARTICLES");
+  const end = src.indexOf("export const CATEGORIES");
+  const block = end > start ? src.slice(start, end) : src;
+  const slugs = [...block.matchAll(/"slug":\s*"([^"]+)"/g)].map((m) => m[1]);
+  const unique = [...new Set(slugs)];
+  return unique.map((slug) => `/articles/${slug}`);
+}
+
+// Routes statiques à pré-rendre (hors "/" — voir en-tête). /demo/* exclu.
+const STATIC_ROUTES = [
   "/articles",
   "/ressources",
   "/mentions-legales",
@@ -65,6 +81,12 @@ function postProcess(html) {
 }
 
 async function main() {
+  const articleRoutes = await getArticleRoutes();
+  const ROUTES = [...STATIC_ROUTES, ...articleRoutes];
+  console.log(
+    `→ ${ROUTES.length} routes à pré-rendre (${articleRoutes.length} articles).`
+  );
+
   console.log("→ Build de production…");
   await run("npm", ["run", "build"]);
 
@@ -79,14 +101,46 @@ async function main() {
   await new Promise((r) => setTimeout(r, 3000));
 
   const browser = await puppeteer.launch({ headless: true });
+  const warnings = [];
   try {
     for (const route of ROUTES) {
+      const isArticle = route.startsWith("/articles/");
       const page = await browser.newPage();
       await page.goto(`${BASE}${route}`, { waitUntil: "networkidle0", timeout: 30000 });
-      // Laisse l'app s'hydrater et poser title/canonical/meta via React.
-      await new Promise((r) => setTimeout(r, 1500));
+
+      if (isArticle) {
+        // Le corps de l'article est chargé en async (fetch d'un JSON) puis rendu
+        // par <ArticleContent>. On attend que le spinner disparaisse ET qu'au
+        // moins un paragraphe/section soit présent, sinon on figerait le loader.
+        try {
+          await page.waitForFunction(
+            () => {
+              const spinner = document.querySelector(".animate-spin");
+              const article = document.querySelector("article");
+              const hasBody =
+                article && article.querySelectorAll("p, h2, ul").length > 3;
+              return !spinner && hasBody;
+            },
+            { timeout: 15000 }
+          );
+        } catch {
+          warnings.push(`contenu article non détecté à temps : ${route}`);
+        }
+      } else {
+        // Laisse l'app s'hydrater et poser title/canonical/meta via React.
+        await new Promise((r) => setTimeout(r, 1500));
+      }
+
       let html = await page.content();
       html = postProcess(html);
+
+      // Garde-fou : on refuse d'écrire un article qui aurait figé le title
+      // générique de la home (signe que le rendu React n'a pas abouti).
+      if (isArticle && /<title>\s*Fluxa \| Création de site internet/i.test(html)) {
+        warnings.push(`title générique détecté, article ignoré : ${route}`);
+        await page.close();
+        continue;
+      }
 
       const outDir = join(ROOT, "public", route.replace(/^\//, ""));
       await mkdir(outDir, { recursive: true });
@@ -97,6 +151,11 @@ async function main() {
   } finally {
     await browser.close();
     server.kill();
+  }
+
+  if (warnings.length) {
+    console.warn("\n⚠️  Avertissements :");
+    for (const w of warnings) console.warn(`   - ${w}`);
   }
 
   console.log("✅ Pré-rendu terminé. Pense à committer les public/<route>/index.html.");

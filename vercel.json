@@ -7,6 +7,7 @@
     { "source": "/prix-site-vitrine-2026", "destination": "/prix-site-vitrine-2026/index.html" },
     { "source": "/guide-complet-roi-automatisation-artisans", "destination": "/guide-complet-roi-automatisation-artisans/index.html" },
     { "source": "/articles", "destination": "/articles/index.html" },
+    { "source": "/articles/:slug", "destination": "/articles/:slug/index.html" },
     { "source": "/ressources", "destination": "/ressources/index.html" },
     { "source": "/mentions-legales", "destination": "/mentions-legales/index.html" },
     { "source": "/politique-confidentialite", "destination": "/politique-confidentialite/index.html" },
