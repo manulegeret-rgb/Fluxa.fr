@@ -5,7 +5,6 @@ import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { ARTICLES } from "@/data/articles";
 import ArticleContent from "@/components/ArticleContent";
-import { getArticleVisual } from "@/utils/articleVisuals";
 import { Clock, Calendar, ArrowLeft, Share2 } from "lucide-react";
 
 const T = {
@@ -153,16 +152,6 @@ export default function ArticleDetail() {
             </Button>
           </div>
         </header>
-
-        {/* Image avec dégradé coloré */}
-        <div className={`aspect-[3/1] bg-gradient-to-br ${getArticleVisual(article).gradient} rounded-xl mb-6 flex items-center justify-center text-white`}>
-          <div className="text-center space-y-1 px-4">
-            <div className="text-4xl">{getArticleVisual(article).icon}</div>
-            <p className="text-base md:text-lg font-bold drop-shadow-lg line-clamp-2">
-              {article.categoryName}
-            </p>
-          </div>
-        </div>
 
         {/* Contenu complet de l'article */}
         <ArticleContent filename={article.filename} />
