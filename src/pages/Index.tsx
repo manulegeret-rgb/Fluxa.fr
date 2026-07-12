@@ -1,12 +1,23 @@
 ﻿import SEOHead from "@/components/SEOHead";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, ArrowRight, Send, MapPin, Clock, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import fluxaLogo from "@/assets/logo-transparent.webp";
 import { HeroOdyssey } from "@/components/HeroOdyssey";
 import { Reveal, RevealGroup } from "@/components/Reveal";
+import { ARTICLES } from "@/data/articles";
+
+// Articles mis en avant sur la home (fort intérêt SEO / questions clients fréquentes).
+// Maillage interne : la home (page la plus autoritaire) transmet du jus au blog.
+const HOME_ARTICLES = [
+  "combien-coute-un-site-vitrine-professionnel-en-2025",
+  "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
+  "pourquoi-un-site-vitrine-est-indispensable-pour-un-artisan-en-2025",
+]
+  .map((slug) => ARTICLES.find((a) => a.slug === slug))
+  .filter((a): a is (typeof ARTICLES)[number] => Boolean(a));
 
 const SORA: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
 const INTER: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
@@ -185,6 +196,7 @@ const Index = () => {
     { href: "#methode", label: "Méthode" },
     { href: "#pricing", label: "Tarifs" },
     { href: "#pourquoi", label: "Pourquoi nous ?" },
+    { href: "#blog", label: "Blog" },
     { href: "#faq", label: "FAQ" },
   ];
 
@@ -590,6 +602,40 @@ const Index = () => {
         </div>
       </section>
 
+      {/* BLOG / DERNIERS ARTICLES */}
+      <section id="blog" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 45% at 50% 20%,hsl(217,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1100, margin: "0 auto" }}>
+          <Reveal style={{ textAlign: "center", marginBottom: 56 }}>
+            <SectionBadge label="Conseils & Ressources" />
+            <h2 style={{ ...SORA, fontSize: "clamp(30px,4.5vw,48px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Nos derniers articles</h2>
+            <p style={{ ...INTER, fontSize: 17, color: "hsl(215,20%,55%)", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>Guides pratiques pour artisans et TPE : prix, référencement, présence en ligne.</p>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 24 }}>
+            {HOME_ARTICLES.map((article, i) => (
+              <Reveal key={article.slug} delay={i * 0.1} y={20}>
+                <Link to={`/articles/${article.slug}`} className="gc" style={{ height: "100%", display: "flex", flexDirection: "column", padding: "28px 26px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", textDecoration: "none", transition: "all .3s ease" }}>
+                  <span style={{ display: "inline-block", alignSelf: "flex-start", ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "hsl(217,91%,66%)", background: "hsl(217,91%,60%,.1)", borderRadius: 999, padding: "5px 12px", marginBottom: 16 }}>{article.categoryName}</span>
+                  <h3 style={{ ...SORA, fontSize: 18, fontWeight: 600, color: "hsl(210,40%,98%)", margin: "0 0 10px", letterSpacing: "-0.01em", lineHeight: 1.3 }}>{article.title}</h3>
+                  <p style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,50%)", lineHeight: 1.6, margin: "0 0 20px", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{article.excerpt}</p>
+                  <div style={{ marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 6, ...INTER, fontSize: 12, color: "hsl(215,20%,45%)" }}><Clock size={13} /> {article.readingTime} min</span>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 6, ...INTER, fontSize: 13, fontWeight: 600, color: "hsl(217,91%,66%)" }}>Lire l'article <ArrowRight size={14} /></span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={0.2}>
+            <div style={{ textAlign: "center", marginTop: 48 }}>
+              <Link to="/articles" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 28px", borderRadius: 999, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,91%,60%,.06)", ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(210,40%,94%)", textDecoration: "none", transition: "all .2s ease" }}>
+                Voir tous les articles <ArrowRight size={16} />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer style={{ background: "#020710", borderTop: "1px solid hsl(217,32%,10%)" }}>
 
@@ -605,6 +651,7 @@ const Index = () => {
               <h4 style={{ ...SORA, fontSize: 12, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 10px", letterSpacing: "0.04em" }}>Navigation</h4>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[{ href: "#methode", label: "Méthode" }, { href: "#pricing", label: "Tarifs" }, { href: "#pourquoi", label: "Pourquoi nous" }, { href: "#contact", label: "Contact" }, { href: "#faq", label: "FAQ" },
+                  { href: "/articles", label: "Blog & conseils" },
                   { href: "/creation-site-vitrine-artisan-chambery", label: "Artisans Chambéry" },
                   { href: "/creation-site-vitrine-plombier", label: "Plombier" },
                   { href: "/creation-site-vitrine-electricien", label: "Électricien" },
@@ -657,9 +704,10 @@ const Index = () => {
               </div>
             </div>
             <div>
-              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Nos pages métiers</h4>
+              <h4 style={{ ...SORA, fontSize: 13, fontWeight: 600, color: "hsl(210,40%,85%)", margin: "0 0 16px", letterSpacing: "0.04em" }}>Ressources & métiers</h4>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
+                  { href: "/articles", label: "Blog & conseils" },
                   { href: "/creation-site-vitrine-artisan-chambery", label: "Artisans Chambéry" },
                   { href: "/creation-site-vitrine-plombier", label: "Site vitrine plombier" },
                   { href: "/creation-site-vitrine-electricien", label: "Site vitrine électricien" },

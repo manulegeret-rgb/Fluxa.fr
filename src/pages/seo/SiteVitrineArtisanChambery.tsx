@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import RelatedArticles from "@/components/RelatedArticles";
 import { CheckCircle2, Zap, Shield, Clock, MapPin, ArrowRight } from "lucide-react";
 
 export default function SiteVitrineArtisanChambery() {
@@ -134,6 +135,14 @@ export default function SiteVitrineArtisanChambery() {
       </section>
 
       {/* CTA final */}
+      <RelatedArticles
+        slugs={[
+          "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
+          "pourquoi-un-site-vitrine-est-indispensable-pour-un-artisan-en-2025",
+          "5-pages-indispensables-pour-un-site-vitrine-artisan-efficace",
+        ]}
+      />
+
       <section className="py-20 bg-gradient-to-b from-background to-[hsl(217_40%_6%)]">
         <div className="container mx-auto px-6 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Prêt à être visible sur Google ?</h2>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import RelatedArticles from "@/components/RelatedArticles";
 import { CheckCircle2, Zap, Shield, Clock, ArrowRight, HelpCircle } from "lucide-react";
 
 export default function PrixSiteVitrine() {
@@ -161,6 +162,14 @@ export default function PrixSiteVitrine() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles
+        slugs={[
+          "combien-coute-un-site-vitrine-professionnel-en-2025",
+          "hebergement-web-nom-de-domaine-ce-quil-faut-savoir-pour-votre-site",
+          "site-vitrine-vs-page-facebook-quelle-difference-pour-votre-activite",
+        ]}
+      />
 
       <section className="py-20 bg-gradient-to-b from-background to-[hsl(217_40%_6%)]">
         <div className="container mx-auto px-6 max-w-2xl text-center">

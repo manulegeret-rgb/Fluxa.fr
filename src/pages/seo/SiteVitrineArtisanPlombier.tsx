@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { CheckCircle2, Zap, Shield, Clock, Wrench, ArrowRight } from "lucide-react";
+import RelatedArticles from "@/components/RelatedArticles";
 
 export default function SiteVitrineArtisanPlombier() {
   useEffect(() => {
@@ -101,6 +102,14 @@ export default function SiteVitrineArtisanPlombier() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles
+        slugs={[
+          "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
+          "comment-obtenir-des-avis-google-pour-son-activite-artisanale",
+          "combien-coute-un-site-vitrine-professionnel-en-2025",
+        ]}
+      />
 
       <section className="py-20 bg-gradient-to-b from-background to-[hsl(217_40%_6%)]">
         <div className="container mx-auto px-6 max-w-2xl text-center">

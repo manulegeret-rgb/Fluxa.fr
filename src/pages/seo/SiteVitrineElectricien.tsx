@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import RelatedArticles from "@/components/RelatedArticles";
 import { CheckCircle2, Zap, Shield, Clock, ArrowRight } from "lucide-react";
 
 export default function SiteVitrineElectricien() {
@@ -75,6 +76,14 @@ export default function SiteVitrineElectricien() {
           <p className="text-sm text-muted-foreground">Paiement en 2 fois sans frais · Propriété totale du site · 1 round de modifications inclus</p>
         </div>
       </section>
+
+      <RelatedArticles
+        slugs={[
+          "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
+          "comment-obtenir-des-avis-google-pour-son-activite-artisanale",
+          "combien-coute-un-site-vitrine-professionnel-en-2025",
+        ]}
+      />
 
       <section className="py-20 bg-gradient-to-b from-background to-[hsl(217_40%_6%)]">
         <div className="container mx-auto px-6 max-w-2xl text-center">

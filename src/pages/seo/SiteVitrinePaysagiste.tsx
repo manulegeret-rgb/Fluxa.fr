@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import RelatedArticles from "@/components/RelatedArticles";
 import { CheckCircle2, Zap, Shield, Clock, ArrowRight } from "lucide-react";
 
 export default function SiteVitrinePaysagiste() {
@@ -77,6 +78,14 @@ export default function SiteVitrinePaysagiste() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles
+        slugs={[
+          "galerie-photos-realisations-comment-mettre-en-valeur-votre-travail-en-ligne",
+          "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
+          "combien-coute-un-site-vitrine-professionnel-en-2025",
+        ]}
+      />
 
       <section className="py-20 bg-gradient-to-b from-background to-[hsl(217_40%_6%)]">
         <div className="container mx-auto px-6 max-w-2xl text-center">
