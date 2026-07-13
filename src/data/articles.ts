@@ -66,7 +66,7 @@ export const ARTICLES: Article[] = [
   {
     "id": "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
     "slug": "seo-local-artisan-comment-apparaitre-dans-google-maps-et-les-recherches-locales",
-    "title": "SEO local pour artisan : comment apparaître dans Google Maps et les recherches locales",
+    "title": "SEO local pour artisan : apparaître dans Google Maps",
     "metaDescription": "Guide du référencement local pour artisans : Google Business Profile, avis, mots-clés géolocalisés et site optimisé pour apparaître près de chez vous.",
     "excerpt": "Quand un particulier tape 'plombier Paris' ou 'électricien Lyon' sur Google, il voit en premier les résultats locaux. Comment faire partie de ces résultats ? Le SEO local est la clé. Entre Google Business Profile, les avis clients et l'optimisation de votre site, voici comment gagner en visibilité près de chez vous...",
     "category": "seo-visibilite",

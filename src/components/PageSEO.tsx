@@ -156,6 +156,40 @@ export default function PageSEO({
       document.head.appendChild(script);
     }
 
+    // === ARTICLE / BLOGPOSTING (Schema.org) — rich results articles ===
+    if (ogType === "article" && articleMeta) {
+      const articleLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title.replace(/\s*\|\s*Fluxa\s*$/, ""),
+        "description": description,
+        "image": ogImage,
+        "datePublished": articleMeta.publishedTime,
+        "dateModified": articleMeta.modifiedTime || articleMeta.publishedTime,
+        "author": {
+          "@type": "Person",
+          "name": articleMeta.author || "Emmanuel Légeret",
+          "url": "https://fluxa.fr/",
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Fluxa",
+          "logo": { "@type": "ImageObject", "url": "https://fluxa.fr/logo.png" },
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalPath ? `https://fluxa.fr${canonicalPath}` : `https://fluxa.fr${location.pathname}`,
+        },
+      };
+      const old = document.querySelector('script[data-article="true"]');
+      if (old) old.remove();
+      const s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.setAttribute("data-article", "true");
+      s.text = JSON.stringify(articleLd);
+      document.head.appendChild(s);
+    }
+
     // Cleanup au démontage
     return () => {
       // Retirer le breadcrumb schema si présent
@@ -163,8 +197,10 @@ export default function PageSEO({
       if (breadcrumbScript) {
         breadcrumbScript.remove();
       }
+      const articleScript = document.querySelector('script[data-article="true"]');
+      if (articleScript) articleScript.remove();
     };
-  }, [title, description, canonicalPath, location.pathname, keywords, ogImage, noindex, breadcrumb]);
+  }, [title, description, canonicalPath, location.pathname, keywords, ogImage, noindex, breadcrumb, ogType, articleMeta]);
 
   return null; // Composant invisible
 }

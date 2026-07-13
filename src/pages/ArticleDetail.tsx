@@ -141,15 +141,6 @@ export default function ArticleDetail() {
               <Share2 className="w-4 h-4" />
               Facebook
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => shareArticle("twitter")}
-              className="gap-2"
-            >
-              <Share2 className="w-4 h-4" />
-              Twitter
-            </Button>
           </div>
         </header>
 
