@@ -25,7 +25,7 @@ export default function SEOHead() {
     // === TITLE & DESCRIPTION ===
     const title = "Fluxa | Création de site internet professionnel dès 890€";
     const description =
-      "Agence web à Chambéry (Savoie) : site vitrine professionnel dès 890€ pour artisans, TPE et indépendants. Responsive, SEO inclus, hébergement offert 1 an.";
+      "Agence web à Chambéry (Savoie) : site internet professionnel dès 890€ pour artisans, TPE et indépendants. Responsive, SEO inclus, hébergement offert 1 an.";
 
     document.title = title;
     ensureMeta("description", description);
@@ -36,7 +36,7 @@ export default function SEOHead() {
     ensureMeta("theme-color", "#0f172a");
     ensureMeta(
       "keywords",
-      "création site vitrine, site vitrine professionnel, agence web TPE, site internet artisan, site vitrine clé en main,hébergement inclus, SEO optimisé, site vitrine artisan, création site internet, devis site vitrine"
+      "création site internet, site internet professionnel, agence web TPE, site internet artisan, site internet clé en main,hébergement inclus, SEO optimisé, site internet artisan, création site internet, devis site internet"
     );
 
     // === CANONICAL ===
@@ -58,7 +58,7 @@ export default function SEOHead() {
     ensureOG("og:image:height", "630");
     ensureOG(
       "og:image:alt",
-      "Fluxa - Agence web création site vitrine professionnel dès 890€ pour artisans et TPE"
+      "Fluxa - Agence web création site internet professionnel dès 890€ pour artisans et TPE"
     );
     ensureOG("og:site_name", "Fluxa");
     ensureOG("og:locale", "fr_FR");
@@ -70,7 +70,7 @@ export default function SEOHead() {
     ensureMeta("twitter:image", "https://fluxa.fr/og-image-v2.png");
     ensureMeta(
       "twitter:image:alt",
-      "Fluxa - Agence web création site vitrine professionnel dès 890€ pour artisans et TPE"
+      "Fluxa - Agence web création site internet professionnel dès 890€ pour artisans et TPE"
     );
 
     // Le schema JSON-LD est défini statiquement dans index.html — pas de doublon React ici.

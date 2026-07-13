@@ -102,7 +102,7 @@ export default function PageSEO({
     ensureOG("og:image", ogImage);
     ensureOG("og:image:width", "1200");
     ensureOG("og:image:height", "630");
-    ensureOG("og:image:alt", "Fluxa - Création de sites vitrines professionnels pour artisans et indépendants");
+    ensureOG("og:image:alt", "Fluxa - Création de sites internet professionnels pour artisans et indépendants");
     ensureOG("og:site_name", "Fluxa");
     ensureOG("og:locale", "fr_FR");
 
@@ -127,7 +127,7 @@ export default function PageSEO({
     ensureMeta("twitter:title", title);
     ensureMeta("twitter:description", description);
     ensureMeta("twitter:image", ogImage);
-    ensureMeta("twitter:image:alt", "Fluxa - Création de sites vitrines professionnels pour artisans et indépendants");
+    ensureMeta("twitter:image:alt", "Fluxa - Création de sites internet professionnels pour artisans et indépendants");
 
     // === BREADCRUMB (Schema.org) ===
     if (breadcrumb && breadcrumb.length > 0) {

@@ -4,9 +4,9 @@ import { CheckCircle2, Zap, Shield, Clock, MapPin, ArrowRight } from "lucide-rea
 
 export default function SiteVitrineArtisanChambery() {
   useEffect(() => {
-    document.title = "Création site vitrine artisan Chambéry & Savoie : Fluxa, dès 890€";
+    document.title = "Création site internet artisan Chambéry & Savoie : Fluxa, dès 890€";
     const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", "Fluxa crée votre site vitrine professionnel à Chambéry et en Savoie. Artisan, TPE ou indépendant : site responsive, SEO local, hébergement inclus, livré en 2-3 semaines dès 890€.");
+    if (desc) desc.setAttribute("content", "Fluxa crée votre site internet professionnel à Chambéry et en Savoie. Artisan, TPE ou indépendant : site responsive, SEO local, hébergement inclus, livré en 2-3 semaines dès 890€.");
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
@@ -36,11 +36,11 @@ export default function SiteVitrineArtisanChambery() {
             <MapPin className="w-3.5 h-3.5" /> Chambéry · Savoie · Cognin
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Création de site vitrine pour artisans<br className="hidden md:block" />
+            Création de site internet pour artisans<br className="hidden md:block" />
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent"> à Chambéry et en Savoie</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Vous êtes artisan, plombier, électricien, paysagiste ou indépendant en Savoie ? Fluxa crée votre site vitrine professionnel en 2 à 3 semaines, clé en main, dès 890€ tout compris.
+            Vous êtes artisan, plombier, électricien, paysagiste ou indépendant en Savoie ? Fluxa crée votre site internet professionnel en 2 à 3 semaines, clé en main, dès 890€ tout compris.
           </p>
           <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
@@ -50,15 +50,15 @@ export default function SiteVitrineArtisanChambery() {
         </div>
       </section>
 
-      {/* Pourquoi un site vitrine */}
+      {/* Pourquoi un site internet */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-4">Pourquoi un artisan a besoin d'un site vitrine en 2026 ?</h2>
+          <h2 className="text-3xl font-bold mb-4">Pourquoi un artisan a besoin d'un site internet en 2026 ?</h2>
           <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
             En Savoie comme partout en France, <strong className="text-foreground">85% des clients cherchent un artisan sur Google</strong> avant de décrocher leur téléphone. Si vous n'apparaissez pas en ligne, vous n'existez pas pour eux — peu importe votre réputation locale ou vos années d'expérience.
           </p>
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Un site vitrine professionnel vous permet d'être trouvé sur Google lorsqu'un habitant de Chambéry, Cognin, Aix-les-Bains ou Albertville cherche votre métier. Il présente vos services, votre zone d'intervention, vos coordonnées, et donne envie au visiteur de vous appeler plutôt que votre concurrent.
+            Un site internet professionnel vous permet d'être trouvé sur Google lorsqu'un habitant de Chambéry, Cognin, Aix-les-Bains ou Albertville cherche votre métier. Il présente vos services, votre zone d'intervention, vos coordonnées, et donne envie au visiteur de vous appeler plutôt que votre concurrent.
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
@@ -81,7 +81,7 @@ export default function SiteVitrineArtisanChambery() {
         <div className="container mx-auto px-6 max-w-4xl">
           <h2 className="text-3xl font-bold mb-4">Ce que Fluxa crée pour vous</h2>
           <p className="text-muted-foreground mb-10 leading-relaxed">
-            Fluxa est une agence web basée à Cognin, à deux pas de Chambéry. Nous sommes spécialisés dans la création de sites vitrines pour les artisans et TPE de Savoie. Chaque site est pensé pour votre métier, votre zone géographique, et vos clients potentiels.
+            Fluxa est une agence web basée à Cognin, à deux pas de Chambéry. Nous sommes spécialisés dans la création de sites internet pour les artisans et TPE de Savoie. Chaque site est pensé pour votre métier, votre zone géographique, et vos clients potentiels.
           </p>
           <div className="space-y-4">
             {[
@@ -105,7 +105,7 @@ export default function SiteVitrineArtisanChambery() {
       {/* Tarif */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-4">Tarif site vitrine artisan</h2>
+          <h2 className="text-3xl font-bold mb-4">Tarif site internet artisan</h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
             Notre formule de base est à <strong className="text-foreground">890€ tout compris</strong> : design responsive, jusqu'à 5 pages, formulaire de contact, optimisation SEO, hébergement et nom de domaine inclus la première année. Paiement en 2 fois sans frais disponible.
           </p>
@@ -113,7 +113,7 @@ export default function SiteVitrineArtisanChambery() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <p className="text-3xl font-bold text-primary">890€</p>
-                <p className="text-sm text-muted-foreground mt-1">Site vitrine 5 pages · hébergement + domaine inclus 1ère année</p>
+                <p className="text-sm text-muted-foreground mt-1">Site internet 5 pages · hébergement + domaine inclus 1ère année</p>
               </div>
               <ul className="text-sm text-muted-foreground space-y-1.5">
                 {["Design responsive mobile + desktop", "SEO local optimisé", "Formulaire de contact", "1 round de modifications", "Livraison 2-3 semaines"].map((f, i) => (

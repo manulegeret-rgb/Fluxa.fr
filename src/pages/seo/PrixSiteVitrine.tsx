@@ -4,15 +4,15 @@ import { CheckCircle2, Zap, Shield, Clock, ArrowRight, HelpCircle } from "lucide
 
 export default function PrixSiteVitrine() {
   useEffect(() => {
-    document.title = "Prix site vitrine 2026 : combien ça coûte vraiment ?";
+    document.title = "Prix site internet 2026 : combien ça coûte vraiment ?";
     const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", "Agence, freelance ou constructeur : comparatif honnête des prix pour un site vitrine professionnel en 2026. Fluxa propose la formule complète dès 890€ tout compris.");
+    if (desc) desc.setAttribute("content", "Agence, freelance ou constructeur : comparatif honnête des prix pour un site internet professionnel en 2026. Fluxa propose la formule complète dès 890€ tout compris.");
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://fluxa.fr/prix-site-vitrine-2026";
 
-    const ld = { "@context": "https://schema.org", "@type": "Article", "headline": "Prix site vitrine 2026 : combien ça coûte vraiment ?", "author": { "@type": "Organization", "name": "Fluxa" }, "publisher": { "@type": "Organization", "name": "Fluxa", "url": "https://fluxa.fr" }, "datePublished": "2026-01-01", "description": "Comparatif honnête des prix pour un site vitrine professionnel en 2026." };
+    const ld = { "@context": "https://schema.org", "@type": "Article", "headline": "Prix site internet 2026 : combien ça coûte vraiment ?", "author": { "@type": "Organization", "name": "Fluxa" }, "publisher": { "@type": "Organization", "name": "Fluxa", "url": "https://fluxa.fr" }, "datePublished": "2026-01-01", "description": "Comparatif honnête des prix pour un site internet professionnel en 2026." };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.setAttribute("data-seo-page", "true"); s.text = JSON.stringify(ld); document.head.appendChild(s);
     return () => document.querySelectorAll('script[data-seo-page]').forEach(e => e.remove());
   }, []);
@@ -25,7 +25,7 @@ export default function PrixSiteVitrine() {
             Guide complet · 2026
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Prix d'un site vitrine en 2026 :<br className="hidden md:block" />
+            Prix d'un site internet en 2026 :<br className="hidden md:block" />
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent"> combien ça coûte vraiment ?</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -86,7 +86,7 @@ export default function PrixSiteVitrine() {
                   <h3 className="font-semibold text-lg text-primary">Fluxa — Agence spécialisée artisans</h3>
                   <span className="text-sm font-bold text-primary">dès 890€ tout compris</span>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">Spécialisés dans les sites vitrines pour artisans et TPE, nous proposons un rapport qualité/prix imbattable : design professionnel, SEO local, hébergement et domaine inclus, livraison en 2-3 semaines. Vous payez une fois, vous êtes propriétaire du site.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">Spécialisés dans les sites internet pour artisans et TPE, nous proposons un rapport qualité/prix imbattable : design professionnel, SEO local, hébergement et domaine inclus, livraison en 2-3 semaines. Vous payez une fois, vous êtes propriétaire du site.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
                   <span className="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded-full">✓ Rapport Q/P optimal</span>
                   <span className="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded-full">✓ SEO local inclus</span>
@@ -106,7 +106,7 @@ export default function PrixSiteVitrine() {
                   <h3 className="font-semibold text-lg">Grande agence web</h3>
                   <span className="text-sm font-bold text-muted-foreground">3 000€ à 10 000€+</span>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">Pour des projets complexes (e-commerce, applications web, gros sites corporate). Largement surdimensionné pour un site vitrine d'artisan ou de TPE. Délais souvent longs (2-4 mois) et prix élevés.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">Pour des projets complexes (e-commerce, applications web, gros sites corporate). Largement surdimensionné pour un site internet d'artisan ou de TPE. Délais souvent longs (2-4 mois) et prix élevés.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
                   <span className="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded-full">✓ Haute qualité</span>
                   <span className="bg-red-500/10 text-red-400 px-2 py-1 rounded-full">✗ Prix élevé</span>
@@ -120,7 +120,7 @@ export default function PrixSiteVitrine() {
 
       <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-6">Ce qui influence le prix d'un site vitrine</h2>
+          <h2 className="text-3xl font-bold mb-6">Ce qui influence le prix d'un site internet</h2>
           <div className="space-y-4">
             {[
               { q: "Le nombre de pages", a: "Un site à 3 pages (accueil, services, contact) coûte moins cher qu'un site à 8 pages. La formule Fluxa inclut jusqu'à 5 pages — largement suffisant pour un artisan ou une TPE." },
@@ -143,7 +143,7 @@ export default function PrixSiteVitrine() {
           <div className="rounded-2xl border-2 border-primary/30 bg-primary/5 p-6">
             <ul className="grid sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
               {[
-                "Site vitrine jusqu'à 5 pages personnalisées",
+                "Site internet jusqu'à 5 pages personnalisées",
                 "Design responsive mobile + desktop",
                 "Maquette validée avant développement",
                 "SEO local optimisé (votre ville + métier)",

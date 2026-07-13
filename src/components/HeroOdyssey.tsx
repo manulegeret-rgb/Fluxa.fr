@@ -62,9 +62,9 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ typingText, onCta, onP
 
           {/* Title — h1 sémantique keyword-rich pour Google, visuellement "Votre site" */}
           <motion.h1 variants={item} style={{ ...SORA, fontSize: "clamp(52px,8vw,96px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.04em", color: "#fff", margin: "0 0 4px" }}>
-            <span aria-label="Site vitrine professionnel pour artisans et TPE" role="text">
+            <span aria-label="Site internet professionnel pour artisans et TPE" role="text">
               <span aria-hidden="true">Votre site</span>
-              <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap" }}>Site vitrine professionnel pour artisans et TPE</span>
+              <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap" }}>Site internet professionnel pour artisans et TPE</span>
             </span>
           </motion.h1>
 

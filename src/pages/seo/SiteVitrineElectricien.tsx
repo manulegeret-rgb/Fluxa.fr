@@ -4,15 +4,15 @@ import { CheckCircle2, Zap, Shield, Clock, ArrowRight } from "lucide-react";
 
 export default function SiteVitrineElectricien() {
   useEffect(() => {
-    document.title = "Création site vitrine électricien : Fluxa, dès 890€ tout compris";
+    document.title = "Création site internet électricien : Fluxa, dès 890€ tout compris";
     const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", "Fluxa crée le site vitrine de votre entreprise d'électricité. SEO local, design professionnel, formulaire de contact, hébergement inclus. Livré en 2-3 semaines dès 890€.");
+    if (desc) desc.setAttribute("content", "Fluxa crée le site internet de votre entreprise d'électricité. SEO local, design professionnel, formulaire de contact, hébergement inclus. Livré en 2-3 semaines dès 890€.");
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://fluxa.fr/creation-site-vitrine-electricien";
 
-    const ld = { "@context": "https://schema.org", "@type": "Service", "name": "Création site vitrine électricien", "provider": { "@type": "LocalBusiness", "name": "Fluxa", "url": "https://fluxa.fr" }, "description": "Création de sites vitrines professionnels pour électriciens.", "offers": { "@type": "Offer", "price": "890", "priceCurrency": "EUR" } };
+    const ld = { "@context": "https://schema.org", "@type": "Service", "name": "Création site internet électricien", "provider": { "@type": "LocalBusiness", "name": "Fluxa", "url": "https://fluxa.fr" }, "description": "Création de sites internet professionnels pour électriciens.", "offers": { "@type": "Offer", "price": "890", "priceCurrency": "EUR" } };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.setAttribute("data-seo-page", "true"); s.text = JSON.stringify(ld); document.head.appendChild(s);
     return () => document.querySelectorAll('script[data-seo-page]').forEach(e => e.remove());
   }, []);
@@ -25,11 +25,11 @@ export default function SiteVitrineElectricien() {
             <Zap className="w-3.5 h-3.5" /> Spécial électriciens & installateurs
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Site vitrine professionnel<br className="hidden md:block" />
+            Site internet professionnel<br className="hidden md:block" />
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent"> pour électricien</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Vos clients cherchent un électricien qualifié sur Google avant d'appeler. Sans site, vous ratez ces opportunités chaque jour. Fluxa crée votre site vitrine en 2-3 semaines, dès 890€ tout compris.
+            Vos clients cherchent un électricien qualifié sur Google avant d'appeler. Sans site, vous ratez ces opportunités chaque jour. Fluxa crée votre site internet en 2-3 semaines, dès 890€ tout compris.
           </p>
           <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
@@ -41,7 +41,7 @@ export default function SiteVitrineElectricien() {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-4">Ce qu'un site vitrine apporte à un électricien</h2>
+          <h2 className="text-3xl font-bold mb-4">Ce qu'un site internet apporte à un électricien</h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
             Un électricien sérieux avec un site professionnel inspire confiance dès le premier regard. Vos certifications, vos interventions (installation électrique, tableau, domotique, bornes de recharge), votre zone d'intervention — tout ça visible en quelques secondes. Le client appelle vous, pas la concurrence.
           </p>
@@ -63,7 +63,7 @@ export default function SiteVitrineElectricien() {
 
       <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-6">Notre offre site vitrine pour électricien</h2>
+          <h2 className="text-3xl font-bold mb-6">Notre offre site internet pour électricien</h2>
           <div className="rounded-2xl border-2 border-primary/30 bg-primary/5 p-6 mb-6">
             <p className="text-2xl font-bold text-primary mb-1">890€ tout compris</p>
             <p className="text-sm text-muted-foreground mb-4">Tout ce qu'il faut pour être visible et crédible en ligne :</p>

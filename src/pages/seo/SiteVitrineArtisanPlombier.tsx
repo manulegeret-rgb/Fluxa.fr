@@ -4,15 +4,15 @@ import RelatedArticles from "@/components/RelatedArticles";
 
 export default function SiteVitrineArtisanPlombier() {
   useEffect(() => {
-    document.title = "Création site vitrine plombier : Fluxa, dès 890€ tout compris";
+    document.title = "Création site internet plombier : Fluxa, dès 890€ tout compris";
     const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", "Fluxa crée le site vitrine de votre entreprise de plomberie. Design professionnel, SEO local, formulaire de contact, hébergement inclus. Livré en 2-3 semaines dès 890€.");
+    if (desc) desc.setAttribute("content", "Fluxa crée le site internet de votre entreprise de plomberie. Design professionnel, SEO local, formulaire de contact, hébergement inclus. Livré en 2-3 semaines dès 890€.");
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://fluxa.fr/creation-site-vitrine-plombier";
 
-    const ld = { "@context": "https://schema.org", "@type": "Service", "name": "Création site vitrine plombier", "provider": { "@type": "LocalBusiness", "name": "Fluxa", "url": "https://fluxa.fr" }, "description": "Création de sites vitrines professionnels pour plombiers.", "offers": { "@type": "Offer", "price": "890", "priceCurrency": "EUR" } };
+    const ld = { "@context": "https://schema.org", "@type": "Service", "name": "Création site internet plombier", "provider": { "@type": "LocalBusiness", "name": "Fluxa", "url": "https://fluxa.fr" }, "description": "Création de sites internet professionnels pour plombiers.", "offers": { "@type": "Offer", "price": "890", "priceCurrency": "EUR" } };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.setAttribute("data-seo-page", "true"); s.text = JSON.stringify(ld); document.head.appendChild(s);
     return () => document.querySelectorAll('script[data-seo-page]').forEach(e => e.remove());
   }, []);
@@ -25,11 +25,11 @@ export default function SiteVitrineArtisanPlombier() {
             <Wrench className="w-3.5 h-3.5" /> Spécial plombiers & chauffagistes
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Site vitrine professionnel<br className="hidden md:block" />
+            Site internet professionnel<br className="hidden md:block" />
             <span className="bg-gradient-to-r from-primary to-[hsl(217,77%,39%)] bg-clip-text text-transparent"> pour plombier</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Quand un client a une fuite à 22h, il cherche "plombier urgence" sur Google. Si vous n'avez pas de site, il appelle votre concurrent. Fluxa crée votre site vitrine en 2-3 semaines, dès 890€ tout compris.
+            Quand un client a une fuite à 22h, il cherche "plombier urgence" sur Google. Si vous n'avez pas de site, il appelle votre concurrent. Fluxa crée votre site internet en 2-3 semaines, dès 890€ tout compris.
           </p>
           <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Demander un devis gratuit
@@ -43,7 +43,7 @@ export default function SiteVitrineArtisanPlombier() {
         <div className="container mx-auto px-6 max-w-4xl">
           <h2 className="text-3xl font-bold mb-4">Ce que doit contenir le site d'un plombier</h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Un bon site vitrine pour un plombier ne se résume pas à une page avec votre numéro de téléphone. Il doit rassurer le client, montrer votre sérieux, et le pousser à vous appeler plutôt qu'un autre. Voici les éléments indispensables :
+            Un bon site internet pour un plombier ne se résume pas à une page avec votre numéro de téléphone. Il doit rassurer le client, montrer votre sérieux, et le pousser à vous appeler plutôt qu'un autre. Voici les éléments indispensables :
           </p>
           <div className="grid sm:grid-cols-2 gap-4 mb-8">
             {[
@@ -66,9 +66,9 @@ export default function SiteVitrineArtisanPlombier() {
 
       <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-4">Combien coûte un site vitrine pour un plombier ?</h2>
+          <h2 className="text-3xl font-bold mb-4">Combien coûte un site internet pour un plombier ?</h2>
           <p className="text-muted-foreground mb-6 leading-relaxed">
-            Le prix d'un site vitrine varie énormément selon qui vous contactez. Voici une comparaison honnête :
+            Le prix d'un site internet varie énormément selon qui vous contactez. Voici une comparaison honnête :
           </p>
           <div className="rounded-2xl border border-border overflow-hidden mb-8">
             <div className="grid grid-cols-3 text-center text-xs md:text-sm font-semibold border-b border-border bg-card/50">
@@ -93,7 +93,7 @@ export default function SiteVitrineArtisanPlombier() {
           </div>
           <div className="rounded-2xl border-2 border-primary/30 bg-primary/5 p-6">
             <p className="text-2xl font-bold text-primary mb-1">890€ tout compris</p>
-            <p className="text-sm text-muted-foreground mb-4">Formule site vitrine Fluxa — ce qui est inclus :</p>
+            <p className="text-sm text-muted-foreground mb-4">Formule site internet Fluxa — ce qui est inclus :</p>
             <ul className="grid sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
               {["5 pages (Accueil, Services, Galerie, À propos, Contact)", "Design responsive mobile + desktop", "SEO local optimisé pour votre ville", "Formulaire de contact fonctionnel", "Hébergement sécurisé inclus 1ère année", "Nom de domaine inclus 1ère année", "1 round de modifications", "Support technique inclus"].map((f, i) => (
                 <li key={i} className="flex items-center gap-2"><span className="text-primary">✓</span> {f}</li>
@@ -113,7 +113,7 @@ export default function SiteVitrineArtisanPlombier() {
 
       <section className="py-20 bg-gradient-to-b from-background to-[hsl(217_40%_6%)]">
         <div className="container mx-auto px-6 max-w-2xl text-center">
-          <h2 className="text-3xl font-bold mb-4">Votre site vitrine plombier, livré en 2-3 semaines</h2>
+          <h2 className="text-3xl font-bold mb-4">Votre site internet plombier, livré en 2-3 semaines</h2>
           <p className="text-muted-foreground mb-8">Devis gratuit, sans engagement. On vous répond sous 48h avec une proposition adaptée à votre activité.</p>
           <a href="/#contact-form" className="group inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
             Obtenir mon devis gratuit

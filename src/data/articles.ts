@@ -1,5 +1,5 @@
 // Métadonnées des articles Fluxa
-// Création de sites vitrines pour artisans et TPE
+// Création de sites internet pour artisans et TPE
 
 export interface Article {
   id: string;
@@ -26,7 +26,7 @@ export const ARTICLES: Article[] = [
     "excerpt": "En 2026, un artisan sans site internet passe à côté de nombreuses opportunités. La majorité de vos futurs clients commencent leurs recherches en ligne avant de vous contacter. Un site professionnel vous permet d'être trouvé, de présenter vos réalisations et d'inspirer confiance dès le premier contact...",
     "category": "site-vitrine",
     "categoryName": "Site internet",
-    "keywords": ["site vitrine artisan", "présence en ligne", "site internet professionnel", "création site artisan"],
+    "keywords": ["site internet artisan", "présence en ligne", "site internet professionnel", "création site artisan"],
     "readingTime": 4,
     "publishDate": "2026-01-15",
     "author": "Emmanuel Légeret",
@@ -41,7 +41,7 @@ export const ARTICLES: Article[] = [
     "excerpt": "Le prix d'un site internet varie énormément selon les prestataires. Entre 500€ et plusieurs milliers d'euros, comment s'y retrouver ? Ce guide vous explique ce qui justifie les différences de tarifs, ce qui doit être inclus dans une offre sérieuse, et comment éviter les mauvaises surprises...",
     "category": "site-vitrine",
     "categoryName": "Site internet",
-    "keywords": ["prix site vitrine", "coût site internet", "tarif création site web", "site vitrine clé en main"],
+    "keywords": ["prix site internet", "coût site internet", "tarif création site web", "site internet clé en main"],
     "readingTime": 5,
     "publishDate": "2026-01-20",
     "author": "Emmanuel Légeret",
@@ -56,7 +56,7 @@ export const ARTICLES: Article[] = [
     "excerpt": "Beaucoup d'artisans et d'indépendants se demandent si une page Facebook suffit. La réponse courte : non. Un site et une page Facebook ont des rôles complémentaires mais très différents. Le site vous appartient, il est indexé sur Google, et il vous représente 24h/24...",
     "category": "site-vitrine",
     "categoryName": "Site internet",
-    "keywords": ["site vitrine vs Facebook", "page Facebook artisan", "site internet vs réseaux sociaux"],
+    "keywords": ["site internet vs Facebook", "page Facebook artisan", "site internet vs réseaux sociaux"],
     "readingTime": 4,
     "publishDate": "2026-01-25",
     "author": "Emmanuel Légeret",
@@ -116,7 +116,7 @@ export const ARTICLES: Article[] = [
     "excerpt": "Un site d'artisan n'a pas besoin d'être complexe pour être efficace. Mais certaines pages sont absolument indispensables pour rassurer vos visiteurs et les inciter à vous contacter. Voici les 5 pages à absolument avoir, avec ce que chacune doit contenir pour convertir...",
     "category": "conseils-web",
     "categoryName": "Conseils pratiques",
-    "keywords": ["pages site vitrine", "structure site artisan", "site internet artisan"],
+    "keywords": ["pages site internet", "structure site artisan", "site internet artisan"],
     "readingTime": 5,
     "publishDate": "2026-02-15",
     "author": "Emmanuel Légeret",
@@ -176,7 +176,7 @@ export const ARTICLES: Article[] = [
     "excerpt": "Un bon design ne suffit pas si vos textes ne parlent pas à vos visiteurs. Vos clients potentiels veulent savoir qui vous êtes, ce que vous faites, et pourquoi vous choisir vous plutôt qu'un concurrent. Voici comment rédiger un contenu web efficace, même sans être rédacteur professionnel...",
     "category": "conseils-web",
     "categoryName": "Conseils pratiques",
-    "keywords": ["rédiger textes site web", "contenu site vitrine", "copywriting artisan"],
+    "keywords": ["rédiger textes site web", "contenu site internet", "copywriting artisan"],
     "readingTime": 5,
     "publishDate": "2026-03-05",
     "author": "Emmanuel Légeret",

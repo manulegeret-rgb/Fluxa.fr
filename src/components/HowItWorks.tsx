@@ -21,7 +21,7 @@ export default function HowItWorks() {
     {
       icon: Rocket,
       title: "4. Développement & mise en ligne",
-      desc: "Une fois les maquettes validées, développement et déploiement de votre site vitrine professionnel.",
+      desc: "Une fois les maquettes validées, développement et déploiement de votre site internet professionnel.",
     },
   ];
 
