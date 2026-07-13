@@ -4,7 +4,6 @@ import HomeLogoOverlay from "@/components/HomeLogoOverlay";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { ARTICLES, CATEGORIES } from "@/data/articles";
-import { getArticleVisual } from "@/utils/articleVisuals";
 import { Clock, ArrowRight, Search } from "lucide-react";
 
 const T = {
@@ -49,8 +48,8 @@ export default function ArticlesHub() {
   return (
     <main className="min-h-screen bg-background text-foreground px-6 py-16 md:py-24">
       <PageSEO
-        title="Blog Création de Site Vitrine pour Artisans et TPE : Guides & Conseils | Fluxa"
-        description="Découvrez nos guides complets sur la création de site vitrine pour artisans et TPE. SEO, design responsive, référencement local et conseils pour développer votre présence en ligne."
+        title="Blog Fluxa : guides et conseils site internet pour artisans et TPE"
+        description="Nos guides pour artisans et TPE : prix d'un site internet, référencement local, présence en ligne, avis Google et conseils pour attirer plus de clients."
         canonicalPath="/articles"
         keywords={[
           "blog création site vitrine",
@@ -79,7 +78,7 @@ export default function ArticlesHub() {
         {/* Header */}
         <header className="text-center space-y-6 mb-16">
           <h1 className={T.h1}>
-            Guides & Conseils Création de Site Vitrine
+            Guides & conseils pour votre site internet
           </h1>
           <p className={`${T.p} max-w-3xl mx-auto`}>
             Découvrez nos guides concrets pour développer votre présence en ligne, améliorer votre visibilité sur Google et attirer plus de clients.
@@ -148,23 +147,12 @@ export default function ArticlesHub() {
             {/* Grille d'articles */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredArticles.map((article) => {
-                const visual = getArticleVisual(article);
                 return (
                   <Link
                     key={article.id}
                     to={`/articles/${article.slug}`}
                     className={`${T.card} group overflow-hidden hover:shadow-xl`}
                   >
-                    {/* Image avec dégradé coloré */}
-                    <div className={`aspect-video bg-gradient-to-br ${visual.gradient} flex items-center justify-center text-white`}>
-                      <div className="text-center space-y-2 px-4">
-                        <div className="text-6xl">{visual.icon}</div>
-                        <p className="text-sm font-semibold drop-shadow">
-                          {article.categoryName}
-                        </p>
-                      </div>
-                    </div>
-
                   <div className="p-6 space-y-4">
                     {/* Catégorie */}
                     <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
