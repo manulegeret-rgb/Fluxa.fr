@@ -12,7 +12,17 @@ export default function SiteVitrineArtisanChambery() {
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://fluxa.fr/creation-site-vitrine-artisan-chambery";
 
-    const ld = { "@context": "https://schema.org", "@type": "Service", "name": "Création site vitrine artisan Chambéry", "provider": { "@type": "LocalBusiness", "name": "Fluxa", "url": "https://fluxa.fr" }, "areaServed": { "@type": "City", "name": "Chambéry" }, "description": "Création de sites vitrines professionnels pour artisans à Chambéry et en Savoie.", "offers": { "@type": "Offer", "price": "890", "priceCurrency": "EUR" } };
+    const ld = { "@context": "https://schema.org", "@type": "Service", "name": "Création site internet artisan Chambéry", "provider": { "@type": "LocalBusiness", "name": "Fluxa", "url": "https://fluxa.fr" }, "areaServed": [
+      { "@type": "City", "name": "Chambéry" },
+      { "@type": "City", "name": "Cognin" },
+      { "@type": "City", "name": "La Motte-Servolex" },
+      { "@type": "City", "name": "La Ravoire" },
+      { "@type": "City", "name": "Barberaz" },
+      { "@type": "City", "name": "Bassens" },
+      { "@type": "City", "name": "Challes-les-Eaux" },
+      { "@type": "City", "name": "Aix-les-Bains" },
+      { "@type": "AdministrativeArea", "name": "Savoie" }
+    ], "description": "Création de sites internet professionnels pour artisans à Chambéry, dans l'agglomération et en Savoie.", "offers": { "@type": "Offer", "price": "890", "priceCurrency": "EUR" } };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.setAttribute("data-seo-page", "true"); s.text = JSON.stringify(ld); document.head.appendChild(s);
     return () => document.querySelectorAll('script[data-seo-page]').forEach(e => e.remove());
   }, []);
@@ -122,12 +132,24 @@ export default function SiteVitrineArtisanChambery() {
       {/* Zone géo */}
       <section className="py-12 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-2xl font-bold mb-4">Zone d'intervention</h2>
+          <h2 className="text-2xl font-bold mb-4">Notre zone d'intervention autour de Chambéry</h2>
           <p className="text-muted-foreground mb-6 leading-relaxed">
-            Basés à Cognin (73160), nous intervenons pour les artisans et entreprises de toute la Savoie et au-delà : Chambéry, Aix-les-Bains, Albertville, Annecy, Grenoble, et partout en France pour les projets à distance.
+            Basés à Cognin (73160), à cinq minutes du centre de Chambéry, nous connaissons bien le tissu artisanal local. Nous créons des sites internet pour les artisans, commerçants et TPE de tout le bassin chambérien et de la Savoie.
           </p>
+          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+            {[
+              { zone: "Chambéry & agglomération", detail: "Chambéry, Cognin, La Motte-Servolex, La Ravoire, Barberaz, Bassens, Challes-les-Eaux : le cœur de notre activité, avec un référencement local pensé pour chaque commune." },
+              { zone: "Avant-Pays & Aix-les-Bains", detail: "Aix-les-Bains, Le Bourget-du-Lac, Albertville et l'ensemble de la Savoie : nous nous déplaçons ou travaillons à distance selon votre préférence." },
+              { zone: "Au-delà de la Savoie", detail: "Annecy, Grenoble et toute la France : la création d'un site internet se fait très bien à distance, avec des échanges par visio et téléphone." },
+            ].map((z, i) => (
+              <div key={i} className="rounded-xl border border-border/60 bg-card/40 p-4">
+                <h3 className="font-semibold text-sm mb-1.5 flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-primary shrink-0" />{z.zone}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{z.detail}</p>
+              </div>
+            ))}
+          </div>
           <div className="flex flex-wrap gap-2">
-            {["Chambéry", "Cognin", "Aix-les-Bains", "Albertville", "Annecy", "Grenoble", "Savoie", "Haute-Savoie", "France entière"].map(v => (
+            {["Chambéry", "Cognin", "La Motte-Servolex", "La Ravoire", "Barberaz", "Bassens", "Challes-les-Eaux", "Aix-les-Bains", "Le Bourget-du-Lac", "Albertville", "Annecy", "Savoie", "France entière"].map(v => (
               <span key={v} className="text-xs font-medium px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary">{v}</span>
             ))}
           </div>
