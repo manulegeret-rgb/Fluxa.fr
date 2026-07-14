@@ -22,6 +22,25 @@ const HOME_ARTICLES = [
 const SORA: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
 const INTER: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
 
+// Liens vers la fiche Google Business (cid = identifiant de la fiche Fluxa).
+const GOOGLE_PROFILE_URL = "https://maps.google.com/?cid=13918027994869542287";
+const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?cid=13918027994869542287";
+
+// Avis clients affichés sur la home.
+// Pour en ajouter un : copier-coller le texte + prénom/nom depuis Google, ajouter une entrée ci-dessous.
+const REVIEWS = [
+  {
+    name: "Hanaë Ferroud-Plattet",
+    rating: 5,
+    date: "Juillet 2026",
+    text: "Je recommande, c'est très professionnel. À l'écoute des demandes, réalisation rapide et efficace encore merci !!",
+  },
+];
+
+// Note moyenne affichée (mise à jour manuelle quand tu ajoutes des avis).
+const REVIEW_AVG = 5.0;
+const REVIEW_COUNT = REVIEWS.length;
+
 const FAQ_DATA = [
   { q: "Combien coûte un site web ?", a: "Notre formule de base est à 890 € pour un site jusqu'à 5 pages, avec hébergement et domaine inclus la première année. Des options sont disponibles pour personnaliser selon vos besoins." },
   { q: "Combien de temps pour créer mon site ?", a: "Après validation de la maquette, votre site est développé et mis en ligne généralement en 2 à 3 semaines, selon les options choisies et le contenu à intégrer." },
@@ -35,6 +54,18 @@ function SectionBadge({ label, color = "hsl(217,91%,60%)" }: { label: string; co
   return (
     <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 20, padding: "6px 16px", borderRadius: 999, border: `1px solid ${color}26`, background: `${color}0a` }}>
       <span style={{ ...INTER, fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color }}>{label}</span>
+    </div>
+  );
+}
+
+function Stars({ rating, size = 18 }: { rating: number; size?: number }) {
+  return (
+    <div style={{ display: "inline-flex", gap: 2 }} aria-label={`${rating} sur 5 étoiles`}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} width={size} height={size} viewBox="0 0 24 24" fill={i < rating ? "hsl(43,96%,56%)" : "hsl(217,32%,18%)"} stroke="none">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+      ))}
     </div>
   );
 }
@@ -196,6 +227,7 @@ const Index = () => {
     { href: "#methode", label: "Méthode" },
     { href: "#pricing", label: "Tarifs" },
     { href: "#pourquoi", label: "Pourquoi nous ?" },
+    { href: "#avis", label: "Avis" },
     { href: "#blog", label: "Blog" },
     { href: "#faq", label: "FAQ" },
   ];
@@ -229,8 +261,8 @@ const Index = () => {
         @media(min-width:768px){.method-carousel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));overflow-x:visible;scroll-snap-type:none;padding-bottom:0}.method-carousel>.method-card{flex:unset;max-width:unset}}
         @keyframes swipeHint{0%{transform:translateX(0);opacity:.7}40%{transform:translateX(10px);opacity:1}70%{transform:translateX(4px);opacity:.9}100%{transform:translateX(0);opacity:.7}}
         .swipe-hint{animation:swipeHint 1.8s ease-in-out 1.2s 2 forwards}
-        @media(min-width:768px){#methode{scroll-margin-top:-95px!important}#pricing{scroll-margin-top:-95px!important}#pourquoi{scroll-margin-top:-95px!important}#blog{scroll-margin-top:-95px!important}#faq{scroll-margin-top:-95px!important}.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
-        @media(max-width:767px){#methode{scroll-margin-top:-60px!important}#pricing{scroll-margin-top:-60px!important}#pourquoi{scroll-margin-top:-60px!important}#blog{scroll-margin-top:-60px!important}#faq{scroll-margin-top:-60px!important}.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}.header-mobile{display:flex!important}.header-desktop{display:none!important}}
+        @media(min-width:768px){#methode{scroll-margin-top:-95px!important}#pricing{scroll-margin-top:-95px!important}#pourquoi{scroll-margin-top:-95px!important}#avis{scroll-margin-top:-95px!important}#blog{scroll-margin-top:-95px!important}#faq{scroll-margin-top:-95px!important}.section-mobile-pad{padding-top:120px!important;padding-bottom:120px!important}.swipe-hint{display:none}.header-mobile{display:none!important}.header-desktop{display:flex!important}}
+        @media(max-width:767px){#methode{scroll-margin-top:-60px!important}#pricing{scroll-margin-top:-60px!important}#pourquoi{scroll-margin-top:-60px!important}#avis{scroll-margin-top:-60px!important}#blog{scroll-margin-top:-60px!important}#faq{scroll-margin-top:-60px!important}.section-mobile-pad{padding-top:64px!important;padding-bottom:64px!important;padding-left:20px!important;padding-right:20px!important}.header-mobile{display:flex!important}.header-desktop{display:none!important}}
         .header-cta-shiny{
           position:relative;display:inline-flex;align-items:center;gap:10px;
           padding:5px 22px 5px 5px;border-radius:999px;
@@ -576,6 +608,71 @@ const Index = () => {
             </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* AVIS CLIENTS */}
+      <section id="avis" className="section-mobile-pad" style={{ position: "relative", background: "#030812", padding: "120px 40px", overflow: "hidden", scrollMarginTop: 80 }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 45% at 50% 30%,hsl(43,50%,6%) 0%,#030812 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1000, margin: "0 auto" }}>
+          <Reveal style={{ textAlign: "center", marginBottom: 24 }}>
+            <SectionBadge label="Avis clients" color="hsl(43,96%,56%)" />
+            <h2 style={{ ...SORA, fontSize: "clamp(32px,5vw,52px)", fontWeight: 700, letterSpacing: "-0.03em", color: "hsl(210,40%,98%)", margin: "0 0 16px", lineHeight: 1.1 }}>Ils nous font confiance</h2>
+          </Reveal>
+
+          {/* Résumé note Google */}
+          <Reveal delay={0.1}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, marginBottom: 48 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <span style={{ ...SORA, fontSize: 40, fontWeight: 800, color: "hsl(210,40%,98%)", lineHeight: 1, letterSpacing: "-0.02em" }}>{REVIEW_AVG.toFixed(1)}</span>
+                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                  <Stars rating={5} size={20} />
+                  <span style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,50%)" }}>
+                    {REVIEW_COUNT} avis · sur{" "}
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "hsl(215,20%,68%)", fontWeight: 600 }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
+                      Google
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Cartes d'avis */}
+          <div style={{ display: "grid", gridTemplateColumns: REVIEWS.length === 1 ? "minmax(0,560px)" : "repeat(auto-fit,minmax(280px,1fr))", gap: 24, justifyContent: "center", marginBottom: 48 }}>
+            {REVIEWS.map((review, i) => (
+              <Reveal key={review.name} delay={i * 0.1} y={20}>
+                <div className="gc" style={{ height: "100%", display: "flex", flexDirection: "column", padding: "32px 30px", borderRadius: 20, border: "1px solid hsl(217,32%,14%)", background: "linear-gradient(180deg,hsl(217,40%,7%) 0%,hsl(222,84%,4.9%) 100%)", transition: "all .3s ease" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+                    <Stars rating={review.rating} />
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
+                  </div>
+                  <p style={{ ...INTER, fontSize: 16, color: "hsl(215,20%,78%)", lineHeight: 1.7, margin: "0 0 22px", flex: 1 }}>« {review.text} »</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{ width: 42, height: 42, borderRadius: "50%", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(263,90%,64%))", display: "flex", alignItems: "center", justifyContent: "center", ...SORA, fontSize: 16, fontWeight: 700, color: "#fff", flexShrink: 0 }}>{review.name.charAt(0)}</div>
+                    <div>
+                      <div style={{ ...INTER, fontSize: 14, fontWeight: 600, color: "hsl(210,40%,94%)" }}>{review.name}</div>
+                      <div style={{ ...INTER, fontSize: 12, color: "hsl(215,20%,45%)" }}>{review.date}</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Boutons Google */}
+          <Reveal delay={0.15}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center" }}>
+              <a href={GOOGLE_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 26px", borderRadius: 999, border: "1px solid hsl(217,32%,18%)", background: "hsl(217,91%,60%,.06)", ...INTER, fontSize: 15, fontWeight: 600, color: "hsl(210,40%,94%)", textDecoration: "none", transition: "all .2s ease" }}>
+                <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
+                Voir nos avis sur Google
+              </a>
+              <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" className="bp" style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 26px", borderRadius: 999, ...INTER, fontSize: 15, fontWeight: 600, color: "#fff", textDecoration: "none", background: "linear-gradient(135deg,hsl(217,91%,58%),hsl(217,77%,44%))", boxShadow: "0 12px 32px -12px hsl(217,91%,60%,.5)", transition: "all .25s ease" }}>
+                Laisser un avis <ArrowRight size={16} />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
