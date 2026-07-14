@@ -21,6 +21,8 @@ import SiteVitrineArtisanPlombier from "./pages/seo/SiteVitrineArtisanPlombier";
 import SiteVitrineElectricien from "./pages/seo/SiteVitrineElectricien";
 import SiteVitrinePaysagiste from "./pages/seo/SiteVitrinePaysagiste";
 import PrixSiteVitrine from "./pages/seo/PrixSiteVitrine";
+import SiteInternetAixLesBains from "./pages/seo/SiteInternetAixLesBains";
+import SiteInternetLaMotteServolex from "./pages/seo/SiteInternetLaMotteServolex";
 
 const queryClient = new QueryClient();
 
@@ -105,6 +107,8 @@ const AppInner = () => {
     location.pathname === "/creation-site-vitrine-plombier" ||
     location.pathname === "/creation-site-vitrine-electricien" ||
     location.pathname === "/creation-site-vitrine-paysagiste" ||
+    location.pathname === "/creation-site-internet-aix-les-bains" ||
+    location.pathname === "/creation-site-internet-la-motte-servolex" ||
     location.pathname === "/prix-site-vitrine-2026";
 
   return (
@@ -131,6 +135,8 @@ const AppInner = () => {
         <Route path="/creation-site-vitrine-plombier" element={<SiteVitrineArtisanPlombier />} />
         <Route path="/creation-site-vitrine-electricien" element={<SiteVitrineElectricien />} />
         <Route path="/creation-site-vitrine-paysagiste" element={<SiteVitrinePaysagiste />} />
+        <Route path="/creation-site-internet-aix-les-bains" element={<SiteInternetAixLesBains />} />
+        <Route path="/creation-site-internet-la-motte-servolex" element={<SiteInternetLaMotteServolex />} />
         <Route path="/prix-site-vitrine-2026" element={<PrixSiteVitrine />} />
 
         {/* Catch-all 404 route */}

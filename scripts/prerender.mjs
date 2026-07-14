@@ -55,6 +55,8 @@ const STATIC_ROUTES = [
   "/creation-site-vitrine-plombier",
   "/creation-site-vitrine-electricien",
   "/creation-site-vitrine-paysagiste",
+  "/creation-site-internet-aix-les-bains",
+  "/creation-site-internet-la-motte-servolex",
   "/prix-site-vitrine-2026",
 ];
 

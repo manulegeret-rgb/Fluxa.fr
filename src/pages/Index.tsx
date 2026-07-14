@@ -807,10 +807,12 @@ const Index = () => {
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
                   { href: "/articles", label: "Blog & conseils" },
-                  { href: "/creation-site-vitrine-artisan-chambery", label: "Artisans Chambéry" },
-                  { href: "/creation-site-vitrine-plombier", label: "Site vitrine plombier" },
-                  { href: "/creation-site-vitrine-electricien", label: "Site vitrine électricien" },
-                  { href: "/creation-site-vitrine-paysagiste", label: "Site vitrine paysagiste" },
+                  { href: "/creation-site-vitrine-artisan-chambery", label: "Site internet Chambéry" },
+                  { href: "/creation-site-internet-aix-les-bains", label: "Site internet Aix-les-Bains" },
+                  { href: "/creation-site-internet-la-motte-servolex", label: "Site internet La Motte-Servolex" },
+                  { href: "/creation-site-vitrine-plombier", label: "Site internet plombier" },
+                  { href: "/creation-site-vitrine-electricien", label: "Site internet électricien" },
+                  { href: "/creation-site-vitrine-paysagiste", label: "Site internet paysagiste" },
                 ].map(l => (
                   <a key={l.href} href={l.href} style={{ ...INTER, fontSize: 13, color: "hsl(215,20%,45%)", textDecoration: "none" }}>{l.label}</a>
                 ))}
