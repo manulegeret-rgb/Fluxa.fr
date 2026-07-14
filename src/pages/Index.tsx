@@ -24,9 +24,9 @@ const INTER: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
 
 // Liens vers la fiche Google Business.
 // GOOGLE_PROFILE_URL : lien direct vers la fiche (feature ID /g/11nqwt4dbd = identifiant permanent de Fluxa).
-// GOOGLE_REVIEW_URL : ouvre l'onglet "Avis" de la fiche (!1b1), où se trouve le bouton "Rédiger un avis".
+// GOOGLE_REVIEW_URL : ouvre directement la fenêtre "Rédiger un avis" (placeid = Place ID officiel de Fluxa).
 const GOOGLE_PROFILE_URL = "https://www.google.com/maps/place/Fluxa/@45.5524291,5.5847614,10z/data=!4m10!1m2!2m1!1sfluxa!3m6!1s0x478ba95c0df596d3:0x7d10839b260563b4!8m2!3d45.5582633!4d5.8996624!15sCgVmbHV4YZIBEHdlYnNpdGVfZGVzaWduZXLgAQA!16s%2Fg%2F11nqwt4dbd";
-const GOOGLE_REVIEW_URL = "https://www.google.com/maps/place/Fluxa/@45.5524291,5.5847614,10z/data=!4m12!1m2!2m1!1sfluxa!3m8!1s0x478ba95c0df596d3:0x7d10839b260563b4!8m2!3d45.5582633!4d5.8996624!9m1!1b1!15sCgVmbHV4YZIBEHdlYnNpdGVfZGVzaWduZXLgAQA!16s%2Fg%2F11nqwt4dbd";
+const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJ05b1DVypi0cRtGMFJpuDEH0";
 
 // Avis clients affichés sur la home.
 // Pour en ajouter un : copier-coller le texte + prénom/nom depuis Google, ajouter une entrée ci-dessous.
