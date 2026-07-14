@@ -7,21 +7,20 @@
  */
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { writeFile } from "node:fs/promises";
+import { writeFile, readFile } from "node:fs/promises";
 import puppeteer from "puppeteer";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUB = join(__dirname, "..", "public");
 
-// stroke-width adapté : plus épais quand l'icône est petite (sinon ça bave)
+// Source = le SVG fond noir (X blanc), fourni par l'utilisateur.
+// C'est cette version pleine qui sert de favicon aux PNG/ICO (onglet + Google),
+// car un fond plein ressort bien en petit et dans les résultats Google.
+const SRC = await readFile(join(PUB, "favicon-google-source.svg"), "utf8");
+
 function svg(size) {
-  const sw = size <= 32 ? 12 : 10;
-  const rx = size <= 32 ? 18 : 22;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 100 100">
-    <rect width="100" height="100" rx="${rx}" fill="#1b6fd6"/>
-    <path d="M28 30 Q50 48 72 70" fill="none" stroke="#ffffff" stroke-width="${sw}" stroke-linecap="round"/>
-    <path d="M72 30 Q50 48 28 70" fill="none" stroke="#cfe6ff" stroke-width="${sw}" stroke-linecap="round"/>
-  </svg>`;
+  // On force juste la taille du SVG source ; le contenu (X blanc sur fond noir) est repris tel quel.
+  return SRC.replace(/width="[^"]*"/, `width="${size}"`).replace(/height="[^"]*"/, `height="${size}"`);
 }
 
 // tailles à produire (fichier -> dimension px)
