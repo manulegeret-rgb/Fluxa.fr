@@ -16,6 +16,7 @@ import ArticlesHub from "./pages/ArticlesHub";
 import ArticleDetail from "./pages/ArticleDetail";
 import ArticleViral from "./pages/ArticleViral";
 import Merci from "./pages/Merci";
+import MaquetteExemple from "./pages/MaquetteExemple";
 import SiteVitrineArtisanChambery from "./pages/seo/SiteVitrineArtisanChambery";
 import SiteVitrineArtisanPlombier from "./pages/seo/SiteVitrineArtisanPlombier";
 import SiteVitrineElectricien from "./pages/seo/SiteVitrineElectricien";
@@ -103,6 +104,7 @@ const AppInner = () => {
     location.pathname.startsWith("/articles/") || // Cache aussi sur les pages articles individuels
     location.pathname === "/guide-complet-roi-automatisation-artisans" ||
     location.pathname === "/merci" ||
+    location.pathname === "/maquette-exemple" ||
     location.pathname === "/creation-site-vitrine-artisan-chambery" ||
     location.pathname === "/creation-site-vitrine-plombier" ||
     location.pathname === "/creation-site-vitrine-electricien" ||
@@ -129,6 +131,9 @@ const AppInner = () => {
         <Route path="/articles/:slug" element={<ArticleDetail />} />
         <Route path="/guide-complet-roi-automatisation-artisans" element={<ArticleViral />} />
         <Route path="/merci" element={<Merci />} />
+
+        {/* Maquette de démo prospect — cf. docs/PROMPT-MAQUETTE-LOVABLE.md */}
+        <Route path="/maquette-exemple" element={<MaquetteExemple />} />
 
         {/* Pages SEO locales — non visibles dans le menu */}
         <Route path="/creation-site-vitrine-artisan-chambery" element={<SiteVitrineArtisanChambery />} />
