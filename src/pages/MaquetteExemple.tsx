@@ -88,13 +88,14 @@ export default function MaquetteExemple() {
     document.head.appendChild(meta);
 
     // Le body global de Fluxa est navy (index.css) : il déborde en overscroll
-    // et pollue la direction bois. On le neutralise le temps de la maquette.
-    const prevBg = document.body.style.backgroundColor;
-    document.body.style.backgroundColor = FOND;
+    // et pollue la direction bois. On marque le body le temps de la maquette :
+    // un attribut + règle CSS résiste aux styles inline posés par d'autres pages
+    // lors des transitions SPA, contrairement à body.style.background.
+    document.body.setAttribute("data-maquette", "");
 
     return () => {
       document.head.removeChild(meta);
-      document.body.style.backgroundColor = prevBg;
+      document.body.removeAttribute("data-maquette");
     };
   }, []);
 
@@ -471,6 +472,7 @@ export default function MaquetteExemple() {
       </a>
 
       <style>{`
+        body[data-maquette] { background-color: ${FOND} !important; }
         .mq-section { padding: 120px 24px; }
         .mq-reassurance { padding: 96px 0; }
         .mq-h2 {
